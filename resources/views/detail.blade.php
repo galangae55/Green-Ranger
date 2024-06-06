@@ -243,21 +243,49 @@
                                 </div>
                             </div>
                         </div>
+                    <div class="single-comment">
+                     <h2>Komentar Terbaru</h2>
+                        @foreach ($comments as $comment )
+                            <ul class="comment-list">
+                                <li class="comment-item">
+                                    <div class="comment-body">
+                                        <div class="comment-img">
+                                            <img src="http://bootdey.com/img/Content/user_1.jpg" />
+                                        </div>
+                                        <div class="comment-text">
+                                            <h3><a>{{ $comment->nama }}</a></h3>
+                                            <p><span></span>{{ $comment->created_at }}</p>
+                                            <span>{{ $comment->komentar }}</span>
+                                            <p> </p>
+                                            <a class="btn" href="">Reply</a>
+                                        </div>
+                                    </div>
+                                </li>
+                        @endforeach
+                    </div>
 
                         <div class="comment-form">
                             <h2>Leave a comment</h2>
-                            <form>
+                            <form action="/detail/komen/store" method="post">
+                                @csrf
                                 <div class="form-group">
                                     <label for="name">Name *</label>
-                                    <input type="text" class="form-control" id="name">
+                                    <input type="text" name="nama" class="form-control" id="name">
+                                    @error('nama')
+                                    <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group">
                                     <label for="message">Message *</label>
-                                    <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                                    <textarea id="message" name="komentar" cols="30" rows="5" class="form-control"></textarea>
+                                    @error('komentar')
+                                    <small class="text-danger">{{ $message}}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" value="Post Comment" class="btn btn-custom">
+                                    <button type="submit" class="btn btn-custom">post comment</button>
+                                    <!-- <input type="submit" value="Post Comment" class="btn btn-custom"> -->
                                 </div>
                             </form>
                         </div>

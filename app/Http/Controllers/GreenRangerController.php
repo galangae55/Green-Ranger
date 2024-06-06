@@ -4,6 +4,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Komen;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 
@@ -30,7 +31,9 @@ class GreenRangerController extends Controller
     }
 
     public function detail(){
-        return view("detail");
+        return view("detail", [
+            'comments' => Komen::all()
+        ]);
     }
 
     public function volunteer(){

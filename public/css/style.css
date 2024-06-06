@@ -1334,10 +1334,6 @@ a:focus {
     padding: 0;
 }
 
-.single .comment-child {
-    list-style: none;
-}
-
 .single .comment-body {
     display: flex;
     margin-bottom: 30px;
