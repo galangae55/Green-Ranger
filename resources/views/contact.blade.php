@@ -4,20 +4,21 @@
         <meta charset="utf-8">
         <title>contact</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        
+
 
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        
+
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
         <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
         <link href="lib/animate/animate.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
@@ -137,8 +138,8 @@
             </div>
         </div>
         <!-- Carousel End -->
-        
-        
+
+
         <!-- Contact Start -->
         <div class="contact">
             <div class="container">
@@ -149,35 +150,35 @@
                 <div class="contact-img">
                     <img src="img/contact.jpg" alt="Image">
                 </div>
-                <div class="contact-form">
+                <div class="contact-form" data-aos="fade-up">
                         <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <form name="sentMessage" id="contactForm" novalidate="novalidate" data-aos="fade-up">
                             @csrf
-                            <div class="control-group">
+                            <div class="control-group" data-aos="fade-up">
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
                                 <p class="help-block text-danger"></p>
                             </div>
-                            <div class="control-group">
+                            <div class="control-group"data-aos="fade-up">
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
                                 <p class="help-block text-danger"></p>
                             </div>
-                            <div class="control-group">
+                            <div class="control-group"data-aos="fade-up">
                                 <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
                                 <p class="help-block text-danger"></p>
                             </div>
-                            <div class="control-group">
+                            <div class="control-group" data-aos="fade-up">
                                 <textarea class="form-control" id="message" name="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div>
-                                <button class="btn btn-custom" type="submit" id="sendMessageButton">Send Message</button>
+                                <button class="btn btn-custom" type="submit" id="sendMessageButton"data-aos="fade-up">Send Message</button>
                             </div>
                         </form>
                     </div>
             </div>
         </div>
         <!-- Contact End -->
-        
+
         <!-- Success Modal -->
         <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -285,7 +286,7 @@
 
         <!-- Back to top button -->
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-        
+
         <!-- Pre Loader -->
         <div id="loader" class="show">
             <div class="loader"></div>
@@ -299,7 +300,8 @@
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="lib/parallax/parallax.min.js"></script>
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
         <script src="mail/contact.js"></script>
@@ -310,7 +312,7 @@
             $(document).ready(function() {
                 $('#contactForm').on('submit', function(event) {
                     event.preventDefault();
-                    
+
                     $.ajax({
                         url: "{{ route('contact.store') }}",
                         method: "POST",
@@ -330,6 +332,9 @@
                     });
                 });
             });
+        </script>
+        <script>
+            AOS.init();
         </script>
     </body>
 </html>

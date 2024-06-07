@@ -13,6 +13,7 @@
     <!-- CSS Libraries -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -141,7 +142,7 @@
             <div class="row align-items-center">
                 <div class="container">
                     <div class="donate">
-                        <div class="row align-items-center">
+                        <div class="row align-items-center" data-aos="fade-right">
                             <div class="col-lg-7">
                                 <div class="donate-content">
                                     <div class="section-header">
@@ -159,17 +160,17 @@
                                 <div class="donate-form">
                                     <form id="donate-form" method="post" action="{{ route('donate.store') }}">
                                         @csrf
-                                        <div class="control-group">
+                                        <div class="control-group"data-aos="fade-right">
                                             <input type="text" id="name" name="name" class="form-control" placeholder="Name" required="required" />
                                         </div>
-                                        <div class="control-group">
+                                        <div class="control-group"data-aos="fade-right">
                                             <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone Number" required="required" />
                                         </div>
-                                        <div class="control-group">
+                                        <div class="control-group"data-aos="fade-right">
                                             <input type="email" id="email" name="email" class="form-control" placeholder="Email" required="required" />
                                         </div>
                                         <div>
-                                            <button class="btn btn-custom" type="submit">Lanjutkan Pembayaran</button>
+                                            <button class="btn btn-custom" type="submit"data-aos="fade-right">Lanjutkan Pembayaran</button>
                                         </div>
                                         <div id="error-message" class="alert alert-danger mt-3 d-none" role="alert">
                                             Form yang anda isi tidak memenuhi kriteria, Tolong ulangi lagi. :)
@@ -265,6 +266,7 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/parallax/parallax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
@@ -294,6 +296,9 @@
             });
         });
     });
+    </script>
+    <script>
+        AOS.init();
     </script>
 </body>
 </html>

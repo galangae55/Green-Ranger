@@ -18,6 +18,7 @@
         <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
         <link href="lib/animate/animate.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
@@ -179,19 +180,19 @@
                         <div class="volunteer-form">
                             <form action="{{ route('volunteer.store') }}" method="POST">
                                 @csrf
-                                <div class="control-group">
+                                <div class="control-group"data-aos="fade-right">
                                     <input type="text" class="form-control" name="nama" placeholder="Name" required="required" />
                                 </div>
-                                <div class="control-group">
+                                <div class="control-group" data-aos="fade-right">
                                     <input type="number" class="form-control" name="umur" placeholder="Age" required="required" />
                                 </div>
-                                <div class="control-group">
+                                <div class="control-group" data-aos="fade-right">
                                     <input type="email" class="form-control" name="email" placeholder="Email" required="required" />
                                 </div>
-                                <div class="control-group">
+                                <div class="control-group" data-aos="fade-right">
                                     <input type="text" class="form-control" name="no_telp" placeholder="Phone Number" required="required" />
                                 </div>
-                                <div class="control-group">
+                                <div class="control-group" data-aos="fade-right">
                                     <select class="form-control" name="event" required="required">
                                         <option value="" disabled selected>Select Event</option>
                                         <option value="Acara 1" class="grey-option">Acara 1</option>
@@ -200,7 +201,7 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <button class="btn btn-custom" type="submit">Become a volunteer</button>
+                                    <button class="btn btn-custom" type="submit" data-aos="fade-right">Become a volunteer</button>
                                 </div>
                             </form>
                         </div>
@@ -316,6 +317,7 @@
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="lib/parallax/parallax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
@@ -361,6 +363,9 @@
 });
 
         </script>
+            <script>
+                AOS.init();
+            </script>
 
     </body>
 </html>
