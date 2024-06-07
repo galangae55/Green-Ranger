@@ -274,6 +274,7 @@
 
         <!-- acara1 Start -->
         <div class="container">
+        <div class="text-center" data-aos="fade-up">
             <h2 style="color: #3a5f4c;">Pendaftar Volunteer Acara 1</h2>
             @if ($volunteers->isEmpty())
                 <p>Tidak ada data.</p>
@@ -302,6 +303,7 @@
                     </tbody>
                 </table>
             @endif
+        </div>
         </div>
         <!-- acara1 End -->
 
