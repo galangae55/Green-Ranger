@@ -251,7 +251,6 @@ a:focus {
 .navbar .navbar-brand {
     margin: 0;
     color: #ffffff;
-    font-size: 45px;
     line-height: 0px;
     font-weight: 700;
     letter-spacing: 5px;
@@ -289,6 +288,7 @@ a:focus {
         position: absolute;
         width: 100%;
         top: 45px;
+        font-size: 45px;
         padding: 20px 60px;
         background: transparent !important;
         border-bottom: 1px solid rgba(255, 255, 255, .3);
