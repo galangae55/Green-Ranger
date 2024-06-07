@@ -2,9 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>volunteer</title>
+        <title>Event</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
 
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
@@ -22,46 +21,76 @@
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
         <style>
-            .grey-option {
-                color: grey;
+            body {
+                font-family: 'Quicksand', sans-serif;
+                padding-left: 15px;
+                padding-right: 15px;
             }
 
-            .popup {
-                display: none;
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background-color: rgba(65, 108, 53, 0.7);
-                padding: 20px;
-                border-radius: 10px;
+            .custom-table {
+                width: 100%;
+                border-collapse: collapse;
+                background-color: #F8B739; /* Matches the background color in the image */
                 color: white;
-                z-index: 1000;
+                margin: 20px 0;
             }
 
-            .popup-content {
-                text-align: center;
+            .custom-table th, .custom-table td {
+                padding: 12px;
+                text-align: left;
+                border: 1px solid white; /* Matches the border color in the image */
             }
 
-            .close-btn {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                cursor: pointer;
-                font-size: 20px;
-                color: white;
+            .custom-table th {
+                background-color: #f2f2f2;
+                color: #000;
             }
 
-            .close-btn:hover {
-                color: #ccc;
+            .custom-table tr:nth-child(even) {
+                background-color: #FFCC66; /* Slightly different shade for even rows */
             }
 
+            .custom-table tr:hover {
+                background-color: #FFC107; /* Hover effect color */
+                transition: background-color 0.3s ease;
+            }
+
+            @media (max-width: 768px) {
+                .custom-table thead {
+                    display: none;
+                }
+
+                .custom-table, .custom-table tbody, .custom-table tr, .custom-table td {
+                    display: block;
+                    width: 100%;
+                }
+
+                .custom-table tr {
+                    margin-bottom: 15px;
+                }
+
+                .custom-table td {
+                    text-align: right;
+                    padding-left: 50%;
+                    position: relative;
+                }
+
+                .custom-table td::before {
+                    content: attr(data-label);
+                    position: absolute;
+                    left: 0;
+                    width: 50%;
+                    padding-left: 15px;
+                    font-weight: bold;
+                    text-align: left;
+                }
+            }
         </style>
     </head>
 
     <body>
-          <!-- Top Bar Start -->
-          <div class="top-bar d-none d-md-block">
+        <!-- Top Bar Start -->
+        <div class="top-bar d-none d-md-block">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-8">
@@ -107,6 +136,7 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu">
+                                <a href="/detail" class="dropdown-item">Detail Page</a>
                                 <a href="/donate" class="dropdown-item">Donate Now</a>
                                 <a href="/volunteer" class="dropdown-item">Become A Volunteer</a>
                             </div>
@@ -133,7 +163,8 @@
                                 Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/donate">Donate Now</a>
+                                <a class="btn btn-custom" href="/volunteer">Join Now</a>
+                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
                             </div>
                         </div>
                     </div>
@@ -147,7 +178,8 @@
                                 Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/donate">Donate Now</a>
+                                <a class="btn btn-custom" href="/volunteer">Join Now</a>
+                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
                             </div>
                         </div>
                     </div>
@@ -161,7 +193,8 @@
                                 Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/donate">Donate Now</a>
+                                <a class="btn btn-custom" href="/volunteer">Join Now</a>
+                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
                             </div>
                         </div>
                     </div>
@@ -171,62 +204,42 @@
         <!-- Carousel End -->
 
 
-        <!-- Volunteer Start -->
+        <!-- acara1 Start -->
         <div class="container">
-            <div class="volunteer" data-parallax="scroll" data-image-src="img/volunteer1.jpg">
-                <div class="row align-items-center">
-                    <div class="col-lg-5">
-                        <div class="volunteer-form">
-                            <form action="{{ route('volunteer.store') }}" method="POST">
-                                @csrf
-                                <div class="control-group">
-                                    <input type="text" class="form-control" name="nama" placeholder="Name" required="required" />
-                                </div>
-                                <div class="control-group">
-                                    <input type="number" class="form-control" name="umur" placeholder="Age" required="required" />
-                                </div>
-                                <div class="control-group">
-                                    <input type="email" class="form-control" name="email" placeholder="Email" required="required" />
-                                </div>
-                                <div class="control-group">
-                                    <input type="text" class="form-control" name="no_telp" placeholder="Phone Number" required="required" />
-                                </div>
-                                <div class="control-group">
-                                    <select class="form-control" name="event" required="required">
-                                        <option value="" disabled selected>Select Event</option>
-                                        <option value="Acara 1" class="grey-option">Acara 1</option>
-                                        <option value="Acara 2" class="grey-option">Acara 2</option>
-                                        <option value="Acara 3" class="grey-option">Acara 3</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <button class="btn btn-custom" type="submit">Become a volunteer</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="volunteer-content">
-                            <div class="section-header">
-                                <p>Become A Volunteer</p>
-                                <h2>Let’s make a difference in the lives of others</h2>
-                            </div>
-                            <div class="volunteer-text">
-                                <p>
-                                    Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non. Aliquam metus tortor, auctor id gravida, viverra quis sem. Curabitur non nisl nec nisi maximus. Aenean convallis porttitor. Aliquam interdum at lacus non blandit.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h2 style="color: #3a5f4c;">Pendaftar Volunteer Acara 2</h2>
+            @if ($volunteers->isEmpty())
+                <p>Tidak ada data.</p>
+            @else
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Umur</th>
+                            <th>No Telepon</th>
+                            <th>Email</th>
+                            <!-- Tambahkan kolom-kolom lain yang diperlukan -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($volunteers as $key => $volunteer)
+                            <tr>
+                                <td data-label="No">{{ $key + 1 }}</td>
+                                <td data-label="Nama">{{ $volunteer->nama }}</td>
+                                <td data-label="Umur">{{ $volunteer->umur }}</td>
+                                <td data-label="No Telepon">{{ $volunteer->no_telp }}</td>
+                                <td data-label="Email">{{ $volunteer->email }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            @endif
         </div>
+        <!-- acara1 End -->
 
-        <!-- Volunteer End -->
 
-
-        <!-- Footer Start -->
-        <div class="footer">
+         <!-- Footer Start -->
+         <div class="footer">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
@@ -287,18 +300,6 @@
             </div>
         </div>
         <!-- Footer End -->
-        {{-- pop up  --}}
-
-        <div class="popup" id="popup">
-            <div class="popup-content">
-                <span class="close-btn" id="close-btn">&times;</span>
-                <h2>Success!</h2>
-                <p>Anda telah berhasil menjadi volunteer!</p>
-            </div>
-        </div>
-
-        {{-- pop up end --}}
-
 
         <!-- Back to top button -->
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -323,44 +324,5 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
-        <!-- SweetAlert2 -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        <script>
-            // $(document).ready(function(){
-            //     // Cek apakah ada pesan sukses
-            //     var successMessage = "{{ Session::get('success') }}";
-
-            //     // Jika ada pesan sukses, tampilkan popup
-            //     if(successMessage) {
-            //         Swal.fire({
-            //             icon: 'success',
-            //             title: 'Success!',
-            //             text: successMessage,
-            //         });
-            //     }
-            // });
-
-// pop up js
-            document.addEventListener('DOMContentLoaded', function() {
-    // Ambil popup
-    var popup = document.getElementById('popup');
-
-    // Ambil tombol untuk menutup popup
-    var closeButton = document.getElementById('close-btn');
-
-    // Jika ada pesan sukses, tampilkan popup
-    var successMessage = "{{ Session::get('success') }}";
-    if (successMessage) {
-        popup.style.display = 'block';
-    }
-
-    // Ketika tombol close diklik, sembunyikan popup
-    closeButton.addEventListener('click', function() {
-        popup.style.display = 'none';
-    });
-});
-
-        </script>
-
     </body>
 </html>

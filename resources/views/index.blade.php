@@ -12,7 +12,7 @@
                     Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1
                     ,400;1,500;1,600;1,700;1,800;1,900|Quicksand:wght@300..700|Roboto:ital,wght@0,100;0,300;0,400
                     ;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900" rel="stylesheet">
-        
+
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -22,6 +22,49 @@
 
         <!-- Template Stylesheet -->
         <link href="/css/style.css" rel="stylesheet">
+        <style>
+            .popup {
+                visibility: hidden;
+                min-width: 250px;
+                margin-left: -125px;
+                background-color: #333;
+                color: #fff;
+                text-align: center;
+                border-radius: 2px;
+                padding: 16px;
+                position: fixed;
+                z-index: 1;
+                left: 50%;
+                bottom: 30px;
+                font-size: 17px;
+            }
+
+            .popup.show {
+                visibility: visible;
+                -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            }
+
+            @-webkit-keyframes fadein {
+                from {bottom: 0; opacity: 0;}
+                to {bottom: 30px; opacity: 1;}
+            }
+
+            @keyframes fadein {
+                from {bottom: 0; opacity: 0;}
+                to {bottom: 30px; opacity: 1;}
+            }
+
+            @-webkit-keyframes fadeout {
+                from {bottom: 30px; opacity: 1;}
+                to {bottom: 0; opacity: 0;}
+            }
+
+            @keyframes fadeout {
+                from {bottom: 30px; opacity: 1;}
+                to {bottom: 0; opacity: 0;}
+            }
+        </style>
     </head>
 
     <body>
@@ -100,7 +143,7 @@
                             </p>
                             <div class="carousel-btn">
                                 <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                                <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
                             </div>
                         </div>
                     </div>
@@ -115,7 +158,7 @@
                             </p>
                             <div class="carousel-btn">
                                 <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                                <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
                             </div>
                         </div>
                     </div>
@@ -130,7 +173,7 @@
                             </p>
                             <div class="carousel-btn">
                                 <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                                <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
                             </div>
                         </div>
                     </div>
@@ -146,7 +189,7 @@
                     <div class="modal-body">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
-                        </button>        
+                        </button>
                         <!-- 16:9 aspect ratio -->
                         <div class="embed-responsive embed-responsive-16by9">
                             <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
@@ -154,9 +197,9 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
         <!-- Video Modal End -->
-        
+
 
         <!-- About Start -->
         <div class="about">
@@ -280,7 +323,7 @@
             </div>
         </div>
         <!-- Service End -->
-                       
+
         <!-- Event Start -->
         <div class="event">
             <div class="container">
@@ -322,7 +365,7 @@
                                     <p>
                                         Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
                                     </p>
-                                    <a class="btn btn-custom" href="">Join Now</a>
+                                    <a class="btn btn-custom" href="/acara1">Join Now</a>
                                 </div>
                             </div>
                         </div>
@@ -331,7 +374,7 @@
             </div>
         </div>
         <!-- Event End -->
-        
+
         <!-- Blog Start -->
         <div class="blog">
             <div class="container">
@@ -458,10 +501,29 @@
             </div>
         </div>
         <!-- Footer End -->
-        
+
+        <!-- Popup Notification -->
+        @if(session('success'))
+        <div id="popup" class="popup">
+            {{ session('success') }}
+        </div>
+        @endif
+
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                var popup = document.getElementById('popup');
+                if (popup) {
+                    popup.classList.add('show');
+                    setTimeout(() => {
+                        popup.classList.remove('show');
+                    }, 3000);
+                }
+            });
+        </script>
+
         <!-- Back to top button -->
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-        
+
         <!-- Pre Loader -->
         <div id="loader" class="show">
             <div class="loader"></div>
@@ -475,7 +537,7 @@
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="lib/parallax/parallax.min.js"></script>
-        
+
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
         <script src="mail/contact.js"></script>

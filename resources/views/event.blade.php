@@ -10,7 +10,7 @@
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        
+
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -98,7 +98,7 @@
                             </p>
                             <div class="carousel-btn">
                                 <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                                <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
                             </div>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                             </p>
                             <div class="carousel-btn">
                                 <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                                <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                             </p>
                             <div class="carousel-btn">
                                 <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                                <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
                             </div>
                         </div>
                     </div>
@@ -136,8 +136,8 @@
             </div>
         </div>
         <!-- Carousel End -->
-        
-        
+
+
         <!-- Event Start -->
         <div class="event">
             <div class="container">
@@ -160,7 +160,7 @@
                                     <p>
                                         Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
                                     </p>
-                                    <a class="btn btn-custom" href="">Join Now</a>
+                                    <a class="btn btn-custom" href="{{ route('acara2') }}">Join Now</a>
                                 </div>
                             </div>
                         </div>
@@ -179,7 +179,7 @@
                                     <p>
                                         Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
                                     </p>
-                                    <a class="btn btn-custom" href="">Join Now</a>
+                                    <a class="btn btn-custom" href="{{ route('acara1') }}">Join Now</a>
                                 </div>
                             </div>
                         </div>
@@ -198,7 +198,7 @@
                                     <p>
                                         Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
                                     </p>
-                                    <a class="btn btn-custom" href="">Join Now</a>
+                                    <a class="btn btn-custom" href="{{ route('acara3') }}">Join Now</a>
                                 </div>
                             </div>
                         </div>
@@ -284,7 +284,7 @@
                         <p>&copy; <a href="#">Green Ranger</a>, copyright 2024.</p>
                     </div>
                     <div class="col-md-6">
-                        <p>Designed By Galang</></p>
+                        <p>Designed By GreenRangerTeam</></p>
                     </div>
                 </div>
             </div>
@@ -293,7 +293,7 @@
 
         <!-- Back to top button -->
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-        
+
         <!-- Pre Loader -->
         <div id="loader" class="show">
             <div class="loader"></div>
@@ -307,7 +307,7 @@
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="lib/parallax/parallax.min.js"></script>
-        
+
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
         <script src="mail/contact.js"></script>
