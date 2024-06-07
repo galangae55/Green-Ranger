@@ -1706,3 +1706,72 @@ a:focus {
         text-align: center;
     }
 }
+
+/*******************************/
+/********* Event Details **********/
+/*******************************/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* body {
+    background-color: #e0f7fa;
+    color: #333;
+} */
+
+
+.event-details, .event-schedule, .event-gallery {
+    background-color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.event-info h2 {
+    color: #00796b;
+}
+
+.date-time, .location {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.date-time i, .location i {
+    margin-right: 10px;
+    color: #00796b;
+}
+
+.register-button {
+    background: linear-gradient(90deg, rgba(0, 121, 107, 1) 0%, rgba(0, 96, 84, 1) 100%);
+    border: none;
+    border-radius: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.register-button:hover {
+    background: linear-gradient(90deg, rgba(0, 96, 84, 1) 0%, rgba(0, 121, 107, 1) 100%);
+}
+
+
+
+.schedule-item {
+    background-color: #e0f7fa;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.event-gallery img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.event-gallery img:hover {
+    transform: scale(1.05);
+}

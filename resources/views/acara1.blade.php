@@ -14,6 +14,7 @@
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
         <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
         <link href="lib/animate/animate.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -203,6 +204,73 @@
         </div>
         <!-- Carousel End -->
 
+        <!-- Event detail start -->
+        <main class="container">
+            <section class="event-details row my-5">
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="event-image">
+                        <img src="img/event2.jpg" alt="Event Image" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="event-info">
+                        <h2 class="my-4">Join Us for a Greener Future</h2>
+                        <p class="date-time"><i class="fas fa-calendar-alt"></i> June 25, 2024 | 9:00 AM - 5:00 PM</p>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Central Park, New York City</p>
+                        <p class="description">Be a part of our Environmental Awareness Event to learn, participate, and contribute to making our world a greener place. Activities include tree planting, recycling workshops, and expert talks on sustainable living.</p>
+                        <button class="btn btn-primary mt-3 register-button">Register Now</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="event-schedule my-5">
+                <div class="text-center" data-aos="fade-up">
+                    <h2 class="my-4">Event Schedule</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="schedule-item p-3 rounded shadow d-flex flex-column">
+                            <h4>Tree Planting</h4>
+                            <p><i class="fas fa-clock"></i> 9:00 AM - 11:00 AM</p>
+                            <p>Join us in planting trees around the park to contribute to our goal of planting 500 trees anjayyyyy.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="schedule-item p-3 rounded shadow d-flex flex-column">
+                            <h4>Recycling Workshop</h4>
+                            <p><i class="fas fa-clock"></i> 11:30 AM - 1:00 PM</p>
+                            <p>Learn about effective recycling techniques and how to implement them in your daily life.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="schedule-item p-3 rounded shadow d-flex flex-column">
+                            <h4>Expert Talks</h4>
+                            <p><i class="fas fa-clock"></i> 2:00 PM - 4:00 PM</p>
+                            <p>Hear from experts in the field of environmental science about the latest research and initiatives.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="event-gallery my-5">
+                <div class="text-center" data-aos="fade-up">
+                    <h2 class="my-4">Gallery</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="img/gallery1.jpg" alt="Gallery Image 1" class="img-fluid rounded shadow">
+                    </div>
+                    <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="img/gallery2.jpg" alt="Gallery Image 2" class="img-fluid rounded shadow">
+                    </div>
+                    <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                        <img src="img/gallery3.jpg" alt="Gallery Image 3" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Event detail end -->
+
 
         <!-- acara1 Start -->
         <div class="container">
@@ -311,12 +379,16 @@
 
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
         <script src="lib/easing/easing.min.js"></script>
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="lib/parallax/parallax.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        
 
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
@@ -324,5 +396,8 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+        <script>
+            AOS.init();
+        </script>
     </body>
 </html>
