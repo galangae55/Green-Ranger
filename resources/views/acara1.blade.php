@@ -137,12 +137,12 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu">
-                                <a href="/detail" class="dropdown-item">Detail Page</a>
                                 <a href="/donate" class="dropdown-item">Donate Now</a>
                                 <a href="/volunteer" class="dropdown-item">Become A Volunteer</a>
                             </div>
                         </div>
                         <a href="/contact" class="nav-item nav-link">Contact</a>
+                        <a href="/login" class="nav-item nav-link">Login</a>
                     </div>
                 </div>
             </div>
@@ -150,8 +150,8 @@
         <!-- Nav Bar End -->
 
 
-        <!-- Carousel Start -->
-        <div class="carousel">
+           <!-- Carousel Start -->
+           <div class="carousel">
             <div class="container-fluid">
                 <div class="owl-carousel">
                     <div class="carousel-item">
@@ -159,13 +159,13 @@
                             <img src="img/ss2.jpg" alt="Image">
                         </div>
                         <div class="carousel-text">
-                            <h1>Active in environmental activities</h1>
+                            <h1>Aktif </h1>
                             <p>
                                 Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/volunteer">Join Now</a>
-                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                                <a class="btn btn-custom" href="/donate">Donate Now</a>
+                                <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
                             </div>
                         </div>
                     </div>
@@ -179,8 +179,8 @@
                                 Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/volunteer">Join Now</a>
-                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                                <a class="btn btn-custom" href="/donate">Donate Now</a>
+                                <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
                             </div>
                         </div>
                     </div>
@@ -194,8 +194,8 @@
                                 Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/volunteer">Join Now</a>
-                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                                <a class="btn btn-custom" href="/donate">Donate Now</a>
+                                <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
                             </div>
                         </div>
                     </div>
@@ -390,7 +390,7 @@
         <script src="lib/parallax/parallax.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-        
+
 
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>

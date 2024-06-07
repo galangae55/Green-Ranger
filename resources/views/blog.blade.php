@@ -10,7 +10,7 @@
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        
+
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -70,12 +70,12 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu">
-                                <a href="/detail" class="dropdown-item">Detail Page</a>
                                 <a href="/donate" class="dropdown-item">Donate Now</a>
                                 <a href="/volunteer" class="dropdown-item">Become A Volunteer</a>
                             </div>
                         </div>
                         <a href="/contact" class="nav-item nav-link">Contact</a>
+                        <a href="/login" class="nav-item nav-link">Login</a>
                     </div>
                 </div>
             </div>
@@ -83,61 +83,61 @@
         <!-- Nav Bar End -->
 
 
-        <!-- Carousel Start -->
-        <div class="carousel">
-            <div class="container-fluid">
-                <div class="owl-carousel">
-                    <div class="carousel-item">
-                        <div class="carousel-img">
-                            <img src="img/ss2.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-text">
-                            <h1>Active in environmental activities</h1>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
-                            </p>
-                            <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+               <!-- Carousel Start -->
+               <div class="carousel">
+                <div class="container-fluid">
+                    <div class="owl-carousel">
+                        <div class="carousel-item">
+                            <div class="carousel-img">
+                                <img src="img/ss2.jpg" alt="Image">
+                            </div>
+                            <div class="carousel-text">
+                                <h1>Aktif </h1>
+                                <p>
+                                    Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
+                                </p>
+                                <div class="carousel-btn">
+                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
+                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="carousel-img">
-                            <img src="img/ss1.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-text">
-                            <h1>Get Involved with helping hand</h1>
-                            <p>
-                                Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
-                            </p>
-                            <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                        <div class="carousel-item">
+                            <div class="carousel-img">
+                                <img src="img/ss1.jpg" alt="Image">
+                            </div>
+                            <div class="carousel-text">
+                                <h1>Get Involved with helping hand</h1>
+                                <p>
+                                    Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
+                                </p>
+                                <div class="carousel-btn">
+                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
+                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="carousel-img">
-                            <img src="img/ss3.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-text">
-                            <h1>Bringing smiles to Earth</h1>
-                            <p>
-                                Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
-                            </p>
-                            <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                        <div class="carousel-item">
+                            <div class="carousel-img">
+                                <img src="img/ss3.jpg" alt="Image">
+                            </div>
+                            <div class="carousel-text">
+                                <h1>Bringing smiles to Earth</h1>
+                                <p>
+                                    Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
+                                </p>
+                                <div class="carousel-btn">
+                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
+                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Carousel End -->
-        
-        
+            <!-- Carousel End -->
+
+
         <!-- Blog Start -->
         <div class="blog">
             <div class="container">
@@ -257,7 +257,7 @@
                             <li class="page-item active"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
                             <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul> 
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -330,7 +330,7 @@
 
         <!-- Back to top button -->
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-        
+
         <!-- Pre Loader -->
         <div id="loader" class="show">
             <div class="loader"></div>
@@ -344,7 +344,7 @@
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="lib/parallax/parallax.min.js"></script>
-        
+
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
         <script src="mail/contact.js"></script>

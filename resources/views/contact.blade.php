@@ -72,12 +72,12 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu">
-                                <a href="/detail" class="dropdown-item">Detail Page</a>
                                 <a href="/donate" class="dropdown-item">Donate Now</a>
                                 <a href="/volunteer" class="dropdown-item">Become A Volunteer</a>
                             </div>
                         </div>
                         <a href="/contact" class="nav-item nav-link">Contact</a>
+                        <a href="/login" class="nav-item nav-link">Login</a>
                     </div>
                 </div>
             </div>
@@ -85,59 +85,59 @@
         <!-- Nav Bar End -->
 
 
-        <!-- Carousel Start -->
-        <div class="carousel">
-            <div class="container-fluid">
-                <div class="owl-carousel">
-                    <div class="carousel-item">
-                        <div class="carousel-img">
-                            <img src="img/ss2.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-text">
-                            <h1>Active in environmental activities</h1>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
-                            </p>
-                            <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+               <!-- Carousel Start -->
+               <div class="carousel">
+                <div class="container-fluid">
+                    <div class="owl-carousel">
+                        <div class="carousel-item">
+                            <div class="carousel-img">
+                                <img src="img/ss2.jpg" alt="Image">
+                            </div>
+                            <div class="carousel-text">
+                                <h1>Aktif </h1>
+                                <p>
+                                    Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
+                                </p>
+                                <div class="carousel-btn">
+                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
+                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="carousel-img">
-                            <img src="img/ss1.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-text">
-                            <h1>Get Involved with helping hand</h1>
-                            <p>
-                                Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
-                            </p>
-                            <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                        <div class="carousel-item">
+                            <div class="carousel-img">
+                                <img src="img/ss1.jpg" alt="Image">
+                            </div>
+                            <div class="carousel-text">
+                                <h1>Get Involved with helping hand</h1>
+                                <p>
+                                    Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
+                                </p>
+                                <div class="carousel-btn">
+                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
+                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="carousel-img">
-                            <img src="img/ss3.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-text">
-                            <h1>Bringing smiles to Earth</h1>
-                            <p>
-                                Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
-                            </p>
-                            <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                        <div class="carousel-item">
+                            <div class="carousel-img">
+                                <img src="img/ss3.jpg" alt="Image">
+                            </div>
+                            <div class="carousel-text">
+                                <h1>Bringing smiles to Earth</h1>
+                                <p>
+                                    Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
+                                </p>
+                                <div class="carousel-btn">
+                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
+                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Carousel End -->
+            <!-- Carousel End -->
 
 
         <!-- Contact Start -->
