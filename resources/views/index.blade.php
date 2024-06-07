@@ -19,6 +19,7 @@
         <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet">
         <link href="/lib/animate/animate.min.css" rel="stylesheet">
         <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
         <!-- Template Stylesheet -->
         <link href="/css/style.css" rel="stylesheet">
@@ -247,6 +248,7 @@
 
         <!-- Service Start -->
         <div class="service">
+        <div class="text-center" data-aos="fade-up">
             <div class="container">
                 <div class="section-header text-center">
                     <p>What We Do?</p>
@@ -254,6 +256,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
+                    <div class="text-center" data-aos="fade-up">
                         <div class="service-item">
                             <div class="service-icon">
                                 <i class="flaticon-diet"></i>
@@ -263,8 +266,10 @@
                                 <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
                             </div>
                         </div>
+                    </div>    
                     </div>
                     <div class="col-lg-4 col-md-6">
+                    <div class="text-center" data-aos="fade-up">
                         <div class="service-item">
                             <div class="service-icon">
                                 <i class="flaticon-water"></i>
@@ -275,7 +280,9 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                     <div class="col-lg-4 col-md-6">
+                    <div class="text-center" data-aos="fade-up">
                         <div class="service-item">
                             <div class="service-icon">
                                 <i class="flaticon-healthcare"></i>
@@ -286,7 +293,9 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                     <div class="col-lg-4 col-md-6">
+                    <div class="text-center" data-aos="fade-up">
                         <div class="service-item">
                             <div class="service-icon">
                                 <i class="flaticon-education"></i>
@@ -297,7 +306,9 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                     <div class="col-lg-4 col-md-6">
+                    <div class="text-center" data-aos="fade-up">
                         <div class="service-item">
                             <div class="service-icon">
                                 <i class="flaticon-home"></i>
@@ -308,7 +319,9 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                     <div class="col-lg-4 col-md-6">
+                    <div class="text-center" data-aos="fade-up">
                         <div class="service-item">
                             <div class="service-icon">
                                 <i class="flaticon-social-care"></i>
@@ -319,13 +332,16 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
             </div>
+        </div>
         </div>
         <!-- Service End -->
 
         <!-- Event Start -->
         <div class="event">
+        <div class="text-center" data-aos="fade-up">
             <div class="container">
                 <div class="section-header text-center">
                     <p>Upcoming Events</p>
@@ -333,6 +349,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
+                    <div class="text-center" data-aos="fade-up">
                         <div class="event-item">
                             <img src="img/event1.jpg" alt="Image">
                             <div class="event-content">
@@ -351,7 +368,9 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                     <div class="col-lg-6">
+                    <div class="text-center" data-aos="fade-up">
                         <div class="event-item">
                             <img src="img/event2.jpg" alt="Image">
                             <div class="event-content">
@@ -370,13 +389,16 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
             </div>
+        </div>
         </div>
         <!-- Event End -->
 
         <!-- Blog Start -->
         <div class="blog">
+        <div class="text-center" data-aos="fade-up">
             <div class="container">
                 <div class="section-header text-center">
                     <p>Our Blog</p>
@@ -384,6 +406,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
+                    <div class="text-center" data-aos="fade-up">
                         <div class="blog-item">
                             <div class="blog-img">
                                 <img src="img/blog1.jpg" alt="Image">
@@ -399,8 +422,10 @@
                                 <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
                             </div>
                         </div>
+                        </div>
                     </div>
                     <div class="col-lg-4">
+                    <div class="text-center" data-aos="fade-up">
                         <div class="blog-item">
                             <div class="blog-img">
                                 <img src="img/blog2.jpg" alt="Image">
@@ -416,8 +441,10 @@
                                 <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
                             </div>
                         </div>
+                        </div>
                     </div>
                     <div class="col-lg-4">
+                    <div class="text-center" data-aos="fade-up">
                         <div class="blog-item">
                             <div class="blog-img">
                                 <img src="img/blog3.jpg" alt="Image">
@@ -434,8 +461,10 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
             </div>
+        </div>
         </div>
         <!-- Blog End -->
 
@@ -537,6 +566,7 @@
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="lib/parallax/parallax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
@@ -544,5 +574,8 @@
 
         <!-- Template Javascript -->
         <script src="/js/main.js"></script>
+        <script>
+            AOS.init();
+        </script>
     </body>
 </html>
