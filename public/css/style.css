@@ -288,11 +288,13 @@ a:focus {
         position: absolute;
         width: 100%;
         top: 45px;
-        font-size: 45px;
         padding: 20px 60px;
         background: transparent !important;
         border-bottom: 1px solid rgba(255, 255, 255, .3);
         z-index: 9;
+    }
+    .navbar .navbar-brand {
+        font-size: 45px;
     }
     
     .navbar.nav-sticky {
@@ -455,30 +457,7 @@ a:focus {
     animation-duration: 1s;
 }
 
-#videoModal .modal-dialog {
-    position: relative;
-    max-width: 800px;
-    margin: 60px auto 0 auto;
-}
 
-#videoModal .modal-body {
-    position: relative;
-    padding: 0px;
-}
-
-#videoModal .close {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    right: 0px;
-    top: -30px;
-    z-index: 999;
-    font-size: 30px;
-    font-weight: normal;
-    color: #ffffff;
-    background: #000000;
-    opacity: 1;
-}
 
 @media (max-width: 991.98px) {
     .carousel .carousel-text h1 {
