@@ -158,13 +158,14 @@
                                 <img src="img/ss2.jpg" alt="Image">
                             </div>
                             <div class="carousel-text">
-                                <h1>Aktif </h1>
+                                <h1> Bersama menjaga kebersihan, bersama membuat perubahan</h1>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
+                                Mari bergandengan tangan dalam upaya menjaga lingkungan. Donasi Anda tidak hanya membantu mendanai proyek-proyek berkelanjutan,
+                                    tetapi juga mensejahterakan pelaku kebersihan lingkungan.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
                         </div>
@@ -173,13 +174,13 @@
                                 <img src="img/ss1.jpg" alt="Image">
                             </div>
                             <div class="carousel-text">
-                                <h1>Get Involved with helping hand</h1>
+                                <h1>Media kebersihan informatif</h1>
                                 <p>
-                                    Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
+                                    Berbagai informasi dan tips dalam menjaga serta mengolah lingkungan. Mari sayangi bumi kita dengan ikut berpartisipasi dalam menjaga kebersihan.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
                         </div>
@@ -188,13 +189,13 @@
                                 <img src="img/ss3.jpg" alt="Image">
                             </div>
                             <div class="carousel-text">
-                                <h1>Bringing smiles to Earth</h1>
+                                <h1>Mari bergabung</h1>
                                 <p>
-                                    Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
+                                Bergabunglah dengan komunitas sukarelawan kami dan jadilah bagian dari gerakan perubahan. Dengan partisipasi aktif, kita bisa membuat perbedaan nyata.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
                         </div>
