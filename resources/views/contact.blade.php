@@ -80,7 +80,7 @@
                             </div>
                         </div>
                         <a href="/contact" class="nav-item nav-link">Kontak</a>
-                        <a href="/login" class="nav-item nav-link">Login</a>
+                        <a href="/auth" class="nav-item nav-link">Login</a>
                     </div>
                 </div>
             </div>

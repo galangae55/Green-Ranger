@@ -98,11 +98,11 @@
                         <div class="top-bar-left">
                             <div class="text">
                                 <i class="fa fa-phone-alt"></i>
-                                <p>082233853635</p>
+                                <p>082334556778</p>
                             </div>
                             <div class="text">
                                 <i class="fa fa-envelope"></i>
-                                <p>sagegreat0@gmail.com</p>
+                                <p>greenranger@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -131,18 +131,18 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="/" class="nav-item nav-link active">Home</a>
-                        <a href="/event" class="nav-item nav-link">Events</a>
+                        <a href="/" class="nav-item nav-link active">Beranda</a>
+                        <a href="/event" class="nav-item nav-link">Acara</a>
                         <a href="/blog" class="nav-item nav-link">Blog</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu">
-                                <a href="/donate" class="dropdown-item">Donate Now</a>
-                                <a href="/volunteer" class="dropdown-item">Become A Volunteer</a>
+                                <a href="/donate" class="dropdown-item">Donasi Sekarang</a>
+                                <a href="/volunteer" class="dropdown-item">Daftar Relawan</a>
                             </div>
                         </div>
-                        <a href="/contact" class="nav-item nav-link">Contact</a>
-                        <a href="/login" class="nav-item nav-link">Login</a>
+                        <a href="/contact" class="nav-item nav-link">Kontak</a>
+                        <a href="/auth" class="nav-item nav-link">Login</a>
                     </div>
                 </div>
             </div>
@@ -314,10 +314,10 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-contact">
-                            <h2>kantor Kami</h2>
+                            <h2>Kantor Kami</h2>
                             <p><i class="fa fa-map-marker-alt"></i>Ketintang, Surabaya, Indonesia</p>
                             <p><i class="fa fa-phone-alt"></i>082334556778</p>
-                            <p><i class="fa fa-envelope"></i>greenranger@gmail.com</p>
+                            <p><i class="fa fa-envelope"></i>greenranger0@gmail.com</p>
                             <div class="footer-social">
                                 <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
@@ -363,7 +363,7 @@
                         <p>&copy; <a href="#">Green Ranger</a>, copyright 2024.</p>
                     </div>
                     <div class="col-md-6">
-                        <p>Designed By GreenRangerTeam</></p>
+                        <p>Designed By Green Ranger Team</></p>
                     </div>
                 </div>
             </div>

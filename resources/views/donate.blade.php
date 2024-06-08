@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <a href="/contact" class="nav-item nav-link">Kontak</a>
-                    <a href="/login" class="nav-item nav-link">Login</a>
+                    <a href="/auth" class="nav-item nav-link">Login</a>
                 </div>
             </div>
         </div>
@@ -97,7 +97,6 @@
                                     tetapi juga mensejahterakan pelaku kebersihan lingkungan.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
                                     <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
@@ -112,7 +111,6 @@
                                     Berbagai informasi dan tips dalam menjaga serta mengolah lingkungan. Mari sayangi bumi kita dengan ikut berpartisipasi dalam menjaga kebersihan.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
                                     <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
@@ -122,12 +120,11 @@
                                 <img src="img/ss3.jpg" alt="Image">
                             </div>
                             <div class="carousel-text">
-                                <h1>Mari bergabung</h1>
+                                <h1>Mari Bergabung</h1>
                                 <p>
                                 Bergabunglah dengan komunitas sukarelawan kami dan jadilah bagian dari gerakan perubahan. Dengan partisipasi aktif, kita bisa membuat perbedaan nyata.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
                                     <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
@@ -197,7 +194,7 @@
                         <h2>Kantor Kami</h2>
                         <p><i class="fa fa-map-marker-alt"></i>Ketintang, Surabaya, Indonesia</p>
                         <p><i class="fa fa-phone-alt"></i>082334556778</p>
-                        <p><i class="fa fa-envelope"></i>sagegreat0@gmail.com</p>
+                        <p><i class="fa fa-envelope"></i>greenranger0@gmail.com</p>
                         <div class="footer-social">
                             <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>

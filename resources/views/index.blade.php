@@ -13,7 +13,6 @@
                     ,400;1,500;1,600;1,700;1,800;1,900|Quicksand:wght@300..700|Roboto:ital,wght@0,100;0,300;0,400
                     ;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900" rel="stylesheet">
 
-
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -122,7 +121,7 @@
                             </div>
                         </div>
                         <a href="/contact" class="nav-item nav-link">Kontak</a>
-                        <a href="/login" class="nav-item nav-link">Login</a>
+                        <a href="/auth" class="nav-item nav-link">Login</a>
                     </div>
                 </div>
             </div>
@@ -195,7 +194,7 @@
                     <div class="col-lg-6">
                         <div class="section-header">
                             <p>Lebih dekat dengan kami</p>
-                            <h2></h2>
+                            <h2>Green Ranger</h2>
                         </div>
                         <div class="about-tab">
                             <ul class="nav nav-pills nav-justified">
@@ -354,7 +353,7 @@
                                         <p>
                                             Sebuah kegiatan tahunan yang dibuat oleh Pemerintah Kota Bangkalan untuk membersihkan lembah Bukit Jaddih dari sampah wisatawan.
                                         </p>
-                                        <a class="btn btn-custom" href="">Gabung sekarang</a>
+                                        <a class="btn btn-custom" href="/acara2">Gabung sekarang</a>
                                     </div>
                                 </div>
                             </div>
@@ -374,7 +373,7 @@
                                         <p>
                                             Sebuah kegiatan tahunan yang diprakarsai oleh Bank Sampah Trash Wallet dan berkolaborasi dengan warga setempat untuk membersihkan pantai dari sampah laut.
                                         </p>
-                                        <a class="btn btn-custom" href="">Gabung sekarang</a>
+                                        <a class="btn btn-custom" href="/acara1">Gabung sekarang</a>
                                     </div>
                                 </div>
                             </div>

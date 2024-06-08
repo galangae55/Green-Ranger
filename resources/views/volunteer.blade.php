@@ -72,11 +72,11 @@
                         <div class="top-bar-left">
                             <div class="text">
                                 <i class="fa fa-phone-alt"></i>
-                                <p>082334556778</p>
+                                <p>082233853635</p>
                             </div>
                             <div class="text">
                                 <i class="fa fa-envelope"></i>
-                                <p>greenranger@gmail.com</p>
+                                <p>sagegreat00@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@
                             </div>
                         </div>
                         <a href="/contact" class="nav-item nav-link">Kontak</a>
-                        <a href="/login" class="nav-item nav-link">Login</a>
+                        <a href="/auth" class="nav-item nav-link">Login</a>
                     </div>
                 </div>
             </div>
@@ -218,8 +218,8 @@
                     <div class="col-lg-7">
                         <div class="volunteer-content">
                             <div class="section-header">
-                                <p>Gabung Relawan</p>
-                                <h2></h2>
+                                <h2>Menjadi Relawan</h2>
+                                <p>untuk salurkan kebaikan</p>
                             </div>
                             <div class="volunteer-text">
                                 <p>
@@ -241,10 +241,10 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-contact">
-                            <h2>Our Head Office</h2>
+                            <h2>Kantor Kami</h2>
                             <p><i class="fa fa-map-marker-alt"></i>Ketintang, Surabaya, Indonesia</p>
-                            <p><i class="fa fa-phone-alt"></i>082233853635</p>
-                            <p><i class="fa fa-envelope"></i>sagegreat0@gmail.com</p>
+                            <p><i class="fa fa-phone-alt"></i>082334556778</p>
+                            <p><i class="fa fa-envelope"></i>greenranger0@gmail.com</p>
                             <div class="footer-social">
                                 <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
@@ -256,30 +256,29 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-link">
-                            <h2>Popular Links</h2>
-                            <a href="/volunteer">Become A Volunteer</a>
-                            <a href="/contact">Contact Us</a>
-                            <a href="/event">Upcoming Events</a>
-                            <a href="/detail">Latest Blog</a>
+                            <h2>Tautan Populer</h2>
+                            <a href="/volunteer">Menjadi Sukarelawan</a>
+                            <a href="/contact">Hubungi Kami</a>
+                            <a href="/event">Acara Mendatang</a>
+                            <a href="/detail">Artikel Terbaru</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-link">
-                            <h2>Useful Links</h2>
-                            <a href="">Terms of use</a>
-                            <a href="">Privacy policy</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
+                            <h2>Tautan Berguna</h2>
+                            <a href="">Syarat Penggunaan</a>
+                            <a href="">Kebijakan Privasi</a>
+                            <a href="">Kuki</a>
+                            <a href="">Bantuan</a>
+                            <a href="">Pertanyaan Umum</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-newsletter">
-                            <h2>Newsletter</h2>
+                            <h2>Kritik & saran</h2>
                             <form>
-                                <input class="form-control" placeholder="Email goes here">
-                                <button class="btn btn-custom">Submit</button>
-                                <label>Don't worry, we don't spam!</label>
+                                <input class="form-control" placeholder="Email anda">
+                                <button class="btn btn-custom">kirim</button>
                             </form>
                         </div>
                     </div>
@@ -291,7 +290,7 @@
                         <p>&copy; <a href="#">Green Ranger</a>, copyright 2024.</p>
                     </div>
                     <div class="col-md-6">
-                        <p>Designed By GreenRangerTeam</></p>
+                        <p>Designed By Green Ranger Team</></p>
                     </div>
                 </div>
             </div>

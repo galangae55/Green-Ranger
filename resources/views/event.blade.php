@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <a href="/contact" class="nav-item nav-link">Kontak</a>
-                        <a href="/login" class="nav-item nav-link">Login</a>
+                        <a href="/auth" class="nav-item nav-link">Login</a>
                     </div>
                 </div>
             </div>
@@ -165,7 +165,7 @@
                                         <p>
                                             Sebuah kegiatan tahunan yang dibuat oleh Pemerintah Kota Bangkalan untuk membersihkan lembah Bukit Jaddih dari sampah wisatawan.
                                         </p>
-                                        <a class="btn btn-custom" href="">Gabung sekarang</a>
+                                        <a class="btn btn-custom" href="/acara2">Gabung sekarang</a>
                                     </div>
                                 </div>
                             </div>
@@ -184,7 +184,7 @@
                                         <p>
                                             Sebuah kegiatan tahunan yang diprakarsai oleh Bank Sampah Trash Wallet dan berkolaborasi dengan warga setempat untuk membersihkan pantai dari sampah laut.
                                         </p>
-                                        <a class="btn btn-custom" href="">Gabung sekarang</a>
+                                        <a class="btn btn-custom" href="acara1">Gabung sekarang</a>
                                     </div>
                                 </div>
                             </div>
@@ -203,7 +203,7 @@
                                         <p>
                                             Penyaluran bantuan donasi berupa alat kebersihan dan pertamanan
                                         </p>
-                                        <a class="btn btn-custom" href="">Gabung sekarang</a>
+                                        <a class="btn btn-custom" href="/acara3">Gabung sekarang</a>
                                     </div>
                                 </div>
                             </div>
@@ -259,7 +259,6 @@
                             <a href="/contact">Hubungi Kami</a>
                             <a href="/event">Acara Mendatang</a>
                             <a href="/detail">Artikel Terbaru</a>
-
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
