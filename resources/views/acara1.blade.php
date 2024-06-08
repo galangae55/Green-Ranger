@@ -214,39 +214,39 @@
                 </div>
                 <div class="col-md-6" data-aos="fade-left">
                     <div class="event-info">
-                        <h2 class="my-4">Join Us for a Greener Future</h2>
-                        <p class="date-time"><i class="fas fa-calendar-alt"></i> June 25, 2024 | 9:00 AM - 5:00 PM</p>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Central Park, New York City</p>
-                        <p class="description">Be a part of our Environmental Awareness Event to learn, participate, and contribute to making our world a greener place. Activities include tree planting, recycling workshops, and expert talks on sustainable living.</p>
-                        <button class="btn btn-primary mt-3 register-button">Register Now</button>
+                        <h2 class="my-4">Kenjeran Clean</h2>
+                        <p class="date-time"><i class="fas fa-calendar-alt"></i> 12 Juni 2024 | 07:00  - 12:00 WIB</p>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Pantai Kenjeran, Surabaya</p>
+                        <p class="description">Ayo bergabung dan jadilah pahlawan kebersihan Pantai Kenjeran</p>
+                        <button class="btn btn-primary mt-3 register-button">Daftar sekarang</button>
                     </div>
                 </div>
             </section>
 
             <section class="event-schedule my-5">
                 <div class="text-center" data-aos="fade-up">
-                    <h2 class="my-4">Event Schedule</h2>
+                    <h2 class="my-4">Susunan Acara</h2>
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="schedule-item p-3 rounded shadow d-flex flex-column">
-                            <h4>Tree Planting</h4>
-                            <p><i class="fas fa-clock"></i> 9:00 AM - 11:00 AM</p>
-                            <p>Join us in planting trees around the park to contribute to our goal of planting 500 trees anjayyyyy.</p>
+                            <h4>Pemberrsihkan dan penanaman bakau</h4>
+                            <p><i class="fas fa-clock"></i> 07:00 - 09:00 WIB</p>
+                            <p>Ayo buat Kenjeran menjadi bersih dan terhindar dari abrasi!</p>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="schedule-item p-3 rounded shadow d-flex flex-column">
                             <h4>Recycling Workshop</h4>
-                            <p><i class="fas fa-clock"></i> 11:30 AM - 1:00 PM</p>
-                            <p>Learn about effective recycling techniques and how to implement them in your daily life.</p>
+                            <p><i class="fas fa-clock"></i> 09:00 - 11:00 WIB</p>
+                            <p>Belajar mengubah sampah pantai menjadi barang yang berguna.</p>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="schedule-item p-3 rounded shadow d-flex flex-column">
                             <h4>Expert Talks</h4>
-                            <p><i class="fas fa-clock"></i> 2:00 PM - 4:00 PM</p>
-                            <p>Hear from experts in the field of environmental science about the latest research and initiatives.</p>
+                            <p><i class="fas fa-clock"></i> 11:00 - 12:00 WIB</p>
+                            <p>Sesi penutup yang menghadirkan pembicara dengan tema kebersihan.</p>
                         </div>
                     </div>
                 </div>
@@ -254,7 +254,7 @@
 
             <section class="event-gallery my-5">
                 <div class="text-center" data-aos="fade-up">
-                    <h2 class="my-4">Gallery</h2>
+                    <h2 class="my-4">Galeri</h2>
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
@@ -275,7 +275,7 @@
         <!-- acara1 Start -->
         <div class="container">
         <div class="text-center" data-aos="fade-up">
-            <h2 style="color: #3a5f4c;">Pendaftar Volunteer Acara 1</h2>
+            <h2 style="color: #3a5f4c;">Pendaftar Volunteer Kenjeran Clean</h2>
             @if ($volunteers->isEmpty())
                 <p>Tidak ada data.</p>
             @else
@@ -314,10 +314,10 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-contact">
-                            <h2>Our Head Office</h2>
+                            <h2>kantor Kami</h2>
                             <p><i class="fa fa-map-marker-alt"></i>Ketintang, Surabaya, Indonesia</p>
-                            <p><i class="fa fa-phone-alt"></i>082233853635</p>
-                            <p><i class="fa fa-envelope"></i>sagegreat0@gmail.com</p>
+                            <p><i class="fa fa-phone-alt"></i>082334556778</p>
+                            <p><i class="fa fa-envelope"></i>greenranger@gmail.com</p>
                             <div class="footer-social">
                                 <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
@@ -329,30 +329,29 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-link">
-                            <h2>Popular Links</h2>
-                            <a href="/volunteer">Become A Volunteer</a>
-                            <a href="/contact">Contact Us</a>
-                            <a href="/event">Upcoming Events</a>
-                            <a href="/detail">Latest Blog</a>
+                            <h2>Tautan Populer</h2>
+                            <a href="/volunteer">Menjadi Sukarelawan</a>
+                            <a href="/contact">Hubungi Kami</a>
+                            <a href="/event">Acara Mendatang</a>
+                            <a href="/detail">Artikel Terbaru</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-link">
-                            <h2>Useful Links</h2>
-                            <a href="">Terms of use</a>
-                            <a href="">Privacy policy</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
+                            <h2>Tautan Berguna</h2>
+                            <a href="">Syarat Penggunaan</a>
+                            <a href="">Kebijakan Privasi</a>
+                            <a href="">Kuki</a>
+                            <a href="">Bantuan</a>
+                            <a href="">Pertanyaan Umum</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-newsletter">
-                            <h2>Newsletter</h2>
+                            <h2>Kritik & saran</h2>
                             <form>
-                                <input class="form-control" placeholder="Email goes here">
-                                <button class="btn btn-custom">Submit</button>
-                                <label>Don't worry, we don't spam!</label>
+                                <input class="form-control" placeholder="Email anda">
+                                <button class="btn btn-custom">kirim</button>
                             </form>
                         </div>
                     </div>

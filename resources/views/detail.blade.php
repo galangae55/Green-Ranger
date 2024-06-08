@@ -10,7 +10,11 @@
         <link href="img/favicon.ico" rel="icon">
 
         <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.google.com/share?selection.family=Montserrat:ital,wght@0,100..900;1,100..900|
+                    Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1
+                    ,400;1,500;1,600;1,700;1,800;1,900|Quicksand:wght@300..700|Roboto:ital,wght@0,100;0,300;0,400
+                    ;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900" rel="stylesheet">
+
 
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
@@ -29,11 +33,11 @@
                         <div class="top-bar-left">
                             <div class="text">
                                 <i class="fa fa-phone-alt"></i>
-                                <p>082233853635</p>
+                                <p>082334556778</p>
                             </div>
                             <div class="text">
                                 <i class="fa fa-envelope"></i>
-                                <p>sagegreat0@gmail.com</p>
+                                <p>greenranger@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -62,17 +66,17 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="/" class="nav-item nav-link active">Home</a>
-                        <a href="/event" class="nav-item nav-link">Events</a>
+                        <a href="/" class="nav-item nav-link active">Beranda</a>
+                        <a href="/event" class="nav-item nav-link">Acara</a>
                         <a href="/blog" class="nav-item nav-link">Blog</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu">
-                                <a href="/donate" class="dropdown-item">Donate Now</a>
-                                <a href="/volunteer" class="dropdown-item">Become A Volunteer</a>
+                                <a href="/donate" class="dropdown-item">Donasi Sekarang</a>
+                                <a href="/volunteer" class="dropdown-item">Daftar Relawan</a>
                             </div>
                         </div>
-                        <a href="/contact" class="nav-item nav-link">Contact</a>
+                        <a href="/contact" class="nav-item nav-link">Kontak</a>
                         <a href="/login" class="nav-item nav-link">Login</a>
                     </div>
                 </div>
@@ -90,13 +94,14 @@
                                 <img src="img/ss2.jpg" alt="Image">
                             </div>
                             <div class="carousel-text">
-                                <h1>Aktif </h1>
+                                <h1> Bersama menjaga kebersihan, bersama membuat perubahan</h1>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
+                                Mari bergandengan tangan dalam upaya menjaga lingkungan. Donasi Anda tidak hanya membantu mendanai proyek-proyek berkelanjutan,
+                                    tetapi juga mensejahterakan pelaku kebersihan lingkungan.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
                         </div>
@@ -105,13 +110,13 @@
                                 <img src="img/ss1.jpg" alt="Image">
                             </div>
                             <div class="carousel-text">
-                                <h1>Get Involved with helping hand</h1>
+                                <h1>Media kebersihan informatif</h1>
                                 <p>
-                                    Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
+                                    Berbagai informasi dan tips dalam menjaga serta mengolah lingkungan. Mari sayangi bumi kita dengan ikut berpartisipasi dalam menjaga kebersihan.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
                         </div>
@@ -120,13 +125,13 @@
                                 <img src="img/ss3.jpg" alt="Image">
                             </div>
                             <div class="carousel-text">
-                                <h1>Bringing smiles to Earth</h1>
+                                <h1>Mari bergabung</h1>
                                 <p>
-                                    Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
+                                Bergabunglah dengan komunitas sukarelawan kami dan jadilah bagian dari gerakan perubahan. Dengan partisipasi aktif, kita bisa membuat perbedaan nyata.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
                         </div>
@@ -142,51 +147,80 @@
                     <div class="col-lg-8">
                         <div class="single-content">
                             <img src="img/blog2.jpg" />
-                            <h2>Lorem ipsum dolor sit amet</h2>
+                            <h2>Meningkatkan Kesadaran Lingkungan Melalui Pendidikan</h2>
+                            <h3>Deskripsi</h3>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer molestie, lorem eu eleifend bibendum, augue purus mollis sapien, non rhoncus eros leo in nunc. Donec a nulla vel turpis consectetur tempor ac vel justo. In hac habitasse platea dictumst. Cras nec sollicitudin eros. Nunc eu enim non turpis sagittis rhoncus consectetur id augue. Mauris dignissim neque felis. Phasellus mollis mi a pharetra cursus. Maecenas vulputate augue placerat lacus mattis, nec ornare risus sollicitudin.
+                                Pendidikan adalah kunci untuk meningkatkan kesadaran tentang pentingnya kebersihan lingkungan.
+                                 Dengan memahami dampak dari tindakan kita terhadap alam, kita dapat mengambil langkah-langkah yang lebih bertanggung jawab untuk melindungi planet ini.
+                                 Pendidikan lingkungan memainkan peran vital dalam menciptakan generasi yang lebih sadar akan pentingnya menjaga kelestarian alam.
+                                 Artikel ini akan membahas pentingnya pendidikan lingkungan dan strategi untuk menerapkannya.
                             </p>
+                            <h3>Pentingnya Pendidikan Lingkungan</h3>
+                            <p>Edukasi lingkungan membantu individu memahami hubungan antara manusia dan alam.
+                                Ini juga memberikan pengetahuan tentang cara-cara untuk menjaga dan melestarikan lingkungan. Beberapa manfaat utama meliputi:
+                            </p>
+                            <h6>1. Peningkatan Kesadaran</h6>
+                            <p>Pendidikan lingkungan membantu menyadarkan masyarakat akan masalah lingkungan yang mendesak seperti polusi dan perubahan iklim. Dengan memahami bagaimana tindakan manusia berdampak pada lingkungan, individu dapat lebih menghargai pentingnya menjaga kebersihan dan kelestarian alam.
+                                Pengetahuan ini menjadi dasar bagi perubahan sikap dan perilaku yang lebih ramah lingkungan.</p>
+                            <h6>2. Pengembangan Sikap positif</h6>
                             <p>
-                                Mauris eu pulvinar tellus, eu luctus nisl. Pellentesque suscipit mi eu varius pulvinar. Aenean vulputate, massa eget elementum finibus, ipsum arcu commodo est, ut mattis eros orci ac risus. Suspendisse ornare, massa in feugiat facilisis, eros nisl auctor lacus, laoreet tempus elit dolor eu lorem. Nunc a arcu suscipit, suscipit quam quis, semper augue.
+                                Melalui pendidikan, individu dapat mengembangkan sikap yang lebih bertanggung jawab terhadap lingkungan. Ini melibatkan pengakuan atas pentingnya menjaga alam dan komitmen untuk terlibat dalam kegiatan yang mendukung kelestarian lingkungan.
+                                Sikap positif ini juga mencakup rasa tanggung jawab pribadi dan sosial untuk melindungi lingkungan dari kerusakan lebih lanjut.
                             </p>
-                            <p>
-                                Quisque arcu nulla, convallis nec orci vel, suscipit elementum odio. Curabitur volutpat velit non diam tincidunt sodales. Nullam sapien libero, bibendum nec viverra in, iaculis ut eros.
+                            <h6>3. Perubahan perilaku</h6>
+                            <p>Pendidikan lingkungan menginspirasi tindakan yang lebih ramah lingkungan dalam kehidupan sehari-hari. Ini termasuk praktik-praktik seperti mengurangi penggunaan plastik, mendaur ulang, menghemat energi, dan mengurangi limbah.
+                                Perubahan perilaku ini tidak hanya membantu mengurangi dampak negatif terhadap lingkungan tetapi juga mempromosikan gaya hidup yang lebih berkelanjutan.</p>
+                            <h3>Strategi untuk Menerapkan Pendidikan Lingkungan</h3>
+                            <p>Menerapkan pendidikan lingkungan memerlukan pendekatan yang komprehensif dan berkelanjutan. Berikut beberapa strategi yang dapat diterapkan:</p>
+                            <h5>Kurikulum Sekolah</h5>
+                            <h6>1. Integrasi dalam Kurikulum</h6>
+                            <p>Pendidikan lingkungan harus diintegrasikan ke dalam kurikulum sekolah sejak dini. Ini bisa dimulai dari tingkat taman kanak-kanak hingga perguruan tinggi, dengan materi yang disesuaikan dengan usia dan tingkat pemahaman siswa.</p>
+                            <h6>2. Kegiatan Ekstrakurikuler</h6>
+                            <p>Selain kurikulum formal, kegiatan ekstrakurikuler seperti klub lingkungan atau proyek sains dapat memberikan kesempatan bagi siswa untuk terlibat dalam kegiatan lingkungan secara praktis. Ini bisa mencakup proyek kebun sekolah, program daur ulang, atau kegiatan bersih-bersih di lingkungan sekitar.</p>
+                            <h6>3. Pelatihan Guru</h6>
+                            <p>Guru perlu mendapatkan pelatihan yang memadai tentang pendidikan lingkungan. Dengan pengetahuan dan keterampilan yang tepat, mereka dapat mengajar dan menginspirasi siswa untuk menjaga lingkungan.</p>
+                            <h5>Program Komunitas</h5>
+                            <h6>1. Lokakarya dan Seminar</h6>
+                            <p>Mengadakan lokakarya dan seminar tentang isu-isu lingkungan dapat meningkatkan kesadaran dan pengetahuan masyarakat. Kegiatan ini bisa mencakup topik-topik seperti pengelolaan sampah, perubahan iklim, dan konservasi air.</p>
+                            <h6>2. Kegiatan Lingkungan</h6>
+                            <p>Program komunitas yang melibatkan kegiatan lingkungan seperti penanaman pohon, pembersihan pantai, atau restorasi sungai dapat meningkatkan partisipasi dan komitmen masyarakat terhadap lingkungan.</p>
+                            <h6>3. Kolaborasi Antar Generasi</h6>
+                            <p>Melibatkan berbagai kelompok usia dalam program komunitas memastikan bahwa pengetahuan dan kesadaran lingkungan menyebar secara luas. Ini juga memungkinkan pertukaran ide dan pengalaman antar generasi.</p>
+                            <h5>Media dan Kampanye Sosial</h5>
+                            <h6>1. Media Sosial</h6>
+                            <p>Media sosial adalah alat yang kuat untuk menyebarkan informasi tentang kebersihan lingkungan. Kampanye di platform seperti Facebook, Instagram, dan Twitter dapat menjangkau audiens yang luas dan beragam.</p>
+                            <h6>2. Konten Edukatif</h6>
+                            <p>Buat konten edukatif yang menarik dan mudah dipahami, seperti video, infografis, dan artikel. Konten ini harus informatif dan menginspirasi tindakan positif.</p>
+                            <h6>3. Kampanye Publik</h6>
+                            <p>Melibatkan tokoh publik dan influencer untuk menyuarakan isu lingkungan dapat meningkatkan visibilitas dan menarik lebih banyak perhatian masyarakat.</p>
+                            <h5>Kolaborasi dengan organisasi</h5>
+                            <h6>1. Organisasi Lingkungan</h6>
+                            <p>Bekerja sama dengan organisasi lingkungan dapat menyediakan sumber daya dan dukungan edukatif yang lebih baik. Organisasi ini sering memiliki pengetahuan dan pengalaman yang mendalam tentang isu-isu lingkungan.</p>
+                            <h6>2. Sektor Swasta</h6>
+                            <p>Melibatkan sektor swasta dalam program pendidikan lingkungan dapat meningkatkan dukungan finansial dan logistik. Perusahaan dapat berkontribusi melalui program tanggung jawab sosial perusahaan (CSR).
                             </p>
-                            <h3>Lorem ipsum dolor sit amet</h3>
-                            <p>
-                                Vestibulum sit amet ullamcorper sem. Integer hendrerit elit eget purus sodales maximus. Quisque ac nulla arcu. Morbi venenatis arcu ac arcu cursus pharetra. Morbi sit amet viverra augue, ac ultricies libero. Praesent elementum lectus mi, eu elementum urna venenatis sed. Donec auctor purus ut mattis feugiat. Integer mi erat, consectetur sed tincidunt vitae, sagittis elementum libero. Vivamus a mauris consequat, hendrerit lectus in, fermentum libero. Integer mattis bibendum neque et porttitor.
-                            </p>
-                            <p>
-                                Mauris quis arcu finibus, posuere dolor eu, viverra felis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In porta, ex vitae accumsan facilisis, nisi tellus dictum metus, quis fringilla dui tellus in tellus. Praesent pharetra orci at vehicula posuere. Sed molestie fringilla lorem, vel imperdiet tortor blandit at. Quisque non ultrices lorem, eget rhoncus orci. Fusce porttitor placerat diam et mattis. Nam laoreet, ex eu posuere sollicitudin, sem tortor pellentesque ipsum, quis mattis purus lectus ut lacus. Integer eu risus ac est interdum scelerisque.
-                            </p>
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <p>
-                                Praesent ultricies, mauris eget vestibulum viverra, neque lorem malesuada mauris, eget rhoncus lectus enim a lorem. Vivamus at vehicula risus, eget facilisis massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et posuere sapien. Fusce bibendum lorem sem, quis tincidunt felis mattis nec.
-                            </p>
-                            <p>
-                                Proin vel nulla purus. Nunc nec eros in nisi efficitur rutrum quis sed eros. Mauris felis dolor, rhoncus eget gravida vitae, pretium vel arcu. Cras blandit tellus eget tellus dictum venenatis. Sed ultricies bibendum dictum. Etiam facilisis erat id turpis tincidunt malesuada. Duis bibendum sapien eu condimentum sagittis. Proin nunc lorem, ullamcorper vel tortor sodales, imperdiet lacinia dui. Sed congue, felis id rhoncus varius, urna lacus imperdiet nunc, ut porttitor mauris mi quis mi. Integer rutrum est finibus metus eleifend scelerisque. Morbi auctor dignissim purus in interdum. Vestibulum eu dictum enim. Suspendisse et sem vitae velit feugiat facilisis.
-                            </p>
-                            <p>
-                                Nam sodales scelerisque nunc sed convallis. Vestibulum facilisis porta erat, sit amet pharetra tortor blandit id. Nunc velit tellus, consectetur sed convallis in, tincidunt finibus nulla. Integer vel ex in mauris tincidunt tincidunt nec sed elit. Etiam pretium lectus lectus, sed aliquet erat tristique euismod. Praesent faucibus nisl augue, ac tempus libero pellentesque malesuada. Vivamus iaculis imperdiet laoreet. Aliquam vel felis felis. Proin sed sapien erat. Etiam a quam et metus tempor rutrum. Curabitur in faucibus justo. Etiam imperdiet iaculis urna.
-                            </p>
+                            <h6>3. Lembaga Pemerintah</h6>
+                            <p>Kolaborasi dengan lembaga pemerintah dapat memperkuat program pendidikan lingkungan melalui kebijakan dan regulasi yang mendukung. Pemerintah dapat menyediakan dana, fasilitas, dan program-program pelatihan.</p>
+                            <h3>Kesimpulan</h3>
+
                         </div>
                         <div class="single-tags">
-                            <a href="">National</a>
-                            <a href="">International</a>
-                            <a href="">Economics</a>
-                            <a href="">Politics</a>
-                            <a href="">Lifestyle</a>
-                            <a href="">Technology</a>
-                            <a href="">Trades</a>
+                            <a href="">Nasional</a>
+                            <a href="">Internasional</a>
+                            <a href="">Gaya Hidup</a>
+                            <a href="">Lingkungan</a>
+                            <a href="">Sampah</a>
+                            <a href="">Kebersihan</a>
+                            <a href="">Teknologi</a>
                         </div>
                         <div class="single-bio">
                             <div class="single-bio-img">
                                 <img src="img/user.jpg" />
                             </div>
                             <div class="single-bio-text">
-                                <h3>Author Name</h3>
+                                <h3>Muhammad Galang</h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Integer lorem augue purus mollis sapien, non eros leo in nunc. Donec a nulla vel turpis tempor ac vel justo. In hac platea dictumst.
+                                    Merupakan seorang jurnalis dan juga sebagai aktivis lingkungan yang aktif dalam menyuarakan hal yang berkaitan dengan kebersihan lingkungan.
                                 </p>
                             </div>
                         </div>
@@ -257,7 +291,7 @@
                                             <p><span></span>{{ $comment->created_at }}</p>
                                             <span>{{ $comment->komentar }}</span>
                                             <p> </p>
-                                            <a class="btn" href="">Reply</a>
+                                            <a class="btn" href="">Jawab</a>
                                         </div>
                                     </div>
                                 </li>
@@ -265,11 +299,11 @@
                     </div>
 
                         <div class="comment-form">
-                            <h2>Leave a comment</h2>
+                            <h2>Komentar</h2>
                             <form action="/detail/komen/store" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="name">Name *</label>
+                                    <label for="name">Nama *</label>
                                     <input type="text" name="nama" class="form-control" id="name">
                                     @error('nama')
                                     <small class="text-danger">{{ $message }}</small>
@@ -277,14 +311,14 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="message">Message *</label>
+                                    <label for="message">Pesan *</label>
                                     <textarea id="message" name="komentar" cols="30" rows="5" class="form-control"></textarea>
                                     @error('komentar')
                                     <small class="text-danger">{{ $message}}</small>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-custom">post comment</button>
+                                    <button type="submit" class="btn btn-custom">Kirim komentar</button>
                                     <!-- <input type="submit" value="Post Comment" class="btn btn-custom"> -->
                                 </div>
                             </form>
@@ -303,17 +337,17 @@
                             </div>
 
                             <div class="sidebar-widget">
-                                <h2 class="widget-title">Recent Post</h2>
+                                <h2 class="widget-title">Artikel Terbaru</h2>
                                 <div class="recent-post">
                                     <div class="post-item">
                                         <div class="post-img">
                                             <img src="img/blog2.jpg" />
                                         </div>
                                         <div class="post-text">
-                                            <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                            <a href="">Meningkatkan Kesadaran Lingkungan Melalui Pendidikan</a>
                                             <div class="post-meta">
-                                                <p>By<a href="">Admin</a></p>
-                                                <p>In<a href="">Web Design</a></p>
+                                                <p>By<a href="">Muhammad Galang</a></p>
+                                                <p>In<a href="">Jakarta</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -322,10 +356,10 @@
                                             <img src="img/blog3.jpg" />
                                         </div>
                                         <div class="post-text">
-                                            <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                            <a href="">Mengelola Sampah Rumah Tangga Secara Efektif</a>
                                             <div class="post-meta">
-                                                <p>By<a href="">Admin</a></p>
-                                                <p>In<a href="">Web Design</a></p>
+                                                <p>By<a href="">Galatama</a></p>
+                                                <p>In<a href="">Surabaya</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -334,10 +368,10 @@
                                             <img src="img/blog1.jpg" />
                                         </div>
                                         <div class="post-text">
-                                            <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                            <a href="">Mengapa Kebersihan Lingkungan Penting dan Bagaimana Kita Bisa Berkontribusi</a>
                                             <div class="post-meta">
-                                                <p>By<a href="">Admin</a></p>
-                                                <p>In<a href="">Web Design</a></p>
+                                                <p>By<a href="">Bambang</a></p>
+                                                <p>In<a href="">Medan</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -346,10 +380,10 @@
                                             <img src="img/blog4.jpg" />
                                         </div>
                                         <div class="post-text">
-                                            <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                            <a href="">Tips Mengurangi Penggunaan Energi di Rumah</a>
                                             <div class="post-meta">
-                                                <p>By<a href="">Admin</a></p>
-                                                <p>In<a href="">Web Design</a></p>
+                                                <p>By<a href="">Reyhan</a></p>
+                                                <p>In<a href="">Tulungagung</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -358,10 +392,10 @@
                                             <img src="img/blog5.jpg" />
                                         </div>
                                         <div class="post-text">
-                                            <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                            <a href="">Menjaga Kebersihan dan Kelestarian Sumber Air</a>
                                             <div class="post-meta">
-                                                <p>By<a href="">Admin</a></p>
-                                                <p>In<a href="">Web Design</a></p>
+                                                <p>By<a href="">Effendi</a></p>
+                                                <p>In<a href="">Jember</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -378,13 +412,13 @@
                                 <div class="tab-post">
                                     <ul class="nav nav-pills nav-justified">
                                         <li class="nav-item">
-                                            <a class="nav-link active" data-toggle="pill" href="#featured">Featured</a>
+                                            <a class="nav-link active" data-toggle="pill" href="#featured">Sorotan</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-toggle="pill" href="#popular">Popular</a>
+                                            <a class="nav-link" data-toggle="pill" href="#popular">Populer</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-toggle="pill" href="#latest">Latest</a>
+                                            <a class="nav-link" data-toggle="pill" href="#latest">Terbaru</a>
                                         </li>
                                     </ul>
 
@@ -395,10 +429,10 @@
                                                     <img src="img/blog2.jpg" />
                                                 </div>
                                                 <div class="post-text">
-                                                    <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                    <a href="">Meningkatkan Kesadaran Lingkungan Melalui Pendidikan</a>
                                                     <div class="post-meta">
-                                                        <p>By<a href="">Admin</a></p>
-                                                        <p>In<a href="">Web Design</a></p>
+                                                        <p>By<a href="">Muhammad Galang</a></p>
+                                                        <p>In<a href="">Jakarta</a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -407,10 +441,10 @@
                                                     <img src="img/blog4.jpg" />
                                                 </div>
                                                 <div class="post-text">
-                                                    <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                    <a href="">Tips Mengurangi Penggunaan Energi di Rumah</a>
                                                     <div class="post-meta">
-                                                        <p>By<a href="">Admin</a></p>
-                                                        <p>In<a href="">Web Design</a></p>
+                                                        <p>By<a href="">Galatama</a></p>
+                                                        <p>In<a href="">Surabaya</a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -419,10 +453,10 @@
                                                     <img src="img/blog5.jpg" />
                                                 </div>
                                                 <div class="post-text">
-                                                    <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                    <a href="">Menjaga Kebersihan dan Kelestarian Sumber Air</a>
                                                     <div class="post-meta">
-                                                        <p>By<a href="">Admin</a></p>
-                                                        <p>In<a href="">Web Design</a></p>
+                                                        <p>By<a href="">Bambang</a></p>
+                                                        <p>In<a href="">Medan</a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -431,10 +465,10 @@
                                                     <img src="img/blog6.jpg" />
                                                 </div>
                                                 <div class="post-text">
-                                                    <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                    <a href="">Tips Mengelola Sampah Elektronik Dengan Bijak</a>
                                                     <div class="post-meta">
-                                                        <p>By<a href="">Admin</a></p>
-                                                        <p>In<a href="">Web Design</a></p>
+                                                        <p>By<a href="">Reyhan</a></p>
+                                                        <p>In<a href="">Tulungagung</a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -443,10 +477,10 @@
                                                     <img src="img/blog3.jpg" />
                                                 </div>
                                                 <div class="post-text">
-                                                    <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                    <a href="">Mengelola Sampah Rumah Tangga Secara Efektif</a>
                                                     <div class="post-meta">
-                                                        <p>By<a href="">Admin</a></p>
-                                                        <p>In<a href="">Web Design</a></p>
+                                                        <p>By<a href="">Effendi</a></p>
+                                                        <p>In<a href="">Jember</a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -586,16 +620,16 @@
                             </div>
 
                             <div class="sidebar-widget">
-                                <h2 class="widget-title">Categories</h2>
+                                <h2 class="widget-title">Kategori</h2>
                                 <div class="category-widget">
                                     <ul>
-                                        <li><a href="">National</a><span>(98)</span></li>
-                                        <li><a href="">International</a><span>(87)</span></li>
-                                        <li><a href="">Economics</a><span>(76)</span></li>
-                                        <li><a href="">Politics</a><span>(65)</span></li>
-                                        <li><a href="">Lifestyle</a><span>(54)</span></li>
-                                        <li><a href="">Technology</a><span>(43)</span></li>
-                                        <li><a href="">Trades</a><span>(32)</span></li>
+                                        <li><a href="">Nasional</a><span>(98)</span></li>
+                                        <li><a href="">Internasional</a><span>(87)</span></li>
+                                        <li><a href="">Gaya Hidup</a><span>(76)</span></li>
+                                        <li><a href="">Lingkungan</a><span>(65)</span></li>
+                                        <li><a href="">Sampah</a><span>(54)</span></li>
+                                        <li><a href="">Kebersihan</a><span>(43)</span></li>
+                                        <li><a href="">Teknologi</a><span>(32)</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -607,23 +641,23 @@
                             </div>
 
                             <div class="sidebar-widget">
-                                <h2 class="widget-title">Tags Cloud</h2>
+                                <h2 class="widget-title">Tag</h2>
                                 <div class="tag-widget">
-                                    <a href="">National</a>
-                                    <a href="">International</a>
-                                    <a href="">Economics</a>
-                                    <a href="">Politics</a>
-                                    <a href="">Lifestyle</a>
-                                    <a href="">Technology</a>
-                                    <a href="">Trades</a>
+                                    <li><a href="">Nasional</a><span>(98)</span></li>
+                                        <li><a href="">Internasional</a><span>(87)</span></li>
+                                        <li><a href="">Gaya Hidup</a><span>(76)</span></li>
+                                        <li><a href="">Lingkungan</a><span>(65)</span></li>
+                                        <li><a href="">Sampah</a><span>(54)</span></li>
+                                        <li><a href="">Kebersihan</a><span>(43)</span></li>
+                                        <li><a href="">Teknologi</a><span>(32)</span></li>
                                 </div>
                             </div>
 
                             <div class="sidebar-widget">
-                                <h2 class="widget-title">Text Widget</h2>
+                                <h2 class="widget-title">Tentang Kami</h2>
                                 <div class="text-widget">
                                     <p>
-                                        Lorem ipsum dolor sit amet elit. Integer lorem augue purus mollis sapien, non eros leo in nunc. Donec a nulla vel turpis tempor ac vel justo. In hac platea nec eros. Nunc eu enim non turpis id augue.
+                                        Green Ranger merupakan Sebuah website perekrutan relawan kebersihan dan pengumpulan donasi.
                                     </p>
                                 </div>
                             </div>
@@ -641,10 +675,10 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-contact">
-                            <h2>Our Head Office</h2>
+                            <h2>Kantor Kami</h2>
                             <p><i class="fa fa-map-marker-alt"></i>Ketintang, Surabaya, Indonesia</p>
-                            <p><i class="fa fa-phone-alt"></i>082233853635</p>
-                            <p><i class="fa fa-envelope"></i>sagegreat0@gmail.com</p>
+                            <p><i class="fa fa-phone-alt"></i>082334556778</p>
+                            <p><i class="fa fa-envelope"></i>greenranger0@gmail.com</p>
                             <div class="footer-social">
                                 <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
@@ -656,30 +690,30 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-link">
-                            <h2>Popular Links</h2>
-                            <a href="/volunteer">Become A Volunteer</a>
-                            <a href="/contact">Contact Us</a>
-                            <a href="/event">Upcoming Events</a>
-                            <a href="/detail">Latest Blog</a>
+                            <h2>Tautan Populer</h2>
+                            <a href="/volunteer">Menjadi Sukarelawan</a>
+                            <a href="/contact">Hubungi Kami</a>
+                            <a href="/event">Acara Mendatang</a>
+                            <a href="/detail">Artikel Terbaru</a>
+
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-link">
-                            <h2>Useful Links</h2>
-                            <a href="">Terms of use</a>
-                            <a href="">Privacy policy</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
+                            <h2>Tautan Berguna</h2>
+                            <a href="">Syarat Penggunaan</a>
+                            <a href="">Kebijakan Privasi</a>
+                            <a href="">Kuki</a>
+                            <a href="">Bantuan</a>
+                            <a href="">Pertanyaan Umum</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-newsletter">
-                            <h2>Newsletter</h2>
+                            <h2>Kritik & saran</h2>
                             <form>
-                                <input class="form-control" placeholder="Email goes here">
-                                <button class="btn btn-custom">Submit</button>
-                                <label>Don't worry, we don't spam!</label>
+                                <input class="form-control" placeholder="Email anda">
+                                <button class="btn btn-custom">kirim</button>
                             </form>
                         </div>
                     </div>
@@ -691,7 +725,7 @@
                         <p>&copy; <a href="#">Green Ranger</a>, copyright 2024.</p>
                     </div>
                     <div class="col-md-6">
-                        <p>Designed By Galang</></p>
+                        <p>Designed By Green Ranger Team</></p>
                     </div>
                 </div>
             </div>
@@ -709,9 +743,12 @@
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/parallax/parallax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
@@ -719,5 +756,9 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+
+        <script>
+            AOS.init();
+        </script>
     </body>
 </html>

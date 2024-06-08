@@ -13,6 +13,7 @@
                     ,400;1,500;1,600;1,700;1,800;1,900|Quicksand:wght@300..700|Roboto:ital,wght@0,100;0,300;0,400
                     ;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900" rel="stylesheet">
 
+
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -77,7 +78,7 @@
                         <div class="top-bar-left">
                             <div class="text">
                                 <i class="fa fa-phone-alt"></i>
-                                <p>082233853635</p>
+                                <p>082334556778</p>
                             </div>
                             <div class="text">
                                 <i class="fa fa-envelope"></i>
@@ -112,7 +113,7 @@
                     <div class="navbar-nav ml-auto">
                         <a href="/" class="nav-item nav-link active">Beranda</a>
                         <a href="/event" class="nav-item nav-link">Acara</a>
-                        <a href="/blog" class="nav-item nav-link">Berita</a>
+                        <a href="/blog" class="nav-item nav-link">Blog</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu">
@@ -138,13 +139,14 @@
                             <img src="img/ss2.jpg" alt="Image">
                         </div>
                         <div class="carousel-text">
-                            <h1>Aktif </h1>
+                            <h1> Bersama menjaga kebersihan, bersama membuat perubahan</h1>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
+                            Mari bergandengan tangan dalam upaya menjaga lingkungan. Donasi Anda tidak hanya membantu mendanai proyek-proyek berkelanjutan,
+                                tetapi juga mensejahterakan pelaku kebersihan lingkungan.
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                             </div>
                         </div>
                     </div>
@@ -153,13 +155,13 @@
                             <img src="img/ss1.jpg" alt="Image">
                         </div>
                         <div class="carousel-text">
-                            <h1>Get Involved with helping hand</h1>
+                            <h1>Media kebersihan informatif</h1>
                             <p>
-                                Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
+                                Berbagai informasi dan tips dalam menjaga serta mengolah lingkungan. Mari sayangi bumi kita dengan ikut berpartisipasi dalam menjaga kebersihan.
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                             </div>
                         </div>
                     </div>
@@ -168,13 +170,13 @@
                             <img src="img/ss3.jpg" alt="Image">
                         </div>
                         <div class="carousel-text">
-                            <h1>Bringing smiles to Earth</h1>
+                            <h1>Mari bergabung</h1>
                             <p>
-                                Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
+                            Bergabunglah dengan komunitas sukarelawan kami dan jadilah bagian dari gerakan perubahan. Dengan partisipasi aktif, kita bisa membuat perbedaan nyata.
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                             </div>
                         </div>
                     </div>
@@ -182,25 +184,6 @@
             </div>
         </div>
         <!-- Carousel End -->
-
-        <!-- Video Modal Start-->
-        <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <!-- 16:9 aspect ratio -->
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Video Modal End -->
-
 
         <!-- About Start -->
         <div class="about">
@@ -211,31 +194,39 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="section-header">
-                            <p>Learn About Us</p>
-                            <h2>organization</h2>
+                            <p>Lebih dekat dengan kami</p>
+                            <h2></h2>
                         </div>
                         <div class="about-tab">
                             <ul class="nav nav-pills nav-justified">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="pill" href="#tab-content-1">About</a>
+                                    <a class="nav-link active" data-toggle="pill" href="#tab-content-1">Tentang</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="pill" href="#tab-content-2">Mission</a>
+                                    <a class="nav-link" data-toggle="pill" href="#tab-content-2">Visi</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="pill" href="#tab-content-3">Vision</a>
+                                    <a class="nav-link" data-toggle="pill" href="#tab-content-3">Misi</a>
                                 </li>
                             </ul>
 
                             <div class="tab-content">
                                 <div id="tab-content-1" class="container tab-pane active">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae pellentesque turpis. Donec in hendrerit dui, vel blandit massa. Ut vestibulum suscipit cursus. Cras quis porta nulla, ut placerat risus. Aliquam nec magna eget velit luctus dictum. Phasellus et felis sed purus tristique dignissim. Morbi sit amet leo at purus accumsan pellentesque. Vivamus fermentum nisi vel dapibus blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Green ranger adalah platform inovatif yang berfokus pada merekrut relawan kebersihan dan menggalang donasi untuk kegiatan terkait kebersihan lingkungan.
+                                     Dengan menghubungkan individu, komunitas, dan organisasi yang peduli dengan kelestarian lingkungan, CleanUp Heroes bertujuan untuk menciptakan dunia yang lebih bersih dan sehat.
+                                      Melalui teknologi dan kolaborasi, kami menyediakan informasi, alat, dan sumber daya yang diperlukan untuk memfasilitasi aksi nyata dalam mengatasi masalah kebersihan.
                                 </div>
                                 <div id="tab-content-2" class="container tab-pane fade">
-                                    Sed tincidunt, magna ut vehicula volutpat, turpis diam condimentum justo, posuere congue turpis massa in mi. Proin ornare at massa at fermentum. Nunc aliquet sed nisi iaculis ornare. Nam semper tortor eget est egestas, eu sagittis nunc sodales. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent bibendum sapien sed purus molestie malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Menjadi platform terdepan dalam menginspirasi dan memberdayakan individu serta komunitas untuk bersama-sama menciptakan dunia yang bebas dari sampah dan polusi,
+                                     sehingga tercipta lingkungan yang bersih, sehat, dan berkelanjutan bagi generasi sekarang dan yang akan datang.
                                 </div>
                                 <div id="tab-content-3" class="container tab-pane fade">
-                                    Aliquam dolor odio, mollis sed feugiat sit amet, feugiat ut sapien. Nunc eu dignissim lorem. Suspendisse at hendrerit enim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed condimentum semper turpis vel facilisis. Nunc vel faucibus orci. Mauris ut mauris rhoncus, efficitur nisi at, venenatis quam. Praesent egestas pretium enim sit amet finibus. Curabitur at erat molestie, tincidunt lorem eget, consequat ligula.
+                                    <tr><td>1. </td><td>Memberdayakan relawan</td></tr><br>
+                                    <tr><td>Merekrut, melatih, dan mendukung relawan kebersihan dari berbagai latar belakang untuk berpartisipasi dalam kegiatan kebersihan di lingkungan mereka masing-masing. </td></tr><br>
+                                    <tr><td>2. </td><td>menggalang donasi</td></tr><br>
+                                    <tr><td>Membangun jaringan donatur yang kuat dan transparan untuk mendanai proyek-proyek kebersihan dan inisiatif lingkungan di berbagai komunitas. </td></tr><br>
+                                    <tr><td>3. </td>Edukasi dan Kesadaran </tr><br>
+                                    <tr><td> Menyediakan informasi, sumber daya, dan kampanye pendidikan untuk meningkatkan kesadaran tentang pentingnya kebersihan dan kelestarian lingkungan.</td></tr>
                                 </div>
                             </div>
                         </div>
@@ -245,228 +236,228 @@
         </div>
         <!-- About End -->
 
-
-        <!-- Service Start -->
+        {{-- service start --}}
         <div class="service">
-        <div class="text-center" data-aos="fade-up">
-            <div class="container">
-                <div class="section-header text-center">
-                    <p>What We Do?</p>
-                    <h2>We believe that we can save more lifes with you</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                    <div class="text-center" data-aos="fade-up">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="flaticon-diet"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Healthy Food</h3>
-                                <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
-                            </div>
-                        </div>
-                    </div>    
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                    <div class="text-center" data-aos="fade-up">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="flaticon-water"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Save Earth</h3>
-                                <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+            <div class="text-center" data-aos="fade-up">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <p>Apa benefit dari website ini?</p>
+                        <h>beberapa benefit yang akan kalian dapatkan adalah</h2>
+                     </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                        <div class="text-center" data-aos="fade-up">
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <i class="flaticon-diet"></i>
+                                </div>
+                                <div class="service-text">
+                                    <h3>Memberi dampak sosial</h3>
+                                    <p>Kesempatan untuk berperan dalam mendanai proyek-proyek yang memberikan manfaat nyata bagi kebersihan dan kesehatan lingkungan.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                    <div class="text-center" data-aos="fade-up">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="flaticon-healthcare"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Health Care</h3>
-                                <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                        <div class="text-center" data-aos="fade-up">
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <i class="flaticon-water"></i>
+                                </div>
+                                <div class="service-text">
+                                    <h3>Kontribusi positif terhadap lingkungan</h3>
+                                    <p>Peluang untuk langsung berkontribusi dalam menjaga kebersihan lingkungan dan mengurangi sampah.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                    <div class="text-center" data-aos="fade-up">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="flaticon-education"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Primary Education</h3>
-                                <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                        <div class="text-center" data-aos="fade-up">
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <i class="flaticon-healthcare"></i>
+                                </div>
+                                <div class="service-text">
+                                    <h3>Edukasi kebersihan</h3>
+                                    <p>Terdapat berbagai informasi dan edukasi mengenai kebersihan</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                    <div class="text-center" data-aos="fade-up">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="flaticon-home"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Residence Facilities</h3>
-                                <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                        <div class="text-center" data-aos="fade-up">
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <i class="flaticon-education"></i>
+                                </div>
+                                <div class="service-text">
+                                    <h3>Mensejahterakan lingkungan</h3>
+                                    <p>Membantu menciptakan lingkungan yang lebih aman dan sehat bagi mereka yang tinggal di sekitar tempat tersebut.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                    <div class="text-center" data-aos="fade-up">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="flaticon-social-care"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Social Care</h3>
-                                <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                        <div class="text-center" data-aos="fade-up">
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <i class="flaticon-home"></i>
+                                </div>
+                                <div class="service-text">
+                                    <h3>Kepuasan diri</h3>
+                                    <p>Dapat berkontribusi untuk menjaga lingkungan memiliki kepuasan tersendiri.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                        <div class="text-center" data-aos="fade-up">
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <i class="flaticon-social-care"></i>
+                                </div>
+                                <div class="service-text">
+                                    <h3>Menambah relasi</h3>
+                                    <p>Dengan terlibat dalam kegiatan sukarelawan, Anda dapat bertemu dan berinteraksi dengan beragam orang dari latar belakang yang berbeda.</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-        <!-- Service End -->
+            <!-- Service End -->
 
         <!-- Event Start -->
         <div class="event">
-        <div class="text-center" data-aos="fade-up">
-            <div class="container">
-                <div class="section-header text-center">
-                    <p>Upcoming Events</p>
-                    <h2>Be ready for our upcoming events</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                    <div class="text-center" data-aos="fade-up">
-                        <div class="event-item">
-                            <img src="img/event1.jpg" alt="Image">
-                            <div class="event-content">
-                                <div class="event-meta">
-                                    <p><i class="fa fa-calendar-alt"></i>01-Jan-45</p>
-                                    <p><i class="far fa-clock"></i>8:00 - 10:00</p>
-                                    <p><i class="fa fa-map-marker-alt"></i>New York</p>
-                                </div>
-                                <div class="event-text">
-                                    <h3>Lorem ipsum dolor sit</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                                    </p>
-                                    <a class="btn btn-custom" href="">Join Now</a>
+            <div class="text-center" data-aos="fade-up">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <p>Event selanjutnya</p>
+                        <h2>Bersiaplah menjadi agen perubahan</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                        <div data-aos="fade-up">
+                            <div class="event-item">
+                                <img src="img/event1.jpg" alt="Image">
+                                <div class="event-content">
+                                    <div class="event-meta">
+                                        <p><i class="fa fa-calendar-alt"></i>10 Juni 2024</p>
+                                        <p><i class="far fa-clock"></i>08:00 - 12:00 WIB</p>
+                                        <p><i class="fa fa-map-marker-alt"></i>Bukit Jaddih, Bangkalan</p>
+                                    </div>
+                                    <div class="event-text">
+                                        <h3>Jaddih Bersih</h3>
+                                        <p>
+                                            Sebuah kegiatan tahunan yang dibuat oleh Pemerintah Kota Bangkalan untuk membersihkan lembah Bukit Jaddih dari sampah wisatawan.
+                                        </p>
+                                        <a class="btn btn-custom" href="">Gabung sekarang</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-6">
-                    <div class="text-center" data-aos="fade-up">
-                        <div class="event-item">
-                            <img src="img/event2.jpg" alt="Image">
-                            <div class="event-content">
-                                <div class="event-meta">
-                                    <p><i class="fa fa-calendar-alt"></i>01-Jan-45</p>
-                                    <p><i class="far fa-clock"></i>8:00 - 10:00</p>
-                                    <p><i class="fa fa-map-marker-alt"></i>New York</p>
-                                </div>
-                                <div class="event-text">
-                                    <h3>Lorem ipsum dolor sit</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                                    </p>
-                                    <a class="btn btn-custom" href="/acara1">Join Now</a>
+                        </div>
+                        <div class="col-lg-6" data-aos="fade-up">
+                            <div class="event-item">
+                                <img src="img/event2.jpg" alt="Image">
+                                <div class="event-content">
+                                    < <div class="event-meta">
+                                        <p><i class="fa fa-calendar-alt"></i>12 Juni 2024</p>
+                                        <p><i class="far fa-clock"></i>07:00 - 12:00 WIB</p>
+                                        <p><i class="fa fa-map-marker-alt"></i>Pantai Kenjeran</p>
+                                    </div>
+                                    <div class="event-text">
+                                        <h3>Kenjeran Clean</h3>
+                                        <p>
+                                            Sebuah kegiatan tahunan yang diprakarsai oleh Bank Sampah Trash Wallet dan berkolaborasi dengan warga setempat untuk membersihkan pantai dari sampah laut.
+                                        </p>
+                                        <a class="btn btn-custom" href="">Gabung sekarang</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
-        <!-- Event End -->
+            </div>
+            <!-- Event End -->
 
-        <!-- Blog Start -->
-        <div class="blog">
-        <div class="text-center" data-aos="fade-up">
-            <div class="container">
-                <div class="section-header text-center">
-                    <p>Our Blog</p>
-                    <h2>Latest news & articles directly from our blog</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                    <div class="text-center" data-aos="fade-up">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/blog1.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="#">Lorem ipsum dolor sit</a></h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">contact us</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
-                            </div>
-                        </div>
-                        </div>
+            <!-- Blog Start -->
+            <div class="blog">
+            <div class="text-center" data-aos="fade-up">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <p>Blog kami</p>
+                        <h2>Artikel dan tips kebersihan terbaru</h2>
                     </div>
-                    <div class="col-lg-4">
-                    <div class="text-center" data-aos="fade-up">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/blog2.jpg" alt="Image">
+                    <div class="row">
+                        <div class="col-lg-4">
+                        <div class="text-center" data-aos="fade-up">
+                            <div class="blog-item">
+                                <div class="blog-img">
+                                    <img src="img/blog1.jpg" alt="Image">
+                                </div>
+                                <div class="blog-text">
+                                    <h3><a href="#">Mengapa Kebersihan Lingkungan Penting dan Bagaimana Kita Bisa Berkontribusi</a></h3>
+                                    <p>
+                                        Kebersihan lingkungan adalah isu yang semakin mendapat perhatian global, mengingat dampak negatif dari polusi dan sampah terhadap kesehatan manusia dan ekosistem. Lingkungan yang bersih tidak hanya menyenangkan untuk dilihat, tetapi juga vital bagi kesejahteraan manusia.
+                                    </p>
+                                </div>
+                                <div class="blog-meta">
+                                    <p><i class="fa fa-user"></i><a href="">Subagyo</a></p>
+                                    <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
+                                </div>
                             </div>
-                            <div class="blog-text">
-                                <h3><a href="#">Lorem ipsum dolor sit</a></h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                                </p>
                             </div>
-                            <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">contact us</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
+                        </div>
+                        <div class="col-lg-4">
+                        <div class="text-center" data-aos="fade-up">
+                            <div class="blog-item">
+                                <div class="blog-img">
+                                    <img src="img/blog2.jpg" alt="Image">
+                                </div>
+                                <div class="blog-text">
+                                    <h3><a href="/detail">Meningkatkan Kesadaran Lingkungan Melalui Pendidikan</a></h3>
+                                    <p>
+                                        Pendidikan adalah kunci untuk meningkatkan kesadaran tentang pentingnya kebersihan lingkungan. Dengan memahami dampak dari tindakan kita terhadap alam, kita dapat mengambil langkah-langkah yang lebih bertanggung jawab untuk melindungi planet ini.
+                                         Artikel ini akan membahas pentingnya pendidikan lingkungan.
+                                    </p>
+                                </div>
+                                <div class="blog-meta">
+                                    <p><i class="fa fa-user"></i><a href="">M. Galang</a></p>
+                                    <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                        <div class="text-center" data-aos="fade-up">
+                            <div class="blog-item">
+                                <div class="blog-img">
+                                    <img src="img/blog3.jpg" alt="Image">
+                                </div>
+                                <div class="blog-text">
+                                    <h3><a href="#">Mengelola Sampah Rumah Tangga Secara Efektif</a></h3>
+                                    <p>
+                                        Pengelolaan sampah rumah tangga yang efektif adalah langkah penting dalam menjaga kebersihan lingkungan. Dengan cara yang benar, kita dapat mengurangi jumlah sampah yang berakhir di tempat pembuangan akhir dan meningkatkan daur ulang.
+                                        Artikel ini akan membahas berbagai metode untuk mengelola sampah rumah tangga secara efisien.
+                                    </p>
+                                </div>
+                                <div class="blog-meta">
+                                    <p><i class="fa fa-user"></i><a href="">Effendi</a></p>
+                                    <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
+                                </div>
                             </div>
                         </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4">
-                    <div class="text-center" data-aos="fade-up">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/blog3.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="#">Lorem ipsum dolor sit</a></h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">contact us</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
-                            </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
-        <!-- Blog End -->
+            </div>
+            <!-- Blog End -->
 
         <!-- Footer Start -->
         <div class="footer">
@@ -474,10 +465,10 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-contact">
-                            <h2>Our Head Office</h2>
+                            <h2>Kantor Kami</h2>
                             <p><i class="fa fa-map-marker-alt"></i>Ketintang, Surabaya, Indonesia</p>
-                            <p><i class="fa fa-phone-alt"></i>082233853635</p>
-                            <p><i class="fa fa-envelope"></i>sagegreat0@gmail.com</p>
+                            <p><i class="fa fa-phone-alt"></i>082334556778</p>
+                            <p><i class="fa fa-envelope"></i>greenranger0@gmail.com</p>
                             <div class="footer-social">
                                 <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
@@ -489,30 +480,29 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-link">
-                            <h2>Popular Links</h2>
-                            <a href="/volunteer">Become A Volunteer</a>
-                            <a href="/contact">Contact Us</a>
-                            <a href="/event">Upcoming Events</a>
-                            <a href="/detail">Latest Blog</a>
+                            <h2>Tautan Populer</h2>
+                            <a href="/volunteer">Menjadi Sukarelawan</a>
+                            <a href="/contact">Hubungi Kami</a>
+                            <a href="/event">Acara Mendatang</a>
+                            <a href="/detail">Artikel Terbaru</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-link">
-                            <h2>Useful Links</h2>
-                            <a href="">Terms of use</a>
-                            <a href="">Privacy policy</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
+                            <h2>Tautan Berguna</h2>
+                            <a href="">Syarat Penggunaan</a>
+                            <a href="">Kebijakan Privasi</a>
+                            <a href="">Kuki</a>
+                            <a href="">Bantuan</a>
+                            <a href="">Pertanyaan Umum</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-newsletter">
-                            <h2>Newsletter</h2>
+                            <h2>Kritik & saran</h2>
                             <form>
-                                <input class="form-control" placeholder="Email goes here">
-                                <button class="btn btn-custom">Submit</button>
-                                <label>Don't worry, we don't spam!</label>
+                                <input class="form-control" placeholder="Email anda">
+                                <button class="btn btn-custom">kirim</button>
                             </form>
                         </div>
                     </div>
@@ -524,13 +514,11 @@
                         <p>&copy; <a href="#">Green Ranger</a>, copyright 2024.</p>
                     </div>
                     <div class="col-md-6">
-                        <p>Designed By Galang</></p>
+                        <p>Designed By Green Ranger Team</></p>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Footer End -->
-
         <!-- Popup Notification -->
         @if(session('success'))
         <div id="popup" class="popup">

@@ -9,7 +9,10 @@
         <link href="img/favicon.ico" rel="icon">
 
         <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.google.com/share?selection.family=Montserrat:ital,wght@0,100..900;1,100..900|
+                    Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1
+                    ,400;1,500;1,600;1,700;1,800;1,900|Quicksand:wght@300..700|Roboto:ital,wght@0,100;0,300;0,400
+                    ;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900" rel="stylesheet">
 
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
@@ -31,11 +34,11 @@
                         <div class="top-bar-left">
                             <div class="text">
                                 <i class="fa fa-phone-alt"></i>
-                                <p>082233853635</p>
+                                <p>082334556778</p>
                             </div>
                             <div class="text">
                                 <i class="fa fa-envelope"></i>
-                                <p>sagegreat0@gmail.com</p>
+                                <p>greenranger@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -64,18 +67,18 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="/" class="nav-item nav-link active">Home</a>
-                        <a href="/event" class="nav-item nav-link">Events</a>
+                        <a href="/" class="nav-item nav-link active">Beranda</a>
+                        <a href="/event" class="nav-item nav-link">Acara</a>
                         <a href="/blog" class="nav-item nav-link">Blog</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu">
-                                <a href="/donate" class="dropdown-item">Donate Now</a>
-                                <a href="/volunteer" class="dropdown-item">Become A Volunteer</a>
+                                <a href="/donate" class="dropdown-item">Donasi Sekarang</a>
+                                <a href="/volunteer" class="dropdown-item">Daftar Relawan</a>
                             </div>
                         </div>
-                        <a href="/contact" class="nav-item nav-link">Contact</a>
-                        <a href="/login" class="nav-item nav-link">Login</a>
+                        <a href="/contact" class="nav-item nav-link">Kontak</a>
+                        <a href="/auth" class="nav-item nav-link">Login</a>
                     </div>
                 </div>
             </div>
@@ -92,13 +95,14 @@
                                 <img src="img/ss2.jpg" alt="Image">
                             </div>
                             <div class="carousel-text">
-                                <h1>Aktif </h1>
+                                <h1> Bersama menjaga kebersihan, bersama membuat perubahan</h1>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
+                                Mari bergandengan tangan dalam upaya menjaga lingkungan. Donasi Anda tidak hanya membantu mendanai proyek-proyek berkelanjutan,
+                                    tetapi juga mensejahterakan pelaku kebersihan lingkungan.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
                         </div>
@@ -107,13 +111,13 @@
                                 <img src="img/ss1.jpg" alt="Image">
                             </div>
                             <div class="carousel-text">
-                                <h1>Get Involved with helping hand</h1>
+                                <h1>Media kebersihan informatif</h1>
                                 <p>
-                                    Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
+                                    Berbagai informasi dan tips dalam menjaga serta mengolah lingkungan. Mari sayangi bumi kita dengan ikut berpartisipasi dalam menjaga kebersihan.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
                         </div>
@@ -122,13 +126,13 @@
                                 <img src="img/ss3.jpg" alt="Image">
                             </div>
                             <div class="carousel-text">
-                                <h1>Bringing smiles to Earth</h1>
+                                <h1>Mari bergabung</h1>
                                 <p>
-                                    Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
+                                Bergabunglah dengan komunitas sukarelawan kami dan jadilah bagian dari gerakan perubahan. Dengan partisipasi aktif, kita bisa membuat perbedaan nyata.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
                         </div>
@@ -142,8 +146,8 @@
         <div class="blog">
             <div class="container">
                 <div class="section-header text-center">
-                    <p>Our Blog</p>
-                    <h2>Latest news & articles directly from our blog</h2>
+                    <p>Blog kami</p>
+                    <h2>Artikel dan tips kebersihan terbaru</h2>
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
@@ -152,14 +156,15 @@
                                 <img src="img/blog1.jpg" alt="Image">
                             </div>
                             <div class="blog-text">
-                                <h3><a href="#">Lorem ipsum dolor sit</a></h3>
+                                <h3><a href="#">Mengapa Kebersihan Lingkungan Penting dan Bagaimana Kita Bisa Berkontribusi</a></h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                                    Kebersihan lingkungan adalah isu yang semakin mendapat perhatian global, mengingat dampak negatif dari polusi dan sampah terhadap kesehatan manusia dan ekosistem. Lingkungan yang bersih tidak hanya menyenangkan untuk dilihat, tetapi juga vital bagi kesejahteraan kita.
+
                                 </p>
                             </div>
                             <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
+                                <p><i class="fa fa-user"></i><a href="">Subagyo</a></p>
+                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
                             </div>
                         </div>
                     </div>
@@ -169,14 +174,15 @@
                                 <img src="img/blog2.jpg" alt="Image">
                             </div>
                             <div class="blog-text">
-                                <h3><a href="/detail">Lorem ipsum dolor sit</a></h3>
+                                <h3><a href="/detail">Meningkatkan Kesadaran Lingkungan Melalui Pendidikan</a></h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                                    Pendidikan adalah kunci untuk meningkatkan kesadaran tentang pentingnya kebersihan lingkungan. Dengan memahami dampak dari tindakan kita terhadap alam, kita dapat mengambil langkah-langkah yang lebih bertanggung jawab untuk menjaga kebersihan serta melindungi lingkungan serta planet ini.
+
                                 </p>
                             </div>
                             <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
+                                <p><i class="fa fa-user"></i><a href="">M. Galang</a></p>
+                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
                             </div>
                         </div>
                     </div>
@@ -186,14 +192,15 @@
                                 <img src="img/blog3.jpg" alt="Image">
                             </div>
                             <div class="blog-text">
-                                <h3><a href="#">Lorem ipsum dolor sit</a></h3>
+                                <h3><a href="#">Mengelola Sampah Rumah Tangga Secara Efektif</a></h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                                    Pengelolaan sampah rumah tangga yang efektif adalah langkah penting dalam menjaga kebersihan lingkungan. Dengan cara yang benar, kita dapat mengurangi jumlah sampah yang berakhir di tempat pembuangan akhir dan meningkatkan daur ulang.
+                                    Artikel ini akan membahas berbagai metode untuk mengelola sampah rumah tangga secara efisien.
                                 </p>
                             </div>
                             <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
+                                <p><i class="fa fa-user"></i><a href="">Effendi</a></p>
+                                <p><i class="fa fa-comments"></i><a href="">15 Komentar</a></p>
                             </div>
                         </div>
                     </div>
@@ -203,14 +210,15 @@
                                 <img src="img/blog4.jpg" alt="Image">
                             </div>
                             <div class="blog-text">
-                                <h3><a href="#">Lorem ipsum dolor sit</a></h3>
+                                <h3><a href="#">Tips Mengurangi Penggunaan Energi di Rumah</a></h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                                    Penggunaan energi yang efisien di rumah tidak hanya membantu mengurangi biaya listrik, tetapi juga berkontribusi pada pelestarian lingkungan.
+                                     Artikel ini akan membahas berbagai cara untuk mengurangi penggunaan energi di rumah dan manfaat yang diperoleh.
                                 </p>
                             </div>
                             <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
+                                <p><i class="fa fa-user"></i><a href="">Galatama</a></p>
+                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
                             </div>
                         </div>
                     </div>
@@ -220,14 +228,15 @@
                                 <img src="img/blog5.jpg" alt="Image">
                             </div>
                             <div class="blog-text">
-                                <h3><a href="#">Lorem ipsum dolor sit</a></h3>
+                                <h3><a href="#">Menjaga Kebersihan dan Kelestarian Sumber Air</a></h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                                    Sumber air yang bersih dan lestari adalah esensial untuk kehidupan. Sayangnya, pencemaran dan pengelolaan yang buruk sering kali mengancam keberlangsungan sumber air kita.
+                                    Artikel ini akan membahas pentingnya menjaga kebersihan sumber air dan langkah-langkah yang dapat diambil untuk melestarikannya.
                                 </p>
                             </div>
                             <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
+                                <p><i class="fa fa-user"></i><a href="">Bambang</a></p>
+                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
                             </div>
                         </div>
                     </div>
@@ -237,14 +246,15 @@
                                 <img src="img/blog6.jpg" alt="Image">
                             </div>
                             <div class="blog-text">
-                                <h3><a href="#">Lorem ipsum dolor sit</a></h3>
+                                <h3><a href="#">Tips Mengelola Sampah Elektronik Dengan Bijak</a></h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                                    Limbah elektronik, atau e-waste, adalah salah satu masalah lingkungan yang berkembang pesat. Barang-barang elektronik yang dibuang dengan cara yang salah dapat menyebabkan pencemaran berbahaya.
+                                    Artikel ini akan membahas pentingnya pengelolaan limbah elektronik dan langkah-langkah praktis untuk melakukannya.
                                 </p>
                             </div>
                             <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
+                                <p><i class="fa fa-user"></i><a href="">Reyhan</a></p>
+                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
                             </div>
                         </div>
                     </div>
@@ -252,11 +262,11 @@
                 <div class="row">
                     <div class="col-12">
                         <ul class="pagination justify-content-center">
-                            <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item disabled"><a class="page-link" href="#">Sebelum</a></li>
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item active"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Sesudah</a></li>
                         </ul>
                     </div>
                 </div>
@@ -271,10 +281,10 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-contact">
-                            <h2>Our Head Office</h2>
+                            <h2>Kantor Kami</h2>
                             <p><i class="fa fa-map-marker-alt"></i>Ketintang, Surabaya, Indonesia</p>
-                            <p><i class="fa fa-phone-alt"></i>082233853635</p>
-                            <p><i class="fa fa-envelope"></i>sagegreat0@gmail.com</p>
+                            <p><i class="fa fa-phone-alt"></i>082334556778</p>
+                            <p><i class="fa fa-envelope"></i>greenranger0@gmail.com</p>
                             <div class="footer-social">
                                 <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
@@ -286,30 +296,30 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-link">
-                            <h2>Popular Links</h2>
-                            <a href="/volunteer">Become A Volunteer</a>
-                            <a href="/contact">Contact Us</a>
-                            <a href="/event">Upcoming Events</a>
-                            <a href="/detail">Latest Blog</a>
+                            <h2>Tautan Populer</h2>
+                            <a href="/volunteer">Menjadi Sukarelawan</a>
+                            <a href="/contact">Hubungi Kami</a>
+                            <a href="/event">Acara Mendatang</a>
+                            <a href="/detail">Artikel Terbaru</a>
+
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-link">
-                            <h2>Useful Links</h2>
-                            <a href="">Terms of use</a>
-                            <a href="">Privacy policy</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
+                            <h2>Tautan Berguna</h2>
+                            <a href="">Syarat Penggunaan</a>
+                            <a href="">Kebijakan Privasi</a>
+                            <a href="">Kuki</a>
+                            <a href="">Bantuan</a>
+                            <a href="">Pertanyaan Umum</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-newsletter">
-                            <h2>Newsletter</h2>
+                            <h2>Kritik & saran</h2>
                             <form>
-                                <input class="form-control" placeholder="Email goes here">
-                                <button class="btn btn-custom">Submit</button>
-                                <label>Don't worry, we don't spam!</label>
+                                <input class="form-control" placeholder="Email anda">
+                                <button class="btn btn-custom">kirim</button>
                             </form>
                         </div>
                     </div>
@@ -321,7 +331,7 @@
                         <p>&copy; <a href="#">Green Ranger</a>, copyright 2024.</p>
                     </div>
                     <div class="col-md-6">
-                        <p>Designed By Galang</></p>
+                        <p>Designed By Green Ranger Team</></p>
                     </div>
                 </div>
             </div>
@@ -344,6 +354,7 @@
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="lib/parallax/parallax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
@@ -351,5 +362,9 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+
+        <script>
+            AOS.init();
+        </script>
     </body>
 </html>

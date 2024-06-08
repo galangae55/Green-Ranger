@@ -10,7 +10,10 @@
         <link href="img/favicon.ico" rel="icon">
 
         <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.google.com/share?selection.family=Montserrat:ital,wght@0,100..900;1,100..900|
+                    Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1
+                    ,400;1,500;1,600;1,700;1,800;1,900|Quicksand:wght@300..700|Roboto:ital,wght@0,100;0,300;0,400
+                    ;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900" rel="stylesheet">
 
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
@@ -69,11 +72,11 @@
                         <div class="top-bar-left">
                             <div class="text">
                                 <i class="fa fa-phone-alt"></i>
-                                <p>082233853635</p>
+                                <p>082334556778</p>
                             </div>
                             <div class="text">
                                 <i class="fa fa-envelope"></i>
-                                <p>sagegreat0@gmail.com</p>
+                                <p>greenranger@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -102,17 +105,17 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="/" class="nav-item nav-link active">Home</a>
-                        <a href="/event" class="nav-item nav-link">Events</a>
+                        <a href="/" class="nav-item nav-link active">Beranda</a>
+                        <a href="/event" class="nav-item nav-link">Acara</a>
                         <a href="/blog" class="nav-item nav-link">Blog</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu">
-                                <a href="/donate" class="dropdown-item">Donate Now</a>
-                                <a href="/volunteer" class="dropdown-item">Become A Volunteer</a>
+                                <a href="/donate" class="dropdown-item">Donasi Sekarang</a>
+                                <a href="/volunteer" class="dropdown-item">Daftar Relawan</a>
                             </div>
                         </div>
-                        <a href="/contact" class="nav-item nav-link">Contact</a>
+                        <a href="/contact" class="nav-item nav-link">Kontak</a>
                         <a href="/login" class="nav-item nav-link">Login</a>
                     </div>
                 </div>
@@ -121,8 +124,8 @@
         <!-- Nav Bar End -->
 
 
-             <!-- Carousel Start -->
-             <div class="carousel">
+               <!-- Carousel Start -->
+               <div class="carousel">
                 <div class="container-fluid">
                     <div class="owl-carousel">
                         <div class="carousel-item">
@@ -130,13 +133,14 @@
                                 <img src="img/ss2.jpg" alt="Image">
                             </div>
                             <div class="carousel-text">
-                                <h1>Aktif </h1>
+                                <h1> Bersama menjaga kebersihan, bersama membuat perubahan</h1>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
+                                Mari bergandengan tangan dalam upaya menjaga lingkungan. Donasi Anda tidak hanya membantu mendanai proyek-proyek berkelanjutan,
+                                    tetapi juga mensejahterakan pelaku kebersihan lingkungan.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
                         </div>
@@ -145,13 +149,13 @@
                                 <img src="img/ss1.jpg" alt="Image">
                             </div>
                             <div class="carousel-text">
-                                <h1>Get Involved with helping hand</h1>
+                                <h1>Media kebersihan informatif</h1>
                                 <p>
-                                    Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
+                                    Berbagai informasi dan tips dalam menjaga serta mengolah lingkungan. Mari sayangi bumi kita dengan ikut berpartisipasi dalam menjaga kebersihan.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
                         </div>
@@ -160,13 +164,13 @@
                                 <img src="img/ss3.jpg" alt="Image">
                             </div>
                             <div class="carousel-text">
-                                <h1>Bringing smiles to Earth</h1>
+                                <h1>Mari bergabung</h1>
                                 <p>
-                                    Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
+                                Bergabunglah dengan komunitas sukarelawan kami dan jadilah bagian dari gerakan perubahan. Dengan partisipasi aktif, kita bisa membuat perbedaan nyata.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
                         </div>
@@ -198,14 +202,15 @@
                                 </div>
                                 <div class="control-group" data-aos="fade-right">
                                     <select class="form-control" name="event" required="required">
-                                        <option value="" disabled selected>Select Event</option>
-                                        <option value="Acara 1" class="grey-option">Acara 1</option>
-                                        <option value="Acara 2" class="grey-option">Acara 2</option>
-                                        <option value="Acara 3" class="grey-option">Acara 3</option>
+                                        <option value="" disabled selected>Pilih Acara</option>
+                                        <option value="Acara 1" class="grey-option">Jaddih Bersih</option>
+                                        <option value="Acara 2" class="grey-option">Reresih Kenjeran</option>
+                                        <option value="Acara 3" class="grey-option">Penyaluran Donasi</option>
+                                        <option value="Acara 4" class="grey-option">Seminar Pelestarian Alam</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <button class="btn btn-custom" type="submit" data-aos="fade-right">Become a volunteer</button>
+                                    <button class="btn btn-custom" type="submit" data-aos="fade-right">Gabung relawan</button>
                                 </div>
                             </form>
                         </div>
@@ -213,8 +218,8 @@
                     <div class="col-lg-7">
                         <div class="volunteer-content">
                             <div class="section-header">
-                                <p>Become A Volunteer</p>
-                                <h2>Let’s make a difference in the lives of others</h2>
+                                <p>Gabung Relawan</p>
+                                <h2></h2>
                             </div>
                             <div class="volunteer-text">
                                 <p>

@@ -64,17 +64,17 @@
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto">
-                    <a href="/" class="nav-item nav-link active">Home</a>
-                    <a href="/event" class="nav-item nav-link">Events</a>
+                    <a href="/" class="nav-item nav-link active">Beranda</a>
+                    <a href="/event" class="nav-item nav-link">Acara</a>
                     <a href="/blog" class="nav-item nav-link">Blog</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu">
-                            <a href="/donate" class="dropdown-item">Donate Now</a>
-                            <a href="/volunteer" class="dropdown-item">Become A Volunteer</a>
+                            <a href="/donate" class="dropdown-item">Donasi Sekarang</a>
+                            <a href="/volunteer" class="dropdown-item">Daftar Relawan</a>
                         </div>
                     </div>
-                    <a href="/contact" class="nav-item nav-link">Contact</a>
+                    <a href="/contact" class="nav-item nav-link">Kontak</a>
                     <a href="/login" class="nav-item nav-link">Login</a>
                 </div>
             </div>
@@ -91,13 +91,14 @@
                                 <img src="img/ss2.jpg" alt="Image">
                             </div>
                             <div class="carousel-text">
-                                <h1>Aktif </h1>
+                                <h1> Bersama menjaga kebersihan, bersama membuat perubahan</h1>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
+                                Mari bergandengan tangan dalam upaya menjaga lingkungan. Donasi Anda tidak hanya membantu mendanai proyek-proyek berkelanjutan,
+                                    tetapi juga mensejahterakan pelaku kebersihan lingkungan.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
                         </div>
@@ -106,13 +107,13 @@
                                 <img src="img/ss1.jpg" alt="Image">
                             </div>
                             <div class="carousel-text">
-                                <h1>Get Involved with helping hand</h1>
+                                <h1>Media kebersihan informatif</h1>
                                 <p>
-                                    Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
+                                    Berbagai informasi dan tips dalam menjaga serta mengolah lingkungan. Mari sayangi bumi kita dengan ikut berpartisipasi dalam menjaga kebersihan.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
                         </div>
@@ -121,13 +122,13 @@
                                 <img src="img/ss3.jpg" alt="Image">
                             </div>
                             <div class="carousel-text">
-                                <h1>Bringing smiles to Earth</h1>
+                                <h1>Mari bergabung</h1>
                                 <p>
-                                    Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
+                                Bergabunglah dengan komunitas sukarelawan kami dan jadilah bagian dari gerakan perubahan. Dengan partisipasi aktif, kita bisa membuat perbedaan nyata.
                                 </p>
                                 <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donate Now</a>
-                                    <a class="btn btn-custom" href="/volunteer">Join Volunteer</a>
+                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                                 </div>
                             </div>
                         </div>
@@ -146,12 +147,12 @@
                             <div class="col-lg-7">
                                 <div class="donate-content">
                                     <div class="section-header">
-                                        <p>Donate Now</p>
-                                        <h2>Let's donate to needy people for better lives</h2>
+                                        <p>Donasi Sekarang</p>
+                                        <h2>Kontribusi anda sangat berarti bagi kami</h2>
                                     </div>
                                     <div class="donate-text">
                                         <p>
-                                            Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non. Aliquam metus tortor, auctor id gravida, viverra quis sem. Curabitur non nisl nec nisi maximus. Aenean convallis porttitor. Aliquam interdum at lacus non blandit.
+                                            Donasi yang anda keluarkan akan kami gunakan untuk membantu proyek - proyek kebersihan Green Ranger. Kami sangat berterimakasih atas donasi yang anda berikan.
                                         </p>
                                     </div>
                                 </div>
@@ -161,10 +162,10 @@
                                     <form id="donate-form" method="post" action="{{ route('donate.store') }}">
                                         @csrf
                                         <div class="control-group"data-aos="fade-right">
-                                            <input type="text" id="name" name="name" class="form-control" placeholder="Name" required="required" />
+                                            <input type="text" id="name" name="name" class="form-control" placeholder="Nama" required="required" />
                                         </div>
                                         <div class="control-group"data-aos="fade-right">
-                                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone Number" required="required" />
+                                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Nomor telepon" required="required" />
                                         </div>
                                         <div class="control-group"data-aos="fade-right">
                                             <input type="email" id="email" name="email" class="form-control" placeholder="Email" required="required" />
@@ -193,9 +194,9 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-contact">
-                        <h2>Our Office</h2>
+                        <h2>Kantor Kami</h2>
                         <p><i class="fa fa-map-marker-alt"></i>Ketintang, Surabaya, Indonesia</p>
-                        <p><i class="fa fa-phone-alt"></i>082233853635</p>
+                        <p><i class="fa fa-phone-alt"></i>082334556778</p>
                         <p><i class="fa fa-envelope"></i>sagegreat0@gmail.com</p>
                         <div class="footer-social">
                             <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
@@ -208,30 +209,29 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-link">
-                        <h2>Popular Links</h2>
-                        <a href="/volunteer">Become A Volunteer</a>
-                        <a href="/contact">Contact Us</a>
-                        <a href="/event">Upcoming Events</a>
-                        <a href="/detail">Latest Blog</a>
+                        <h2>Tautan Populer</h2>
+                            <a href="/volunteer">Menjadi Sukarelawan</a>
+                            <a href="/contact">Hubungi Kami</a>
+                            <a href="/event">Acara Mendatang</a>
+                            <a href="/detail">Artikel Terbaru</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-link">
-                        <h2>Useful Links</h2>
-                        <a href="">Terms of use</a>
-                        <a href="">Privacy policy</a>
-                        <a href="">Cookies</a>
-                        <a href="">Help</a>
-                        <a href="">FQAs</a>
+                        <h2>Tautan Berguna</h2>
+                            <a href="">Syarat Penggunaan</a>
+                            <a href="">Kebijakan Privasi</a>
+                            <a href="">Kuki</a>
+                            <a href="">Bantuan</a>
+                            <a href="">Pertanyaan Umum</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-newsletter">
-                        <h2>Newsletter</h2>
+                        <h2>Kritik & saran</h2>
                         <form>
-                            <input class="form-control" placeholder="Email goes here">
-                            <button class="btn btn-custom">Submit</button>
-                            <label>Don't worry, we don't spam!</label>
+                            <input class="form-control" placeholder="Email anda">
+                            <button class="btn btn-custom">kirim</button>
                         </form>
                     </div>
                 </div>
@@ -243,7 +243,7 @@
                     <p>&copy; <a href="#">Green Ranger</a>, copyright 2024.</p>
                 </div>
                 <div class="col-md-6">
-                    <p>Designed By Galang</p>
+                    <p>Designed By Green Ranger Team</></p>
                 </div>
             </div>
         </div>
