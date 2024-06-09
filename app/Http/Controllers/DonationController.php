@@ -11,7 +11,7 @@ class DonationController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:20|min:10',
+            'phone' => 'required|integer|max:20|min:10',
             'email' => 'required|string|email|max:255',
         ]);
 

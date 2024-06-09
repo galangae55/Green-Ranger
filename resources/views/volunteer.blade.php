@@ -186,33 +186,6 @@
                 <div class="row align-items-center">
                     <div class="col-lg-5">
                         <div class="volunteer-form">
-                            {{-- <form action="{{ route('volunteer.store') }}" method="POST">
-                                @csrf
-                                <div class="control-group"data-aos="fade-right">
-                                    <input type="text" class="form-control" name="nama" placeholder="Name" required="required" />
-                                </div>
-                                <div class="control-group" data-aos="fade-right">
-                                    <input type="number" class="form-control" name="umur" placeholder="Age" required="required" />
-                                </div>
-                                <div class="control-group" data-aos="fade-right">
-                                    <input type="email" class="form-control" name="email" placeholder="Email" required="required" />
-                                </div>
-                                <div class="control-group" data-aos="fade-right">
-                                    <input type="text" class="form-control" name="no_telp" placeholder="Phone Number" required="required" />
-                                </div>
-                                <div class="control-group" data-aos="fade-right">
-                                    <select class="form-control" name="event" required="required">
-                                        <option value="" disabled selected>Pilih Acara</option>
-                                        <option value="Acara 1" class="grey-option">Kenjeran Clean</option>
-                                        <option value="Acara 2" class="grey-option">Jaddih Bersih</option>
-                                        <option value="Acara 3" class="grey-option">Penyaluran Donasi</option>
-                                        <option value="Acara 4" class="grey-option">Seminar Pelestarian Alam</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <button class="btn btn-custom" type="submit" data-aos="fade-right">Gabung relawan</button>
-                                </div>
-                            </form> --}}
                             <form action="{{ route('volunteer.store') }}" method="POST">
                                 @csrf
                                 <div class="control-group" data-aos="fade-right">
