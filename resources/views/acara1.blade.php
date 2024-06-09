@@ -220,7 +220,7 @@
                         <p class="date-time"><i class="fas fa-calendar-alt"></i> 12 Juni 2024 | 07:00  - 12:00 WIB</p>
                         <p class="location"><i class="fas fa-map-marker-alt"></i> Pantai Kenjeran, Surabaya</p>
                         <p class="description">Ayo bergabung dan jadilah pahlawan kebersihan Pantai Kenjeran</p>
-                        <button class="btn btn-primary mt-3 register-button">Daftar sekarang</button>
+                        <button class="btn btn-primary mt-3 register-button" href="/volunteer">Daftar sekarang</button>
                     </div>
                 </div>
             </section>
@@ -232,7 +232,7 @@
                 <div class="row">
                     <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="schedule-item p-3 rounded shadow d-flex flex-column">
-                            <h4>Pemberrsihkan dan penanaman bakau</h4>
+                            <h4>Pembersihan Sampah dibibir Pantai</h4>
                             <p><i class="fas fa-clock"></i> 07:00 - 09:00 WIB</p>
                             <p>Ayo buat Kenjeran menjadi bersih dan terhindar dari abrasi!</p>
                         </div>

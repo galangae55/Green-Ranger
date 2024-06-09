@@ -218,7 +218,8 @@
                                 <img src="img/user.jpg" />
                             </div>
                             <div class="single-bio-text">
-                                <h3>Muhammad Galang</h3>
+                                <p>author</p>
+                                <h3>Muhammad Jordi</h3>
                                 <p>
                                     Merupakan seorang jurnalis dan juga sebagai aktivis lingkungan yang aktif dalam menyuarakan hal yang berkaitan dengan kebersihan lingkungan.
                                 </p>

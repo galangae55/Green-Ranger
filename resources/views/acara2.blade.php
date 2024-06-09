@@ -205,6 +205,108 @@
 
         <!-- Carousel End -->
 
+                <!-- Event detail start -->
+                <main class="container">
+                    <section class="event-details row my-5">
+                        <div class="col-md-6" data-aos="fade-right">
+                            <div class="event-image">
+                                <img src="img/event2.jpg" alt="Event Image" class="img-fluid rounded shadow">
+                            </div>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-left">
+                            <div class="event-info">
+                                <h2 class="my-4">Kenjeran Clean</h2>
+                                <p class="date-time"><i class="fas fa-calendar-alt"></i> 12 Juni 2024 | 07:00  - 12:00 WIB</p>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i> Pantai Kenjeran, Surabaya</p>
+                                <p class="description">Ayo bergabung dan jadilah pahlawan kebersihan Pantai Kenjeran</p>
+                                <button class="btn btn-primary mt-3 register-button" href="/volunteer">Daftar sekarang</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="event-schedule my-5">
+                        <div class="text-center" data-aos="fade-up">
+                            <h2 class="my-4">Susunan Acara</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                                <div class="schedule-item p-3 rounded shadow d-flex flex-column">
+                                    <h4>Pembersihan Sampah dibibir Pantai</h4>
+                                    <p><i class="fas fa-clock"></i> 07:00 - 09:00 WIB</p>
+                                    <p>Ayo buat Kenjeran menjadi bersih dan terhindar dari abrasi!</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                                <div class="schedule-item p-3 rounded shadow d-flex flex-column">
+                                    <h4>Recycling Workshop</h4>
+                                    <p><i class="fas fa-clock"></i> 09:00 - 11:00 WIB</p>
+                                    <p>Belajar mengubah sampah pantai menjadi barang yang berguna.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                                <div class="schedule-item p-3 rounded shadow d-flex flex-column">
+                                    <h4>Expert Talks</h4>
+                                    <p><i class="fas fa-clock"></i> 11:00 - 12:00 WIB</p>
+                                    <p>Sesi penutup yang menghadirkan pembicara dengan tema kebersihan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="event-gallery my-5">
+                        <div class="text-center" data-aos="fade-up">
+                            <h2 class="my-4">Galeri</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                                <img src="img/gallery1.jpg" alt="Gallery Image 1" class="img-fluid rounded shadow">
+                            </div>
+                            <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                                <img src="img/gallery2.jpg" alt="Gallery Image 2" class="img-fluid rounded shadow">
+                            </div>
+                            <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                                <img src="img/gallery3.jpg" alt="Gallery Image 3" class="img-fluid rounded shadow">
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                <!-- Event detail end -->
+                
+                <!-- acara1 Start -->
+                <div class="container">
+                    <div class="text-center" data-aos="fade-up">
+                        <h2 style="color: #3a5f4c;">Pendaftar Volunteer jeddih bersih</h2>
+                        @if ($volunteers->isEmpty())
+                            <p>Tidak ada data.</p>
+                        @else
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th>
+                                        <th>Umur</th>
+                                        <th>No Telepon</th>
+                                        <th>Email</th>
+                                        <!-- Tambahkan kolom-kolom lain yang diperlukan -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($volunteers as $key => $volunteer)
+                                        <tr>
+                                            <td data-label="No">{{ $key + 1 }}</td>
+                                            <td data-label="Nama">{{ $volunteer->nama }}</td>
+                                            <td data-label="Umur">{{ $volunteer->umur }}</td>
+                                            <td data-label="No Telepon">{{ $volunteer->no_telp }}</td>
+                                            <td data-label="Email">{{ $volunteer->email }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        @endif
+                    </div>
+                    </div>
+                    <!-- acara1 End -->
+
          <!-- Footer Start -->
          <div class="footer">
             <div class="container">

@@ -12,11 +12,11 @@ class VolunteerController extends Controller
     {
         // Validasi data input
         $validator = Validator::make($request->all(), [
-            'nama' => 'required',
-            'umur' => 'required|numeric',
-            'email' => 'required|email',
-            'no_telp' => 'required',
-            'event' => 'required',
+            'nama' => 'required|string|max:255',
+            'umur' => 'required|integer|min:18',
+            'email' => 'required|email|unique:volunteers,email',
+            'no_telp' => 'required|string|max:15',
+            'event' => 'required|string',
         ]);
 
         // Jika validasi gagal
