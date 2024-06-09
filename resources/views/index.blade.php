@@ -439,7 +439,7 @@
                                     <h3><a href="#">Mengelola Sampah Rumah Tangga Secara Efektif</a></h3>
                                     <p>
                                         Pengelolaan sampah rumah tangga yang efektif adalah langkah penting dalam menjaga kebersihan lingkungan. Dengan cara yang benar, kita dapat mengurangi jumlah sampah yang berakhir di tempat pembuangan akhir dan meningkatkan daur ulang.
-                                        Artikel ini akan membahas berbagai metode untuk mengelola sampah rumah tangga secara efisien.
+                                        Artikel ini membahas berbagai metode untuk mengelola sampah rumah tangga.
                                     </p>
                                 </div>
                                 <div class="blog-meta">
