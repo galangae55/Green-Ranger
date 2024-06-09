@@ -11,7 +11,7 @@ class DonationController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'phone' => 'required|integer|max:20|min:10',
+            'phone' => 'required|numeric|digits_between:10,20',
             'email' => 'required|string|email|max:255',
         ]);
 
@@ -24,5 +24,3 @@ class DonationController extends Controller
         return redirect()->back()->with('success', 'Thank you for your donation!');
     }
 }
-
-

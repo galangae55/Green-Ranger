@@ -158,22 +158,32 @@
                                 <div class="donate-form">
                                     <form id="donate-form" method="post" action="{{ route('donate.store') }}">
                                         @csrf
-                                        <div class="control-group"data-aos="fade-right">
-                                            <input type="text" id="name" name="name" class="form-control" placeholder="Nama" required="required" />
+                                        <div class="control-group" data-aos="fade-right">
+                                            <input type="text" id="name" name="name" class="form-control" placeholder="Nama" required="required" value="{{ old('name') }}" />
+                                            @if ($errors->has('name'))
+                                                <div class="alert alert-danger mt-2">{{ $errors->first('name') }}</div>
+                                            @endif
                                         </div>
-                                        <div class="control-group"data-aos="fade-right">
-                                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Nomor telepon" required="required" />
+                                        <div class="control-group" data-aos="fade-right">
+                                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Nomor telepon" required="required" value="{{ old('phone') }}" />
+                                            @if ($errors->has('phone'))
+                                                <div class="alert alert-danger mt-2">{{ $errors->first('phone') }}</div>
+                                            @endif
                                         </div>
-                                        <div class="control-group"data-aos="fade-right">
-                                            <input type="email" id="email" name="email" class="form-control" placeholder="Email" required="required" />
+                                        <div class="control-group" data-aos="fade-right">
+                                            <input type="email" id="email" name="email" class="form-control" placeholder="Email" required="required" value="{{ old('email') }}" />
+                                            @if ($errors->has('email'))
+                                                <div class="alert alert-danger mt-2">{{ $errors->first('email') }}</div>
+                                            @endif
                                         </div>
                                         <div>
-                                            <button class="btn btn-custom" type="submit"data-aos="fade-right">Lanjutkan Pembayaran</button>
+                                            <button class="btn btn-custom" type="submit" data-aos="fade-right">Lanjutkan Pembayaran</button>
                                         </div>
-                                        <div id="error-message" class="alert alert-danger mt-3 d-none" role="alert">
+                                        <div id="error-message" class="alert alert-danger mt-3 {{ $errors->any() ? '' : 'd-none' }}" role="alert">
                                             Form yang anda isi tidak memenuhi kriteria, Tolong ulangi lagi. :)
                                         </div>
                                     </form>
+
                                 </div>
 
                             </div>
