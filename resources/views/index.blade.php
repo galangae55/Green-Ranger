@@ -330,8 +330,7 @@
             <!-- Service End -->
 
         <!-- Event Start -->
-        <div class="event">
-            <div class="text-center" data-aos="fade-up">
+            <div class="event">
                 <div class="container">
                     <div class="section-header text-center">
                         <p>Event selanjutnya</p>
@@ -381,12 +380,10 @@
                     </div>
                 </div>
             </div>
-            </div>
             <!-- Event End -->
 
             <!-- Blog Start -->
             <div class="blog">
-            <div class="text-center" data-aos="fade-up">
                 <div class="container">
                     <div class="section-header text-center">
                         <p>Blog kami</p>
@@ -442,7 +439,7 @@
                                     <h3><a href="#">Mengelola Sampah Rumah Tangga Secara Efektif</a></h3>
                                     <p>
                                         Pengelolaan sampah rumah tangga yang efektif adalah langkah penting dalam menjaga kebersihan lingkungan. Dengan cara yang benar, kita dapat mengurangi jumlah sampah yang berakhir di tempat pembuangan akhir dan meningkatkan daur ulang.
-                                        Artikel ini akan membahas berbagai metode untuk mengelola sampah rumah tangga secara efisien.
+                                        Artikel ini membahas berbagai metode untuk mengelola sampah rumah tangga.
                                     </p>
                                 </div>
                                 <div class="blog-meta">
@@ -454,7 +451,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
             <!-- Blog End -->
 

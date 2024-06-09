@@ -194,7 +194,7 @@
                             <div class="blog-text">
                                 <h3><a href="#">Mengelola Sampah Rumah Tangga Secara Efektif</a></h3>
                                 <p>
-                                    Pengelolaan sampah rumah tangga yang efektif adalah langkah penting dalam menjaga kebersihan lingkungan. Dengan cara yang benar, kita dapat mengurangi jumlah sampah yang berakhir di tempat pembuangan akhir dan meningkatkan daur ulang.
+                                    Pengelolaan sampah rumah tangga penting dalam menjaga kebersihan lingkungan. Dengan cara yang benar, kita dapat mengurangi jumlah sampah di tempat pembuangan akhir dan meningkatkan daur ulang.
                                     Artikel ini akan membahas berbagai metode untuk mengelola sampah rumah tangga secara efisien.
                                 </p>
                             </div>
@@ -249,7 +249,7 @@
                                 <h3><a href="#">Tips Mengelola Sampah Elektronik Dengan Bijak</a></h3>
                                 <p>
                                     Limbah elektronik, atau e-waste, adalah salah satu masalah lingkungan yang berkembang pesat. Barang-barang elektronik yang dibuang dengan cara yang salah dapat menyebabkan pencemaran berbahaya.
-                                    Artikel ini akan membahas pentingnya pengelolaan limbah elektronik dan langkah-langkah praktis untuk melakukannya.
+                                    Artikel ini membahas pengelolaan limbah elektronik dan langkah-langkah praktis untuk melakukannya.
                                 </p>
                             </div>
                             <div class="blog-meta">
