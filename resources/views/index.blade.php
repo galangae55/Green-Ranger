@@ -330,8 +330,7 @@
             <!-- Service End -->
 
         <!-- Event Start -->
-        <div class="event">
-            <div class="text-center" data-aos="fade-up">
+            <div class="event">
                 <div class="container">
                     <div class="section-header text-center">
                         <p>Event selanjutnya</p>
@@ -381,12 +380,10 @@
                     </div>
                 </div>
             </div>
-            </div>
             <!-- Event End -->
 
             <!-- Blog Start -->
             <div class="blog">
-            <div class="text-center" data-aos="fade-up">
                 <div class="container">
                     <div class="section-header text-center">
                         <p>Blog kami</p>
@@ -454,7 +451,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
             <!-- Blog End -->
 
