@@ -35,6 +35,14 @@ class AcaraController extends Controller
         // Mengirim data ke view acara1.blade.php
         return view('acara3', ['volunteers' => $volunteers]);
     }
+    public function acara4()
+    {
+        // Mengambil data acara1 dari tabel volunteer
+        $volunteers = Volunteer::where('event', 'Acara 2')->get();
+
+        // Mengirim data ke view acara1.blade.php
+        return view('acara4', ['volunteers' => $volunteers]);
+    }
 }
 
 

@@ -150,63 +150,64 @@
         <!-- Nav Bar End -->
 
 
-              <!-- Carousel Start -->
-              <div class="carousel">
-                <div class="container-fluid">
-                    <div class="owl-carousel">
-                        <div class="carousel-item">
-                            <div class="carousel-img">
-                                <img src="img/ss2.jpg" alt="Image">
-                            </div>
-                            <div class="carousel-text">
-                                <h1> Bersama menjaga kebersihan, bersama membuat perubahan</h1>
-                                <p>
-                                Mari bergandengan tangan dalam upaya menjaga lingkungan. Donasi Anda tidak hanya membantu mendanai proyek-proyek berkelanjutan,
-                                    tetapi juga mensejahterakan pelaku kebersihan lingkungan.
-                                </p>
-                                <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
-                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
-                                </div>
+          <!-- Carousel Start -->
+          <div class="carousel">
+            <div class="container-fluid">
+                <div class="owl-carousel">
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="img/ss2.jpg" alt="Image">
+                        </div>
+                        <div class="carousel-text">
+                            <h1> Bersama menjaga kebersihan, bersama membuat perubahan</h1>
+                            <p>
+                            Mari bergandengan tangan dalam upaya menjaga lingkungan. Donasi Anda tidak hanya membantu mendanai proyek-proyek berkelanjutan,
+                                tetapi juga mensejahterakan pelaku kebersihan lingkungan.
+                            </p>
+                            <div class="carousel-btn">
+                                <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="carousel-img">
-                                <img src="img/ss1.jpg" alt="Image">
-                            </div>
-                            <div class="carousel-text">
-                                <h1>Media kebersihan informatif</h1>
-                                <p>
-                                    Berbagai informasi dan tips dalam menjaga serta mengolah lingkungan. Mari sayangi bumi kita dengan ikut berpartisipasi dalam menjaga kebersihan.
-                                </p>
-                                <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
-                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
-                                </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="img/ss1.jpg" alt="Image">
+                        </div>
+                        <div class="carousel-text">
+                            <h1>Media kebersihan informatif</h1>
+                            <p>
+                                Berbagai informasi dan tips dalam menjaga serta mengolah lingkungan. Mari sayangi bumi kita dengan ikut berpartisipasi dalam menjaga kebersihan.
+                            </p>
+                            <div class="carousel-btn">
+                                <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="carousel-img">
-                                <img src="img/ss3.jpg" alt="Image">
-                            </div>
-                            <div class="carousel-text">
-                                <h1>Mari bergabung</h1>
-                                <p>
-                                Bergabunglah dengan komunitas sukarelawan kami dan jadilah bagian dari gerakan perubahan. Dengan partisipasi aktif, kita bisa membuat perbedaan nyata.
-                                </p>
-                                <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
-                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
-                                </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="img/ss3.jpg" alt="Image">
+                        </div>
+                        <div class="carousel-text">
+                            <h1>Mari bergabung</h1>
+                            <p>
+                            Bergabunglah dengan komunitas sukarelawan kami dan jadilah bagian dari gerakan perubahan. Dengan partisipasi aktif, kita bisa membuat perbedaan nyata.
+                            </p>
+                            <div class="carousel-btn">
+                                <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
+                                <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Carousel End -->
+        </div>
 
-             <!-- Event detail start -->
-             <main class="container">
+        <!-- Carousel End -->
+
+                <!-- Event detail start -->
+                <main class="container">
                     <section class="event-details row my-5">
                         <div class="col-md-6" data-aos="fade-right">
                             <div class="event-image">
@@ -215,10 +216,10 @@
                         </div>
                         <div class="col-md-6" data-aos="fade-left">
                             <div class="event-info">
-                                <h2 class="my-4">Penyaluran Donasi</h2>
-                                <p class="date-time"><i class="fas fa-calendar-alt"></i> 20 Juni 2024 | 09:00  - 15:00 WIB</p>
-                                <p class="location"><i class="fas fa-map-marker-alt"></i>Dinas Kebersihan dan Pertamanan Surabaya</p>
-                                <p class="description">Ayo bergabung dan jadilah penyalur alat kebersihan.</p>
+                                <h2 class="my-4">Kenjeran Clean</h2>
+                                <p class="date-time"><i class="fas fa-calendar-alt"></i> 12 Juni 2024 | 07:00  - 12:00 WIB</p>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i> Pantai Kenjeran, Surabaya</p>
+                                <p class="description">Ayo bergabung dan jadilah pahlawan kebersihan Pantai Kenjeran</p>
                                 <button class="btn btn-primary mt-3 register-button" href="/volunteer">Daftar sekarang</button>
                             </div>
                         </div>
@@ -231,23 +232,23 @@
                         <div class="row">
                             <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                                 <div class="schedule-item p-3 rounded shadow d-flex flex-column">
-                                    <h4>Sambutan</h4>
-                                    <p><i class="fas fa-clock"></i> 09:00 - 10:00 WIB</p>
-                                    <p>Sambutan dari ketua Green Ranger dan Kepala Dinas Kebersihan dan Pertamanan Surabaya</p>
+                                    <h4>Pembersihan Sampah dibibir Pantai</h4>
+                                    <p><i class="fas fa-clock"></i> 07:00 - 09:00 WIB</p>
+                                    <p>Ayo buat Kenjeran menjadi bersih dan terhindar dari abrasi!</p>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                                 <div class="schedule-item p-3 rounded shadow d-flex flex-column">
-                                    <h4>Penyaluran Donasi</h4>
-                                    <p><i class="fas fa-clock"></i> 10:00 - 12:00 WIB</p>
-                                    <p>Penyaluran donasi dari hasil donasi di Green Ranger.</p>
+                                    <h4>Recycling Workshop</h4>
+                                    <p><i class="fas fa-clock"></i> 09:00 - 11:00 WIB</p>
+                                    <p>Belajar mengubah sampah pantai menjadi barang yang berguna.</p>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
                                 <div class="schedule-item p-3 rounded shadow d-flex flex-column">
-                                    <h4>Sharing Talks</h4>
-                                    <p><i class="fas fa-clock"></i> 12:00 - 15:00 WIB</p>
-                                    <p>Sesi sharing dari ketua Green Ranger dan Kepala Dinas Kebersihan dan Pertamanan Surabaya</p>
+                                    <h4>Expert Talks</h4>
+                                    <p><i class="fas fa-clock"></i> 11:00 - 12:00 WIB</p>
+                                    <p>Sesi penutup yang menghadirkan pembicara dengan tema kebersihan.</p>
                                 </div>
                             </div>
                         </div>
@@ -271,40 +272,41 @@
                     </section>
                 </main>
                 <!-- Event detail end -->
-
-        <!-- acara1 Start -->
-        <div class="container">
-            <h2 style="color: #3a5f4c;">Pendaftar Volunteer Acara 3</h2>
-            @if ($volunteers->isEmpty())
-                <p>Tidak ada data.</p>
-            @else
-                <table class="custom-table">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama</th>
-                            <th>Umur</th>
-                            <th>No Telepon</th>
-                            <th>Email</th>
-                            <!-- Tambahkan kolom-kolom lain yang diperlukan -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($volunteers as $key => $volunteer)
-                            <tr>
-                                <td data-label="No">{{ $key + 1 }}</td>
-                                <td data-label="Nama">{{ $volunteer->nama }}</td>
-                                <td data-label="Umur">{{ $volunteer->umur }}</td>
-                                <td data-label="No Telepon">{{ $volunteer->no_telp }}</td>
-                                <td data-label="Email">{{ $volunteer->email }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            @endif
-        </div>
-        <!-- acara1 End -->
-
+                
+                <!-- acara1 Start -->
+                <div class="container">
+                    <div class="text-center" data-aos="fade-up">
+                        <h2 style="color: #3a5f4c;">Pendaftar Volunteer jeddih bersih</h2>
+                        @if ($volunteers->isEmpty())
+                            <p>Tidak ada data.</p>
+                        @else
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th>
+                                        <th>Umur</th>
+                                        <th>No Telepon</th>
+                                        <th>Email</th>
+                                        <!-- Tambahkan kolom-kolom lain yang diperlukan -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($volunteers as $key => $volunteer)
+                                        <tr>
+                                            <td data-label="No">{{ $key + 1 }}</td>
+                                            <td data-label="Nama">{{ $volunteer->nama }}</td>
+                                            <td data-label="Umur">{{ $volunteer->umur }}</td>
+                                            <td data-label="No Telepon">{{ $volunteer->no_telp }}</td>
+                                            <td data-label="Email">{{ $volunteer->email }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        @endif
+                    </div>
+                    </div>
+                    <!-- acara1 End -->
 
          <!-- Footer Start -->
          <div class="footer">

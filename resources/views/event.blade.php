@@ -161,11 +161,11 @@
                                         <p><i class="fa fa-map-marker-alt"></i>Bukit Jaddih, Bangkalan</p>
                                     </div>
                                     <div class="event-text">
-                                        <h3>Jaddih Bersih</h3>
+                                        <h3><a href="/acara2">Jaddih Bersih</a></h3>
                                         <p>
                                             Sebuah kegiatan tahunan yang dibuat oleh Pemerintah Kota Bangkalan untuk membersihkan lembah Bukit Jaddih dari sampah wisatawan.
                                         </p>
-                                        <a class="btn btn-custom" href="/acara2">Gabung sekarang</a>
+                                        <a class="btn btn-custom" href="/volunteer">Gabung sekarang</a>
                                     </div>
                                 </div>
                             </div>
@@ -180,11 +180,11 @@
                                         <p><i class="fa fa-map-marker-alt"></i>Pantai Kenjeran</p>
                                     </div>
                                     <div class="event-text">
-                                        <h3>Kenjeran Clean</h3>
+                                        <h3><a href="/acara1">Kenjeran Clean</a></h3>
                                         <p>
                                             Sebuah kegiatan tahunan yang diprakarsai oleh Bank Sampah Trash Wallet dan berkolaborasi dengan warga setempat untuk membersihkan pantai dari sampah laut.
                                         </p>
-                                        <a class="btn btn-custom" href="acara1">Gabung sekarang</a>
+                                        <a class="btn btn-custom" href="/volunteer">Gabung sekarang</a>
                                     </div>
                                 </div>
                             </div>
@@ -199,11 +199,11 @@
                                         <p><i class="fa fa-map-marker-alt"></i>Dinas Kebersihan dan </br> pertamanan</p>
                                     </div>
                                     <div class="event-text">
-                                        <h3>Penyaluran Donasi</h3>
+                                        <h3><a href="/acara3">Penyaluran Donasi</a></h3>
                                         <p>
                                             Penyaluran bantuan donasi berupa alat kebersihan dan pertamanan
                                         </p>
-                                        <a class="btn btn-custom" href="/acara3">Gabung sekarang</a>
+                                        <a class="btn btn-custom" href="/volunteer">Gabung sekarang</a>
                                     </div>
                                 </div>
                             </div>
@@ -218,11 +218,11 @@
                                         <p><i class="fa fa-map-marker-alt"></i>Gedung Balai Kartika,<br> Surabaya</p>
                                     </div>
                                     <div class="event-text">
-                                        <h3>Seminar Pelestarian Alam</h3>
+                                        <h3><a href="/acara4">Seminar Pelestarian Alam</a></h3>
                                         <p>
                                             Sebuah seminar pelestarian alam.
                                         </p>
-                                        <a class="btn btn-custom" href="">Gabung sekarang</a>
+                                        <a class="btn btn-custom" href="/volunteer">Gabung sekarang</a>
                                     </div>
                                 </div>
                             </div>
