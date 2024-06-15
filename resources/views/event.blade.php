@@ -218,11 +218,11 @@
                                         <p><i class="fa fa-map-marker-alt"></i>Gedung Balai Kartika,<br> Surabaya</p>
                                     </div>
                                     <div class="event-text">
-                                        <h3>Seminar Pelestarian Alam</h3>
+                                        <h3><a href="/acara4">Seminar Pelestarian Alam</a></h3>
                                         <p>
                                             Sebuah seminar pelestarian alam.
                                         </p>
-                                        <a class="btn btn-custom" href="">Gabung sekarang</a>
+                                        <a class="btn btn-custom" href="/volunteer">Gabung sekarang</a>
                                     </div>
                                 </div>
                             </div>
