@@ -35,7 +35,31 @@ class GreenRangerController extends Controller
             'comments' => Komen::all()
         ]);
     }
-
+    public function detail2(){
+        return view("detail2", [
+            'comments' => Komen::all()
+        ]);
+    }
+    public function detail3(){
+        return view("detail3", [
+            'comments' => Komen::all()
+        ]);
+    }
+    public function detail4(){
+        return view("detail4", [
+            'comments' => Komen::all()
+        ]);
+    }
+    public function detail5(){
+        return view("detail5", [
+            'comments' => Komen::all()
+        ]);
+    }
+    public function detail6(){
+        return view("detail6", [
+            'comments' => Komen::all()
+        ]);
+    }
     public function volunteer(){
         return view("volunteer");
     }

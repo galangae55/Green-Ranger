@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Komen;
 use Illuminate\Http\Request;
 
@@ -11,6 +10,7 @@ class KomenController extends Controller
         $request->validate([
             "nama"=> "required",
             "komentar"=> "required",
+            "origin" => "required"
         ]);
 
         $data = [
@@ -19,6 +19,10 @@ class KomenController extends Controller
         ];
 
         Komen::create($data);
-        return redirect('/detail');
+
+        // Redirect back to the original page
+        $origin = $request->origin;
+        return redirect('/' . $origin);
     }
 }
+

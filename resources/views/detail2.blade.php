@@ -146,8 +146,8 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="single-content">
-                            <img src="img/blog2.jpg" />
-                            <h2>Meningkatkan Kesadaran Lingkungan Melalui Pendidikan</h2>
+                            <img src="img/blog1.jpg" />
+                            <h2>Mengapa Kebersihan Lingkungan Penting dan Bagaimana Kita Bisa Berkontribusi</h2>
                             <h3>Deskripsi</h3>
                             <p>
                                 Pendidikan adalah kunci untuk meningkatkan kesadaran tentang pentingnya kebersihan lingkungan.
@@ -304,7 +304,7 @@
                             <form action="/detail/komen/store" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="hidden" name="origin" value="detail">
+                                    <input type="hidden" name="origin" value="detail2">
                                     <label for="name">Nama *</label>
                                     <input type="text" name="nama" class="form-control" id="name">
                                     @error('nama')

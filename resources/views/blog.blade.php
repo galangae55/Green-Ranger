@@ -156,7 +156,7 @@
                                 <img src="img/blog1.jpg" alt="Image">
                             </div>
                             <div class="blog-text">
-                                <h3><a href="#">Mengapa Kebersihan Lingkungan Penting dan Bagaimana Kita Bisa Berkontribusi</a></h3>
+                                <h3><a href="/detail2">Mengapa Kebersihan Lingkungan Penting dan Bagaimana Kita Bisa Berkontribusi</a></h3>
                                 <p>
                                     Kebersihan lingkungan adalah isu yang semakin mendapat perhatian global, mengingat dampak negatif dari polusi dan sampah terhadap kesehatan manusia dan ekosistem. Lingkungan yang bersih tidak hanya menyenangkan untuk dilihat, tetapi juga vital bagi kesejahteraan kita.
 
@@ -192,7 +192,7 @@
                                 <img src="img/blog3.jpg" alt="Image">
                             </div>
                             <div class="blog-text">
-                                <h3><a href="#">Mengelola Sampah Rumah Tangga Secara Efektif</a></h3>
+                                <h3><a href="detail3">Mengelola Sampah Rumah Tangga Secara Efektif</a></h3>
                                 <p>
                                     Pengelolaan sampah rumah tangga penting dalam menjaga kebersihan lingkungan. Dengan cara yang benar, kita dapat mengurangi jumlah sampah di tempat pembuangan akhir dan meningkatkan daur ulang.
                                     Artikel ini akan membahas berbagai metode untuk mengelola sampah rumah tangga secara efisien.
@@ -210,7 +210,7 @@
                                 <img src="img/blog4.jpg" alt="Image">
                             </div>
                             <div class="blog-text">
-                                <h3><a href="#">Tips Mengurangi Penggunaan Energi di Rumah</a></h3>
+                                <h3><a href="detail4">Tips Mengurangi Penggunaan Energi di Rumah</a></h3>
                                 <p>
                                     Penggunaan energi yang efisien di rumah tidak hanya membantu mengurangi biaya listrik, tetapi juga berkontribusi pada pelestarian lingkungan.
                                      Artikel ini akan membahas berbagai cara untuk mengurangi penggunaan energi di rumah dan manfaat yang diperoleh.
@@ -228,7 +228,7 @@
                                 <img src="img/blog5.jpg" alt="Image">
                             </div>
                             <div class="blog-text">
-                                <h3><a href="#">Menjaga Kebersihan dan Kelestarian Sumber Air</a></h3>
+                                <h3><a href="detail5">Menjaga Kebersihan dan Kelestarian Sumber Air</a></h3>
                                 <p>
                                     Sumber air yang bersih dan lestari adalah esensial untuk kehidupan. Sayangnya, pencemaran dan pengelolaan yang buruk sering kali mengancam keberlangsungan sumber air kita.
                                     Artikel ini akan membahas pentingnya menjaga kebersihan sumber air dan langkah-langkah yang dapat diambil untuk melestarikannya.
@@ -246,7 +246,7 @@
                                 <img src="img/blog6.jpg" alt="Image">
                             </div>
                             <div class="blog-text">
-                                <h3><a href="#">Tips Mengelola Sampah Elektronik Dengan Bijak</a></h3>
+                                <h3><a href="detail6">Tips Mengelola Sampah Elektronik Dengan Bijak</a></h3>
                                 <p>
                                     Limbah elektronik, atau e-waste, adalah salah satu masalah lingkungan yang berkembang pesat. Barang-barang elektronik yang dibuang dengan cara yang salah dapat menyebabkan pencemaran berbahaya.
                                     Artikel ini membahas pengelolaan limbah elektronik dan langkah-langkah praktis untuk melakukannya.

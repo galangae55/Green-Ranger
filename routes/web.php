@@ -18,7 +18,13 @@ Route::get("/event", [GreenRangerController::class,"event"]);
 Route::get("/blog", [GreenRangerController::class,"blog"]);
 Route::get("/contact", [GreenRangerController::class,"contact"]);
 Route::get("/detail", [GreenRangerController::class,"detail"]);
-Route::post("/detail/komen/store", [KomenController::class,"store"]);
+Route::get("/detail2", [GreenRangerController::class,"detail2"]);
+Route::get("/detail3", [GreenRangerController::class,"detail3"]);
+Route::get("/detail4", [GreenRangerController::class,"detail4"]);
+Route::get("/detail5", [GreenRangerController::class,"detail5"]);
+Route::get("/detail6", [GreenRangerController::class,"detail6"]);
+Route::post("/detail/komen/store", [KomenController::class, "store"]);
+
 Route::post('/donate', [DonationController::class, 'store'])->name('donate.store');
 // Auth
 Route::middleware(['web'])->group(function () {
