@@ -202,6 +202,9 @@
                             <h6>3. Lembaga Pemerintah</h6>
                             <p>Kolaborasi dengan lembaga pemerintah dapat memperkuat program pendidikan lingkungan melalui kebijakan dan regulasi yang mendukung. Pemerintah dapat menyediakan dana, fasilitas, dan program-program pelatihan.</p>
                             <h3>Kesimpulan</h3>
+                            <p>Pendidikan adalah alat yang sangat kuat dalam meningkatkan kesadaran lingkungan. Dengan mengintegrasikan pendidikan lingkungan ke dalam kurikulum sekolah, menyediakan program ekstrakurikuler, mengadakan program untuk masyarakat,
+                                menggunakan pendekatan berbasis proyek dan pengalaman, berkolaborasi dengan organisasi lingkungan, memanfaatkan teknologi dan media, serta mendorong lifelong learning, kita dapat membangun generasi yang lebih peduli dan bertanggung jawab terhadap lingkungan.
+                                Meningkatkan kesadaran lingkungan melalui pendidikan bukan hanya investasi untuk masa depan yang lebih hijau dan berkelanjutan, tetapi juga langkah penting untuk menjaga planet kita tetap layak huni bagi generasi mendatang.</p>
 
                         </div>
                         <div class="single-tags">
@@ -226,17 +229,17 @@
                             </div>
                         </div>
                         <div class="single-related">
-                            <h2>Related Post</h2>
+                            <h2>Postingan Serupa</h2>
                             <div class="owl-carousel related-slider">
                                 <div class="post-item">
                                     <div class="post-img">
                                         <img src="img/blog1.jpg" />
                                     </div>
                                     <div class="post-text">
-                                        <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                        <a href="">Mengapa Kebersihan Lingkungan Penting dan Bagaimana Kita Bisa Berkontribusi</a>
                                         <div class="post-meta">
-                                            <p>By<a href="">Admin</a></p>
-                                            <p>In<a href="">Web Design</a></p>
+                                            <p>By<a href="">Muhammad Thohir</a></p>
+                                            <p>In<a href="">Makassar</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -245,10 +248,10 @@
                                         <img src="img/blog3.jpg" />
                                     </div>
                                     <div class="post-text">
-                                        <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                        <a href="">Mengelola Sampah Rumah Tangga Secara Efektif</a>
                                         <div class="post-meta">
-                                            <p>By<a href="">Admin</a></p>
-                                            <p>In<a href="">Web Design</a></p>
+                                            <p>By<a href="">Effendi</a></p>
+                                            <p>In<a href="">Jember</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -257,10 +260,10 @@
                                         <img src="img/blog4.jpg" />
                                     </div>
                                     <div class="post-text">
-                                        <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                        <a href="">Tips Mengurangi Penggunaan Energi di Rumah</a>
                                         <div class="post-meta">
-                                            <p>By<a href="">Admin</a></p>
-                                            <p>In<a href="">Web Design</a></p>
+                                            <p>By<a href="">Galatama</a></p>
+                                            <p>In<a href="">Surabaya</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -269,10 +272,10 @@
                                         <img src="img/blog5.jpg" />
                                     </div>
                                     <div class="post-text">
-                                        <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                        <a href="">Menjaga Kebersihan dan Kelestarian Air</a>
                                         <div class="post-meta">
-                                            <p>By<a href="">Admin</a></p>
-                                            <p>In<a href="">Web Design</a></p>
+                                            <p>By<a href="">Bambang</a></p>
+                                            <p>In<a href="">Medan</a></p>
                                         </div>
                                     </div>
                                 </div>

@@ -215,10 +215,10 @@
                         </div>
                         <div class="col-md-6" data-aos="fade-left">
                             <div class="event-info">
-                                <h2 class="my-4">Kenjeran Clean</h2>
-                                <p class="date-time"><i class="fas fa-calendar-alt"></i> 12 Juni 2024 | 07:00  - 12:00 WIB</p>
-                                <p class="location"><i class="fas fa-map-marker-alt"></i> Pantai Kenjeran, Surabaya</p>
-                                <p class="description">Ayo bergabung dan jadilah pahlawan kebersihan Pantai Kenjeran</p>
+                                <h2 class="my-4">Jaddih Bersih</h2>
+                                <p class="date-time"><i class="fas fa-calendar-alt"></i> 10 Juni 2024 | 08:00  - 12:00 WIB</p>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i>Bukit Jaddih, Bangkalan</p>
+                                <p class="description">Ayo bergabung dan jadilah pahlawan kebersihan Bukit Jaddih</p>
                                 <button class="btn btn-primary mt-3 register-button" href="/volunteer">Daftar sekarang</button>
                             </div>
                         </div>
@@ -231,16 +231,16 @@
                         <div class="row">
                             <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                                 <div class="schedule-item p-3 rounded shadow d-flex flex-column">
-                                    <h4>Pembersihan Sampah dibibir Pantai</h4>
-                                    <p><i class="fas fa-clock"></i> 07:00 - 09:00 WIB</p>
-                                    <p>Ayo buat Kenjeran menjadi bersih dan terhindar dari abrasi!</p>
+                                    <h4>Pembersihan sampah di pinggir bukit</h4>
+                                    <p><i class="fas fa-clock"></i> 08:00 - 09:00 WIB</p>
+                                    <p>Pembersihan bukit dari sampah - sampah wisatawan.</p>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                                 <div class="schedule-item p-3 rounded shadow d-flex flex-column">
-                                    <h4>Recycling Workshop</h4>
+                                    <h4>Penambahan Fasilitas Kebersihan</h4>
                                     <p><i class="fas fa-clock"></i> 09:00 - 11:00 WIB</p>
-                                    <p>Belajar mengubah sampah pantai menjadi barang yang berguna.</p>
+                                    <p>Menambahkan tong sampah dan tanda buang sampah pada tempatnya.</p>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
@@ -271,7 +271,7 @@
                     </section>
                 </main>
                 <!-- Event detail end -->
-                
+
                 <!-- acara1 Start -->
                 <div class="container">
                     <div class="text-center" data-aos="fade-up">
