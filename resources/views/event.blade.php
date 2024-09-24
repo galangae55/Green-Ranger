@@ -68,7 +68,6 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="/" class="nav-item nav-link active">Beranda</a>
                         <a href="/event" class="nav-item nav-link">Acara</a>
                         <a href="/blog" class="nav-item nav-link">Blog</a>
                         <div class="nav-item dropdown">
@@ -79,6 +78,7 @@
                             </div>
                         </div>
                         <a href="/contact" class="nav-item nav-link">Kontak</a>
+                        <a href="/belanja" class="nav-item nav-link">Belanja</a>
                         <a href="/auth" class="nav-item nav-link">Login</a>
                     </div>
                 </div>

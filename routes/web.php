@@ -17,6 +17,7 @@ Route::get("/", [GreenRangerController::class,"homepage"]);
 Route::get("/event", [GreenRangerController::class,"event"]);
 Route::get("/blog", [GreenRangerController::class,"blog"]);
 Route::get("/contact", [GreenRangerController::class,"contact"]);
+Route::get("/belanja", [GreenRangerController::class,"belanja"]);
 Route::get("/detail", [GreenRangerController::class,"detail"]);
 Route::get("/detail2", [GreenRangerController::class,"detail2"]);
 Route::get("/detail3", [GreenRangerController::class,"detail3"]);

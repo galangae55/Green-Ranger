@@ -30,6 +30,10 @@ class GreenRangerController extends Controller
         return view("contact");
     }
 
+    public function belanja(){
+        return view("belanja");
+    }
+
     public function detail(){
         return view("detail", [
             'comments' => Komen::all()
