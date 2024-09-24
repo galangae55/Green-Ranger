@@ -19,13 +19,7 @@ Route::get("/blog", [GreenRangerController::class,"blog"]);
 Route::get("/contact", [GreenRangerController::class,"contact"]);
 Route::get("/belanja", [GreenRangerController::class,"belanja"]);
 Route::get("/detail", [GreenRangerController::class,"detail"]);
-Route::get("/detail2", [GreenRangerController::class,"detail2"]);
-Route::get("/detail3", [GreenRangerController::class,"detail3"]);
-Route::get("/detail4", [GreenRangerController::class,"detail4"]);
-Route::get("/detail5", [GreenRangerController::class,"detail5"]);
-Route::get("/detail6", [GreenRangerController::class,"detail6"]);
-Route::post("/detail/komen/store", [KomenController::class, "store"]);
-
+Route::post("/detail/komen/store", [KomenController::class,"store"]);
 Route::post('/donate', [DonationController::class, 'store'])->name('donate.store');
 // Auth
 Route::middleware(['web'])->group(function () {
@@ -44,5 +38,6 @@ Route::post('/volunteer', [VolunteerController::class, 'store'])->name('voluntee
 Route::get('/acara1', [AcaraController::class, 'acara1'])->name('acara1');
 Route::get('/acara2', [AcaraController::class, 'acara2'])->name('acara2');
 Route::get('/acara3', [AcaraController::class, 'acara3'])->name('acara3');
+Route::get('/acara4', [AcaraController::class, 'acara4'])->name('acara4');
 
 

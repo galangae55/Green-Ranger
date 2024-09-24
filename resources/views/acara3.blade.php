@@ -14,6 +14,7 @@
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
         <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
         <link href="lib/animate/animate.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -214,10 +215,10 @@
                         </div>
                         <div class="col-md-6" data-aos="fade-left">
                             <div class="event-info">
-                                <h2 class="my-4">Kenjeran Clean</h2>
-                                <p class="date-time"><i class="fas fa-calendar-alt"></i> 12 Juni 2024 | 07:00  - 12:00 WIB</p>
-                                <p class="location"><i class="fas fa-map-marker-alt"></i> Pantai Kenjeran, Surabaya</p>
-                                <p class="description">Ayo bergabung dan jadilah pahlawan kebersihan Pantai Kenjeran</p>
+                                <h2 class="my-4">Penyaluran Donasi</h2>
+                                <p class="date-time"><i class="fas fa-calendar-alt"></i> 20 Juni 2024 | 09:00  - 15:00 WIB</p>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i>Dinas Kebersihan dan Pertamanan Surabaya</p>
+                                <p class="description">Ayo bergabung dan jadilah penyalur alat kebersihan.</p>
                                 <button class="btn btn-primary mt-3 register-button" href="/volunteer">Daftar sekarang</button>
                             </div>
                         </div>
@@ -230,23 +231,23 @@
                         <div class="row">
                             <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                                 <div class="schedule-item p-3 rounded shadow d-flex flex-column">
-                                    <h4>Pembersihan Sampah dibibir Pantai</h4>
-                                    <p><i class="fas fa-clock"></i> 07:00 - 09:00 WIB</p>
-                                    <p>Ayo buat Kenjeran menjadi bersih dan terhindar dari abrasi!</p>
+                                    <h4>Sambutan</h4>
+                                    <p><i class="fas fa-clock"></i> 09:00 - 10:00 WIB</p>
+                                    <p>Sambutan dari ketua Green Ranger dan Kepala Dinas Kebersihan dan Pertamanan Surabaya</p>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                                 <div class="schedule-item p-3 rounded shadow d-flex flex-column">
-                                    <h4>Recycling Workshop</h4>
-                                    <p><i class="fas fa-clock"></i> 09:00 - 11:00 WIB</p>
-                                    <p>Belajar mengubah sampah pantai menjadi barang yang berguna.</p>
+                                    <h4>Penyaluran Donasi</h4>
+                                    <p><i class="fas fa-clock"></i> 10:00 - 12:00 WIB</p>
+                                    <p>Penyaluran donasi dari hasil donasi di Green Ranger.</p>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
                                 <div class="schedule-item p-3 rounded shadow d-flex flex-column">
-                                    <h4>Expert Talks</h4>
-                                    <p><i class="fas fa-clock"></i> 11:00 - 12:00 WIB</p>
-                                    <p>Sesi penutup yang menghadirkan pembicara dengan tema kebersihan.</p>
+                                    <h4>Sharing Talks</h4>
+                                    <p><i class="fas fa-clock"></i> 12:00 - 15:00 WIB</p>
+                                    <p>Sesi sharing dari ketua Green Ranger dan Kepala Dinas Kebersihan dan Pertamanan Surabaya</p>
                                 </div>
                             </div>
                         </div>
@@ -383,6 +384,7 @@
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="lib/parallax/parallax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
@@ -390,5 +392,8 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+        <script>
+            AOS.init();
+        </script>
     </body>
 </html>
