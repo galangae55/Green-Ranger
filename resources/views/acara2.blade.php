@@ -151,8 +151,18 @@
                             </div>
                         </div>
                         <a href="/contact" class="nav-item nav-link">Kontak</a>
-                        <a href="/belanja" class="nav-item nav-link">Belanja</a>
-                        <a href="/auth" class="nav-item nav-link">Login</a>
+                        <a href="/belanja" class="nav-item nav-link">Belanja
+
+                        </a>@if (session('user_name')) <!-- Jika pengguna login -->
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: flex;">
+                            @csrf
+                            <button type="submit" title="Log Out" style="background: none;border: none;cursor: pointer;color: rgb(255, 255, 255);display: flex;align-items: center;padding-right: 15px;">
+                                <i class="fas fa-sign-out-alt" style="font-size: 20px;"></i>
+                            </button>
+                        </form>
+                        @else <!-- Jika pengguna tidak login -->
+                            <a href="/auth" class="nav-item nav-link">Login</a>
+                        @endif
                     </div>
                 </div>
             </div>
