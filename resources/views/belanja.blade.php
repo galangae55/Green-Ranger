@@ -45,6 +45,13 @@
                             </div>
                         </div>
                     </div>
+                    {{-- NOTIF KETIKA BERHASIL LOG OUT --}}
+                    @if (request()->query('logout') === 'success')
+                        <script>
+                            alert('Anda telah berhasil logout.'); // Notifikasi pop-up
+                        </script>
+                    @endif
+
                     <div class="col-md-4">
                         <div class="top-bar-right">
                             <div class="social">
@@ -54,7 +61,7 @@
                                 <a href=""><i class="fab fa-instagram"></i></a>
                             </div>
                             @if (session('user_name'))
-                                <p style="margin-bottom: 0px; display: flex; align-items: center; color: #dfae42; padding-left: 16px;">{{ session('user_name') }}</p>
+                                <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
                             @endif
                         </div>
                     </div>
@@ -84,7 +91,17 @@
                         </div>
                         <a href="/contact" class="nav-item nav-link">Kontak</a>
                         <a href="/belanja" class="nav-item nav-link">Belanja</a>
-                        <a href="/auth" class="nav-item nav-link">Login</a>
+
+                        @if (session('user_name')) <!-- Jika pengguna login -->
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: flex;">
+                                @csrf
+                                <button type="submit" title="Log Out" style="background: none;border: none;cursor: pointer;color: rgb(255, 255, 255);display: flex;align-items: center;padding-right: 15px;">
+                                    <i class="fas fa-sign-out-alt" style="font-size: 20px;"></i>
+                                </button>
+                            </form>
+                        @else <!-- Jika pengguna tidak login -->
+                            <a href="/auth" class="nav-item nav-link">Login</a>
+                        @endif
                     </div>
                 </div>
             </div>
