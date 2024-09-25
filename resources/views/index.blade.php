@@ -41,6 +41,10 @@
                 transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out; /* Transisi lebih lambat dan halus */
             }
 
+            .popup.red {
+                background-color: red; /* Warna latar belakang merah */
+            }
+
             .popup.show {
                 opacity: 1; /* Tampilkan popup dengan opasitas penuh */
                 transform: translate(-50%, 0); /* Kembali ke posisi normal */
@@ -76,6 +80,25 @@
     </head>
 
     <body>
+        {{-- MIDDLEWARE UNTUK HALAMAN ADMIN --}}
+        @if (session('error'))
+            <div id="notification" class="popup hide red"> <!-- Tambahkan kelas 'red' -->
+                {{ session('error') }}
+            </div>
+            <script>
+                // Tampilkan notifikasi
+                const notification = document.getElementById('notification');
+                notification.classList.remove('hide');
+                notification.classList.add('show');
+
+                // Hapus notifikasi setelah 3 detik
+                setTimeout(function() {
+                    notification.classList.remove('show');
+                    notification.classList.add('hide');
+                }, 3000);
+            </script>
+        @endif
+
         <!-- Top Bar Start -->
         <div class="top-bar d-none d-md-block">
             <div class="container-fluid">

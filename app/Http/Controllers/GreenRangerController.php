@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Komen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Comment;
 
 class GreenRangerController extends Controller
@@ -14,9 +15,6 @@ class GreenRangerController extends Controller
         return view("index");
     }
 
-    public function admin(){
-        return view("adminPage");
-    }
 
     public function donate(){
         return view("donate");
@@ -76,4 +74,15 @@ class GreenRangerController extends Controller
         return view("login");
     }
 
+    public function adminRole(Request $request)
+    {
+        // Cek apakah pengguna sudah login dan memiliki role 'admin'
+        if (!Auth::check() || Auth::user()->role !== 'admin') {
+            // Alihkan jika tidak memiliki akses
+            return redirect('/')->with('error', 'Anda tidak memiliki akses ke halaman ini.');
+        }
+
+        // Tampilkan halaman admin jika memiliki akses
+        return view('/adminPage');
+    }
 }

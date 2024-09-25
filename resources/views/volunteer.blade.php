@@ -80,6 +80,13 @@
                             </div>
                         </div>
                     </div>
+                    {{-- NOTIF KETIKA BERHASIL LOG OUT --}}
+                    @if (request()->query('logout') === 'success')
+                        <script>
+                            alert('Anda telah berhasil logout.'); // Notifikasi pop-up
+                        </script>
+                    @endif
+
                     <div class="col-md-4">
                         <div class="top-bar-right">
                             <div class="social">
@@ -88,6 +95,9 @@
                                 <a href=""><i class="fab fa-linkedin-in"></i></a>
                                 <a href=""><i class="fab fa-instagram"></i></a>
                             </div>
+                            @if (session('user_name'))
+                                <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
+                            @endif
                         </div>
                     </div>
                 </div>

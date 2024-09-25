@@ -11,9 +11,27 @@ use Illuminate\Support\Facades\Redirect;
 
 class AuthController extends Controller
 {
-    public function showAuthForm()
+    public function showAuthForm(Request $request)
     {
-        return view('auth.auth');
+        // Cek apakah pengguna sudah login
+        if (Auth::check()) {
+            // Jika sudah login, alihkan ke halaman yang diinginkan
+            return redirect('/'); // Ganti dengan halaman yang sesuai
+        }
+
+        return view('auth.auth'); // Tampilkan formulir login
+    }
+
+
+    public function showLoginForm(Request $request)
+    {
+        // Cek apakah pengguna sudah login
+        if (Auth::check()) {
+            // Jika sudah login, alihkan ke halaman yang diinginkan
+            return redirect('/'); // Ganti dengan halaman yang sesuai
+        }
+
+        return view('auth.login'); // Tampilkan formulir login
     }
 
     // REGISTER FUNCTION
@@ -35,7 +53,6 @@ class AuthController extends Controller
         // Redirect ke halaman / dengan notifikasi
         return Redirect::to('/auth')->with('success', 'User registered successfully');
     }
-
 
     public function login(Request $request)
     {
