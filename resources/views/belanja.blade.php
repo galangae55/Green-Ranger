@@ -203,7 +203,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="shop-single.html">
+                          <a href="/shop_single">
                           <img src="img/shop/shop_item_1.jpg" alt="">
                           <img src="img/shop/shop_item_back_1.jpg" alt="" class="back-img">
                         </a>
@@ -222,7 +222,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Drawstring Dress</a>
+                          <a href="/shop_single">Drawstring Dress</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Women</a>
@@ -240,7 +240,7 @@
 
                       <div class="product-description">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Drawstring Dress</a>
+                          <a href="/shop_single">Drawstring Dress</a>
                         </h3>
                         <span class="price">
                           <del>
@@ -268,7 +268,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="shop-single.html">
+                        <a href="/shop_single">
                           <img src="img/shop/shop_item_2.jpg" alt="">
                           <img src="img/shop/shop_item_back_2.jpg" alt="" class="back-img">
                         </a>
@@ -284,7 +284,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Mesh Brown Sandal</a>
+                          <a href="/shop_single">Mesh Brown Sandal</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Accessories</a>
@@ -299,7 +299,7 @@
 
                       <div class="product-description">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Mesh Brown Sandal</a>
+                          <a href="/shop_single">Mesh Brown Sandal</a>
                         </h3>
                         <span class="price">
                           <ins>
@@ -324,7 +324,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="shop-single.html">
+                        <a href="/shop_single">
                           <img src="img/shop/shop_item_3.jpg" alt="">
                           <img src="img/shop/shop_item_back_3.jpg" alt="" class="back-img">
                         </a>
@@ -340,7 +340,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Tribal Grey Blazer</a>
+                          <a href="/shop_single">Tribal Grey Blazer</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Women</a>
@@ -355,7 +355,7 @@
 
                       <div class="product-description">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Tribal Grey Blazer</a>
+                          <a href="/shop_single">Tribal Grey Blazer</a>
                         </h3>
                         <span class="price">
                           <ins>
@@ -380,7 +380,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="shop-single.html">
+                        <a href="/shop_single">
                           <img src="img/shop/shop_item_4.jpg" alt="">
                           <img src="img/shop/shop_item_back_4.jpg" alt="" class="back-img">
                         </a>
@@ -396,7 +396,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Sweater w/ Colar</a>
+                          <a href="/shop_single">Sweater w/ Colar</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Men</a>
@@ -411,7 +411,7 @@
 
                       <div class="product-description">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Sweater w/ Colar</a>
+                          <a href="/shop_single">Sweater w/ Colar</a>
                         </h3>
                         <span class="price">
                           <ins>
@@ -436,7 +436,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="shop-single.html">
+                        <a href="/shop_single">
                           <img src="img/shop/shop_item_5.jpg" alt="">
                           <img src="img/shop/shop_item_back_5.jpg" alt="" class="back-img">
                         </a>
@@ -452,7 +452,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Lola May Crop Blazer</a>
+                          <a href="/shop_single">Lola May Crop Blazer</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Women</a>
@@ -467,7 +467,7 @@
 
                       <div class="product-description">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Lola May Crop Blazer</a>
+                          <a href="/shop_single">Lola May Crop Blazer</a>
                         </h3>
                         <span class="price">
                           <ins>
@@ -492,7 +492,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="shop-single.html">
+                        <a href="/shop_single">
                           <img src="img/shop/shop_item_6.jpg" alt="">
                           <img src="img/shop/shop_item_back_6.jpg" alt="" class="back-img">
                         </a>
@@ -511,7 +511,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Faux Suits</a>
+                          <a href="/shop_single">Faux Suits</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Men</a>
@@ -529,7 +529,7 @@
 
                       <div class="product-description">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Faux Suits</a>
+                          <a href="/shop_single">Faux Suits</a>
                         </h3>
                         <span class="price">
                           <del>
@@ -557,7 +557,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="shop-single.html">
+                        <a href="/shop_single">
                           <img src="img/shop/shop_item_7.jpg" alt="">
                           <img src="img/shop/shop_item_back_7.jpg" alt="" class="back-img">
                         </a>
@@ -573,7 +573,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Crew Watch</a>
+                          <a href="/shop_single">Crew Watch</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Accessories</a>
@@ -588,7 +588,7 @@
 
                       <div class="product-description">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Crew Watch</a>
+                          <a href="/shop_single">Crew Watch</a>
                         </h3>
                         <span class="price">
                           <ins>
@@ -613,7 +613,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="shop-single.html">
+                        <a href="/shop_single">
                           <img src="img/shop/shop_item_8.jpg" alt="">
                           <img src="img/shop/shop_item_back_8.jpg" alt="" class="back-img">
                         </a>
@@ -629,7 +629,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Jersey Stylish</a>
+                          <a href="/shop_single">Jersey Stylish</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Women</a>
@@ -644,7 +644,7 @@
 
                       <div class="product-description">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Jersey Stylish</a>
+                          <a href="/shop_single">Jersey Stylish</a>
                         </h3>
                         <span class="price">
                           <ins>
@@ -669,7 +669,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="shop-single.html">
+                        <a href="/shop_single">
                           <img src="img/shop/shop_item_9.jpg" alt="">
                           <img src="img/shop/shop_item_back_9.jpg" alt="" class="back-img">
                         </a>
@@ -685,7 +685,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Camo Belt</a>
+                          <a href="/shop_single">Camo Belt</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Accessories</a>
@@ -700,7 +700,7 @@
 
                       <div class="product-description">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Camo Belt</a>
+                          <a href="/shop_single">Camo Belt</a>
                         </h3>
                         <span class="price">
                           <ins>
@@ -725,7 +725,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="shop-single.html">
+                        <a href="/shop_single">
                           <img src="img/shop/shop_item_10.jpg" alt="">
                           <img src="img/shop/shop_item_back_10.jpg" alt="" class="back-img">
                         </a>
@@ -741,7 +741,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Heathered Scarf</a>
+                          <a href="/shop_single">Heathered Scarf</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Accessories</a>
@@ -756,7 +756,7 @@
 
                       <div class="product-description">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Heathered Scarf</a>
+                          <a href="/shop_single">Heathered Scarf</a>
                         </h3>
                         <span class="price">
                           <ins>
@@ -781,7 +781,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="shop-single.html">
+                        <a href="/shop_single">
                           <img src="img/shop/shop_item_11.jpg" alt="">
                           <img src="img/shop/shop_item_back_11.jpg" alt="" class="back-img">
                         </a>
@@ -797,7 +797,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Mantle Brown Bag</a>
+                          <a href="/shop_single">Mantle Brown Bag</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Accessories</a>
@@ -812,7 +812,7 @@
 
                       <div class="product-description">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Mantle Brown Bag</a>
+                          <a href="/shop_single">Mantle Brown Bag</a>
                         </h3>
                         <span class="price">
                           <ins>
@@ -837,7 +837,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="shop-single.html">
+                        <a href="/shop_single">
                           <img src="img/shop/shop_item_12.jpg" alt="">
                           <img src="img/shop/shop_item_back_12.jpg" alt="" class="back-img">
                         </a>
@@ -856,7 +856,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Sport T-shirt</a>
+                          <a href="/shop_single">Sport T-shirt</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Men</a>
@@ -874,7 +874,7 @@
 
                       <div class="product-description">
                         <h3 class="product-title">
-                          <a href="shop-single.html">Sport T-shirt</a>
+                          <a href="/shop_single">Sport T-shirt</a>
                         </h3>
                         <span class="price">
                           <del>

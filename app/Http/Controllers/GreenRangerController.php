@@ -15,6 +15,10 @@ class GreenRangerController extends Controller
         return view("index");
     }
 
+    public function shop_single(){
+        return view("shop_single");
+    }
+
 
     public function donate(){
         return view("donate");
