@@ -19,6 +19,7 @@ Route::get("/blog", [GreenRangerController::class,"blog"]);
 Route::get("/contact", [GreenRangerController::class,"contact"]);
 Route::get("/belanja", [GreenRangerController::class,"belanja"]);
 Route::get("/detail", [GreenRangerController::class,"detail"]);
+Route::get("/admin", [GreenRangerController::class,"admin"]);
 Route::post("/detail/komen/store", [KomenController::class,"store"]);
 Route::post('/donate', [DonationController::class, 'store'])->name('donate.store');
 // Auth

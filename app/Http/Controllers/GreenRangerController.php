@@ -14,6 +14,10 @@ class GreenRangerController extends Controller
         return view("index");
     }
 
+    public function admin(){
+        return view("adminPage");
+    }
+
     public function donate(){
         return view("donate");
     }

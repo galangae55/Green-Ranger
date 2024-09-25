@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login dan Register</title>
     <style>
-       
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -103,7 +103,7 @@
             padding: 12px 15px;
             margin: 8px 0;
             width: 100%;
-            letter-spacing: 1px; 
+            letter-spacing: 1px;
         }
 
         button {
@@ -114,7 +114,7 @@
             font-size: 12px;
             font-weight: bold;
             padding: 12px 45px;
-            letter-spacing: 1px; 
+            letter-spacing: 1px;
             text-transform: uppercase;
             transition: transform 80ms ease-in;
         }
@@ -183,11 +183,11 @@
         }
 
         .overlay-panel h1 {
-            margin-bottom: 10px; 
+            margin-bottom: 10px;
         }
 
         .overlay-panel p {
-            margin-bottom: 20px; 
+            margin-bottom: 20px;
         }
 
         .overlay-left {
@@ -536,6 +536,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Login dan Register</title>
     <style>
         * {
@@ -617,6 +619,34 @@
                 z-index: 5;
             }
         }
+
+        .popup {
+                position: fixed;
+                top: 20px; /* Jarak dari atas */
+                left: 50%; /* Tengah horizontal */
+                transform: translate(-50%, -20px); /* Mengangkat sedikit untuk animasi */
+                background-color: #4CAF50; /* Warna latar belakang hijau */
+                color: white;
+                padding: 15px 30px; /* Padding di sekitar teks */
+                border-radius: 8px; /* Membuat sudut membulat */
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan lebih jelas */
+                z-index: 1000; /* Pastikan popup muncul di atas konten lainnya */
+                opacity: 0; /* Mulai dengan opasitas 0 */
+                pointer-events: none; /* Cegah interaksi saat popup tidak terlihat */
+                transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out; /* Transisi lebih lambat dan halus */
+            }
+
+            .popup.show {
+                opacity: 1; /* Tampilkan popup dengan opasitas penuh */
+                transform: translate(-50%, 0); /* Kembali ke posisi normal */
+                pointer-events: auto; /* Aktifkan interaksi ketika ditampilkan */
+            }
+
+            .popup.hide {
+                opacity: 0; /* Hilangkan popup dengan opasitas */
+                transform: translate(-50%, -20px); /* Kembali ke posisi semula */
+                pointer-events: none; /* Cegah interaksi saat popup mulai hilang */
+            }
 
         form {
             background: #ffffff;
@@ -751,7 +781,7 @@
                 <input type="password" name="password" placeholder="Kata Sandi" required />
                 <input type="password" name="password_confirmation" placeholder="Konfirmasi Kata Sandi" required />
                 <button type="submit">Daftar</button>
-               
+
 
             </form>
         </div>
@@ -777,7 +807,27 @@
             </div>
             </form>
         </div>
-        
+
+        <!-- Popup Notification -->
+        @if(session('success'))
+            <div id="popup" class="popup show">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                var popup = document.getElementById('popup');
+                if (popup) {
+                    popup.classList.add('show');
+                    setTimeout(() => {
+                        popup.classList.remove('show');
+                        popup.classList.add('hide');
+                    }, 3000); // Popup mulai menghilang setelah 3 detik
+                }
+            });
+        </script>
+
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
@@ -794,7 +844,7 @@
         </div>
     </div>
 
-    
+
 
     <script>
         const signUpButton = document.getElementById('signUp');
@@ -819,7 +869,7 @@
     // Dalam form submit handler
     document.getElementById('registerForm').addEventListener('submit', function(event) {
         event.preventDefault();
-        
+
         fetch('/register', {
             method: 'POST',
             body: new FormData(this),

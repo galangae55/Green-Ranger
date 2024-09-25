@@ -20,30 +20,37 @@
         <link href="/lib/animate/animate.min.css" rel="stylesheet">
         <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- Template Stylesheet -->
         <link href="/css/style.css" rel="stylesheet">
         <style>
             .popup {
-                visibility: hidden;
-                min-width: 250px;
-                margin-left: -125px;
-                background-color: #333;
-                color: #fff;
-                text-align: center;
-                border-radius: 2px;
-                padding: 16px;
                 position: fixed;
-                z-index: 1;
-                left: 50%;
-                bottom: 30px;
-                font-size: 17px;
+                top: 20px; /* Jarak dari atas */
+                left: 50%; /* Tengah horizontal */
+                transform: translate(-50%, -20px); /* Mengangkat sedikit untuk animasi */
+                background-color: #4CAF50; /* Warna latar belakang hijau */
+                color: white;
+                padding: 15px 30px; /* Padding di sekitar teks */
+                border-radius: 8px; /* Membuat sudut membulat */
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan lebih jelas */
+                z-index: 1000; /* Pastikan popup muncul di atas konten lainnya */
+                opacity: 0; /* Mulai dengan opasitas 0 */
+                pointer-events: none; /* Cegah interaksi saat popup tidak terlihat */
+                transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out; /* Transisi lebih lambat dan halus */
             }
 
             .popup.show {
-                visibility: visible;
-                -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-                animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                opacity: 1; /* Tampilkan popup dengan opasitas penuh */
+                transform: translate(-50%, 0); /* Kembali ke posisi normal */
+                pointer-events: auto; /* Aktifkan interaksi ketika ditampilkan */
+            }
+
+            .popup.hide {
+                opacity: 0; /* Hilangkan popup dengan opasitas */
+                transform: translate(-50%, -20px); /* Kembali ke posisi semula */
+                pointer-events: none; /* Cegah interaksi saat popup mulai hilang */
             }
 
             @-webkit-keyframes fadein {
@@ -85,6 +92,13 @@
                             </div>
                         </div>
                     </div>
+                    {{-- NOTIF KETIKA BERHASIL LOG OUT --}}
+                    @if (request()->query('logout') === 'success')
+                        <script>
+                            alert('Anda telah berhasil logout.'); // Notifikasi pop-up
+                        </script>
+                    @endif
+
                     <div class="col-md-4">
                         <div class="top-bar-right">
                             <div class="social">
@@ -93,12 +107,19 @@
                                 <a href=""><i class="fab fa-linkedin-in"></i></a>
                                 <a href=""><i class="fab fa-instagram"></i></a>
                             </div>
+                            @if (session('user_name'))
+                                <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Top Bar End -->
+
+        {{-- @if (session('user_name'))
+            <p style="margin-bottom: 0px; display: flex; align-items: center; color: #dfae42; padding-left: 16px;">{{ session('user_name') }}</p>
+        @endif --}}
 
         <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -121,7 +142,17 @@
                         </div>
                         <a href="/contact" class="nav-item nav-link">Kontak</a>
                         <a href="/belanja" class="nav-item nav-link">Belanja</a>
-                        <a href="/auth" class="nav-item nav-link">Login</a>
+
+                        @if (session('user_name')) <!-- Jika pengguna login -->
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: flex;">
+                                @csrf
+                                <button type="submit" title="Log Out" style="background: none;border: none;cursor: pointer;color: rgb(255, 255, 255);display: flex;align-items: center;padding-right: 15px;">
+                                    <i class="fas fa-sign-out-alt" style="font-size: 20px;"></i>
+                                </button>
+                            </form>
+                        @else <!-- Jika pengguna tidak login -->
+                            <a href="/auth" class="nav-item nav-link">Login</a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -516,9 +547,9 @@
         </div>
         <!-- Popup Notification -->
         @if(session('success'))
-        <div id="popup" class="popup">
-            {{ session('success') }}
-        </div>
+            <div id="popup" class="popup show">
+                {{ session('success') }}
+            </div>
         @endif
 
         <script>
@@ -528,7 +559,8 @@
                     popup.classList.add('show');
                     setTimeout(() => {
                         popup.classList.remove('show');
-                    }, 3000);
+                        popup.classList.add('hide');
+                    }, 3000); // Popup mulai menghilang setelah 3 detik
                 }
             });
         </script>

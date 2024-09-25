@@ -114,6 +114,9 @@
                                 <a href=""><i class="fab fa-linkedin-in"></i></a>
                                 <a href=""><i class="fab fa-instagram"></i></a>
                             </div>
+                            @if (session('user_name'))
+                                <p style="margin-bottom: 0px; display: flex; align-items: center; color: #dfae42; padding-left: 16px;">{{ session('user_name') }}</p>
+                            @endif
                         </div>
                     </div>
                 </div>

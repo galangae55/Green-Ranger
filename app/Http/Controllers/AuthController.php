@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
+
 
 class AuthController extends Controller
 {
@@ -14,25 +16,26 @@ class AuthController extends Controller
         return view('auth.auth');
     }
 
+    // REGISTER FUNCTION
     public function register(Request $request)
     {
-        $validator = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-        ], [
-            'email.unique' => 'Email sudah digunakan.',
-            'password.confirmed' => 'Konfirmasi kata sandi tidak cocok.',
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => 'user', // Set role default ke 'user'
         ]);
 
-        return redirect()->route('auth')->with('success', 'Registration successful! Please log in.');
+        // Redirect ke halaman / dengan notifikasi
+        return Redirect::to('/auth')->with('success', 'User registered successfully');
     }
+
 
     public function login(Request $request)
     {
@@ -43,7 +46,21 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/')->with('success', 'Anda telah berhasil login');
+
+            // Cek peran (role) dari pengguna yang sudah login
+            $user = Auth::user(); // Mendapatkan user yang sedang login
+
+            // Simpan nama user di session
+            session(['user_name' => $user->name]);
+
+            if ($user->role === 'admin') {
+                return redirect()->intended('/admin')->with('success', 'Anda telah berhasil login sebagai Admin, ' . $user->name);
+            } elseif ($user->role === 'user') {
+                return redirect()->intended('/#')->with('success', 'Anda telah berhasil login sebagai User, ' . $user->name);
+            }
+
+            // Redirect default jika role tidak sesuai
+            return redirect()->intended('/')->with('success', 'Login berhasil, ' . $user->name);
         }
 
         return back()->withErrors([
@@ -51,13 +68,14 @@ class AuthController extends Controller
         ]);
     }
 
+    // LOG OUT FUNCTION
     public function logout(Request $request)
     {
         Auth::logout();
-
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/')->with('success', 'Anda telah berhasil logout');
+        return redirect('/?logout=success'); // Arahkan ke halaman utama dengan parameter query
     }
+
 }
