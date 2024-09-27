@@ -16,37 +16,37 @@
 
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-		<a href="#" class="brand">
-			<i class='bx bxs-smile'></i>
-			<span class="text">AdminHub</span>
-		</a>
+		<a href="/admin" class="brand">
+            <i class='bx bxs-smile'></i>
+            <span class="text">{{ Auth::user()->name ?? 'AdminHub' }}</span>
+        </a>
 		<ul class="side-menu top">
 			<li class="active">
-				<a href="#">
+				<a href="">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="">
 					<i class='bx bxs-shopping-bag-alt' ></i>
 					<span class="text">My Store</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="">
 					<i class='bx bxs-doughnut-chart' ></i>
 					<span class="text">Analytics</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="">
 					<i class='bx bxs-message-dots' ></i>
 					<span class="text">Message</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Team</span>
 				</a>
@@ -54,22 +54,33 @@
 		</ul>
 		<ul class="side-menu">
 			<li>
-				<a href="#">
+				<a href="">
 					<i class='bx bxs-cog' ></i>
 					<span class="text">Settings</span>
 				</a>
 			</li>
 			<li>
-				<a href="#" class="logout">
-					<i class='bx bxs-log-out-circle' ></i>
-					<span class="text">Logout</span>
-				</a>
-			</li>
+                <a href="#" class="logout" id="admin-logout-button">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+
+            <!-- Form logout tersembunyi untuk admin -->
+            <form id="admin-logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
 		</ul>
 	</section>
 	<!-- SIDEBAR -->
 
-
+    <script>
+        // Event listener untuk tombol logout admin
+        document.getElementById('admin-logout-button').addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah navigasi link
+            document.getElementById('admin-logout-form').submit(); // Kirim form logout
+        });
+    </script>
 
 	<!-- CONTENT -->
 	<section id="content">
@@ -110,32 +121,32 @@
 						</li>
 					</ul>
 				</div>
-				<a href="#" class="btn-download">
+				{{-- <a href="#" class="btn-download">
 					<i class='bx bxs-cloud-download' ></i>
 					<span class="text">Download PDF</span>
-				</a>
+				</a> --}}
 			</div>
 
 			<ul class="box-info">
 				<li>
-					<i class='bx bxs-calendar-check' ></i>
-					<span class="text">
-						<h3>1020</h3>
-						<p>New Order</p>
-					</span>
-				</li>
+                    <i class='bx bxs-lock-alt'></i>
+                    <span class="text">
+                        <h3>{{ $totalAccounts }}</h3>
+                        <p>Total Account</p>
+                    </span>
+                </li>
 				<li>
 					<i class='bx bxs-group' ></i>
 					<span class="text">
 						<h3>2834</h3>
-						<p>Visitors</p>
+						<p>Total Volunteer</p>
 					</span>
 				</li>
 				<li>
 					<i class='bx bxs-dollar-circle' ></i>
 					<span class="text">
 						<h3>$2543</h3>
-						<p>Total Sales</p>
+						<p>Total Donation</p>
 					</span>
 				</li>
 			</ul>
@@ -144,7 +155,7 @@
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Recent Orders</h3>
+						<h3>Recent Volunteer</h3>
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>

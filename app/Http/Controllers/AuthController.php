@@ -22,6 +22,16 @@ class AuthController extends Controller
         return view('auth.auth'); // Tampilkan formulir login
     }
 
+    public function adminLogout(Request $request)
+    {
+        Auth::logout(); // Logout user
+
+        // Hapus session dan redirect ke halaman login admin
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/auth')->with('logoutadming', 'Anda berhasil logout sebagai admin.');
+    }
 
     public function showLoginForm(Request $request)
     {
@@ -73,7 +83,7 @@ class AuthController extends Controller
             if ($user->role === 'admin') {
                 return redirect()->intended('/admin')->with('success', 'Anda telah berhasil login sebagai Admin, ' . $user->name);
             } elseif ($user->role === 'user') {
-                return redirect()->intended('/#')->with('success', 'Anda telah berhasil login sebagai User, ' . $user->name);
+                return redirect()->intended('/')->with('success', 'Anda telah berhasil login sebagai User, ' . $user->name);
             }
 
             // Redirect default jika role tidak sesuai

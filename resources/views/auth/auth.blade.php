@@ -636,6 +636,11 @@
                 transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out; /* Transisi lebih lambat dan halus */
             }
 
+            .popup.red {
+                background-color: red; /* Warna latar belakang merah */
+            }
+
+
             .popup.show {
                 opacity: 1; /* Tampilkan popup dengan opasitas penuh */
                 transform: translate(-50%, 0); /* Kembali ke posisi normal */
@@ -812,6 +817,12 @@
         @if(session('success'))
             <div id="popup" class="popup show">
                 {{ session('success') }}
+            </div>
+        @endif
+
+        @if(session('logoutadming'))
+            <div id="popup" class="popup show red">
+                {{ session('logoutadming') }}
             </div>
         @endif
 
