@@ -15,10 +15,9 @@ use App\Http\Middleware\RestrictNonAdminAccess;
 
 // Rute yang hanya bisa diakses oleh admin
 Route::middleware([AdminMiddleware::class])->group(function () {
-    Route::get('/admin', [GreenRangerController::class, 'adminRole']);
+    Route::get('/admin', [AdminController::class, 'adminDashboard'])->name('admin.dashboard'); // Menggunakan AdminController
+    Route::get('/admin/roles', [GreenRangerController::class, 'adminRole'])->name('admin.roles'); // Route terpisah
     Route::post('/admin/logout', [AuthController::class, 'adminLogout'])->name('admin.logout');
-    Route::get('/admin', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
-
 
 });
 
@@ -36,7 +35,7 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::get('/volunteer', function () {
         return view('volunteer');
     });
-    Route::post('/volunteer', [VolunteerController::class, 'store'])->name('volunteer.store');
+    Route::post('/volunteer', [VolunteerController::class, 'store'])->middleware('auth')->name('volunteer.store');
     Route::get('/acara1', [AcaraController::class, 'acara1'])->name('acara1');
     Route::get('/acara2', [AcaraController::class, 'acara2'])->name('acara2');
     Route::get('/acara3', [AcaraController::class, 'acara3'])->name('acara3');

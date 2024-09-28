@@ -138,7 +138,7 @@
 				<li>
 					<i class='bx bxs-group' ></i>
 					<span class="text">
-						<h3>2834</h3>
+						<h3>{{ $totalVolunteer }}</h3>
 						<p>Total Volunteer</p>
 					</span>
 				</li>
@@ -154,63 +154,43 @@
 
 			<div class="table-data">
 				<div class="order">
-					<div class="head">
-						<h3>Recent Volunteer</h3>
-						<i class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-					<table>
-						<thead>
-							<tr>
-								<th>User</th>
-								<th>Date Order</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+                    <div class="head">
+                        <h3>Recent Volunteer</h3>
+                        <i class='bx bx-search'></i>
+                        <i class='bx bx-filter'></i>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Date Order</th>
+                                <th>Event</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($volunteers as $volunteer)
+                                <tr>
+                                    <td>
+                                        <p>{{ $volunteer->username }}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{ $volunteer->created_at->format('d-m-Y H:i') }}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{ $volunteer->event }}</p>
+                                    </td>
+                                    <td>
+                                        <span class="status {{ $volunteer->status == 'accepted' ? 'completed' : 'pending' }}">
+                                            {{ ucfirst($volunteer->status) }}
+                                        </span>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
 				<div class="todo">
 					<div class="head">
 						<h3>Todos</h3>

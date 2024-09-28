@@ -47,22 +47,22 @@ class AuthController extends Controller
     // REGISTER FUNCTION
     public function register(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+        $validatedData = $request->validate([
+            'name' => 'required|string|unique:users', // Validasi untuk name yang unik
+            'email' => 'required|string|email|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role' => 'user', // Set role default ke 'user'
+        // Menciptakan user baru
+        User::create([
+            'name' => $validatedData['name'], // Menggunakan name sebagai username
+            'email' => $validatedData['email'],
+            'password' => Hash::make($validatedData['password']),
         ]);
 
-        // Redirect ke halaman / dengan notifikasi
-        return Redirect::to('/auth')->with('success', 'User registered successfully');
+        return redirect()->route('auth')->with('success', 'Registrasi berhasil, silakan login.');
     }
+
 
     public function login(Request $request)
     {

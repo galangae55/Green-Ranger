@@ -653,6 +653,53 @@
                 pointer-events: none; /* Cegah interaksi saat popup mulai hilang */
             }
 
+        /* CSS untuk notifikasi error */
+        .alert {
+            position: relative;
+            padding: 20px 15px;
+            background-color: #f8d7da; /* Warna latar belakang merah muda */
+            color: #721c24; /* Warna teks */
+            border: 1px solid #f5c6cb; /* Garis border merah muda */
+            border-radius: 5px; /* Sudut membulat */
+            margin: 20px 0; /* Jarak atas dan bawah */
+            font-family: Arial, sans-serif; /* Font yang digunakan */
+            transition: all 0.3s ease-in-out; /* Transisi halus */
+        }
+
+        /* Animasi untuk tampilan dan hilangnya notifikasi */
+        .alert.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .alert.hide {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        /* Style untuk daftar error */
+        .alert ul {
+            list-style-type: none; /* Menghilangkan bullet point */
+            padding: 0; /* Menghilangkan padding */
+            margin: 0; /* Menghilangkan margin */
+        }
+
+        /* Style untuk setiap item error */
+        .alert li {
+            margin-bottom: 10px; /* Jarak antar item */
+        }
+
+        /* Tombol close untuk notifikasi */
+        .close-btn {
+            position: absolute;
+            background: none;
+            border: none;
+            color: #721c24;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+
         form {
             background: #ffffff;
             display: flex;
@@ -798,14 +845,14 @@
                 <input type="password" name="password" placeholder="Kata Sandi" required />
                 <button type="submit">Masuk</button>
                 @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+                    <div class="alert alert-danger show">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             <div id="errorPopup" style="display:none;">
                 <div id="errorContent"></div>
                 <button onclick="document.getElementById('errorPopup').style.display='none'">Close</button>
@@ -876,6 +923,21 @@
         errorContent.innerHTML = message;
         errorPopup.style.display = 'block';
     }
+
+        function showErrorPopup(message) {
+        var errorPopup = document.getElementById('errorPopup');
+        var errorContent = document.querySelector('.error-content');
+        errorContent.innerHTML = '<h2>Error!</h2>' + message;
+        errorPopup.classList.add('show');
+        errorPopup.style.display = 'block';
+
+        // Menghilangkan notifikasi setelah 5 detik
+        setTimeout(() => {
+            errorPopup.classList.remove('show');
+            errorPopup.classList.add('hide'); // Tambahkan kelas hide saat hilang
+        }, 5000); // Popup hilang setelah 5 detik
+    }
+
 
     // Dalam form submit handler
     document.getElementById('registerForm').addEventListener('submit', function(event) {

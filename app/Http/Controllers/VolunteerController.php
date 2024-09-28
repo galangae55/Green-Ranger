@@ -4,36 +4,38 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Volunteer;
 
 class VolunteerController extends Controller
 {
+    // FUNGSI UNTUK MEMASUKKAN KE DATABASE
     public function store(Request $request)
     {
-        // Validasi data input
-        $validator = Validator::make($request->all(), [
-            'nama' => 'required|string|max:255',
-            'umur' => 'required|integer|min:18',
-            'email' => 'required|email|unique:volunteers,email',
-            'no_telp' => 'required|string|max:15',
+        $validatedData = $request->validate([
+            'umur' => 'required|integer',
+            'no_telp' => 'required|string',
             'event' => 'required|string',
         ]);
 
-        // Jika validasi gagal
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+        Volunteer::create([
+            'user_id' => Auth::id(), // Menyimpan ID pengguna yang login
+            'username' => Auth::user()->name, // Menyimpan username dari pengguna yang login
+            'umur' => $request->umur,
+            'no_telp' => $request->no_telp,
+            'email' => Auth::user()->email, // Menyimpan email dari pengguna yang login
+            'event' => $request->event,
+            'status' => 'pending', // Set status default ke 'pending'
+        ]);
 
-        // Simpan data volunteer
-        $volunteer = new Volunteer();
-        $volunteer->nama = $request->nama;
-        $volunteer->umur = $request->umur;
-        $volunteer->email = $request->email;
-        $volunteer->no_telp = $request->no_telp;
-        $volunteer->event = $request->event;
-        $volunteer->save();
-
-        // Redirect dengan pesan sukses
-        return redirect()->back()->with('success', 'Anda telah berhasil menjadi volunteer!');
+        return redirect()->back()->with('success', 'Data relawan berhasil disimpan');
     }
+
+    public function DaftarVolunteer()
+    {
+        $volunteers = Volunteer::all(); // Mengambil semua data volunteer
+        return view('adminPage', compact('volunteers'));
+    }
+
+
 }

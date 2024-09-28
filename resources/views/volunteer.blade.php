@@ -208,30 +208,23 @@
                         <div class="volunteer-form">
                             <form action="{{ route('volunteer.store') }}" method="POST">
                                 @csrf
-                                <div class="control-group" data-aos="fade-right">
-                                    <input type="text" class="form-control" name="nama" placeholder="Name" required="required" value="{{ old('nama') }}" />
-                                    @error('nama')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
+                                <!-- Umur -->
                                 <div class="control-group" data-aos="fade-right">
                                     <input type="number" class="form-control" name="umur" placeholder="Age" required="required" value="{{ old('umur') }}" />
                                     @error('umur')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                                <div class="control-group" data-aos="fade-right">
-                                    <input type="email" class="form-control" name="email" placeholder="Email" required="required" value="{{ old('email') }}" />
-                                    @error('email')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
+
+                                <!-- Nomor Telepon -->
                                 <div class="control-group" data-aos="fade-right">
                                     <input type="text" class="form-control" name="no_telp" placeholder="Phone Number" required="required" value="{{ old('no_telp') }}" />
                                     @error('no_telp')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
+
+                                <!-- Pilihan Event -->
                                 <div class="control-group" data-aos="fade-right">
                                     <select class="form-control" name="event" required="required">
                                         <option value="" disabled {{ old('event') ? '' : 'selected' }}>Pilih Acara</option>
@@ -244,6 +237,8 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
+
+                                <!-- Tombol Submit -->
                                 <div>
                                     <button class="btn btn-custom" type="submit" data-aos="fade-right">Gabung relawan</button>
                                 </div>
