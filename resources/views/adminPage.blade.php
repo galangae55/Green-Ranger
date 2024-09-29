@@ -29,8 +29,8 @@
 			</li>
 			<li>
 				<a href="">
-					<i class='bx bxs-shopping-bag-alt' ></i>
-					<span class="text">My Store</span>
+					<i class='bx bxs-group' ></i>
+					<span class="text">Volunteer</span>
 				</a>
 			</li>
 			<li>
