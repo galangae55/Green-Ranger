@@ -228,10 +228,10 @@
                                 <div class="control-group" data-aos="fade-right">
                                     <select class="form-control" name="event" required="required">
                                         <option value="" disabled {{ old('event') ? '' : 'selected' }}>Pilih Acara</option>
-                                        <option value="Acara 1" class="grey-option" {{ old('event') == 'Acara 1' ? 'selected' : '' }}>Kenjeran Clean</option>
-                                        <option value="Acara 2" class="grey-option" {{ old('event') == 'Acara 2' ? 'selected' : '' }}>Jaddih Bersih</option>
-                                        <option value="Acara 3" class="grey-option" {{ old('event') == 'Acara 3' ? 'selected' : '' }}>Penyaluran Donasi</option>
-                                        <option value="Acara 4" class="grey-option" {{ old('event') == 'Acara 4' ? 'selected' : '' }}>Seminar Pelestarian Alam</option>
+                                        <option value="Kenjeran Clean" class="grey-option" {{ old('event') == 'Acara 1' ? 'selected' : '' }}>Kenjeran Clean</option>
+                                        <option value="Jaddih Bersih" class="grey-option" {{ old('event') == 'Acara 2' ? 'selected' : '' }}>Jaddih Bersih</option>
+                                        <option value="Penyaluran Donasi" class="grey-option" {{ old('event') == 'Acara 3' ? 'selected' : '' }}>Penyaluran Donasi</option>
+                                        <option value="Seminar Pelestarian Alam" class="grey-option" {{ old('event') == 'Acara 4' ? 'selected' : '' }}>Seminar Pelestarian Alam</option>
                                     </select>
                                     @error('event')
                                         <span class="text-danger">{{ $message }}</span>

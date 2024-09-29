@@ -18,7 +18,6 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::get('/admin', [AdminController::class, 'adminDashboard'])->name('admin.dashboard'); // Menggunakan AdminController
     Route::get('/admin/roles', [GreenRangerController::class, 'adminRole'])->name('admin.roles'); // Route terpisah
     Route::post('/admin/logout', [AuthController::class, 'adminLogout'])->name('admin.logout');
-
 });
 
 // Rute yang hanya bisa diakses oleh non-admin (misalnya, pengguna umum)
