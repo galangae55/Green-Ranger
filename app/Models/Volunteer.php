@@ -10,10 +10,12 @@ class Volunteer extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama',
+        'user_id', // Tambahkan ini untuk menyimpan ID pengguna
+        'username', // Tambahkan ini untuk menyimpan username
         'umur',
         'email',
         'no_telp',
         'event',
+        'status', // Tambahkan ini untuk menyimpan status
     ];
 }
