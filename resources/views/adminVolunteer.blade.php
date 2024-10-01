@@ -6,28 +6,72 @@
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-	<!-- My CSS -->
-	<link href="css/adminStyle.css" rel="stylesheet">
+	<link href="{{ asset('css/adminStyle.css') }}" rel="stylesheet">
 
-	<title>AdminHub</title>
+    <style>
+
+        /* Style umum untuk tombol */
+        button {
+            font-size: 10px;
+            padding: 6px 16px;
+            color: #ffffff;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        /* Tombol Accept */
+        button.btn-success {
+            background-color: #3a5f4c; /* Warna hijau */
+        }
+
+        button.btn-success:hover {
+            background-color: #3a5f4c; /* Warna hijau lebih gelap saat di-hover */
+        }
+
+        /* Tombol Set to Pending */
+        button.btn-warning {
+            background-color: var(--orange);; /* Warna kuning */
+        }
+
+        button.btn-warning:hover {
+            background-color: var(--orange);; /* Warna kuning lebih gelap saat di-hover */
+        }
+
+        /* Tambahan gaya untuk ikon */
+        button i {
+            margin-right: 5px;
+        }
+
+    </style>
+
+	<!-- My CSS -->
+
+
+	<title>Admin Volunteer</title>
 </head>
 <body>
 
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
-	<!-- SIDEBAR -->
+
+    <!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="/admin" class="brand">
             <i class='bx bxs-smile'></i>
             <span class="text">{{ Auth::user()->name ?? 'AdminHub' }}</span>
         </a>
 		<ul class="side-menu top">
-			<li class="active">
-				<a href="">
+			<li>
+				<a href="/admin">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
-			<li>
+			<li class="active">
 				<a href="/admin/volunteer">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Volunteer</span>
@@ -74,13 +118,6 @@
 	</section>
 	<!-- SIDEBAR -->
 
-    <script>
-        // Event listener untuk tombol logout admin
-        document.getElementById('admin-logout-button').addEventListener('click', function(event) {
-            event.preventDefault(); // Mencegah navigasi link
-            document.getElementById('admin-logout-form').submit(); // Kirim form logout
-        });
-    </script>
 
 	<!-- CONTENT -->
 	<section id="content">
@@ -110,50 +147,25 @@
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1>Dashboard</h1>
+					<h1>Daftar Volunteer</h1>
 					<ul class="breadcrumb">
 						<li>
-							<a href="#">Dashboard</a>
+							<a href="">Dashboard</a>
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
-							<a class="active" href="#">Home</a>
+							<a class="active" href="">Volunteer</a>
 						</li>
 					</ul>
 				</div>
 				{{-- <a href="#" class="btn-download">
-					<i class='bx bxs-cloud-download' ></i>
+                    <i class='bx bxs-cloud-download' ></i>
 					<span class="text">Download PDF</span>
 				</a> --}}
 			</div>
 
-			<ul class="box-info">
-				<li>
-                    <i class='bx bxs-lock-alt'></i>
-                    <span class="text">
-                        <h3>{{ $totalAccounts }}</h3>
-                        <p>Total Account</p>
-                    </span>
-                </li>
-				<li>
-					<i class='bx bxs-group' ></i>
-					<span class="text">
-						<h3>{{ $totalVolunteer }}</h3>
-						<p>Total Volunteer</p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-dollar-circle' ></i>
-					<span class="text">
-						<h3>$2543</h3>
-						<p>Total Donation</p>
-					</span>
-				</li>
-			</ul>
-
-
 			<div class="table-data">
-				<div class="order">
+                <div class="order">
                     <div class="head">
                         <h3>Recent Volunteer</h3>
                         <i class='bx bx-search'></i>
@@ -162,70 +174,60 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>User</th>
-                                <th>Date Order</th>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Umur</th>
+                                <th>No Telepon</th>
+                                <th>Email</th>
                                 <th>Event</th>
                                 <th>Status</th>
+                                <th>Tanggal Dibuat</th>
+                                <th>Tanggal Diperbarui</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($volunteers as $volunteer)
                                 <tr>
-                                    <td>
-                                        <p>{{ $volunteer->username }}</p>
-                                    </td>
-                                    <td>
-                                        <p>{{ $volunteer->created_at->format('d-m-Y H:i') }}</p>
-                                    </td>
-                                    <td>
-                                        <p>{{ $volunteer->event }}</p>
-                                    </td>
+                                    <td>{{ $volunteer->id }}</td>
+                                    <td>{{ $volunteer->username }}</td>
+                                    <td>{{ $volunteer->umur }}</td>
+                                    <td>{{ $volunteer->no_telp }}</td>
+                                    <td>{{ $volunteer->email }}</td>
+                                    <td>{{ $volunteer->event }}</td>
                                     <td>
                                         <span class="status {{ $volunteer->status == 'accepted' ? 'completed' : 'pending' }}">
                                             {{ ucfirst($volunteer->status) }}
                                         </span>
+                                    </td>
+                                    <td>{{ $volunteer->created_at->format('d-m-Y H:i') }}</td>
+                                    <td>{{ $volunteer->updated_at->format('d-m-Y H:i') }}</td>
+                                    <td>
+                                        <form action="{{ route('admin.updateStatus', $volunteer->id) }}" method="POST">
+                                            @csrf
+                                            @method('PATCH')
+                                            <button type="submit" class="btn {{ $volunteer->status == 'accepted' ? 'btn-warning' : 'btn-success' }}">
+                                                {{ $volunteer->status == 'accepted' ? 'Set to Pending' : 'Set to Accept' }}
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-
-				<div class="todo">
-					<div class="head">
-						<h3>Todos</h3>
-						<i class='bx bx-plus' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-					<ul class="todo-list">
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-					</ul>
-				</div>
-			</div>
+            </div>
 		</main>
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
 
+    <script>
+        document.getElementById('admin-logout-button').addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah navigasi link
+            document.getElementById('admin-logout-form').submit(); // Kirim form logout
+        });
+    </script>
 
 	<script src="/js/admin.js"></script>
 </body>

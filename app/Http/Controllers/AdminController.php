@@ -22,4 +22,35 @@ class AdminController extends Controller
         return view('adminPage', compact('totalAccounts', 'volunteers','totalVolunteer'));
     }
 
+    public function adminVolunteer()
+    {
+        $volunteers = Volunteer::all();
+
+        return view('adminVolunteer', compact('volunteers'));
+    }
+
+    public function updateStatus($id)
+    {
+        // Cari volunteer berdasarkan id
+        $volunteer = Volunteer::findOrFail($id);
+
+        // Ubah status: jika status saat ini 'accepted', ubah menjadi 'pending', dan sebaliknya
+        if ($volunteer->status == 'accepted') {
+            $volunteer->status = 'pending';
+        } else {
+            $volunteer->status = 'accepted';
+        }
+
+        // Simpan perubahan
+        $volunteer->save();
+
+        // Redirect kembali ke halaman dengan pesan sukses
+        return redirect()->back()->with('success', 'Status volunteer berhasil diubah.');
+    }
+
+    public function adminDonation()
+    {
+        return view('adminDonation');
+    }
+
 }
