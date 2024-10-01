@@ -163,6 +163,13 @@
             </div>
         </div>
 
+        <header class="banner">
+        <div class="container">
+            <h1>Katalog</h1>
+            <p>Gaya Modern dan Elegan</p>
+        </div>
+    </header>
+
         <!-- Carousel End -->
 
               <!-- Catalogue -->
@@ -1006,6 +1013,8 @@
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
+    
+    
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

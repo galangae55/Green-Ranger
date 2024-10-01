@@ -1754,3 +1754,67 @@ a:focus {
 .event-gallery img:hover {
     transform: scale(1.05);
 }
+
+/* Banner Styles */
+.banner {
+    background: linear-gradient(to right, #f7f7f7, #f0f0f0);
+    color: #333;
+    padding: 50px 0;
+    text-align: center;
+    position: relative;
+}
+
+.banner h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #000;
+}
+
+.banner p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: #666;
+}
+
+.breadcrumb {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.breadcrumb a {
+    color: #007bff;
+}
+
+.breadcrumb span {
+    color: #6c757d;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .banner h1 {
+        font-size: 2.5rem;
+    }
+    
+    .banner p {
+        font-size: 1.2rem;
+    }
+
+    .breadcrumb {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner h1 {
+        font-size: 2rem;
+    }
+
+    .banner p {
+        font-size: 1rem;
+    }
+
+    .breadcrumb {
+        font-size: 0.8rem;
+    }
+}
