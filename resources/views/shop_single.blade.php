@@ -24,9 +24,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
         <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-        <link href="css/style2.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        {{-- <link href="css/style.css" rel="stylesheet"> --}}
+        <link href="css/style3.css" rel="stylesheet">
+        {{-- <link rel="stylesheet" href="css/bootstrap.min.css" /> --}}
         <link rel="stylesheet" href="css/magnific-popup.css" />
         <link rel="stylesheet" href="css/font-icons.css" />
         <link rel="stylesheet" href="css/sliders.css" />
@@ -113,7 +113,7 @@
         <!-- Nav Bar End -->
 
 
-        
+
         <div class="content-wrapper oh">
 
 <!-- Single Product -->
@@ -178,7 +178,7 @@
       </div> <!-- end col img slider -->
 
       <div class="col-md-6 col-xs-12 product-description-wrap">
-        <h1 class="product-title">Sport T-Shirt</h1>              
+        <h1 class="product-title">Sport T-Shirt</h1>
         <span class="price">
           <del>
             <span>$1550.00</span>
@@ -211,7 +211,7 @@
         <div class="product-actions">
           <span>Qty:</span>
 
-          <div class="quantity buttons_added">                  
+          <div class="quantity buttons_added">
             <input type="number" step="1" min="0" value="1" title="Qty" class="input-text qty text" />
             <div class="quantity-adjust">
               <a href="#" class="plus">
@@ -225,14 +225,14 @@
 
           <a href="#" class="btn btn-dark btn-lg add-to-cart"><span>Add to Cart</span></a>
 
-          <a href="#" class="product-add-to-wishlist"><i class="fa fa-heart"></i></a>                          
+          <a href="#" class="product-add-to-wishlist"><i class="fa fa-heart"></i></a>
         </div>
-        
+
 
         <div class="product_meta">
           <span class="sku">SKU: <a href="#">111763</a></span>
           <span class="brand_as">Category: <a href="#">Men T-shirt</a></span>
-          <span class="posted_in">Tags: <a href="#">Sport, T-shirt, Blue</a></span>                
+          <span class="posted_in">Tags: <a href="#">Sport, T-shirt, Blue</a></span>
         </div>
 
         <!-- Accordion -->
@@ -269,7 +269,7 @@
                     <tr>
                       <th>Fabric:</th>
                       <td>Cotton (100%)</td>
-                    </tr>                                     
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -309,7 +309,7 @@
                       </div>
                     </li>
 
-                  </ul>         
+                  </ul>
                 </div> <!--  end reviews -->
               </div>
             </div>
@@ -327,7 +327,7 @@
         </div>
       </div> <!-- end col product description -->
     </div> <!-- end row -->
-   
+
   </div> <!-- end container -->
 </section> <!-- end single product -->
 
@@ -356,16 +356,16 @@
               <div class="product-label">
                 <span class="sale">sale</span>
               </div>
-              <div class="hover-2">                    
+              <div class="hover-2">
                 <div class="product-actions">
                   <a href="#" class="product-add-to-wishlist">
                     <i class="fa fa-heart"></i>
                   </a>
-                </div>                        
+                </div>
               </div>
               <a href="#" class="product-quickview">Quick View</a>
             </div>
-            <div class="product-details">                      
+            <div class="product-details">
               <h3 class="product-title">
                 <a href="shop-single.html">Tribal Grey Blazer</a>
               </h3>
@@ -391,16 +391,16 @@
                 <img src="img/shop/shop_item_11.jpg" alt="">
                 <img src="img/shop/shop_item_back_11.jpg" alt="" class="back-img">
               </a>
-              <div class="hover-2">                    
+              <div class="hover-2">
                 <div class="product-actions">
                   <a href="#" class="product-add-to-wishlist">
                     <i class="fa fa-heart"></i>
                   </a>
-                </div>                        
+                </div>
               </div>
               <a href="#" class="product-quickview">Quick View</a>
             </div>
-            <div class="product-details">                      
+            <div class="product-details">
               <h3 class="product-title">
                 <a href="shop-single.html">Mantle Brown Bag</a>
               </h3>
@@ -423,16 +423,16 @@
                 <img src="img/shop/shop_item_6.jpg" alt="">
                 <img src="img/shop/shop_item_back_6.jpg" alt="" class="back-img">
               </a>
-              <div class="hover-2">                    
+              <div class="hover-2">
                 <div class="product-actions">
                   <a href="#" class="product-add-to-wishlist">
                     <i class="fa fa-heart"></i>
                   </a>
-                </div>                        
+                </div>
               </div>
               <a href="#" class="product-quickview">Quick View</a>
             </div>
-            <div class="product-details">                      
+            <div class="product-details">
               <h3 class="product-title">
                 <a href="shop-single.html">Faux Suits</a>
               </h3>
@@ -455,16 +455,16 @@
                 <img src="img/shop/shop_item_4.jpg" alt="">
                 <img src="img/shop/shop_item_back_4.jpg" alt="" class="back-img">
               </a>
-              <div class="hover-2">                    
+              <div class="hover-2">
                 <div class="product-actions">
                   <a href="#" class="product-add-to-wishlist">
                     <i class="fa fa-heart"></i>
                   </a>
-                </div>                        
+                </div>
               </div>
               <a href="#" class="product-quickview">Quick View</a>
             </div>
-            <div class="product-details">                      
+            <div class="product-details">
               <h3 class="product-title">
                 <a href="shop-single.html">Sweater w/ Colar</a>
               </h3>
@@ -487,16 +487,16 @@
                 <img src="img/shop/shop_item_5.jpg" alt="">
                 <img src="img/shop/shop_item_back_5.jpg" alt="" class="back-img">
               </a>
-              <div class="hover-2">                    
+              <div class="hover-2">
                 <div class="product-actions">
                   <a href="#" class="product-add-to-wishlist">
                     <i class="fa fa-heart"></i>
                   </a>
-                </div>                        
+                </div>
               </div>
               <a href="#" class="product-quickview">Quick View</a>
             </div>
-            <div class="product-details">                      
+            <div class="product-details">
               <h3 class="product-title">
                 <a href="shop-single.html">Lola May Crop Blazer</a>
               </h3>
@@ -522,16 +522,16 @@
               <div class="product-label">
                 <span class="sale">sale</span>
               </div>
-              <div class="hover-2">                    
+              <div class="hover-2">
                 <div class="product-actions">
                   <a href="#" class="product-add-to-wishlist">
                     <i class="fa fa-heart"></i>
                   </a>
-                </div>                        
+                </div>
               </div>
               <a href="#" class="product-quickview">Quick View</a>
             </div>
-            <div class="product-details">                      
+            <div class="product-details">
               <h3 class="product-title">
                 <a href="shop-single.html">Faux Suits</a>
               </h3>
@@ -638,16 +638,17 @@
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/parallax/parallax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/plugins.js"></script>  
+    <script type="text/javascript" src="js/plugins.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
 
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
-    
-    
+
+
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
