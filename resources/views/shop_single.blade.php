@@ -223,7 +223,7 @@
             </div>
           </div>
 
-          <a href="#" class="btn btn-dark btn-lg add-to-cart"><span>Add to Cart</span></a>
+          <a href="/shop_cart" class="btn btn-dark btn-lg add-to-cart"><span>Add to Cart</span></a>
 
           <a href="#" class="product-add-to-wishlist"><i class="fa fa-heart"></i></a>
         </div>

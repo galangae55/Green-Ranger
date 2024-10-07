@@ -43,8 +43,9 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::get('/acara2', [AcaraController::class, 'acara2'])->name('acara2');
     Route::get('/acara3', [AcaraController::class, 'acara3'])->name('acara3');
     Route::get('/acara4', [AcaraController::class, 'acara4'])->name('acara4');
-
+    Route::get("/shop_cart", [GreenRangerController::class,"shop_cart"]);
     Route::get("/shop_single", [GreenRangerController::class,"shop_single"]);
+    Route::get("/shop_checkout", [GreenRangerController::class,"shop_checkout"]);
 });
 
 // Auth routes
