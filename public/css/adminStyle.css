@@ -191,6 +191,7 @@ body {
 	top: 0;
 	left: 0;
 	z-index: 1000;
+    justify-content: space-between;
 }
 #content nav::before {
 	content: '';
@@ -453,12 +454,12 @@ body {
 #content main .table-data .order table td {
 	padding: 16px 0;
 }
-#content main .table-data .order table tr td:first-child {
+/* #content main .table-data .order table tr td:first-child {
 	display: flex;
 	align-items: center;
 	grid-gap: 12px;
 	padding-left: 6px;
-}
+} */
 #content main .table-data .order table td img {
 	width: 36px;
 	height: 36px;

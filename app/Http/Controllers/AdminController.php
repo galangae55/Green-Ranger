@@ -53,4 +53,17 @@ class AdminController extends Controller
         return view('adminDonation');
     }
 
+    public function deleteVolunteer($id)
+    {
+        // Cari volunteer berdasarkan id
+        $volunteer = Volunteer::findOrFail($id);
+
+        // Hapus volunteer
+        $volunteer->delete();
+
+        // Redirect kembali ke halaman volunteer dengan pesan sukses
+        return redirect()->route('admin.volunteer')->with('success', 'Volunteer deleted successfully.');
+    }
+
+
 }
