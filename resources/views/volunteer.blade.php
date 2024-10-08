@@ -27,39 +27,38 @@
         <link href="css/style.css" rel="stylesheet">
         <style>
             .grey-option {
-                color: grey;
-            }
+            color: grey;
+        }
 
-            .popup {
-                display: none;
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background-color: rgba(65, 108, 53, 0.7);
-                padding: 20px;
-                border-radius: 10px;
-                color: white;
-                z-index: 1000;
-            }
+        .popup {
+            display: none; /* Awalnya disembunyikan */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(65, 108, 53, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            z-index: 1000;
+        }
 
-            .popup-content {
-                text-align: center;
-            }
+        .popup-content {
+            text-align: center;
+        }
 
-            .close-btn {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                cursor: pointer;
-                font-size: 20px;
-                color: white;
-            }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            color: white;
+        }
 
-            .close-btn:hover {
-                color: #ccc;
-            }
-
+        .close-btn:hover {
+            color: #ccc;
+        }
         </style>
     </head>
 
@@ -201,48 +200,74 @@
 
 
         <!-- Volunteer Start -->
+        @if (session('user_name')) <!-- Jika pengguna login -->
+            <div class="container">
+                <div class="volunteer" data-parallax="scroll" data-image-src="img/volunteer1.jpg">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5">
+                            <div class="volunteer-form">
+                                <form action="{{ route('volunteer.store') }}" method="POST">
+                                    @csrf
+                                    <!-- Umur -->
+                                    <div class="control-group" data-aos="fade-right">
+                                        <input type="number" class="form-control" name="umur" placeholder="Age" required="required" value="{{ old('umur') }}" />
+                                        @error('umur')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <!-- Nomor Telepon -->
+                                    <div class="control-group" data-aos="fade-right">
+                                        <input type="text" class="form-control" name="no_telp" placeholder="Phone Number" required="required" value="{{ old('no_telp') }}" />
+                                        @error('no_telp')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <!-- Pilihan Event -->
+                                    <div class="control-group" data-aos="fade-right">
+                                        <select class="form-control" name="event" required="required">
+                                            <option value="" disabled {{ old('event') ? '' : 'selected' }}>Pilih Acara</option>
+                                            <option value="Kenjeran Clean" class="grey-option" {{ old('event') == 'Acara 1' ? 'selected' : '' }}>Kenjeran Clean</option>
+                                            <option value="Jaddih Bersih" class="grey-option" {{ old('event') == 'Acara 2' ? 'selected' : '' }}>Jaddih Bersih</option>
+                                            <option value="Penyaluran Donasi" class="grey-option" {{ old('event') == 'Acara 3' ? 'selected' : '' }}>Penyaluran Donasi</option>
+                                            <option value="Seminar Pelestarian Alam" class="grey-option" {{ old('event') == 'Acara 4' ? 'selected' : '' }}>Seminar Pelestarian Alam</option>
+                                        </select>
+                                        @error('event')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <!-- Tombol Submit -->
+                                    <div>
+                                        <button class="btn btn-custom" type="submit" data-aos="fade-right">Gabung relawan</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="volunteer-content">
+                                <div class="section-header">
+                                    <h2>Menjadi Relawan</h2>
+                                    <p>untuk salurkan kebaikan</p>
+                                </div>
+                                <div class="volunteer-text">
+                                    <p>
+                                        Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non. Aliquam metus tortor, auctor id gravida, viverra quis sem. Curabitur non nisl nec nisi maximus. Aenean convallis porttitor. Aliquam interdum at lacus non blandit.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @else
         <div class="container">
             <div class="volunteer" data-parallax="scroll" data-image-src="img/volunteer1.jpg">
                 <div class="row align-items-center">
                     <div class="col-lg-5">
                         <div class="volunteer-form">
-                            <form action="{{ route('volunteer.store') }}" method="POST">
-                                @csrf
-                                <!-- Umur -->
-                                <div class="control-group" data-aos="fade-right">
-                                    <input type="number" class="form-control" name="umur" placeholder="Age" required="required" value="{{ old('umur') }}" />
-                                    @error('umur')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-
-                                <!-- Nomor Telepon -->
-                                <div class="control-group" data-aos="fade-right">
-                                    <input type="text" class="form-control" name="no_telp" placeholder="Phone Number" required="required" value="{{ old('no_telp') }}" />
-                                    @error('no_telp')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-
-                                <!-- Pilihan Event -->
-                                <div class="control-group" data-aos="fade-right">
-                                    <select class="form-control" name="event" required="required">
-                                        <option value="" disabled {{ old('event') ? '' : 'selected' }}>Pilih Acara</option>
-                                        <option value="Kenjeran Clean" class="grey-option" {{ old('event') == 'Acara 1' ? 'selected' : '' }}>Kenjeran Clean</option>
-                                        <option value="Jaddih Bersih" class="grey-option" {{ old('event') == 'Acara 2' ? 'selected' : '' }}>Jaddih Bersih</option>
-                                        <option value="Penyaluran Donasi" class="grey-option" {{ old('event') == 'Acara 3' ? 'selected' : '' }}>Penyaluran Donasi</option>
-                                        <option value="Seminar Pelestarian Alam" class="grey-option" {{ old('event') == 'Acara 4' ? 'selected' : '' }}>Seminar Pelestarian Alam</option>
-                                    </select>
-                                    @error('event')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-
-                                <!-- Tombol Submit -->
-                                <div>
-                                    <button class="btn btn-custom" type="submit" data-aos="fade-right">Gabung relawan</button>
-                                </div>
-                            </form>
+                            <a href="/auth" class="dropdown-item">Login untuk mendaftar volunteer!!!</a>
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -261,6 +286,7 @@
                 </div>
             </div>
         </div>
+        @endif
 
         <!-- Volunteer End -->
 
@@ -326,8 +352,8 @@
             </div>
         </div>
         <!-- Footer End -->
-        {{-- pop up  --}}
 
+        {{-- pop up  --}}
         <div class="popup" id="popup">
             <div class="popup-content">
                 <span class="close-btn" id="close-btn">&times;</span>
@@ -335,7 +361,6 @@
                 <p>Anda telah berhasil menjadi volunteer!</p>
             </div>
         </div>
-
         {{-- pop up end --}}
 
 
@@ -365,45 +390,31 @@
         <script src="js/main.js"></script>
         <!-- SweetAlert2 -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        <script>
-            // $(document).ready(function(){
-            //     // Cek apakah ada pesan sukses
-            //     var successMessage = "{{ Session::get('success') }}";
+    <!-- JavaScript untuk pop-up -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ambil popup
+            var popup = document.getElementById('popup');
 
-            //     // Jika ada pesan sukses, tampilkan popup
-            //     if(successMessage) {
-            //         Swal.fire({
-            //             icon: 'success',
-            //             title: 'Success!',
-            //             text: successMessage,
-            //         });
-            //     }
-            // });
+            // Ambil tombol untuk menutup popup
+            var closeButton = document.getElementById('close-btn');
 
-// pop up js
-            document.addEventListener('DOMContentLoaded', function() {
-    // Ambil popup
-    var popup = document.getElementById('popup');
+            // Jika ada pesan sukses, tampilkan popup
+            var successMessage = "{{ Session::get('success') }}"; // Session untuk sukses
+            if (successMessage) {
+                popup.style.display = 'block';
+            }
 
-    // Ambil tombol untuk menutup popup
-    var closeButton = document.getElementById('close-btn');
+            // Ketika tombol close diklik, sembunyikan popup
+            closeButton.addEventListener('click', function() {
+                popup.style.display = 'none';
+            });
+        });
+    </script>
 
-    // Jika ada pesan sukses, tampilkan popup
-    var successMessage = "{{ Session::get('success') }}";
-    if (successMessage) {
-        popup.style.display = 'block';
-    }
-
-    // Ketika tombol close diklik, sembunyikan popup
-    closeButton.addEventListener('click', function() {
-        popup.style.display = 'none';
-    });
-});
-
-        </script>
-            <script>
-                AOS.init();
-            </script>
+    <script>
+        AOS.init();
+    </script>
 
     </body>
 </html>

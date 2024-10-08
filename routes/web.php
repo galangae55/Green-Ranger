@@ -20,9 +20,11 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::post('/admin/logout', [AuthController::class, 'adminLogout'])->name('admin.logout');
     Route::get('/admin/volunteer', [AdminController::class, 'adminVolunteer'])->name('admin.volunteer');
     Route::patch('/admin/volunteer/{id}/update-status', [AdminController::class, 'updateStatus'])->name('admin.updateStatus');
+    Route::delete('/admin/volunteer/{id}', [AdminController::class, 'deleteVolunteer'])->name('admin.deleteVolunteer');
     Route::get('/admin/donation', [AdminController::class, 'adminDonation'])->name('admin.donation');
 
 });
+
 
 // Rute yang hanya bisa diakses oleh non-admin (misalnya, pengguna umum)
 Route::middleware([RestrictNonAdminAccess::class])->group(function () {
@@ -55,5 +57,3 @@ Route::middleware(['web'])->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
-
-
