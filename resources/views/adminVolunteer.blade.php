@@ -6,10 +6,10 @@
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
 	<link href="{{ asset('css/adminStyle.css') }}" rel="stylesheet">
 
     <style>
-
         /* Style umum untuk tombol */
         button {
             font-size: 10px;
@@ -123,23 +123,9 @@
 	<section id="content">
 		<!-- NAVBAR -->
 		<nav>
-			<i class='bx bx-menu' ></i>
-			<a href="#" class="nav-link">Categories</a>
-			<form action="#">
-				<div class="form-input">
-					<input type="search" placeholder="Search...">
-					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
-				</div>
-			</form>
+            <i class='bx bx-menu' ></i>
 			<input type="checkbox" id="switch-mode" hidden>
 			<label for="switch-mode" class="switch-mode"></label>
-			<a href="#" class="notification">
-				<i class='bx bxs-bell' ></i>
-				<span class="num">8</span>
-			</a>
-			<a href="#" class="profile">
-				<img src="img/people.png">
-			</a>
 		</nav>
 		<!-- NAVBAR -->
 
@@ -169,7 +155,7 @@
                     <div class="head">
                         <h3>Recent Volunteer</h3>
                         <i class='bx bx-search'></i>
-                        <i class='bx bx-filter'></i>
+                        <input type="text" id="search-input" placeholder="Search volunteer..." onkeyup="searchTable()" style="padding: 5px; width: 25%; font-family: 'Quicksand', sans-serif;">
                     </div>
                     <table>
                         <thead>
@@ -203,11 +189,20 @@
                                     <td>{{ $volunteer->created_at->format('d-m-Y H:i') }}</td>
                                     <td>{{ $volunteer->updated_at->format('d-m-Y H:i') }}</td>
                                     <td>
-                                        <form action="{{ route('admin.updateStatus', $volunteer->id) }}" method="POST">
+                                        <form action="{{ route('admin.updateStatus', $volunteer->id) }}" method="POST" style="display: flex;justify-content:center; margin-bottom:7px">
                                             @csrf
                                             @method('PATCH')
                                             <button type="submit" class="btn {{ $volunteer->status == 'accepted' ? 'btn-warning' : 'btn-success' }}">
                                                 {{ $volunteer->status == 'accepted' ? 'Set to Pending' : 'Set to Accept' }}
+                                            </button>
+                                        </form>
+
+                                        <!-- Form hapus volunteer -->
+                                        <form action="{{ route('admin.deleteVolunteer', $volunteer->id) }}" method="POST" style="display: flex; justify-content:center">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this volunteer?')" style="background-color: #b61e1e;">
+                                                Delete
                                             </button>
                                         </form>
                                     </td>
@@ -228,6 +223,42 @@
             document.getElementById('admin-logout-form').submit(); // Kirim form logout
         });
     </script>
+
+    <script>
+        function searchTable() {
+            // Ambil nilai dari input
+            let input = document.getElementById("search-input").value.toLowerCase();
+            // Ambil tabel
+            let table = document.querySelector(".table-data table tbody");
+            // Ambil semua baris dalam tabel
+            let rows = table.getElementsByTagName("tr");
+
+            // Loop setiap baris di dalam tabel
+            for (let i = 0; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName("td");
+                let matchFound = false;
+
+                // Loop setiap kolom (sel) di dalam baris
+                for (let j = 0; j < cells.length; j++) {
+                    let cellValue = cells[j].textContent || cells[j].innerText;
+
+                    // Cek jika nilai sel sesuai dengan input
+                    if (cellValue.toLowerCase().indexOf(input) > -1) {
+                        matchFound = true;
+                        break; // Jika ada yang cocok, tidak perlu mengecek kolom selanjutnya
+                    }
+                }
+
+                // Jika cocok, tampilkan baris; jika tidak, sembunyikan
+                if (matchFound) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
 
 	<script src="/js/admin.js"></script>
 </body>

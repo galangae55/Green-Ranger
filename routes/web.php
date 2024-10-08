@@ -20,9 +20,11 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::post('/admin/logout', [AuthController::class, 'adminLogout'])->name('admin.logout');
     Route::get('/admin/volunteer', [AdminController::class, 'adminVolunteer'])->name('admin.volunteer');
     Route::patch('/admin/volunteer/{id}/update-status', [AdminController::class, 'updateStatus'])->name('admin.updateStatus');
+    Route::delete('/admin/volunteer/{id}', [AdminController::class, 'deleteVolunteer'])->name('admin.deleteVolunteer');
     Route::get('/admin/donation', [AdminController::class, 'adminDonation'])->name('admin.donation');
 
 });
+
 
 // Rute yang hanya bisa diakses oleh non-admin (misalnya, pengguna umum)
 Route::middleware([RestrictNonAdminAccess::class])->group(function () {
@@ -43,8 +45,9 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::get('/acara2', [AcaraController::class, 'acara2'])->name('acara2');
     Route::get('/acara3', [AcaraController::class, 'acara3'])->name('acara3');
     Route::get('/acara4', [AcaraController::class, 'acara4'])->name('acara4');
-
+    Route::get("/shop_cart", [GreenRangerController::class,"shop_cart"]);
     Route::get("/shop_single", [GreenRangerController::class,"shop_single"]);
+    Route::get("/shop_checkout", [GreenRangerController::class,"shop_checkout"]);
 });
 
 // Auth routes
@@ -54,5 +57,3 @@ Route::middleware(['web'])->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
-
-
