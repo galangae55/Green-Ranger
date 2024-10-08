@@ -115,7 +115,7 @@
                 <div class="owl-carousel">
                     <div class="carousel-item">
                         <div class="carousel-img">
-                            <img src="img/ss2.jpg" alt="Image">
+                            <img src="img/banner3.jpg" alt="Image">
                         </div>
                         <div class="carousel-text">
                             <h1> Bersama menjaga kebersihan, bersama membuat perubahan</h1>
@@ -131,7 +131,7 @@
                     </div>
                     <div class="carousel-item">
                         <div class="carousel-img">
-                            <img src="img/ss1.jpg" alt="Image">
+                            <img src="img/banner1.jpg" alt="Image">
                         </div>
                         <div class="carousel-text">
                             <h1>Media kebersihan informatif</h1>
@@ -146,7 +146,7 @@
                     </div>
                     <div class="carousel-item">
                         <div class="carousel-img">
-                            <img src="img/ss3.jpg" alt="Image">
+                            <img src="img/banner2.jpg" alt="Image">
                         </div>
                         <div class="carousel-text">
                             <h1>Mari bergabung</h1>
@@ -211,8 +211,8 @@
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
                           <a href="/shop_single">
-                          <img src="img/shop/shop_item_1.jpg" alt="">
-                          <img src="img/shop/shop_item_back_1.jpg" alt="" class="back-img">
+                          <img src="img/shop/item01.jpg" alt="">
+                          <img src="img/shop/utem01.jpg" alt="" class="back-img">
                         </a>
                         <div class="product-label">
                           <span class="sale">sale</span>
@@ -276,8 +276,8 @@
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
                         <a href="/shop_single">
-                          <img src="img/shop/shop_item_2.jpg" alt="">
-                          <img src="img/shop/shop_item_back_2.jpg" alt="" class="back-img">
+                          <img src="img/shop/item02.jpg" alt="">
+                          <img src="img/shop/item02.jpg" alt="" class="back-img">
                         </a>
                         <div class="hover-2">
                           <div class="product-actions">
@@ -332,8 +332,8 @@
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
                         <a href="/shop_single">
-                          <img src="img/shop/shop_item_3.jpg" alt="">
-                          <img src="img/shop/shop_item_back_3.jpg" alt="" class="back-img">
+                          <img src="img/shop/item03.jpg" alt="">
+                          <img src="img/shop/item03.jpg" alt="" class="back-img">
                         </a>
                         <div class="hover-2">
                           <div class="product-actions">
@@ -388,8 +388,8 @@
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
                         <a href="/shop_single">
-                          <img src="img/shop/shop_item_4.jpg" alt="">
-                          <img src="img/shop/shop_item_back_4.jpg" alt="" class="back-img">
+                          <img src="img/shop/item04.jpg" alt="">
+                          <img src="img/shop/item04.jpg" alt="" class="back-img">
                         </a>
                         <div class="hover-2">
                           <div class="product-actions">
@@ -444,8 +444,8 @@
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
                         <a href="/shop_single">
-                          <img src="img/shop/shop_item_5.jpg" alt="">
-                          <img src="img/shop/shop_item_back_5.jpg" alt="" class="back-img">
+                          <img src="img/shop/item05.jpg" alt="">
+                          <img src="img/shop/item05.jpg" alt="" class="back-img">
                         </a>
                         <div class="hover-2">
                           <div class="product-actions">
@@ -845,8 +845,8 @@
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
                         <a href="/shop_single">
-                          <img src="img/shop/shop_item_12.jpg" alt="">
-                          <img src="img/shop/shop_item_back_12.jpg" alt="" class="back-img">
+                          <img src="img/shop/item12.jpg" alt="">
+                          <img src="img/shop/item12.jpg" alt="" class="back-img">
                         </a>
                         <div class="product-label">
                           <span class="sale">sale</span>

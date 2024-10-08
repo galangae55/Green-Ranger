@@ -126,32 +126,32 @@
         <div class="flickity flickity-slider-wrap mfp-hover" id="gallery-main">
 
           <div class="gallery-cell">
-            <a href="img/shop/item_lg_1.jpg" class="lightbox-img">
-              <img src="img/shop/item_lg_1.jpg" alt="" />
+            <a href="img/shop/item1.jpg" class="lightbox-img">
+              <img src="img/shop/item1.jpg" alt="" />
               <i class="ui-zoom zoom-icon"></i>
             </a>
           </div>
           <div class="gallery-cell">
-            <a href="img/shop/item_lg_2.jpg" class="lightbox-img">
-              <img src="img/shop/item_lg_2.jpg" alt="" />
+            <a href="img/shop/item2.jpg" class="lightbox-img">
+              <img src="img/shop/item2.jpg" alt="" />
               <i class="ui-zoom zoom-icon"></i>
             </a>
           </div>
           <div class="gallery-cell">
-            <a href="img/shop/item_lg_3.jpg" class="lightbox-img">
-              <img src="img/shop/item_lg_3.jpg" alt="" />
+            <a href="img/shop/item3.jpg" class="lightbox-img">
+              <img src="img/shop/item3.jpg" alt="" />
               <i class="ui-zoom zoom-icon"></i>
             </a>
           </div>
           <div class="gallery-cell">
-            <a href="img/shop/item_lg_4.jpg" class="lightbox-img">
-              <img src="img/shop/item_lg_4.jpg" alt="" />
+            <a href="img/shop/item4.jpg" class="lightbox-img">
+              <img src="img/shop/item4.jpg" alt="" />
               <i class="ui-zoom zoom-icon"></i>
             </a>
           </div>
           <div class="gallery-cell">
-            <a href="img/shop/item_lg_5.jpg" class="lightbox-img">
-              <img src="img/shop/item_lg_5.jpg" alt="" />
+            <a href="img/shop/item5.jpg" class="lightbox-img">
+              <img src="img/shop/item5.jpg" alt="" />
               <i class="ui-zoom zoom-icon"></i>
             </a>
           </div>
@@ -159,19 +159,19 @@
 
         <div class="gallery-thumbs">
           <div class="gallery-cell">
-            <img src="img/shop/item_thumb_1.jpg" alt="" />
+            <img src="img/shop/item1.jpg" alt="" />
           </div>
           <div class="gallery-cell">
-            <img src="img/shop/item_thumb_2.jpg" alt="" />
+            <img src="img/shop/item2.jpg" alt="" />
           </div>
           <div class="gallery-cell">
-            <img src="img/shop/item_thumb_3.jpg" alt="" />
+            <img src="img/shop/item3.jpg" alt="" />
           </div>
           <div class="gallery-cell">
-            <img src="img/shop/item_thumb_4.jpg" alt="" />
+            <img src="img/shop/item4.jpg" alt="" />
           </div>
           <div class="gallery-cell">
-            <img src="img/shop/item_thumb_5.jpg" alt="" />
+            <img src="img/shop/item5.jpg" alt="" />
           </div>
         </div> <!-- end gallery thumbs -->
 
