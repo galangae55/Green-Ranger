@@ -6,10 +6,10 @@
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
 	<link href="{{ asset('css/adminStyle.css') }}" rel="stylesheet">
 
     <style>
-
         /* Style umum untuk tombol */
         button {
             font-size: 10px;
@@ -77,13 +77,13 @@
 					<span class="text">Volunteer</span>
 				</a>
 			</li>
-			<li class="active">
+			<li>
                 <a href="/admin/donation">
                     <i class='bx bxs-wallet' ></i>
                     <span class="text">Donation</span>
                 </a>
             </li>
-			<li>
+			<li class="active">
 				<a href="/admin/kontak">
 					<i class='bx bxs-message-dots' ></i>
 					<span class="text">Kontak</span>
@@ -118,6 +118,7 @@
 	</section>
 	<!-- SIDEBAR -->
 
+
 	<!-- CONTENT -->
 	<section id="content">
 		<!-- NAVBAR -->
@@ -132,14 +133,14 @@
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1>Daftar Donasi</h1>
+					<h1>Daftar Kontak</h1>
 					<ul class="breadcrumb">
 						<li>
 							<a href="">Dashboard</a>
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
-							<a class="active" href="">Donation</a>
+							<a class="active" href="">Volunteer</a>
 						</li>
 					</ul>
 				</div>
@@ -152,7 +153,7 @@
 			<div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Recent Volunteer</h3>
+                        <h3>Recent Kontak</h3>
                         <i class='bx bx-search'></i>
                         <input type="text" id="search-input" placeholder="Search volunteer..." onkeyup="searchTable()" style="padding: 5px; width: 25%; font-family: 'Quicksand', sans-serif;">
                     </div>
@@ -160,43 +161,27 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Username</th>
-                                <th>No Telepon</th>
+                                <th>Name</th>
                                 <th>Email</th>
-                                <th>Status</th>
-                                <th>Jumlah Donasi</th>
+                                <th>Subject</th>
+                                <th>Message</th>
                                 <th>Tanggal Dibuat</th>
                                 <th>Tanggal Diperbarui</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        {{-- <tbody>
-                            @foreach($volunteers as $volunteer)
+                        <tbody>
+                            @foreach($kontak as $kontak)
                                 <tr>
-                                    <td>{{ $volunteer->id }}</td>
-                                    <td>{{ $volunteer->username }}</td>
-                                    <td>{{ $volunteer->umur }}</td>
-                                    <td>{{ $volunteer->no_telp }}</td>
-                                    <td>{{ $volunteer->email }}</td>
-                                    <td>{{ $volunteer->event }}</td>
+                                    <td>{{ $kontak->id }}</td>
+                                    <td>{{ $kontak->name }}</td>
+                                    <td>{{ $kontak->email }}</td>
+                                    <td>{{ $kontak->subject }}</td>
+                                    <td>{{ $kontak->message }}</td>
+                                    <td>{{ $kontak->created_at->format('d-m-Y H:i') }}</td>
+                                    <td>{{ $kontak->updated_at->format('d-m-Y H:i') }}</td>
                                     <td>
-                                        <span class="status {{ $volunteer->status == 'accepted' ? 'completed' : 'pending' }}">
-                                            {{ ucfirst($volunteer->status) }}
-                                        </span>
-                                    </td>
-                                    <td>{{ $volunteer->created_at->format('d-m-Y H:i') }}</td>
-                                    <td>{{ $volunteer->updated_at->format('d-m-Y H:i') }}</td>
-                                    <td>
-                                        <form action="{{ route('admin.updateStatus', $volunteer->id) }}" method="POST" style="display: flex;justify-content:center; margin-bottom:7px">
-                                            @csrf
-                                            @method('PATCH')
-                                            <button type="submit" class="btn {{ $volunteer->status == 'accepted' ? 'btn-warning' : 'btn-success' }}">
-                                                {{ $volunteer->status == 'accepted' ? 'Set to Pending' : 'Set to Accept' }}
-                                            </button>
-                                        </form>
-
-                                        <!-- Form hapus volunteer -->
-                                        <form action="{{ route('admin.deleteVolunteer', $volunteer->id) }}" method="POST" style="display: flex; justify-content:center">
+                                        <form action="{{ route('admin.deleteKontak', $kontak->id) }}" method="POST" style="display: flex; justify-content:center">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this volunteer?')" style="background-color: #b61e1e;">
@@ -206,7 +191,7 @@
                                     </td>
                                 </tr>
                             @endforeach
-                        </tbody> --}}
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -221,6 +206,42 @@
             document.getElementById('admin-logout-form').submit(); // Kirim form logout
         });
     </script>
+
+    <script>
+        function searchTable() {
+            // Ambil nilai dari input
+            let input = document.getElementById("search-input").value.toLowerCase();
+            // Ambil tabel
+            let table = document.querySelector(".table-data table tbody");
+            // Ambil semua baris dalam tabel
+            let rows = table.getElementsByTagName("tr");
+
+            // Loop setiap baris di dalam tabel
+            for (let i = 0; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName("td");
+                let matchFound = false;
+
+                // Loop setiap kolom (sel) di dalam baris
+                for (let j = 0; j < cells.length; j++) {
+                    let cellValue = cells[j].textContent || cells[j].innerText;
+
+                    // Cek jika nilai sel sesuai dengan input
+                    if (cellValue.toLowerCase().indexOf(input) > -1) {
+                        matchFound = true;
+                        break; // Jika ada yang cocok, tidak perlu mengecek kolom selanjutnya
+                    }
+                }
+
+                // Jika cocok, tampilkan baris; jika tidak, sembunyikan
+                if (matchFound) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
 
 	<script src="/js/admin.js"></script>
 </body>

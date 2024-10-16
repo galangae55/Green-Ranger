@@ -77,7 +77,7 @@
 					<span class="text">Volunteer</span>
 				</a>
 			</li>
-			<li class="active">
+			<li>
                 <a href="/admin/donation">
                     <i class='bx bxs-wallet' ></i>
                     <span class="text">Donation</span>
@@ -89,7 +89,7 @@
 					<span class="text">Kontak</span>
 				</a>
 			</li>
-            <li>
+			<li class="active">
 				<a href="/admin/belanja">
 					<i class='bx bxs-cart' ></i>
 					<span class="text">Belanja</span>
@@ -139,7 +139,7 @@
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
-							<a class="active" href="">Donation</a>
+							<a class="active" href="">Belanja</a>
 						</li>
 					</ul>
 				</div>
@@ -152,7 +152,7 @@
 			<div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Recent Volunteer</h3>
+                        <h3>Recent Belanja</h3>
                         <i class='bx bx-search'></i>
                         <input type="text" id="search-input" placeholder="Search volunteer..." onkeyup="searchTable()" style="padding: 5px; width: 25%; font-family: 'Quicksand', sans-serif;">
                     </div>
@@ -163,11 +163,12 @@
                                 <th>Username</th>
                                 <th>No Telepon</th>
                                 <th>Email</th>
+                                <th>Jumlah Pembelian</th>
+                                <th>Biaya Pembelian</th>
+                                <th>Alamat</th>
                                 <th>Status</th>
-                                <th>Jumlah Donasi</th>
                                 <th>Tanggal Dibuat</th>
                                 <th>Tanggal Diperbarui</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         {{-- <tbody>

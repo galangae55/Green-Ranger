@@ -40,15 +40,15 @@
                 </a>
             </li>
 			<li>
-				<a href="">
+				<a href="/admin/kontak">
 					<i class='bx bxs-message-dots' ></i>
-					<span class="text">Message</span>
+					<span class="text">Kontak</span>
 				</a>
 			</li>
-			<li>
-				<a href="">
-					<i class='bx bxs-group' ></i>
-					<span class="text">Team</span>
+            <li>
+				<a href="/admin/belanja">
+					<i class='bx bxs-cart' ></i>
+					<span class="text">Belanja</span>
 				</a>
 			</li>
 		</ul>
@@ -142,8 +142,6 @@
 				<div class="order">
                     <div class="head">
                         <h3>Recent Volunteer</h3>
-                        <i class='bx bx-search'></i>
-                        <i class='bx bx-filter'></i>
                     </div>
                     <table>
                         <thead>
@@ -180,8 +178,6 @@
 				<div class="todo">
 					<div class="head">
 						<h3>Todos</h3>
-						<i class='bx bx-plus' ></i>
-						<i class='bx bx-filter' ></i>
 					</div>
 					<ul class="todo-list">
 						<li class="completed">

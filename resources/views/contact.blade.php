@@ -169,39 +169,88 @@
             <div class="container">
                 <div class="section-header text-center">
                     <p>Hubungi Kami</p>
-                    {{-- <h2>Contact for any query</h2> --}}
                 </div>
                 <div class="contact-img">
                     <img src="img/contact.jpg" alt="Image">
                 </div>
                 <div class="contact-form" data-aos="fade-up">
-                        <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate" data-aos="fade-up">
+                    <div id="success"></div>
+                    @if (session('user_name'))
+                        <form action="{{ route('contacts.store') }}" method="POST" novalidate="novalidate">
                             @csrf
+                            <!-- Menampilkan Username -->
                             <div class="control-group" data-aos="fade-up">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Nama anda" required="required" data-validation-required-message="Please enter your name" />
-                                <p class="help-block text-danger"></p>
+                                <input type="text" class="form-control" id="username" name="username"
+                                    value="{{ auth()->user()->name }}" readonly style="color: #7f7f7f"/>
                             </div>
-                            <div class="control-group"data-aos="fade-up">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email anda" required="required" data-validation-required-message="Please enter your email" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group"data-aos="fade-up">
-                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subjek" required="required" data-validation-required-message="Please enter a subject" />
-                                <p class="help-block text-danger"></p>
-                            </div>
+
+                            <!-- Menampilkan Email -->
                             <div class="control-group" data-aos="fade-up">
-                                <textarea class="form-control" id="message" name="message" placeholder="Pesan" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    value="{{ auth()->user()->email }}" readonly style="color: #7f7f7f"/>
+                            </div>
+
+                            <!-- Input untuk Subject -->
+                            <div class="control-group" data-aos="fade-up">
+                                <input type="text" class="form-control" id="subject" name="subject"
+                                    placeholder="Subjek" required="required" data-validation-required-message="Please enter a subject" />
                                 <p class="help-block text-danger"></p>
                             </div>
+
+                            <!-- Input untuk Message -->
+                            <div class="control-group" data-aos="fade-up">
+                                <textarea class="form-control" id="message" name="message"
+                                        placeholder="Pesan" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+
                             <div>
-                                <button class="btn btn-custom" type="submit" id="sendMessageButton"data-aos="fade-up">Kirim pesan</button>
+                                <button class="btn btn-custom" type="submit" id="sendMessageButton" data-aos="fade-up">Kirim pesan</button>
                             </div>
                         </form>
-                    </div>
+                    @else
+                        <form action="{{ route('contacts.storeNoLogin') }}" method="POST" novalidate="novalidate">
+                            @csrf
+
+                            <!-- Input untuk Username -->
+                            <div class="control-group" data-aos="fade-up">
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Nama" required="required" data-validation-required-message="Please enter your name" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+
+                            <!-- Input untuk Email -->
+                            <div class="control-group" data-aos="fade-up">
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Email" required="required" data-validation-required-message="Please enter your email" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+
+                            <!-- Input untuk Subject -->
+                            <div class="control-group" data-aos="fade-up">
+                                <input type="text" class="form-control" id="subject" name="subject"
+                                    placeholder="Subjek" required="required" data-validation-required-message="Please enter a subject" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+
+                            <!-- Input untuk Message -->
+                            <div class="control-group" data-aos="fade-up">
+                                <textarea class="form-control" id="message" name="message"
+                                        placeholder="Pesan" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+
+                            <div>
+                                <button class="btn btn-custom" type="submit" id="sendMessageButton" data-aos="fade-up">Kirim pesan</button>
+                            </div>
+                        </form>
+                    @endif
+
+                </div>
             </div>
         </div>
         <!-- Contact End -->
+
 
         <!-- Success Modal -->
         <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\kontak;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Volunteer;
@@ -48,10 +49,6 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'Status volunteer berhasil diubah.');
     }
 
-    public function adminDonation()
-    {
-        return view('adminDonation');
-    }
 
     public function deleteVolunteer($id)
     {
@@ -66,4 +63,31 @@ class AdminController extends Controller
     }
 
 
+    public function adminDonation()
+    {
+        return view('adminDonation');
+    }
+
+    public function adminKontak()
+    {
+        $kontak = kontak::all();
+
+        return view('adminKontak', compact('kontak'));
+    }
+
+    public function deleteKontak($id)
+    {
+        // Cari volunteer berdasarkan id
+        $kontak = kontak::findOrFail($id);
+
+        // Hapus volunteer
+        $kontak->delete();
+
+        // Redirect kembali ke halaman volunteer dengan pesan sukses
+        return redirect()->route('admin.kontak')->with('success', 'Volunteer deleted successfully.');
+    }
+
+    public function adminBelanja(){
+        return view('adminBelanja');
+    }
 }

@@ -84,15 +84,15 @@
                 </a>
             </li>
 			<li>
-				<a href="">
+				<a href="/admin/kontak">
 					<i class='bx bxs-message-dots' ></i>
-					<span class="text">Message</span>
+					<span class="text">Kontak</span>
 				</a>
 			</li>
-			<li>
-				<a href="">
-					<i class='bx bxs-group' ></i>
-					<span class="text">Team</span>
+            <li>
+				<a href="/admin/belanja">
+					<i class='bx bxs-cart' ></i>
+					<span class="text">Belanja</span>
 				</a>
 			</li>
 		</ul>
