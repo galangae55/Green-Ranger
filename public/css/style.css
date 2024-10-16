@@ -856,24 +856,33 @@ a:focus {
 
 .event .event-item img {
     width: 100%;
+    height: 200px; /* Tetapkan tinggi gambar */
+    object-fit: cover; /* Agar gambar tetap proporsional */
 }
 
 .event .event-content {
     padding: 30px;
     display: flex;
+    flex-direction: row; /* Membuat .event-meta dan .event-text sejajar */
+    justify-content: space-between; /* Memberi jarak antara elemen */
+    align-items: flex-start; /* Menyelaraskan item di bagian atas */
 }
 
 .event .event-meta {
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
+    width: 200px; /* Tentukan lebar tetap untuk .event-meta */
+    flex-shrink: 0; /* Mencegah mengecilnya ukuran saat ada teks panjang */
 }
 
 .event .event-meta p {
     position: relative;
     margin-bottom: 8px;
     padding-bottom: 8px;
-    white-space: nowrap;
+    white-space: nowrap; /* Pastikan teks dalam satu baris */
+    overflow: hidden; /* Sembunyikan teks yang melebihi batas */
+    text-overflow: ellipsis; /* Tambahkan "..." jika teks terpotong */
     border-bottom: 1px solid rgba(0, 0, 0, .15);
 }
 
@@ -887,39 +896,26 @@ a:focus {
 }
 
 .event .event-text {
-    position: relative;
     margin-left: 20px;
     padding-left: 20px;
-}
-
-.event .event-text::before {
-    position: absolute;
-    content: "";
-    width: 1px;
-    height: calc(100% - 5px);
-    top: 6px;
-    left: 0;
-    background: rgba(0, 0, 0, .15);
-}
-
-.event .event-text::after {
-    position: absolute;
-    content: "";
-    width: 3px;
-    height: 40px;
-    top: calc(50% - 20px);
-    left: -1px;
-    background: #FDBE33;
+    flex-grow: 1; /* Ambil sisa ruang setelah event-meta */
+    overflow: hidden;
 }
 
 .event .event-text h3 {
     font-size: 25px;
     font-weight: 700;
     margin-bottom: 10px;
+    white-space: nowrap; /* Tampilkan judul dalam satu baris */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Tambahkan "..." jika judul terpotong */
 }
 
 .event .event-text p {
     margin: 0;
+    white-space: nowrap; /* Pastikan teks dalam satu baris */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Tambahkan "..." jika teks terpotong */
 }
 
 .event .btn.btn-custom {
@@ -929,10 +925,11 @@ a:focus {
 
 @media (max-width: 575.98px) {
     .event .event-content {
-        flex-direction: column;
+        flex-direction: column; /* Ubah ke kolom di layar kecil */
     }
 
     .event .event-meta {
+        width: 100%; /* Ambil 100% lebar di layar kecil */
         flex-direction: row;
     }
 
@@ -941,24 +938,16 @@ a:focus {
         padding-right: 7px;
     }
 
-    .event .event-meta p:last-child {
-        border-bottom: 1px solid rgba(0, 0, 0, .15);
-    }
-
-    .event .event-meta i {
-        width: 18px;
-    }
-
     .event .event-text {
         margin: 0;
         padding: 0;
     }
 
-    .event .event-text::before,
-    .event .event-text::after {
-        display: none;
+    .event .event-text h3 {
+        font-size: 18px; /* Sesuaikan ukuran font di layar kecil */
     }
 }
+
 
 
 
@@ -975,23 +964,39 @@ a:focus {
     margin-bottom: 30px;
     padding-bottom: 30px;
     background: #f3f6ff;
+    height: 500px; /* Tetapkan tinggi tetap untuk kotak */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .blog .blog-img {
     width: 100%;
+     /* Tetapkan tinggi tetap untuk gambar */
+    overflow: hidden;
 }
 
 .blog .blog-img img {
     width: 100%;
+    object-fit: cover; /* Agar gambar menyesuaikan tanpa merusak rasio */
 }
 
 .blog .blog-text {
-    padding: 30px 30px 15px 30px;
+    padding: 10px 20px; /* Kurangi padding agar lebih pas */
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Agar teks berada di bagian atas dan meta di bawah */
 }
 
 .blog .blog-text h3 {
-    font-size: 22px;
+    font-size: 18px; /* Sesuaikan ukuran judul */
     font-weight: 700;
+    height: auto; /* Biarkan tinggi judul fleksibel */
+    margin-bottom: 10px;
+    text-align: center;
+
 }
 
 .blog .blog-text h3 a {
@@ -1004,6 +1009,15 @@ a:focus {
 
 .blog .blog-text p {
     margin: 0;
+    line-height: 1.5em;
+    max-height: 6em; /* Batas ketinggian untuk menampilkan 3 baris */
+    text-align: justify; /* Buat teks rata kanan-kiri (justify) */
+    overflow: hidden; /* Sembunyikan teks yang berlebih */
+    text-overflow: ellipsis; /* Tambahkan "..." jika teks terpotong */
+    white-space: normal; /* Izinkan teks membentuk beberapa baris */
+    display: -webkit-box; /* Dukungan untuk multiline ellipsis */
+    -webkit-line-clamp: 5; /* Batasi hanya sampai 3 baris */
+    -webkit-box-orient: vertical;
 }
 
 .blog .blog-meta {
@@ -1031,27 +1045,7 @@ a:focus {
 
 .blog .blog-meta i {
     color: #4a4c70;
-    margin-right: 8px
-}
-
-.blog .pagination {
-    margin-bottom: 15px;
-}
-
-.blog .pagination .page-link {
-    color: #4a4c70;
-    border-radius: 0;
-    border-color: #4a4c70;
-}
-
-.blog .pagination .page-link:hover,
-.blog .pagination .page-item.active .page-link {
-    color: #FDBE33;
-    background: #4a4c70;
-}
-
-.blog .pagination .disabled .page-link {
-    color: #999999;
+    margin-right: 8px;
 }
 
 
