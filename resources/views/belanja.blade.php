@@ -850,7 +850,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="/shop_single">Tas Rajut Eceng Gondok</a>
+                          <a href="/shop_single">Tas Anyam</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Wanita</a>

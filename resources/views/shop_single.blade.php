@@ -178,13 +178,13 @@
       </div> <!-- end col img slider -->
 
       <div class="col-md-6 col-xs-12 product-description-wrap">
-        <h1 class="product-title">Sport T-Shirt</h1>
+        <h1 class="product-title">Tas Anyam</h1>
         <span class="price">
           <del>
-            <span>$1550.00</span>
+            <span>Rp 155K</span>
           </del>
           <ins>
-            <span class="amount">$1250.00</span>
+            <span class="amount">Rp 125K</span>
           </ins>
         </span>
         <span class="rating">
