@@ -698,3 +698,22 @@
 
 
 })(jQuery);
+
+// Script untuk menghitung subtotal dan total secara otomatis
+document.querySelectorAll('.qty').forEach(input => {
+  input.addEventListener('input', updateCartTotals);
+});
+
+function updateCartTotals() {
+  let subtotal = 0;
+  document.querySelectorAll('.cart_item').forEach(item => {
+      const quantity = item.querySelector('.qty').value;
+      const price = parseFloat(item.querySelector('.product-price .amount').textContent.replace('$', ''));
+      const itemTotal = quantity * price;
+      item.querySelector('.product-subtotal .amount').textContent = `$${itemTotal.toFixed(2)}`;
+      subtotal += itemTotal;
+  });
+
+  document.querySelector('.cart-subtotal .amount').textContent = `$${subtotal.toFixed(2)}`;
+  document.querySelector('.order-total .amount').textContent = `$${subtotal.toFixed(2)}`;
+}

@@ -57,13 +57,25 @@
                     @endif
 
                     <div class="col-md-4">
-                        <div class="top-bar-right">
+                    <div class="top-bar-right">
+                            @if (session('user_name'))
+                                <div class="social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href="/shop_cart" title="Belanja"><i class="fas fa-shopping-cart"></i></a>
+                                    <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
+                                </div>
+                            @else
                             <div class="social">
                                 <a href=""><i class="fab fa-twitter"></i></a>
                                 <a href=""><i class="fab fa-facebook-f"></i></a>
                                 <a href=""><i class="fab fa-linkedin-in"></i></a>
                                 <a href=""><i class="fab fa-instagram"></i></a>
                             </div>
+                            @endif
+                        </div>
                             @if (session('user_name'))
                                 <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
                             @endif
@@ -178,139 +190,39 @@
       </div> <!-- end col img slider -->
 
       <div class="col-md-6 col-xs-12 product-description-wrap">
-        <h1 class="product-title">Sport T-Shirt</h1>
-        <span class="price">
-          <del>
-            <span>$1550.00</span>
-          </del>
-          <ins>
-            <span class="amount">$1250.00</span>
-          </ins>
-        </span>
-        <span class="rating">
-          <a href="#">3 Reviews</a>
-        </span>
-        <p class="short-description">Our Shop is a very slick and clean e-Our Theme is a very slick and clean e-commerce template with endless possibilities. Creating an awesome website with this Theme is easy than you can imagine. Our Theme is a very slick and clean e-commerce template with endless possibilities.</p>
+    <h1 class="product-title">Tas rajut Eceng Gondok</h1>
+    <span class="price">
+        <del><span>Rp 500000</span></del>
+        <ins><span class="amount">Rp 299999</span></ins>
+    </span>
+    <p class="short-description">Our Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome website with this Theme is easier than you can imagine.</p>
 
-        <div class="color-swatches clearfix">
-          <span>Color:</span>
-          <a href="#" class="swatch-violet"></a>
-          <a href="#" class="swatch-black"></a>
-          <a href="#" class="swatch-cream"></a>
-        </div>
-
-        <div class="size-options clearfix">
-          <span>Size:</span>
-          <a href="#" class="size-xs selected">XS</a>
-          <a href="#" class="size-s">S</a>
-          <a href="#" class="size-m">M</a>
-          <a href="#" class="size-l">L</a>
-          <a href="#" class="size-xl">XL</a>
-        </div>
-
-        <div class="product-actions">
-          <span>Qty:</span>
-
-          <div class="quantity buttons_added">
-            <input type="number" step="1" min="0" value="1" title="Qty" class="input-text qty text" />
+    <div class="product-actions">
+        <span>Jumlah:</span>
+        <div class="quantity buttons_added">
+            <input type="number" step="1" min="1" value="1" title="jumlah" name="quantity" class="input-text qty text" required />
             <div class="quantity-adjust">
-              <a href="#" class="plus">
-                <i class="fa fa-angle-up"></i>
-              </a>
-              <a href="#" class="minus">
-                <i class="fa fa-angle-down"></i>
-              </a>
+                <a href="#" class="plus"><i class="fa fa-angle-up"></i></a>
+                <a href="#" class="minus"><i class="fa fa-angle-down"></i></a>
             </div>
-          </div>
-
-          <a href="/shop_cart" class="btn btn-dark btn-lg add-to-cart"><span>Add to Cart</span></a>
-
-          <a href="#" class="product-add-to-wishlist"><i class="fa fa-heart"></i></a>
         </div>
 
+        <!-- Form untuk menambahkan produk ID 12 ke keranjang -->
+        <form action="{{ route('cart.add') }}" method="POST" style="display:inline;">
+            @csrf
+            <input type="hidden" name="product_id" value="12">
+            <button type="submit" class="btn btn-dark btn-lg add-to-cart">
+                <span>Add to Cart</span>
+            </button>
+        </form>
+    </div>
 
-        <div class="product_meta">
-          <span class="sku">SKU: <a href="#">111763</a></span>
-          <span class="brand_as">Category: <a href="#">Men T-shirt</a></span>
-          <span class="posted_in">Tags: <a href="#">Sport, T-shirt, Blue</a></span>
-        </div>
 
-        <!-- Accordion -->
-        <div class="panel-group accordion mb-50" id="accordion">
-          <div class="panel">
-            <div class="panel-heading">
-              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="minus">Description<span>&nbsp;</span>
-              </a>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in">
-              <div class="panel-body">
-                Zenna Theme is a very slick and clean e-commerce template with endless possibilities. Creating an awesome website. Amadea Theme is a very slick and clean e-commerce template with endless possibilities. Creating an awesome website. I would now like to introduce you to your second mind, the hidden and mysterious subconscious.
-              </div>
-            </div>
-          </div>
+        <a href="#" class="product-add-to-wishlist"><i class="fa fa-heart"></i></a>
+    </div>
+</div>
 
-          <div class="panel">
-            <div class="panel-heading">
-              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="plus">Information<span>&nbsp;</span>
-              </a>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse">
-              <div class="panel-body">
-                <table class="table shop_attributes">
-                  <tbody>
-                    <tr>
-                      <th>Size:</th>
-                      <td>EU 41 (US 8), EU 42 (US 9), EU 43 (US 10), EU 45 (US 12)</td>
-                    </tr>
-                    <tr>
-                      <th>Colors:</th>
-                      <td>Violet, Black, Blue</td>
-                    </tr>
-                    <tr>
-                      <th>Fabric:</th>
-                      <td>Cotton (100%)</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
 
-          <div class="panel">
-            <div class="panel-heading">
-              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="plus">Reviews<span>&nbsp;</span>
-              </a>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse">
-              <div class="panel-body">
-                <div class="reviews">
-                  <ul class="reviews-list">
-                    <li>
-                      <div class="review-body">
-                        <div class="review-content">
-                          <p class="review-author"><strong>Alexander Samokhin</strong> - May 6, 2014 at 12:48 pm</p>
-                          <div class="rating">
-                            <a href="#"></a>
-                          </div>
-                          <p>This template is so awesome. I didn’t expect so many features inside. E-commerce pages are very useful, you can launch your online store in few seconds. I will rate 5 stars.</p>
-                        </div>
-                      </div>
-                    </li>
-
-                    <li>
-                      <div class="review-body">
-                        <div class="review-content">
-                          <p class="review-author"><strong>Christopher Robins</strong> - May 6, 2014 at 12:48 pm</p>
-                          <div class="rating">
-                            <a href="#"></a>
-                          </div>
-                          <p>This template is so awesome. I didn’t expect so many features inside. E-commerce pages are very useful, you can launch your online store in few seconds. I will rate 5 stars.</p>
-                        </div>
-                      </div>
-                    </li>
-
-                  </ul>
-                </div> <!--  end reviews -->
               </div>
             </div>
           </div>
@@ -630,6 +542,20 @@
     </div>
 
     <!-- JavaScript Libraries -->
+     <script>
+      document.querySelector('.plus').addEventListener('click', function(event) {
+    event.preventDefault();
+    let qty = document.querySelector('.qty');
+    qty.value = parseInt(qty.value) + 1;
+});
+
+document.querySelector('.minus').addEventListener('click', function(event) {
+    event.preventDefault();
+    let qty = document.querySelector('.qty');
+    if (parseInt(qty.value) > 1) qty.value = parseInt(qty.value) - 1;
+});
+
+     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>

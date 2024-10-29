@@ -15,8 +15,41 @@ class GreenRangerController extends Controller
         return view("index");
     }
 
-    public function shop_single(){
-        return view("shop_single");
+    public function produk1(){
+        return view("produk1");
+    }
+    public function produk2(){
+        return view("produk2");
+    }
+    public function produk3(){
+        return view("produk3");
+    }
+    public function produk4(){
+        return view("produk4");
+    }
+    public function produk5(){
+        return view("produk5");
+    }
+    public function produk6(){
+        return view("produk12");
+    }
+    public function produk7(){
+        return view("produk12");
+    }
+    public function produk8(){
+        return view("produk12");
+    }
+    public function produk9(){
+        return view("produk12");
+    }
+    public function produk10(){
+        return view("produk12");
+    }
+    public function produk11(){
+        return view("produk12");
+    }
+    public function produk12(){
+        return view("produk12");
     }
 
     public function shop_cart(){

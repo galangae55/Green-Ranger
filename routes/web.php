@@ -12,6 +12,7 @@ use App\Http\Controllers\DonationController;
 use App\Http\Controllers\AdminController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\RestrictNonAdminAccess;
+use App\Http\Controllers\CartController;
 
 // Rute yang hanya bisa diakses oleh admin
 Route::middleware([AdminMiddleware::class])->group(function () {
@@ -51,7 +52,21 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::get('/acara3', [AcaraController::class, 'acara3'])->name('acara3');
     Route::get('/acara4', [AcaraController::class, 'acara4'])->name('acara4');
     Route::get("/shop_cart", [GreenRangerController::class,"shop_cart"]);
-    Route::get("/shop_single", [GreenRangerController::class,"shop_single"]);
+    Route::get("/produk1", [GreenRangerController::class,"produk1"]);
+    Route::get("/produk2", [GreenRangerController::class,"produk2"]);
+    Route::get("/produk3", [GreenRangerController::class,"produk3"]);
+    Route::get("/produk4", [GreenRangerController::class,"produk4"]);
+    Route::get("/produk5", [GreenRangerController::class,"produk5"]);
+    Route::get("/produk6", [GreenRangerController::class,"produk6"]);
+    Route::get("/produk7", [GreenRangerController::class,"produk7"]);
+    Route::get("/produk8", [GreenRangerController::class,"produk8"]);
+    Route::get("/produk9", [GreenRangerController::class,"produk9"]);
+    Route::get("/produk10", [GreenRangerController::class,"produk10"]);
+    Route::get("/produk11", [GreenRangerController::class,"produk11"]);
+    Route::get("/produk12", [GreenRangerController::class,"produk12"]);
+    Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::get('/cart', [CartController::class, 'showCart'])->name('shop.cart');
     Route::get("/shop_checkout", [GreenRangerController::class,"shop_checkout"]);
 });
 

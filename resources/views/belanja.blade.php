@@ -53,15 +53,23 @@
                     @endif
 
                     <div class="col-md-4">
-                        <div class="top-bar-right">
+                    <div class="top-bar-right">
+                            @if (session('user_name'))
+                                <div class="social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href="/shop_cart" title="Belanja"><i class="fas fa-shopping-cart"></i></a>
+                                    <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
+                                </div>
+                            @else
                             <div class="social">
                                 <a href=""><i class="fab fa-twitter"></i></a>
                                 <a href=""><i class="fab fa-facebook-f"></i></a>
                                 <a href=""><i class="fab fa-linkedin-in"></i></a>
                                 <a href=""><i class="fab fa-instagram"></i></a>
                             </div>
-                            @if (session('user_name'))
-                                <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
                             @endif
                         </div>
                     </div>
@@ -197,7 +205,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                          <a href="/shop_single">
+                          <a href="/produk1">
                           <img src="img/shop/item01.jpg" alt="">
                           <img src="img/shop/utem01.jpg" alt="" class="back-img">
                         </a>
@@ -216,7 +224,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="/shop_single">Topi Rajut Pria</a>
+                          <a href="/produk1">Topi Rajut Pria</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Aksesoris</a>
@@ -231,30 +239,6 @@
                           <span class="amount">Rp 159.999</span>
                         </ins>
                       </span>
-
-                      <div class="product-description">
-                        <h3 class="product-title">
-                          <a href="/shop_single">Topi Rajut Pria</a>
-                        </h3>
-                        <span class="price">
-                          <del>
-                            <span>Rp 730.000</span>
-                          </del>
-                          <ins>
-                            <span class="amount">Rp 159.999</span>
-                          </ins>
-                        </span>
-                        <span class="rating">
-                          <a href="#">3 Ulasan</a>
-                        </span>
-                        <div class="clear"></div>
-                        <p>Zenna Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-                        <a href="#" class="btn btn-dark btn-md left"><span>Masukkan Keranjang</span></a>
-                        <div class="product-add-to-wishlist">
-                          <a href="#"><i class="fa fa-heart"></i></a>
-                        </div>
-                      </div>
-
                     </div>
                   </div> <!-- end product -->
 
@@ -262,7 +246,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="/shop_single">
+                        <a href="/produk2">
                           <img src="img/shop/item02.jpg" alt="">
                           <img src="img/shop/item02.jpg" alt="" class="back-img">
                         </a>
@@ -278,7 +262,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="/shop_single">Topi Rajut Wanita</a>
+                          <a href="/produk2">Topi Rajut Wanita</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Aksesoris</a>
@@ -290,27 +274,6 @@
                           <span class="amount">Rp 199.999</span>
                         </ins>
                       </span>
-
-                      <div class="product-description">
-                        <h3 class="product-title">
-                          <a href="/shop_single">Topi Rajut Wanita</a>
-                        </h3>
-                        <span class="price">
-                          <ins>
-                            <span class="amount">Rp 199.999</span>
-                          </ins>
-                        </span>
-                        <span class="rating">
-                          <a href="#">7 Ulasan</a>
-                        </span>
-                        <div class="clear"></div>
-                        <p>Zenna Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-                        <a href="#" class="btn btn-dark btn-md left"><span>Masukkan Keranjang</span></a>
-                        <div class="product-add-to-wishlist">
-                          <a href="#"><i class="fa fa-heart"></i></a>
-                        </div>
-                      </div>
-
                     </div>
                   </div> <!-- end product -->
 
@@ -318,7 +281,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="/shop_single">
+                        <a href="/produk3">
                           <img src="img/shop/item03.jpg" alt="">
                           <img src="img/shop/item03.jpg" alt="" class="back-img">
                         </a>
@@ -334,7 +297,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="/shop_single">Kursi Santai Jati Mix Rotan</a>
+                          <a href="/produk3">Kursi Santai Jati Mix Rotan</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Perabotan</a>
@@ -346,27 +309,6 @@
                           <span class="amount">Rp 780.000</span>
                         </ins>
                       </span>
-
-                      <div class="product-description">
-                        <h3 class="product-title">
-                          <a href="/shop_single">Kursi Santai Jati Mix Rotan</a>
-                        </h3>
-                        <span class="price">
-                          <ins>
-                            <span class="amount">Rp 780.000</span>
-                          </ins>
-                        </span>
-                        <span class="rating">
-                          <a href="#">10 Ulasan</a>
-                        </span>
-                        <div class="clear"></div>
-                        <p>Zenna Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-                        <a href="#" class="btn btn-dark btn-md left"><span>Masukkan Keranjang</span></a>
-                        <div class="product-add-to-wishlist">
-                          <a href="#"><i class="fa fa-heart"></i></a>
-                        </div>
-                      </div>
-
                     </div>
                   </div> <!-- end product -->
 
@@ -374,7 +316,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="/shop_single">
+                        <a href="/produk4">
                           <img src="img/shop/item04.jpg" alt="">
                           <img src="img/shop/item04.jpg" alt="" class="back-img">
                         </a>
@@ -390,7 +332,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="/shop_single">Lampu Hias Anyaman</a>
+                          <a href="/produk4">Lampu Hias Anyaman</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Perabotan</a>
@@ -402,27 +344,6 @@
                           <span class="amount">Rp 1.500.000</span>
                         </ins>
                       </span>
-
-                      <div class="product-description">
-                        <h3 class="product-title">
-                          <a href="/shop_single">Lampu Hias Anyaman</a>
-                        </h3>
-                        <span class="price">
-                          <ins>
-                            <span class="amount">Rp 1.500.000</span>
-                          </ins>
-                        </span>
-                        <span class="rating">
-                          <a href="#">3 Reviews</a>
-                        </span>
-                        <div class="clear"></div>
-                        <p>Zenna Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-                        <a href="#" class="btn btn-dark btn-md left"><span>Masukkan Keranjang</span></a>
-                        <div class="product-add-to-wishlist">
-                          <a href="#"><i class="fa fa-heart"></i></a>
-                        </div>
-                      </div>
-
                     </div>
                   </div> <!-- end product -->
 
@@ -430,7 +351,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="/shop_single">
+                        <a href="/produk5">
                           <img src="img/shop/item05.jpg" alt="">
                           <img src="img/shop/item05.jpg" alt="" class="back-img">
                         </a>
@@ -446,7 +367,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="/shop_single">Keranjang Belanja</a>
+                          <a href="/produk5">Keranjang Belanja</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Perabotan</a>
@@ -458,27 +379,6 @@
                           <span class="amount">Rp 100.000</span>
                         </ins>
                       </span>
-
-                      <div class="product-description">
-                        <h3 class="product-title">
-                          <a href="/shop_single">Keranjang Belanja</a>
-                        </h3>
-                        <span class="price">
-                          <ins>
-                            <span class="amount">Rp 100.000</span>
-                          </ins>
-                        </span>
-                        <span class="rating">
-                          <a href="#">8 Ulasan</a>
-                        </span>
-                        <div class="clear"></div>
-                        <p>Zenna Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-                        <a href="#" class="btn btn-dark btn-md left"><span>Tambahkan Keranjang</span></a>
-                        <div class="product-add-to-wishlist">
-                          <a href="#"><i class="fa fa-heart"></i></a>
-                        </div>
-                      </div>
-
                     </div>
                   </div> <!-- end product -->
 
@@ -486,7 +386,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="/shop_single">
+                        <a href="/produk6">
                           <img src="img/shop/item06.jpg" alt="">
                           <img src="img/shop/shop_item_back_6.jpg" alt="" class="back-img">
                         </a>
@@ -505,7 +405,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="/shop_single">Tottebag Denim</a>
+                          <a href="/produk6">Tottebag Denim</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Wanita</a>
@@ -520,30 +420,6 @@
                           <span class="amount">Rp 233.000</span>
                         </ins>
                       </span>
-
-                      <div class="product-description">
-                        <h3 class="product-title">
-                          <a href="/shop_single">Tottebag Denim</a>
-                        </h3>
-                        <span class="price">
-                          <del>
-                            <span>Rp 500.000</span>
-                          </del>
-                          <ins>
-                            <span class="amount">Rp 233.000</span>
-                          </ins>
-                        </span>
-                        <span class="rating">
-                          <a href="#">13 Ulasan</a>
-                        </span>
-                        <div class="clear"></div>
-                        <p>Zenna Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-                        <a href="#" class="btn btn-dark btn-md left"><span>Tambahkan Keranjang</span></a>
-                        <div class="product-add-to-wishlist">
-                          <a href="#"><i class="fa fa-heart"></i></a>
-                        </div>
-                      </div>
-
                     </div>
                   </div> <!-- end product -->
 
@@ -551,7 +427,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="/shop_single">
+                        <a href="/produk7">
                           <img src="img/shop/item07.jpg" alt="">
                           <img src="img/shop/shop_item_back_7.jpg" alt="" class="back-img">
                         </a>
@@ -567,7 +443,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="/shop_single">Lampu Botol</a>
+                          <a href="/produk7">Lampu Botol</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Perabotan</a>
@@ -579,27 +455,6 @@
                           <span class="amount">Rp 800.000</span>
                         </ins>
                       </span>
-
-                      <div class="product-description">
-                        <h3 class="product-title">
-                          <a href="/shop_single">LAmpu Botol</a>
-                        </h3>
-                        <span class="price">
-                          <ins>
-                            <span class="amount">Rp 800.000</span>
-                          </ins>
-                        </span>
-                        <span class="rating">
-                          <a href="#">5 Ulasan</a>
-                        </span>
-                        <div class="clear"></div>
-                        <p>Zenna Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-                        <a href="#" class="btn btn-dark btn-md left"><span>Tambahkan Keranjang</span></a>
-                        <div class="product-add-to-wishlist">
-                          <a href="#"><i class="fa fa-heart"></i></a>
-                        </div>
-                      </div>
-
                     </div>
                   </div> <!-- end product -->
 
@@ -607,7 +462,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="/shop_single">
+                        <a href="/produk8">
                           <img src="img/shop/item08.jpg" alt="">
                           <img src="img/shop/shop_item_back_8.jpg" alt="" class="back-img">
                         </a>
@@ -623,7 +478,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="/shop_single">Hiasan Kepala Binatang</a>
+                          <a href="/produk8">Hiasan Kepala Binatang</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Perabotan</a>
@@ -635,27 +490,6 @@
                           <span class="amount">Rp 499.000</span>
                         </ins>
                       </span>
-
-                      <div class="product-description">
-                        <h3 class="product-title">
-                          <a href="/shop_single">Hiasan Kepala Binatang</a>
-                        </h3>
-                        <span class="price">
-                          <ins>
-                            <span class="amount">Rp 499.000</span>
-                          </ins>
-                        </span>
-                        <span class="rating">
-                          <a href="#">7 ulasan</a>
-                        </span>
-                        <div class="clear"></div>
-                        <p>Zenna Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-                        <a href="#" class="btn btn-dark btn-md left"><span>Tambahkan Keranjang</span></a>
-                        <div class="product-add-to-wishlist">
-                          <a href="#"><i class="fa fa-heart"></i></a>
-                        </div>
-                      </div>
-
                     </div>
                   </div> <!-- end product -->
 
@@ -663,7 +497,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="/shop_single">
+                        <a href="/produk9">
                           <img src="img/shop/item09.jpg" alt="">
                           <img src="img/shop/item09.jpg" alt="" class="back-img">
                         </a>
@@ -679,7 +513,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="/shop_single">Rompi Plastik</a>
+                          <a href="/produk9">Rompi Plastik</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Aksesoris</a>
@@ -691,27 +525,6 @@
                           <span class="amount">Rp 330.000</span>
                         </ins>
                       </span>
-
-                      <div class="product-description">
-                        <h3 class="product-title">
-                          <a href="/shop_single">Rompi Plastik</a>
-                        </h3>
-                        <span class="price">
-                          <ins>
-                            <span class="amount">Rp 330.000</span>
-                          </ins>
-                        </span>
-                        <span class="rating">
-                          <a href="#">12 Ulasan</a>
-                        </span>
-                        <div class="clear"></div>
-                        <p>Zenna Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-                        <a href="#" class="btn btn-dark btn-md left"><span>Tambahkan Keranjang</span></a>
-                        <div class="product-add-to-wishlist">
-                          <a href="#"><i class="fa fa-heart"></i></a>
-                        </div>
-                      </div>
-
                     </div>
                   </div> <!-- end product -->
 
@@ -719,7 +532,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="/shop_single">
+                        <a href="/produk10">
                           <img src="img/shop/item10.jpg" alt="">
                           <img src="img/shop/shop_item_back_10.jpg" alt="" class="back-img">
                         </a>
@@ -735,7 +548,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="/shop_single">Peralatan Makan Kayu</a>
+                          <a href="/produk10">Peralatan Makan Kayu</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Perabotan</a>
@@ -747,27 +560,6 @@
                           <span class="amount">Rp 50.000</span>
                         </ins>
                       </span>
-
-                      <div class="product-description">
-                        <h3 class="product-title">
-                          <a href="/shop_single">Peralatan Makan Kayu</a>
-                        </h3>
-                        <span class="price">
-                          <ins>
-                            <span class="amount">Rp 50.000</span>
-                          </ins>
-                        </span>
-                        <span class="rating">
-                          <a href="#">20 Ulasan</a>
-                        </span>
-                        <div class="clear"></div>
-                        <p>Zenna Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-                        <a href="#" class="btn btn-dark btn-md left"><span>Tambahkan Keranjang</span></a>
-                        <div class="product-add-to-wishlist">
-                          <a href="#"><i class="fa fa-heart"></i></a>
-                        </div>
-                      </div>
-
                     </div>
                   </div> <!-- end product -->
 
@@ -775,7 +567,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="/shop_single">
+                        <a href="/produk11">
                           <img src="img/shop/item11.jpg" alt="">
                           <img src="img/shop/shop_item_back_11.jpg" alt="" class="back-img">
                         </a>
@@ -791,7 +583,7 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="/shop_single">Gayung Batok Kelapa</a>
+                          <a href="/produk11">Gayung Batok Kelapa</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Perabotan</a>
@@ -803,27 +595,6 @@
                           <span class="amount">Rp 20.000</span>
                         </ins>
                       </span>
-
-                      <div class="product-description">
-                        <h3 class="product-title">
-                          <a href="/shop_single">Gayung Batok Kelapa</a>
-                        </h3>
-                        <span class="price">
-                          <ins>
-                            <span class="amount">Rp 20.000</span>
-                          </ins>
-                        </span>
-                        <span class="rating">
-                          <a href="#">32 Ulasan</a>
-                        </span>
-                        <div class="clear"></div>
-                        <p>Zenna Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Grab this theme now.</p>
-                        <a href="#" class="btn btn-dark btn-md left"><span>Tambahkan Keranjang</span></a>
-                        <div class="product-add-to-wishlist">
-                          <a href="#"><i class="fa fa-heart"></i></a>
-                        </div>
-                      </div>
-
                     </div>
                   </div> <!-- end product -->
 
@@ -831,7 +602,7 @@
                   <div class="col-md-4 col-xs-6 product product-grid">
                     <div class="product-item clearfix">
                       <div class="product-img hover-trigger">
-                        <a href="/shop_single">
+                        <a href="/produk12">
                           <img src="img/shop/item12.jpg" alt="">
                           <img src="img/shop/item12.jpg" alt="" class="back-img">
                         </a>
@@ -845,12 +616,12 @@
                             </a>
                           </div>
                         </div>
-                        <a href="#" class="product-quickview">Lihat Ulasan</a>
+                        <a href="#" class="product-quickview">Lihat Sekilas</a>
                       </div>
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="/shop_single">Tas Rajut Eceng Gondok</a>
+                          <a href="/produk12">Tas Rajut Eceng Gondok</a>
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Wanita</a>
@@ -865,30 +636,6 @@
                           <span class="amount">Rp 299.999</span>
                         </ins>
                       </span>
-
-                      <div class="product-description">
-                        <h3 class="product-title">
-                          <a href="/shop_single">Tas Rajut Eceng Gondok</a>
-                        </h3>
-                        <span class="price">
-                          <del>
-                            <span>Rp 500.000</span>
-                          </del>
-                          <ins>
-                            <span class="amount">Rp 299.999</span>
-                          </ins>
-                        </span>
-                        <span class="rating">
-                          <a href="#">10 Ulasan</a>
-                        </span>
-                        <div class="clear"></div>
-                        <p>Zenna Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. Gra</p>
-                        <a href="#" class="btn btn-dark btn-md left"><span>Tambahkan Keranjang</span></a>
-                        <div class="product-add-to-wishlist">
-                          <a href="#"><i class="fa fa-heart"></i></a>
-                        </div>
-                      </div>
-
                     </div>
                   </div> <!-- end product -->
 
