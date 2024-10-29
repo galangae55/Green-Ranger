@@ -21,6 +21,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
     <script type="text/javascript"
         src="https://app.stg.midtrans.com/snap/snap.js"
     data-client-key="SB-Mid-client-fq2d83yegG2NGx_f"></script>
@@ -107,58 +108,6 @@
     </div>
     <!-- Nav Bar End -->
 
-            <!-- Carousel Start -->
-            <div class="carousel">
-                <div class="container-fluid">
-                    <div class="owl-carousel">
-                        <div class="carousel-item">
-                            <div class="carousel-img">
-                                <img src="img/ss2.jpg" alt="Image">
-                            </div>
-                            <div class="carousel-text">
-                                <h1> Bersama menjaga kebersihan, bersama membuat perubahan</h1>
-                                <p>
-                                Mari bergandengan tangan dalam upaya menjaga lingkungan. Donasi Anda tidak hanya membantu mendanai proyek-proyek berkelanjutan,
-                                    tetapi juga mensejahterakan pelaku kebersihan lingkungan.
-                                </p>
-                                <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="carousel-img">
-                                <img src="img/ss1.jpg" alt="Image">
-                            </div>
-                            <div class="carousel-text">
-                                <h1>Media kebersihan informatif</h1>
-                                <p>
-                                    Berbagai informasi dan tips dalam menjaga serta mengolah lingkungan. Mari sayangi bumi kita dengan ikut berpartisipasi dalam menjaga kebersihan.
-                                </p>
-                                <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="carousel-img">
-                                <img src="img/ss3.jpg" alt="Image">
-                            </div>
-                            <div class="carousel-text">
-                                <h1>Mari Bergabung</h1>
-                                <p>
-                                Bergabunglah dengan komunitas sukarelawan kami dan jadilah bagian dari gerakan perubahan. Dengan partisipasi aktif, kita bisa membuat perbedaan nyata.
-                                </p>
-                                <div class="carousel-btn">
-                                    <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Carousel End -->
-
     <!-- Donate Start -->
     <div class="container">
         <div class="donate" data-parallax="scroll" data-image-src="img/donate1.jpg">
@@ -171,7 +120,19 @@
                                     <div class="section-header">
                                         <p>Donasi Sekarang</p>
                                         <h2>Kontribusi anda sangat berarti bagi kami</h2>
+                                        @if(session('error'))
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ session('error') }}
+                                            </div>
+                                        @endif
+
+                                        @if(session('success'))
+                                            <div class="alert alert-success" role="alert">
+                                                {{ session('success') }}
+                                            </div>
+                                        @endif
                                     </div>
+
                                     <div class="donate-text">
                                         <p>
                                             Donasi yang anda keluarkan akan kami gunakan untuk membantu proyek - proyek kebersihan Green Ranger. Kami sangat berterimakasih atas donasi yang anda berikan.
@@ -180,40 +141,16 @@
                                 </div>
                             </div>
                             <div class="col-lg-5">
-                                <div class="donate-form">
-                                    <form id="donate-form" method="POST" action="{{ route('donation.process') }}">
-                                        @csrf
-                                        <div class="control-group" data-aos="fade-right">
-                                            <input type="text" id="name" name="name" class="form-control" placeholder="Nama" required="required" value="{{ old('name') }}" />
-                                            @if ($errors->has('name'))
-                                                <div class="alert alert-danger mt-2">{{ $errors->first('name') }}</div>
-                                            @endif
-                                        </div>
-                                        <div class="control-group" data-aos="fade-right">
-                                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Nomor telepon" required="required" value="{{ old('phone') }}" />
-                                            @if ($errors->has('phone'))
-                                                <div class="alert alert-danger mt-2">{{ $errors->first('phone') }}</div>
-                                            @endif
-                                        </div>
-                                        <div class="control-group" data-aos="fade-right">
-                                            <input type="email" id="email" name="email" class="form-control" placeholder="Email" required="required" value="{{ old('email') }}" />
-                                            @if ($errors->has('email'))
-                                                <div class="alert alert-danger mt-2">{{ $errors->first('email') }}</div>
-                                            @endif
-                                        </div>
-                                        <div class="control-group" data-aos="fade-right">
-                                            <input type="number" id="amount" name="amount" class="form-control" placeholder="Nominal Donasi" required="required" value="{{ old('amount') }}" />
-                                            @if ($errors->has('amount'))
-                                                <div class="alert alert-danger mt-2">{{ $errors->first('amount') }}</div>
-                                            @endif
-                                        </div>
-                                        <div>
-                                            <button id="submit" class="btn btn-custom">Lanjutkan Pembayaran</button>
-                                        </div>
-                                        <div id="error-message" class="alert alert-danger mt-3 {{ $errors->any() ? '' : 'd-none' }}" role="alert">
-                                            Form yang anda isi tidak memenuhi kriteria, Tolong ulangi lagi. :)
-                                        </div>
-                                    </form>
+                                <div class="container">
+                                    <div class="donate">
+                                        <h2>Detail Donasi</h2>
+                                        <p><strong>Nama:</strong> {{ $name }}</p>
+                                        <p><strong>Nomor Telepon:</strong> {{ $phone }}</p>
+                                        <p><strong>Email:</strong> {{ $email }}</p>
+                                        <p><strong>Nominal Donasi:</strong> Rp{{ number_format($amount, 0, ',', '.') }}</p>
+                                        <button id="pay-button" class="btn btn-success">Lanjutkan Bayar</button>
+                                    </div>
+                                </div>
 
                                 </div>
 
@@ -312,27 +249,41 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript"
-    src="https://app.stg.midtrans.com/snap/snap.js"
-    data-client-key="SB-Mid-client-fq2d83yegG2NGx_f"></script>
-
-    {{-- <script type="text/javascript">
-        @if (isset($snapToken))
-            var snapToken = "{{ $snapToken }}";
-            document.getElementById('pay-button').addEventListener('click', function () {
-                window.snap.pay(snapToken, {
-                    onSuccess: function(result) { alert("Pembayaran berhasil!"); console.log(result); },
-                    onPending: function(result) { alert("Menunggu pembayaran Anda!"); console.log(result); },
-                    onError: function(result) { alert("Pembayaran gagal!"); console.log(result); },
-                    onClose: function() { alert('Anda menutup popup tanpa menyelesaikan pembayaran'); }
-                });
-            });
-        @else
-            console.warn('Snap token tidak ditemukan. Harap submit form terlebih dahulu.');
+    <script>
+        @if(session('error'))
+            alert("{{ session('error') }}");
         @endif
-    </script> --}}
 
+        @if(session('success'))
+            alert("{{ session('success') }}");
+        @endif
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+      <script type="text/javascript">
+        var payButton = document.getElementById('pay-button');
+        payButton.addEventListener('click', function () {
+            window.snap.pay('{{ $snapToken }}', {
+                onSuccess: function (result) {
+                    alert("Pembayaran berhasil!");
+                    console.log(result);
+                    window.location.href = "{{ route('donation.success') }}";
+                },
+                onPending: function (result) {
+                    alert("Menunggu pembayaran Anda!");
+                    console.log(result);
+                },
+                onError: function (result) {
+                    alert("Pembayaran gagal!");
+                    console.log(result);
+                },
+                onClose: function () {
+                    alert('Anda menutup pop-up tanpa menyelesaikan pembayaran');
+                }
+            });
+        });
+    </script>
     <script>
         AOS.init();
     </script>

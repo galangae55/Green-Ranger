@@ -3,24 +3,128 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Midtrans\Snap;
+use Midtrans\Notification;
+use Midtrans\Config;
 use App\Models\Donation;
+use Illuminate\Support\Facades\DB;
 
 class DonationController extends Controller
 {
-    public function store(Request $request)
+    public function showForm()
+    {
+        return view('donate');
+    }
+
+    public function processForm(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'phone' => 'required|numeric|digits_between:10,20',
-            'email' => 'required|string|email|max:255',
+            'name' => 'required|string',
+            'phone' => 'required|digits:12',
+            'email' => 'required|email',
+            'amount' => 'required|integer|min:5000',
         ]);
 
-        Donation::create([
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'email' => $request->email,
+        // Generate order_id unik
+        $orderId = 'DON-' . time() . rand();
+
+        // Buat donasi baru dengan status pending
+        $donation = Donation::create([
+            'name' => $request->input('name'),
+            'phone' => $request->input('phone'),
+            'email' => $request->input('email'),
+            'amount' => $request->input('amount'),
+            'status' => 'pending',
+            'order_id' => $orderId,
         ]);
 
-        return redirect()->back()->with('success', 'Thank you for your donation!');
+        // Konfigurasi Snap Midtrans
+        Config::$serverKey = config('midtrans.server_key');
+        Config::$isProduction = false; // Ubah ke true untuk Production
+        Config::$isSanitized = true;
+        Config::$is3ds = true;
+
+        $params = [
+            'transaction_details' => [
+                'order_id' => $orderId,
+                'gross_amount' => $request->amount,
+            ],
+            'customer_details' => [
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+            ],
+            'callbacks' => [
+                'finish' => route('donation.success'), // URL untuk halaman sukses
+                'unfinish' => route('donation.success'), // Jika pembayaran belum selesai
+                'error' => route('donation.success'), // Jika ada kesalahan
+                'notification' => 'https://d955-36-67-147-34.ngrok-free.app/midtrans/callback' // URL untuk callback
+            ],
+        ];
+
+        try {
+            $snapToken = Snap::getSnapToken($params);
+            $redirectUrl = "https://app.sandbox.midtrans.com/snap/v4/redirection/" . $snapToken;
+
+            // Simpan snap_token ke database jika diperlukan
+            $donation->update(['snap_token' => $snapToken]);
+
+            // Redirect pengguna ke halaman pembayaran Snap Midtrans
+            return redirect()->away($redirectUrl);
+
+        } catch (\Exception $e) {
+            return back()->with('error', 'Gagal mendapatkan SNAP_TOKEN: ' . $e->getMessage());
+        }
+    }
+
+    public function handleMidtransCallback(Request $request)
+    {
+        // Konfigurasi Midtrans untuk memproses callback
+        Config::$serverKey = config('midtrans.server_key');
+        Config::$isProduction = false;
+        Config::$isSanitized = true;
+
+        $notification = new Notification();
+        $orderId = $notification->order_id;
+        $transactionStatus = $notification->transaction_status;
+
+        // Temukan donasi berdasarkan order_id
+        $donation = Donation::where('order_id', $orderId)->first();
+
+        if ($donation) {
+            DB::beginTransaction();
+            try {
+                // Update status donasi berdasarkan status transaksi
+                if ($transactionStatus == 'settlement') {
+                    $donation->status = 'done';
+                } elseif ($transactionStatus == 'pending') {
+                    $donation->status = 'pending';
+                } elseif (in_array($transactionStatus, ['deny', 'expire', 'cancel'])) {
+                    $donation->status = 'failed';
+                }
+
+                $donation->save();
+                DB::commit();
+
+                // Log hasil update
+                \Log::info("Status berhasil diperbarui menjadi {$donation->status} untuk Order ID - {$orderId}");
+
+            } catch (\Exception $e) {
+                DB::rollBack();
+                \Log::error("Gagal memperbarui status donasi: " . $e->getMessage());
+                return response()->json(['status' => 'error', 'message' => 'Gagal memperbarui status donasi'], 500);
+            }
+        } else {
+            // Log jika order_id tidak ditemukan
+            \Log::error("Donasi dengan order_id {$orderId} tidak ditemukan.");
+            return response()->json(['status' => 'error', 'message' => 'Donasi tidak ditemukan'], 404);
+        }
+
+        return response()->json(['status' => 'ok']);
+    }
+
+    public function showSuccessPage()
+    {
+        return redirect()->route('donation.form')->with('success', 'Terima kasih, pembayaran Anda telah berhasil!');
     }
 }

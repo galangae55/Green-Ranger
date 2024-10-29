@@ -1,7 +1,5 @@
 <?php
 
-// app/Models/Donation.php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,5 +9,13 @@ class Donation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'phone', 'email'];
+    // Menentukan kolom yang dapat diisi
+    protected $fillable = [
+        'name',
+        'phone',
+        'email',
+        'amount',
+        'status', // Pastikan kolom status ada di sini
+        'order_id', // Jika kamu menggunakan order_id
+    ];
 }

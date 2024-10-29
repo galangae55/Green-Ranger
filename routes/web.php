@@ -42,7 +42,6 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::get("/belanja", [GreenRangerController::class,"belanja"]);
     Route::get("/detail", [GreenRangerController::class,"detail"]);
     Route::post("/detail/komen/store", [KomenController::class,"store"]);
-    Route::post('/donate', [DonationController::class, 'store'])->name('donate.store');
     Route::get('/volunteer', function () {
         return view('volunteer');
     });
@@ -76,3 +75,9 @@ Route::middleware(['web'])->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+
+Route::get('/donate', [DonationController::class, 'showForm'])->name('donation.form');
+Route::post('/donate/process', [DonationController::class, 'processForm'])->name('donation.process');
+Route::get('/donate/detail', [DonationController::class, 'showDetail'])->name('donation.detail');
+Route::post('/midtrans/callback', [DonationController::class, 'handleMidtransCallback'])->name('midtrans.callback');
+Route::get('/donation/success', [DonationController::class, 'showSuccessPage'])->name('donation.success');
