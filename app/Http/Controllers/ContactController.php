@@ -25,7 +25,7 @@ class ContactController extends Controller
         ]);
 
         // Redirect ke halaman sebelumnya dengan notifikasi sukses
-        return redirect()->back()->with('success', 'Pesan berhasil dikirim!');
+        return redirect()->back()->with('success', 'Pesan berhasil dikirim! Pesan anda sangat berarti bagi kami, Terima Kasih');
     }
 
     public function storeNologin(Request $request)
@@ -47,7 +47,7 @@ class ContactController extends Controller
     ]);
 
     // Redirect ke halaman sebelumnya dengan notifikasi sukses
-    return redirect()->back()->with('success', 'Pesan berhasil dikirim!');
+    return redirect()->back()->with('success', 'Pesan berhasil dikirim! Pesan anda sangat berarti bagi kami, Terima Kasih');
 }
 
 }

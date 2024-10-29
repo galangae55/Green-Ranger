@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Green Ranger</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
 
@@ -96,6 +97,19 @@
                     notification.classList.remove('show');
                     notification.classList.add('hide');
                 }, 3000);
+            </script>
+        @endif
+
+        @if(session('success'))
+            <script>
+                window.addEventListener('load', function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil!',
+                        text: "{{ session('success') }}",
+                        confirmButtonColor: '#3085d6',
+                    });
+                });
             </script>
         @endif
 
@@ -568,25 +582,6 @@
                 </div>
             </div>
         </div>
-        <!-- Popup Notification -->
-        @if(session('success'))
-            <div id="popup" class="popup show">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        <script>
-            document.addEventListener('DOMContentLoaded', (event) => {
-                var popup = document.getElementById('popup');
-                if (popup) {
-                    popup.classList.add('show');
-                    setTimeout(() => {
-                        popup.classList.remove('show');
-                        popup.classList.add('hide');
-                    }, 3000); // Popup mulai menghilang setelah 3 detik
-                }
-            });
-        </script>
 
         <!-- Back to top button -->
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
