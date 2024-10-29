@@ -51,7 +51,6 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::get('/acara2', [AcaraController::class, 'acara2'])->name('acara2');
     Route::get('/acara3', [AcaraController::class, 'acara3'])->name('acara3');
     Route::get('/acara4', [AcaraController::class, 'acara4'])->name('acara4');
-    Route::get("/shop_cart", [GreenRangerController::class,"shop_cart"]);
     Route::get("/produk1", [GreenRangerController::class,"produk1"]);
     Route::get("/produk2", [GreenRangerController::class,"produk2"]);
     Route::get("/produk3", [GreenRangerController::class,"produk3"]);
@@ -64,9 +63,9 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::get("/produk10", [GreenRangerController::class,"produk10"]);
     Route::get("/produk11", [GreenRangerController::class,"produk11"]);
     Route::get("/produk12", [GreenRangerController::class,"produk12"]);
-    Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
-    Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
-    Route::get('/cart', [CartController::class, 'showCart'])->name('shop.cart');
+    Route::post('/cart/add', [CartController::class, 'addToCart'])->middleware('auth')->name('cart.add');
+    Route::get('/shop_cart', [CartController::class, 'showCart'])->name('cart.show')->middleware('auth');
+    Route::get('/shop_cart', [CartController::class, 'showCart'])->name('cart.show')->middleware('auth');
     Route::get("/shop_checkout", [GreenRangerController::class,"shop_checkout"]);
 });
 

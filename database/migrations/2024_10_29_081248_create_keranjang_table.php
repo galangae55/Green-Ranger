@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('carts', function (Blueprint $table) {
+        Schema::create('keranjangs', function (Blueprint $table) {
             $table->id(); // ID keranjang
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // ID pengguna yang berelasi dengan tabel users
             $table->foreignId('product_id')->constrained()->onDelete('cascade'); // ID produk yang berelasi dengan tabel products

@@ -198,24 +198,36 @@
     <p class="short-description">Our Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome website with this Theme is easier than you can imagine.</p>
 
     <div class="product-actions">
-        <span>Jumlah:</span>
-        <div class="quantity buttons_added">
-            <input type="number" step="1" min="1" value="1" title="jumlah" name="quantity" class="input-text qty text" required />
-            <div class="quantity-adjust">
-                <a href="#" class="plus"><i class="fa fa-angle-up"></i></a>
-                <a href="#" class="minus"><i class="fa fa-angle-down"></i></a>
-            </div>
-        </div>
-
-        <!-- Form untuk menambahkan produk ID 12 ke keranjang -->
-        <form action="{{ route('cart.add') }}" method="POST" style="display:inline;">
+        <form action="{{ route('cart.add') }}" method="POST" style="display: flex; align-items: center;">
             @csrf
+            <!-- Input jumlah (quantity) -->
+            <div style="display: flex; align-items: center; margin-right: 10px;">
+                <span style="margin-right: 10px;">Jumlah:</span>
+                <div class="quantity buttons_added" style="display: flex; align-items: center;">
+                    <input type="number" name="quantity" step="1" min="1" value="1" title="jumlah" class="input-text qty text" required style="width: 50px; text-align: center;">
+                    <div class="quantity-adjust" style="display: flex; flex-direction: column; margin-left: 5px;">
+                        <a href="#" class="plus" onclick="event.preventDefault(); document.querySelector('.qty').stepUp();">
+                            <i class="fa fa-angle-up"></i>
+                        </a>
+                        <a href="#" class="minus" onclick="event.preventDefault(); document.querySelector('.qty').stepDown();">
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input tersembunyi untuk product_id -->
             <input type="hidden" name="product_id" value="12">
+
+            <!-- Tombol submit -->
             <button type="submit" class="btn btn-dark btn-lg add-to-cart">
                 <span>Add to Cart</span>
             </button>
         </form>
     </div>
+
+
+
 
 
         <a href="#" class="product-add-to-wishlist"><i class="fa fa-heart"></i></a>

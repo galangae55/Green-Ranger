@@ -3,49 +3,62 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\Keranjang;
+use Illuminate\Support\Facades\Log;
+use App\Models\User;
 
 class CartController extends Controller
 {
+    // CartController.php
     public function addToCart(Request $request)
     {
+        // Log data request untuk debug
+        Log::info('Request Data:', $request->all());
+
         // Validasi input
-        $validatedData = $request->validate([
-            'product_id' => 'required|exists:products,id',
+        $request->validate([
+            'product_id' => 'required|integer',
             'quantity' => 'required|integer|min:1',
         ]);
 
-        // Mengambil produk dari database
-        $product = Product::find($validatedData['product_id']);
+        // Temukan pengguna yang sedang login
+        $productId = $request->product_id;
+        $quantity = $request->quantity;
 
-        if ($product) {
-            // Menghitung total harga
-            $totalPrice = $product->price * $validatedData['quantity'];
-
-            // Menyimpan ke tabel carts
-            Keranjang::create([
-                'user_id' => auth()->id(), // Mengambil ID pengguna yang sedang login
-                'product_id' => $validatedData['product_id'],
-                'quantity' => $validatedData['quantity'],
-                'total_price' => $totalPrice,
-            ]);
-
-            return redirect()->back()->with('success', 'Produk berhasil ditambahkan ke keranjang!');
+        // Cari harga produk berdasarkan product_id
+        $product = Product::find($productId);
+        if (!$product) {
+            return back()->withErrors(['Product not found']);
         }
 
-        return redirect()->back()->with('error', 'Produk tidak ditemukan.');
+        // Hitung total harga
+        $totalPrice = $product->price * $quantity;
+
+        // Simpan data ke tabel keranjang
+        Keranjang::create([
+            'user_id' => Auth::id(),
+            'product_id' => $productId,
+            'quantity' => $quantity,
+            'total_price' => $totalPrice,
+        ]);
+
+        return redirect()->back()->with('success', 'Produk berhasil ditambahkan ke keranjang');
     }
 
-    
+
+
+
     public function showCart()
     {
-        // Retrieve the cart data from the session
-        $cart = session()->get('cart', []);
+        $userId = auth()->id();
+        $products = Keranjang::with('product')->where('user_id', $userId)->get();
 
-        // Pass the cart to the view
-        return view('shop_cart', compact('cart'));
+        return view('shop_cart', compact('products')); // Menggunakan view shop_cart
     }
+
+
 
     public function removeFromCart(Request $request)
     {

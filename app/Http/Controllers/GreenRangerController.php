@@ -31,22 +31,22 @@ class GreenRangerController extends Controller
         return view("produk5");
     }
     public function produk6(){
-        return view("produk12");
+        return view("produk6");
     }
     public function produk7(){
-        return view("produk12");
+        return view("produk7");
     }
     public function produk8(){
-        return view("produk12");
+        return view("produk8");
     }
     public function produk9(){
-        return view("produk12");
+        return view("produk9");
     }
     public function produk10(){
-        return view("produk12");
+        return view("produk10");
     }
     public function produk11(){
-        return view("produk12");
+        return view("produk11");
     }
     public function produk12(){
         return view("produk12");
@@ -55,7 +55,7 @@ class GreenRangerController extends Controller
     public function shop_cart(){
         return view("shop_cart");
     }
-    
+
     public function shop_checkout(){
         return view("shop_checkout");
     }

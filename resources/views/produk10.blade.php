@@ -57,13 +57,25 @@
                     @endif
 
                     <div class="col-md-4">
-                        <div class="top-bar-right">
+                    <div class="top-bar-right">
+                            @if (session('user_name'))
+                                <div class="social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href="/shop_cart" title="Belanja"><i class="fas fa-shopping-cart"></i></a>
+                                    <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
+                                </div>
+                            @else
                             <div class="social">
                                 <a href=""><i class="fab fa-twitter"></i></a>
                                 <a href=""><i class="fab fa-facebook-f"></i></a>
                                 <a href=""><i class="fab fa-linkedin-in"></i></a>
                                 <a href=""><i class="fab fa-instagram"></i></a>
                             </div>
+                            @endif
+                        </div>
                             @if (session('user_name'))
                                 <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
                             @endif
@@ -178,36 +190,51 @@
       </div> <!-- end col img slider -->
 
       <div class="col-md-6 col-xs-12 product-description-wrap">
-        <h1 class="product-title">Sport T-Shirt</h1>
-        <span class="price">
-          <del>
-            <span>$1550.00</span>
-          </del>
-          <ins>
-            <span class="amount">$1250.00</span>
-          </ins>
-        </span>
-        <p class="short-description">Our Shop is a very slick and clean e-Our Theme is a very slick and clean e-commerce template with endless possibilities. Creating an awesome website with this Theme is easy than you can imagine. Our Theme is a very slick and clean e-commerce template with endless possibilities.</p>
+    <h1 class="product-title">Tas rajut Eceng Gondok</h1>
+    <span class="price">
+        <del><span>Rp 500000</span></del>
+        <ins><span class="amount">Rp 299999</span></ins>
+    </span>
+    <p class="short-description">Our Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome website with this Theme is easier than you can imagine.</p>
 
-        <div class="product-actions">
-          <span>Qty:</span>
-
-          <div class="quantity buttons_added">
-            <input type="number" step="1" min="0" value="1" title="Qty" class="input-text qty text" />
-            <div class="quantity-adjust">
-              <a href="#" class="plus">
-                <i class="fa fa-angle-up"></i>
-              </a>
-              <a href="#" class="minus">
-                <i class="fa fa-angle-down"></i>
-              </a>
+    <div class="product-actions">
+        <form action="{{ route('cart.add') }}" method="POST" style="display: flex; align-items: center;">
+            @csrf
+            <!-- Input jumlah (quantity) -->
+            <div style="display: flex; align-items: center; margin-right: 10px;">
+                <span style="margin-right: 10px;">Jumlah:</span>
+                <div class="quantity buttons_added" style="display: flex; align-items: center;">
+                    <input type="number" name="quantity" step="1" min="1" value="1" title="jumlah" class="input-text qty text" required style="width: 50px; text-align: center;">
+                    <div class="quantity-adjust" style="display: flex; flex-direction: column; margin-left: 5px;">
+                        <a href="#" class="plus" onclick="event.preventDefault(); document.querySelector('.qty').stepUp();">
+                            <i class="fa fa-angle-up"></i>
+                        </a>
+                        <a href="#" class="minus" onclick="event.preventDefault(); document.querySelector('.qty').stepDown();">
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div>
 
-          <a href="/shop_cart" class="btn btn-dark btn-lg add-to-cart"><span>Add to Cart</span></a>
+            <!-- Input tersembunyi untuk product_id -->
+            <input type="hidden" name="product_id" value="10">
 
-          <a href="#" class="product-add-to-wishlist"><i class="fa fa-heart"></i></a>
-        </div>
+            <!-- Tombol submit -->
+            <button type="submit" class="btn btn-dark btn-lg add-to-cart">
+                <span>Add to Cart</span>
+            </button>
+        </form>
+    </div>
+
+
+
+
+
+        <a href="#" class="product-add-to-wishlist"><i class="fa fa-heart"></i></a>
+    </div>
+</div>
+
+
               </div>
             </div>
           </div>
@@ -527,6 +554,20 @@
     </div>
 
     <!-- JavaScript Libraries -->
+     <script>
+      document.querySelector('.plus').addEventListener('click', function(event) {
+    event.preventDefault();
+    let qty = document.querySelector('.qty');
+    qty.value = parseInt(qty.value) + 1;
+});
+
+document.querySelector('.minus').addEventListener('click', function(event) {
+    event.preventDefault();
+    let qty = document.querySelector('.qty');
+    if (parseInt(qty.value) > 1) qty.value = parseInt(qty.value) - 1;
+});
+
+     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
