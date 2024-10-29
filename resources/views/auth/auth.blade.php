@@ -819,10 +819,24 @@
 
         .container.right-panel-active .overlay-right {
             transform: translateX(20%);
+
         }
     </style>
 </head>
 <body>
+    @if(session('logout'))
+        <script>
+            window.addEventListener('load', function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: "{{ session('logout') }}",
+                    confirmButtonColor: '#721c24',
+                });
+            });
+        </script>
+    @endif
+
     <div class="container">
         <div class="form-container sign-up-container">
             <form action="{{ url('/register') }}" method="POST">

@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>contact</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
         <!-- Favicon -->
@@ -245,8 +246,19 @@
                             </div>
                         </form>
                     @endif
-
                 </div>
+                @if(session('success'))
+                    <script>
+                        window.addEventListener('load', function() {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Berhasil!',
+                                text: "{{ session('success') }}",
+                                confirmButtonColor: '#3085d6',
+                            });
+                        });
+                    </script>
+                @endif
             </div>
         </div>
         <!-- Contact End -->

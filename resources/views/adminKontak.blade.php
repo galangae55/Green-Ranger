@@ -6,6 +6,7 @@
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	<link href="{{ asset('css/adminStyle.css') }}" rel="stylesheet">
 
@@ -193,6 +194,18 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @if(session('success'))
+                        <script>
+                            window.addEventListener('load', function() {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Berhasil!',
+                                    text: "{{ session('success') }}",
+                                    confirmButtonColor: '#b61e1e',
+                                });
+                            });
+                        </script>
+                    @endif
                 </div>
             </div>
 		</main>

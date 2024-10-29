@@ -11,7 +11,7 @@
 
         <!-- Google Font -->
         <link href="https://fonts.google.com/share?selection.family=Montserrat:ital,wght@0,100..900;1,100..900|
-                    Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1
+        Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1
                     ,400;1,500;1,600;1,700;1,800;1,900|Quicksand:wght@300..700|Roboto:ital,wght@0,100;0,300;0,400
                     ;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900" rel="stylesheet">
 
@@ -22,6 +22,7 @@
         <link href="lib/animate/animate.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
@@ -261,6 +262,37 @@
                     </div>
                 </div>
             </div>
+            @if(session('success'))
+                <script>
+                    window.addEventListener('load', function() {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Berhasil!',
+                            text: "{{ session('success') }}",
+                            confirmButtonColor: '#b61e1e',
+                        });
+                    });
+                </script>
+            @endif
+            @if ($errors->any())
+                <script>
+                    window.addEventListener('load', function() {
+                        let errorMessages = `
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        `;
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Ada kesalahan!',
+                            html: errorMessages,
+                            confirmButtonColor: '#b61e1e',
+                        });
+                    });
+                </script>
+            @endif
         @else
         <div class="container">
             <div class="volunteer" data-parallax="scroll" data-image-src="img/volunteer1.jpg">
@@ -353,15 +385,7 @@
         </div>
         <!-- Footer End -->
 
-        {{-- pop up  --}}
-        <div class="popup" id="popup">
-            <div class="popup-content">
-                <span class="close-btn" id="close-btn">&times;</span>
-                <h2>Success!</h2>
-                <p>Anda telah berhasil menjadi volunteer!</p>
-            </div>
-        </div>
-        {{-- pop up end --}}
+
 
 
         <!-- Back to top button -->

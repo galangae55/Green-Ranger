@@ -22,11 +22,11 @@
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
         <style>
-            body {
+            /* body {
                 font-family: 'Quicksand', sans-serif;
                 padding-left: 15px;
                 padding-right: 15px;
-            }
+            } */
 
             .custom-table {
                 width: 100%;
@@ -153,6 +153,7 @@
                         </div>
                         <a href="/contact" class="nav-item nav-link">Kontak</a>
                         <a href="/belanja" class="nav-item nav-link">Belanja</a>
+
                         @if (session('user_name')) <!-- Jika pengguna login -->
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: flex;">
                                 @csrf
@@ -305,10 +306,10 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama</th>
+                            <th>Username</th>
                             <th>Umur</th>
-                            <th>No Telepon</th>
-                            <th>Email</th>
+                            <th>Event</th>
+                            <th>Tanggal Pendaftaran</th>
                             <!-- Tambahkan kolom-kolom lain yang diperlukan -->
                         </tr>
                     </thead>
@@ -316,10 +317,10 @@
                         @foreach ($volunteers as $key => $volunteer)
                             <tr>
                                 <td data-label="No">{{ $key + 1 }}</td>
-                                <td data-label="Nama">{{ $volunteer->nama }}</td>
+                                <td data-label="Username">{{ $volunteer->username }}</td>
                                 <td data-label="Umur">{{ $volunteer->umur }}</td>
-                                <td data-label="No Telepon">{{ $volunteer->no_telp }}</td>
-                                <td data-label="Email">{{ $volunteer->email }}</td>
+                                <td data-label="Event">{{ $volunteer->event }}</td>
+                                <td data-label="Tanggal Pendaftaran">{{ $volunteer->created_at->format('d-m-Y') }}</td>
                             </tr>
                         @endforeach
                     </tbody>

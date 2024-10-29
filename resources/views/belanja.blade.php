@@ -621,7 +621,11 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
+<<<<<<< HEAD
                           <a href="/produk12">Tas Rajut Eceng Gondok</a>
+=======
+                          <a href="/shop_single">Tas Anyam</a>
+>>>>>>> be8b99efb14e951f30fbd9de9e0ef7d5885ef13d
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Wanita</a>

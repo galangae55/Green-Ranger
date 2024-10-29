@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
@@ -210,6 +210,18 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @if(session('success'))
+                        <script>
+                            window.addEventListener('load', function() {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Berhasil!',
+                                    text: "{{ session('success') }}",
+                                    confirmButtonColor: '#b61e1e',
+                                });
+                            });
+                        </script>
+                    @endif
                 </div>
             </div>
 		</main>

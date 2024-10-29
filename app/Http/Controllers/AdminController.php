@@ -58,8 +58,11 @@ class AdminController extends Controller
         // Hapus volunteer
         $volunteer->delete();
 
+        // Notifikasi ketika berhasil terhapus
+        session()->flash('success', 'Data volunteer berhasil dihapus.');
+
         // Redirect kembali ke halaman volunteer dengan pesan sukses
-        return redirect()->route('admin.volunteer')->with('success', 'Volunteer deleted successfully.');
+        return redirect()->route('admin.volunteer');
     }
 
 
@@ -83,8 +86,10 @@ class AdminController extends Controller
         // Hapus volunteer
         $kontak->delete();
 
+        session()->flash('success', 'Data Kontak berhasil dihapus.');
+
         // Redirect kembali ke halaman volunteer dengan pesan sukses
-        return redirect()->route('admin.kontak')->with('success', 'Volunteer deleted successfully.');
+        return redirect()->route('admin.kontak');
     }
 
     public function adminBelanja(){

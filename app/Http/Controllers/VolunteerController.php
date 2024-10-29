@@ -13,23 +13,28 @@ class VolunteerController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'umur' => 'required|integer',
-            'no_telp' => 'required|string',
+            'umur' => 'required|integer|min:12',
+            'no_telp' => [
+                'required',
+                'string',
+                'regex:/^[0-9]{12}$/'
+            ],
             'event' => 'required|string',
         ]);
 
         Volunteer::create([
-            'user_id' => Auth::id(), // Menyimpan ID pengguna yang login
-            'username' => Auth::user()->name, // Menyimpan username dari pengguna yang login
+            'user_id' => Auth::id(),
+            'username' => Auth::user()->name,
             'umur' => $request->umur,
             'no_telp' => $request->no_telp,
-            'email' => Auth::user()->email, // Menyimpan email dari pengguna yang login
+            'email' => Auth::user()->email,
             'event' => $request->event,
-            'status' => 'pending', // Set status default ke 'pending'
+            'status' => 'pending',
         ]);
 
         return redirect()->back()->with('success', 'Data relawan berhasil disimpan');
     }
+
 
     public function DaftarVolunteer()
     {
