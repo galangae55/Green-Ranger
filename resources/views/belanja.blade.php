@@ -63,12 +63,13 @@
                                     <a href="/shop_cart" title="Belanja"><i class="fas fa-shopping-cart"></i></a>
                                     <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
                                 </div>
-                            @else
-                            <div class="social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
+                                @else
+                                <div class="social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href="/shop_cart" title="Belanja"><i class="fas fa-shopping-cart"></i></a>
                             </div>
                             @endif
                         </div>
@@ -621,11 +622,8 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-<<<<<<< HEAD
                           <a href="/produk12">Tas Rajut Eceng Gondok</a>
-=======
                           <a href="/shop_single">Tas Anyam</a>
->>>>>>> be8b99efb14e951f30fbd9de9e0ef7d5885ef13d
                         </h3>
                         <span class="category">
                           <a href="catalogue-grid.html">Wanita</a>
