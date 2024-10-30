@@ -5,6 +5,8 @@
         <title>belanja</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
@@ -67,12 +69,13 @@
                                     <a href="/shop_cart" title="Belanja"><i class="fas fa-shopping-cart"></i></a>
                                     <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
                                 </div>
-                            @else
-                            <div class="social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
+                                @else
+                                <div class="social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href="/shop_cart" title="Belanja"><i class="fas fa-shopping-cart"></i></a>
                             </div>
                             @endif
                         </div>
@@ -217,13 +220,37 @@
             </div>
 
             <!-- Input tersembunyi untuk product_id -->
-            <input type="hidden" name="product_id" value="6">
+            <input type="hidden" name="product_id" value="5">
 
             <!-- Tombol submit -->
             <button type="submit" class="btn btn-dark btn-lg add-to-cart">
                 <span>Add to Cart</span>
             </button>
         </form>
+        @if(session('error'))
+            <script>
+                window.addEventListener('load', function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Gagal',
+                        text: "{{ session('error') }}",
+                        confirmButtonColor: '#d33',
+                    });
+                });
+            </script>
+        @endif
+        @if(session('success'))
+            <script>
+                window.addEventListener('load', function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil!',
+                        text: "{{ session('success') }}",
+                        confirmButtonColor: '#9d1f1f',
+                    });
+                });
+            </script>
+        @endif
     </div>
 
 

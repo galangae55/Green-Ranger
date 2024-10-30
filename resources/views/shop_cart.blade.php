@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <title>belanja</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
 
@@ -33,6 +33,11 @@
     </head>
 
     <body>
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <!-- Top Bar Start -->
         <div class="top-bar d-none d-md-block">
             <div class="container-fluid">
@@ -172,14 +177,26 @@
                                         <td class="product-subtotal">
                                             <span class="amount">${{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</span>
                                         </td>
-                                        {{-- <td class="product-remove">
+                                        <td class="product-remove">
                                             <form action="{{ route('cart.remove', $keranjang->id) }}" method="POST" style="display:inline;">
                                                 @csrf
-                                                <button type="submit" class="remove" title="Remove this item" onclick="return confirm('Apakah Anda yakin ingin menghapus item ini?');">
-                                                    <i class="ui-close"></i>
+                                                <button type="submit" title="Remove this item" onclick="return confirm('Apakah Anda yakin ingin menghapus item ini?');" style="border: none; background: none; padding: 0;">
+                                                    <i class="fa fa-trash" style="color: red; font-size: 20px;"></i>
                                                 </button>
                                             </form>
-                                        </td> --}}
+                                            @if(session('success'))
+                                            <script>
+                                                window.addEventListener('load', function() {
+                                                    Swal.fire({
+                                                        icon: 'success',
+                                                        title: 'Berhasil!',
+                                                        text: "{{ session('success') }}",
+                                                        confirmButtonColor: '#721c24',
+                                                    });
+                                                });
+                                                </script>
+                                            @endif
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>
@@ -196,61 +213,17 @@
 
 
 </tbody>
+            <div class="actions">
+            <input type="submit" name="update_cart" value="Update Cart" class="btn btn-lg btn-stroke">
+            <div class="wc-proceed-to-checkout">
+                <a href="/shop_checkout" class="btn btn-lg btn-dark"><span>proceed to checkout</span></a>
+            </div>
+            </div>
 
-                </table>
-              </div>
-
-              <div class="row mb-50">
-                <div class="col-md-5 col-sm-12">
-                  <div class="coupon">
-                    <input type="text" name="coupon_code" id="coupon_code" class="input-text form-control" value placeholder="Coupon code">
-                    <input type="submit" name="apply_coupon" class="btn btn-lg btn-stroke" value="Apply">
-                  </div>
-                </div>
-
-                <div class="col-md-7">
-                  <div class="actions">
-                    <input type="submit" name="update_cart" value="Update Cart" class="btn btn-lg btn-stroke">
-                    <div class="wc-proceed-to-checkout">
-                      <a href="/shop_checkout" class="btn btn-lg btn-dark"><span>proceed to checkout</span></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div> <!-- end col -->
-          </div> <!-- end row -->
-
-
-
-
+            {{-- Hiasan aja --}}
             <div class="col-md-6">
               <div class="cart_totals">
-                <h2 class="heading relative bottom-line full-grey uppercase mb-30">Cart Totals</h2>
-
-                <table class="table shop_table">
-                  <tbody>
-                    <tr class="cart-subtotal">
-                      <th>Cart Subtotal</th>
-                      <td>
-                        <span class="amount">$1490.00</span>
-                      </td>
-                    </tr>
-                    <tr class="shipping">
-                      <th>Shipping</th>
-                      <td>
-                        <span>Free Shipping</span>
-                      </td>
-                    </tr>
-                    <tr class="order-total">
-                      <th>Order Total</th>
-                      <td>
-                        <strong><span class="amount">$1490.00</span></strong>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-
+                <h2 class="heading relative bottom-line full-grey uppercase mb-30"></h2>
               </div>
             </div> <!-- end col cart totals -->
 

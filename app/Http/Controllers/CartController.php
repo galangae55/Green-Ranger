@@ -14,6 +14,12 @@ class CartController extends Controller
     // CartController.php
     public function addToCart(Request $request)
     {
+        // Cek apakah pengguna sudah login
+        if (!Auth::check()) {
+            // Jika belum login, arahkan ke halaman login dengan pesan error
+            return redirect()->back()->with('error', 'Anda harus login terlebih dahulu untuk menambahkan produk ke keranjang.');
+        }
+
         // Log data request untuk debug
         Log::info('Request Data:', $request->all());
 
@@ -50,6 +56,7 @@ class CartController extends Controller
 
 
 
+
     public function showCart()
     {
         $userId = auth()->id();
@@ -58,20 +65,16 @@ class CartController extends Controller
         return view('shop_cart', compact('products')); // Menggunakan view shop_cart
     }
 
-
-
-    public function removeFromCart(Request $request)
+    public function removeFromCart($id)
     {
-        // Get the current cart from the session
-        $cart = session()->get('cart', []);
+        $keranjangItem = Keranjang::find($id);
 
-        // Remove the specified product from the cart
-        if (isset($cart[$request->product_id])) {
-            unset($cart[$request->product_id]);
-            session()->put('cart', $cart);
+        if ($keranjangItem) {
+            $keranjangItem->delete(); // Hapus item dari keranjang
+            return redirect()->back()->with('success', 'Item berhasil dihapus dari keranjang.'); // Redirect kembali dengan pesan sukses
         }
 
-        return redirect()->route('shop.cart')->with('success', 'Produk berhasil dihapus dari keranjang');
+        return redirect()->back()->with('error', 'Item tidak ditemukan.'); // Jika item tidak ditemukan
     }
 
     public function updateCart(Request $request)

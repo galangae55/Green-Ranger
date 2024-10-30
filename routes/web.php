@@ -2,6 +2,8 @@
 
 use App\Models\Komen;
 use Illuminate\Support\Facades\Route;
+
+// Controllernya
 use App\Http\Controllers\GreenRangerController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\KomenController;
@@ -10,9 +12,12 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
+
+// Middlewarenya
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\RestrictNonAdminAccess;
-use App\Http\Controllers\CartController;
+use App\Http\Middleware\LoginMiddleware;
 
 // Rute yang hanya bisa diakses oleh admin
 Route::middleware([AdminMiddleware::class])->group(function () {
@@ -62,10 +67,10 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::get("/produk10", [GreenRangerController::class,"produk10"]);
     Route::get("/produk11", [GreenRangerController::class,"produk11"]);
     Route::get("/produk12", [GreenRangerController::class,"produk12"]);
-    Route::post('/cart/add', [CartController::class, 'addToCart'])->middleware('auth')->name('cart.add');
-    Route::get('/shop_cart', [CartController::class, 'showCart'])->name('cart.show')->middleware('auth');
-    Route::get('/shop_cart', [CartController::class, 'showCart'])->name('cart.show')->middleware('auth');
-    Route::get("/shop_checkout", [GreenRangerController::class,"shop_checkout"]);
+    Route::post('/cart/add', [CartController::class, 'addToCart'])->middleware(LoginMiddleware::class)->name('cart.add');
+    Route::get('/shop_cart', [CartController::class, 'showCart'])->middleware(LoginMiddleware::class)->name('cart.show');
+    Route::post('/shop_cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::get("/shop_checkout", [GreenRangerController::class,"shop_checkout"])->middleware(LoginMiddleware::class);
 });
 
 // Auth routes

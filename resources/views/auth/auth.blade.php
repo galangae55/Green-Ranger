@@ -538,6 +538,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Login dan Register</title>
     <style>
         * {
@@ -825,15 +826,15 @@
 </head>
 <body>
     @if(session('logout'))
-        <script>
-            window.addEventListener('load', function() {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Berhasil!',
-                    text: "{{ session('logout') }}",
-                    confirmButtonColor: '#721c24',
-                });
+    <script>
+        window.addEventListener('load', function() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: "{{ session('logout') }}",
+                confirmButtonColor: '#721c24',
             });
+        });
         </script>
     @endif
 
@@ -851,7 +852,7 @@
 
             </form>
         </div>
-        <div class="form-container sign-in-container">
+        <div class="form-container sign-in-container">  
             <form action="{{ url('/login') }}" method="POST">
                 @csrf
                 <h1>Masuk</h1>
@@ -859,32 +860,34 @@
                 <input type="password" name="password" placeholder="Kata Sandi" required />
                 <button type="submit">Masuk</button>
                 @if ($errors->any())
-                    <div class="alert alert-danger show">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="alert alert-danger show">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
                 @endif
-            <div id="errorPopup" style="display:none;">
-                <div id="errorContent"></div>
-                <button onclick="document.getElementById('errorPopup').style.display='none'">Close</button>
-            </div>
+                <div id="errorPopup" style="display:none;">
+                    <div id="errorContent"></div>
+                    <button onclick="document.getElementById('errorPopup').style.display='none'">Close</button>
+                </div>
+
+
             </form>
         </div>
 
         <!-- Popup Notification -->
         @if(session('success'))
-            <div id="popup" class="popup show">
-                {{ session('success') }}
-            </div>
+        <div id="popup" class="popup show">
+            {{ session('success') }}
+        </div>
         @endif
 
         @if(session('logoutadming'))
-            <div id="popup" class="popup show red">
-                {{ session('logoutadming') }}
-            </div>
+        <div id="popup" class="popup show red">
+            {{ session('logoutadming') }}
+        </div>
         @endif
 
         <script>
