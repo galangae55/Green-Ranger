@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Donation;
 use App\Models\kontak;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -48,6 +49,24 @@ class AdminController extends Controller
         // Redirect kembali ke halaman dengan pesan sukses
         return redirect()->back()->with('success', 'Status volunteer berhasil diubah.');
     }
+    public function updateStatusDonasi($id)
+    {
+        // Cari volunteer berdasarkan id
+        $donationsss = Donation::findOrFail($id);
+
+        // Ubah status: jika status saat ini 'accepted', ubah menjadi 'pending', dan sebaliknya
+        if ($donationsss->status == 'accepted') {
+            $donationsss->status = 'pending';
+        } else {
+            $donationsss->status = 'accepted';
+        }
+
+        // Simpan perubahan
+        $donationsss->save();
+
+        // Redirect kembali ke halaman dengan pesan sukses
+        return redirect()->back()->with('successking', 'Status Donasi berhasil diubah.');
+    }
 
 
     public function deleteVolunteer($id)
@@ -68,7 +87,9 @@ class AdminController extends Controller
 
     public function adminDonation()
     {
-        return view('adminDonation');
+        $donationsss = Donation::all();
+
+        return view('adminDonation', compact('donationsss'));
     }
 
     public function adminKontak()

@@ -28,6 +28,7 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::patch('/admin/volunteer/{id}/update-status', [AdminController::class, 'updateStatus'])->name('admin.updateStatus');
     Route::delete('/admin/volunteer/{id}', [AdminController::class, 'deleteVolunteer'])->name('admin.deleteVolunteer');
     Route::get('/admin/donation', [AdminController::class, 'adminDonation'])->name('admin.donation');
+    Route::patch('/admin/donation/{id}/update-status', [AdminController::class, 'updateStatusDonasi'])->name('admin.updateStatusDonasi');
     Route::get('/admin/kontak', [AdminController::class, 'adminKontak'])->name('admin.kontak');
     Route::delete('/admin/kontak/{id}', [AdminController::class, 'deleteKontak'])->name('admin.deleteKontak');
     Route::get('/admin/belanja', [AdminController::class, 'adminBelanja'])->name('admin.belanja');
@@ -37,7 +38,6 @@ Route::middleware([AdminMiddleware::class])->group(function () {
 
 // Rute yang hanya bisa diakses oleh non-admin (misalnya, pengguna umum)
 Route::middleware([RestrictNonAdminAccess::class])->group(function () {
-    Route::get("/donate", [GreenRangerController::class,"donate"]);
     Route::get("/", [GreenRangerController::class,"homepage"]);
     Route::get("/event", [GreenRangerController::class,"event"]);
     Route::get("/blog", [GreenRangerController::class,"blog"]);

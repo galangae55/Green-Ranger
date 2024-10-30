@@ -9,37 +9,11 @@ use Midtrans\Config;
 use App\Models\Donation;
 use Illuminate\Support\Facades\DB;
 
-    class DonationController extends Controller
+class DonationController extends Controller
+{
+    public function showForm()
     {
-        public function showForm()
-        {
-            return view('donation.form');
-        }
-
-        public function showDetail(Request $request)
-    {
-        // Validasi data dari formulir
-        $validated = $request->validate([
-            'name' => 'required|string',
-            'phone' => 'required|string',
-            'email' => 'required|email',
-            'amount' => 'required|numeric|min:1',
-        ]);
-
-        // Simpan atau olah data yang dikirim
-        $donation = new Donation($validated);
-        $donation->save(); // Simpan data donasi ke database
-
-        // Generate Snap token
-        $snapToken = \Midtrans::getSnapToken($donation);
-
-        return view('donation.detail', [
-            'name' => $donation->name,
-            'phone' => $donation->phone,
-            'email' => $donation->email,
-            'amount' => $donation->amount,
-            'snapToken' => $snapToken,
-        ]);
+        return view('donate');
     }
 
     public function processForm(Request $request)

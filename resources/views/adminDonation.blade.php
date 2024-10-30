@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -152,15 +154,15 @@
 			<div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Recent Volunteer</h3>
+                        <h3>Recent Donations</h3>
                         <i class='bx bx-search'></i>
-                        <input type="text" id="search-input" placeholder="Search volunteer..." onkeyup="searchTable()" style="padding: 5px; width: 25%; font-family: 'Quicksand', sans-serif;">
+                        <input type="text" id="search-input" placeholder="Search Donations..." onkeyup="searchTable()" style="padding: 5px; width: 25%; font-family: 'Quicksand', sans-serif;">
                     </div>
                     <table>
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Username</th>
+                                <th>Order ID</th>
+                                <th>Name</th>
                                 <th>No Telepon</th>
                                 <th>Email</th>
                                 <th>Status</th>
@@ -170,44 +172,55 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        {{-- <tbody>
-                            @foreach($volunteers as $volunteer)
+                        <tbody>
+                            @foreach($donationsss as $donationsss)
                                 <tr>
-                                    <td>{{ $volunteer->id }}</td>
-                                    <td>{{ $volunteer->username }}</td>
-                                    <td>{{ $volunteer->umur }}</td>
-                                    <td>{{ $volunteer->no_telp }}</td>
-                                    <td>{{ $volunteer->email }}</td>
-                                    <td>{{ $volunteer->event }}</td>
+                                    <td>{{ $donationsss->order_id }}</td>
+                                    <td>{{ $donationsss->name }}</td>
+                                    <td>{{ $donationsss->phone }}</td>
+                                    <td>{{ $donationsss->email }}</td>
                                     <td>
-                                        <span class="status {{ $volunteer->status == 'accepted' ? 'completed' : 'pending' }}">
-                                            {{ ucfirst($volunteer->status) }}
+                                        <span class="status {{ $donationsss->status == 'accepted' ? 'completed' : 'pending' }}">
+                                            {{ ucfirst($donationsss->status) }}
                                         </span>
                                     </td>
-                                    <td>{{ $volunteer->created_at->format('d-m-Y H:i') }}</td>
-                                    <td>{{ $volunteer->updated_at->format('d-m-Y H:i') }}</td>
+                                    <td>{{ $donationsss->amount }}</td>
+                                    <td>{{ $donationsss->created_at->format('d-m-Y H:i') }}</td>
+                                    <td>{{ $donationsss->updated_at->format('d-m-Y H:i') }}</td>
                                     <td>
-                                        <form action="{{ route('admin.updateStatus', $volunteer->id) }}" method="POST" style="display: flex;justify-content:center; margin-bottom:7px">
+                                        <form action="{{ route('admin.updateStatusDonasi', $donationsss->id) }}" method="POST" style="display: flex;justify-content:center; margin-bottom:7px">
                                             @csrf
                                             @method('PATCH')
-                                            <button type="submit" class="btn {{ $volunteer->status == 'accepted' ? 'btn-warning' : 'btn-success' }}">
-                                                {{ $volunteer->status == 'accepted' ? 'Set to Pending' : 'Set to Accept' }}
+                                            <button type="submit" class="btn {{ $donationsss->status == 'accepted' ? 'btn-warning' : 'btn-success' }}">
+                                                {{ $donationsss->status == 'accepted' ? 'Set to Pending' : 'Set to Accept' }}
                                             </button>
                                         </form>
 
                                         <!-- Form hapus volunteer -->
-                                        <form action="{{ route('admin.deleteVolunteer', $volunteer->id) }}" method="POST" style="display: flex; justify-content:center">
+                                        {{-- <form action="{{ route('admin.deleteVolunteer', $donationsss->id) }}" method="POST" style="display: flex; justify-content:center">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this volunteer?')" style="background-color: #b61e1e;">
                                                 Delete
                                             </button>
-                                        </form>
+                                        </form> --}}
                                     </td>
                                 </tr>
                             @endforeach
-                        </tbody> --}}
+                        </tbody>
                     </table>
+                    @if(session('successking'))
+                        <script>
+                            window.addEventListener('load', function() {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Berhasil!',
+                                    text: "{{ session('successking') }}",
+                                    confirmButtonColor: '#b61e1e',
+                                });
+                            });
+                        </script>
+                    @endif
                 </div>
             </div>
 		</main>
