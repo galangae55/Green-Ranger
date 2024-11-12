@@ -16,7 +16,6 @@ class CartController extends Controller
     {
         // Cek apakah pengguna sudah login
         if (!Auth::check()) {
-            // Jika belum login, arahkan ke halaman login dengan pesan error
             return redirect()->back()->with('error', 'Anda harus login terlebih dahulu untuk menambahkan produk ke keranjang.');
         }
 
@@ -62,6 +61,8 @@ class CartController extends Controller
         $userId = auth()->id();
         $products = Keranjang::with('product')->where('user_id', $userId)->get();
 
+
+
         return view('shop_cart', compact('products')); // Menggunakan view shop_cart
     }
 
@@ -79,24 +80,19 @@ class CartController extends Controller
 
     public function updateCart(Request $request)
     {
-        // Check if 'products' is set in the request to avoid undefined variable errors
-        if ($request->has('products')) {
-            // Get the current cart from the session
-            $cart = session()->get('cart', []);
+        // Loop through each product in the cart and update its quantity
+        foreach ($request->product_id as $key => $id) {
+            $cartItem = Keranjang::find($id);
 
-            // Update each product's quantity
-            foreach ($request->products as $productId => $quantity) {
-                if (isset($cart[$productId])) {
-                    $cart[$productId]['quantity'] = $quantity;
-                }
+            // Check if cart item exists
+            if ($cartItem) {
+                $quantity = $request->quantity[$key];
+                $cartItem->quantity = max(1, (int)$quantity); // Ensure quantity is at least 1
+                $cartItem->save();
             }
-
-            // Save the updated cart to the session
-            session()->put('cart', $cart);
-
-            return redirect()->route('shop.cart')->with('success', 'Jumlah produk diperbarui');
         }
 
-        return redirect()->route('shop.cart')->with('error', 'Tidak ada produk untuk diperbarui');
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Cart updated successfully!');
     }
 }

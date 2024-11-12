@@ -60,8 +60,6 @@ class GreenRangerController extends Controller
         return view("shop_checkout");
     }
 
-
-
     public function donate(){
         return view("donate");
     }

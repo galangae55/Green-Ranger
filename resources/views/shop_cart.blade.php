@@ -33,7 +33,7 @@
     </head>
 
     <body>
-        @if(session('error'))
+        @if (session('error'))
             <div class="alert alert-danger">
                 {{ session('error') }}
             </div>
@@ -135,91 +135,73 @@
         <div class="container relative">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="table-wrap mb-30">
-                        <table class="shop_table cart table">
-                            <thead>
-                                <tr>
-                                    <th class="product-thumbnail">Gambar</th>
-                                    <th class="product-name">Product</th>
-                                    <th class="product-price">Price</th>
-                                    <th class="product-quantity">Quantity</th>
-                                    <th class="product-subtotal">Total</th>
-                                    <th class="product-remove">Remove</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse($products as $keranjang)
-                                    <tr class="cart_item">
-                                        <td class="product-thumbnail">
-                                            <a href="#">
-                                                <img src="{{ asset($keranjang->product->image) }}" alt="{{ $keranjang->product->name }}" style="width: 100px; height: auto;">
-                                            </a>
-                                        </td>
-                                        <td class="product-name">
-                                            <a href="#">{{ $keranjang->product->name }}</a>
-                                        </td>
-                                        <td class="product-price">
-                                            <span class="amount">${{ number_format($keranjang->product->price, 2) }}</span>
-                                        </td>
-                                        <td class="product-quantity">
-                                            <div class="quantity buttons_added">
-                                                <input type="number" step="1" min="0" value="{{ $keranjang->quantity }}" title="Qty" class="input-text qty text">
-                                                <div class="quantity-adjust">
-                                                    <a href="#" class="plus">
-                                                        <i class="fa fa-angle-up"></i>
-                                                    </a>
-                                                    <a href="#" class="minus">
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="product-subtotal">
-                                            <span class="amount">${{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</span>
-                                        </td>
-                                        <td class="product-remove">
-                                            <form action="{{ route('cart.remove', $keranjang->id) }}" method="POST" style="display:inline;">
-                                                @csrf
-                                                <button type="submit" title="Remove this item" onclick="return confirm('Apakah Anda yakin ingin menghapus item ini?');" style="border: none; background: none; padding: 0;">
-                                                    <i class="fa fa-trash" style="color: red; font-size: 20px;"></i>
-                                                </button>
-                                            </form>
-                                            @if(session('success'))
-                                            <script>
-                                                window.addEventListener('load', function() {
-                                                    Swal.fire({
-                                                        icon: 'success',
-                                                        title: 'Berhasil!',
-                                                        text: "{{ session('success') }}",
-                                                        confirmButtonColor: '#721c24',
-                                                    });
-                                                });
-                                                </script>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @empty
+                    <form action="{{ route('cart.update') }}" method="POST">
+                        @csrf
+                        <div class="table-wrap mb-30">
+                            <table class="shop_table cart table">
+                                <thead>
                                     <tr>
-                                        <td colspan="7" class="text-center">Keranjang Anda kosong.</td>
+                                        <th class="product-thumbnail">Gambar</th>
+                                        <th class="product-name">Product</th>
+                                        <th class="product-price">Price</th>
+                                        <th class="product-quantity">Quantity</th>
+                                        <th class="product-subtotal">Total</th>
+                                        <th class="product-remove">Remove</th>
                                     </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-</tbody>
-            <div class="actions">
-            <input type="submit" name="update_cart" value="Update Cart" class="btn btn-lg btn-stroke">
-            <div class="wc-proceed-to-checkout">
-                <a href="/shop_checkout" class="btn btn-lg btn-dark"><span>proceed to checkout</span></a>
-            </div>
-            </div>
-
+                                </thead>
+                                <tbody>
+                                    @foreach($products as $keranjang)
+                                        <tr class="cart_item">
+                                            <td class="product-thumbnail">
+                                                <a href="#">
+                                                    <img src="{{ asset($keranjang->product->image) }}" alt="{{ $keranjang->product->name }}" style="width: 100px; height: auto;">
+                                                </a>
+                                            </td>
+                                            <td class="product-name">
+                                                <a href="#">{{ $keranjang->product->name }}</a>
+                                            </td>
+                                            <td class="product-price">
+                                                <span class="amount">${{ number_format($keranjang->product->price, 2) }}</span>
+                                            </td>
+                                            <td class="product-quantity">
+                                                <div class="quantity buttons_added">
+                                                    <!-- Input untuk ID produk -->
+                                                    <input type="hidden" name="product_id[]" value="{{ $keranjang->id }}">
+                                                    <!-- Input untuk jumlah produk -->
+                                                    <input type="number" name="quantity[]" step="1" min="0" value="{{ $keranjang->quantity }}" title="Qty" class="input-text qty text">
+                                                    <div class="quantity-adjust">
+                                                        <a href="#" class="plus">
+                                                            <i class="fa fa-angle-up"></i>
+                                                        </a>
+                                                        <a href="#" class="minus">
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="product-subtotal">
+                                                <span class="amount">${{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</span>
+                                            </td>
+                                            <td class="product-remove">
+                                                <form action="{{ route('cart.remove', $keranjang->id) }}" method="POST" style="display:inline;">
+                                                    @csrf
+                                                    <button type="submit" title="Remove this item" onclick="return confirm('Apakah Anda yakin ingin menghapus item ini?');" style="border: none; background: none; padding: 0;">
+                                                        <i class="fa fa-trash" style="color: red; font-size: 20px;"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="actions">
+                            <input type="submit" name="update_cart" value="Update Cart" class="btn btn-lg btn-stroke">
+                            <div class="wc-proceed-to-checkout">
+                                <a href="/shop_checkout" class="btn btn-lg btn-dark"><span>proceed to checkout</span></a>
+                            </div>
+                        </div>
+                    </form>
             {{-- Hiasan aja --}}
             <div class="col-md-6">
               <div class="cart_totals">

@@ -13,7 +13,7 @@ use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
-
+use App\Http\Controllers\CheckOutController;
 // Middlewarenya
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\RestrictNonAdminAccess;
@@ -68,9 +68,10 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::get("/produk11", [GreenRangerController::class,"produk11"]);
     Route::get("/produk12", [GreenRangerController::class,"produk12"]);
     Route::post('/cart/add', [CartController::class, 'addToCart'])->middleware(LoginMiddleware::class)->name('cart.add');
+    Route::post('/cart/update', [CartController::class, 'updateCart'])->middleware(LoginMiddleware::class)->name('cart.update');
     Route::get('/shop_cart', [CartController::class, 'showCart'])->middleware(LoginMiddleware::class)->name('cart.show');
     Route::post('/shop_cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
-    Route::get("/shop_checkout", [GreenRangerController::class,"shop_checkout"])->middleware(LoginMiddleware::class);
+    Route::get("/shop_checkout", [CheckOutController::class,"showOrderToCheckOut"])->middleware(LoginMiddleware::class);
 });
 
 // Auth routes
