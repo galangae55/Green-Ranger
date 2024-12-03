@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // ID pengguna yang berelasi dengan tabel users
             $table->foreignId('product_id')->constrained()->onDelete('cascade'); // ID produk yang berelasi dengan tabel products
             $table->integer('quantity'); // Jumlah pesanan
-            $table->decimal('total_price', 10, 2); // Total harga
+            $table->decimal('total_price', 10, 2);  // Status pesanan
             $table->timestamps(); // Timestamps untuk created_at dan updated_at
         });
     }

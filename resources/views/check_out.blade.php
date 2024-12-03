@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>belanja</title>
+        <title>Check Out</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -26,6 +26,7 @@
         <!-- Template Stylesheet -->
         <link href="css/style3.css" rel="stylesheet">
         <link href="css/style2.css" rel="stylesheet">
+
     </head>
 
     <body>
@@ -124,120 +125,116 @@
                 </div>
             </div>
         </div>
-        <!-- Nav Bar End -->
-             <!-- Page Title -->
-    <section class="page-title text-center bg-light">
-      <div class="container relative clearfix">
-        <div class="title-holder">
-          <div class="title-text">
-            <h1 class="uppercase">Shopping Cart</h1>
-          </div>
-        </div>
-      </div>
-    </section>
+    @if(session('success'))
+            <script>
+                window.addEventListener('load', function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil!',
+                        text: "{{ session('success') }}",
+                        confirmButtonColor: '#9d1f1f',
+                    });
+                });
+            </script>
+        @endif
 
-    <div class="content-wrapper oh">
 
-      <!-- Checkout -->
-      <section class="section-wrap checkout pb-70">
+    <!-- Form Checkout -->
+    <section class="section-wrap checkout pb-70">
         <div class="container relative">
-          <div class="row">
-            <div class="ecommerce col-xs-12">
-              <form name="checkout" class="checkout ecommerce-checkout row">
-                <div class="col-md-8" id="customer_details">
-                  <div>
-                    <h2 class="heading uppercase bottom-line full-grey mb-30">Detail Check Out</h2>
-                    <p class="form-row form-row-wide address-field update_totals_on_change validate-required ecommerce-validated" id="billing_country_field">
-                    </p>
-                    <form action="{{ route('checkout.store') }}" method="POST" class="checkout ecommerce-checkout row">
+            <div class="row">
+                <div class="ecommerce col-xs-12">
+                    <form name="checkout" action="{{ route('checkout.store') }}" method="POST" class="checkout ecommerce-checkout row">
                         @csrf
+                        <div class="col-md-8" id="customer_details">
+                            <div>
+                                <h2 class="heading uppercase bottom-line full-grey mb-30">Detail Check Out</h2>
 
-                        <!-- First Name -->
-                        <p class="form-row form-row-first validate-required" id="billing_first_name_field">
-                            <label for="first_name">First Name
-                                <abbr class="required" title="required">*</abbr>
-                            </label>
-                            <input type="text" name="first_name" class="input-text" id="first_name" required>
-                        </p>
+                                <!-- First Name -->
+                                <p class="form-row form-row-first validate-required" id="billing_first_name_field" style="margin-top: 15px">
+                                    <label for="first_name">First Name
+                                        <abbr class="required" title="required">*</abbr>
+                                    </label>
+                                    <input type="text" name="first_name" class="input-text" id="first_name" required>
+                                </p>
 
-                        <!-- Last Name -->
-                        <p class="form-row form-row-last validate-required" id="billing_last_name_field">
-                            <label for="last_name">Last Name
-                                <abbr class="required" title="required">*</abbr>
-                            </label>
-                            <input type="text" name="last_name" class="input-text" id="last_name" required>
-                        </p>
+                                <!-- Last Name -->
+                                <p class="form-row form-row-last validate-required" id="billing_last_name_field">
+                                    <label for="last_name">Last Name
+                                        <abbr class="required" title="required">*</abbr>
+                                    </label>
+                                    <input type="text" name="last_name" class="input-text" id="last_name" required>
+                                </p>
 
-                        <!-- Billing Address -->
-                        <p class="form-row form-row-wide address-field validate-required" id="billing_address_1_field">
-                            <label for="billing_address_1">Address
-                                <abbr class="required" title="required">*</abbr>
-                            </label>
-                            <input type="text" name="billing_address_1" class="input-text" id="billing_address_1" required>
-                        </p>
+                                <!-- Billing Address -->
+                                <p class="form-row form-row-wide address-field validate-required" id="billing_address_1_field">
+                                    <label for="billing_address_1">Address
+                                        <abbr class="required" title="required">*</abbr>
+                                    </label>
+                                    <input type="text" name="billing_address_1" class="input-text" id="billing_address_1" required>
+                                </p>
 
-                        <!-- Billing City -->
-                        <p class="form-row form-row-wide validate-required" id="billing_city_field">
-                            <label for="billing_city">Town / City
-                                <abbr class="required" title="required">*</abbr>
-                            </label>
-                            <input type="text" name="billing_city" class="input-text" id="billing_city" required>
-                        </p>
+                                <!-- Billing Address -->
+                                <p class="form-row form-row-wide address-field validate-required" id="billing_address_2_field">
+                                    <label for="billing_address_2">Detail Addres
+                                        <abbr class="required" title="required">*</abbr>
+                                    </label>
+                                    <input type="text" name="billing_address_2" class="input-text" id="billing_address_2" required>
+                                </p>
 
-                        <!-- Billing Postcode -->
-                        <p class="form-row form-row-last validate-required" id="billing_postcode_field">
-                            <label for="billing_postcode">Postcode
-                                <abbr class="required" title="required">*</abbr>
-                            </label>
-                            <input type="text" name="billing_postcode" class="input-text" id="billing_postcode" required>
-                        </p>
 
-                        <!-- Billing Phone -->
-                        <p class="form-row form-row-last validate-required" id="billing_phone_field">
-                            <label for="billing_phone">Phone
-                                <abbr class="required" title="required">*</abbr>
-                            </label>
-                            <input type="text" name="billing_phone" class="input-text" id="billing_phone" required>
-                        </p>
+                                <!-- Billing City -->
+                                <p class="form-row form-row-wide validate-required" id="billing_city_field">
+                                    <label for="billing_city">Town / City
+                                        <abbr class="required" title="required">*</abbr>
+                                    </label>
+                                    <input type="text" name="billing_city" class="input-text" id="billing_city" required>
+                                </p>
 
-                        <!-- Metode Pengiriman -->
-                        <p class="form-row form-row-wide">
-                            <label for="metode_pengiriman_id">Shipping Method:</label>
-                            <select name="metode_pengiriman_id" id="metode_pengiriman_id" class="input-text" onchange="updateShippingCost()">
-                                @foreach($metode_pengiriman as $method)
-                                    <option value="{{ $method->id }}" data-price="{{ $method->price }}">
-                                        {{ $method->name }} - Rp{{ number_format($method->price, 2) }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </p>
+                                <!-- Billing Postcode -->
+                                <p class="form-row form-row-last validate-required" id="billing_postcode_field">
+                                    <label for="billing_postcode">Postcode
+                                        <abbr class="required" title="required">*</abbr>
+                                    </label>
+                                    <input type="text" name="billing_postcode" class="input-text" id="billing_postcode" required>
+                                </p>
 
-                        <div>
-                            <p class="form-row notes ecommerce-validated" id="order_comments_field">
-                                <label for="order_comments">Order Notes</label>
-                                <textarea name="order_comments" class="input-text" id="order_comments" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="6"></textarea>
-                            </p>
+                                <!-- Billing Phone -->
+                                <p class="form-row form-row-last validate-required" id="billing_phone_field">
+                                    <label for="billing_phone">Phone
+                                        <abbr class="required" title="required">*</abbr>
+                                    </label>
+                                    <input type="text" name="billing_phone" class="input-text" id="billing_phone" required>
+                                </p>
+
+                                <!-- Metode Pengiriman -->
+                                <p class="form-row form-row-wide" id="shipping_method_field">
+                                    <label for="metode_pengiriman_id">Shipping Method:</label>
+                                    <select name="metode_pengiriman_id" id="metode_pengiriman_id" class="input-text" onchange="updateShippingCost()">
+                                        @foreach($metode_pengiriman as $method)
+                                            <option value="{{ $method->id }}" data-price="{{ $method->price }}">
+                                                {{ $method->name }} - Rp{{ number_format($method->price, 2) }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </p>
+
+                                <!-- Order Notes -->
+                                <p class="form-row notes ecommerce-validated" id="order_comments_field">
+                                    <label for="order_comments">Order Notes</label>
+                                    <textarea name="order_comments" class="input-text" id="order_comments" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="6"></textarea>
+                                </p>
+
+                                <!-- Submit Button -->
+                                <button type="submit" class="btn btn-lg btn-dark" id="place_order" style="margin-top: 15px">Check Out</button>
+                            </div>
                         </div>
-
-                        <!-- Submit Button -->
-                        <div class="form-row place-order">
-                            <button type="submit" class="btn btn-lg btn-dark" id="place_order">Check Out</button>
-                        </div>
-
-
-                        <div class="clear"></div>
-
-                    </div> <!-- end col -->
-
-
-
-                    <!-- Your Order -->
-                    <div class="col-md-4" style="padding-left: 0; padding-right: 0;">
-                        <div class="order-review-wrap ecommerce-checkout-review-order" id="order_review">
-                        <h2 class="heading uppercase bottom-line full-grey">Your Order</h2>
-                        <table class="table shop_table ecommerce-checkout-review-order-table">
-                            <tbody>
-                                @foreach($keranjangs as $keranjang)
+                        <div class="col-md-4" style="padding-left: 0; padding-right: 0;">
+                            <div class="order-review-wrap ecommerce-checkout-review-order" id="order_review">
+                                <h2 class="heading uppercase bottom-line full-grey">Your Order</h2>
+                                <table class="table shop_table ecommerce-checkout-review-order-table">
+                                    <tbody>
+                                        @foreach($keranjangs as $keranjang)
                                 <tr>
                                     <th>{{ $keranjang->product->name }}<span class="count"> x {{ $keranjang->quantity }}</span></th>
                                     <td>
@@ -258,29 +255,29 @@
                                 <tr class="order-total">
                                     <th><strong>Order Total</strong></th>
                                     <td>
-                                        <strong><span id="order_total_display">Rp{{ number_format($subtotal ?? 0, 2) }}</span></strong>
+                                        <strong>
+                                            <span id="order_total_display">Rp{{ number_format($subtotal + ($selectedShippingCost ?? 79900), 2) }}</span>
+                                        </strong>
                                     </td>
                                 </tr>
-
-                            </tbody>
-                        </table>
-                        <div id="payment" class="ecommerce-checkout-payment">
-                            <div class="form-row place-order">
-                            <input type="submit" name="ecommerce_checkout_place_order" class="btn btn-lg btn-dark" id="place_order" value="Check Out">
+                                </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
                 </div>
-            </div> <!-- end order review -->
-          </form>
-        </div> <!-- end ecommerce -->
-          </div> <!-- end row -->
-        </div> <!-- end container -->
-      </section> <!-- end checkout -->
+
+            </div>
+        </div>
+    </section>
 
 
-       <!-- Footer Start -->
-       <div class="footer">
+
+
+
+
+    <!-- Footer Start -->
+    <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -428,8 +425,6 @@
             updateShippingCost(); // Set nilai awal
         };
     </script>
-
-
 
 </body>
 </html>

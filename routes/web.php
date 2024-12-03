@@ -14,10 +14,12 @@ use App\Http\Controllers\DonationController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckOutController;
+use App\Http\Controllers\DaftarTransaksiController;
 // Middlewarenya
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\RestrictNonAdminAccess;
 use App\Http\Middleware\LoginMiddleware;
+use GuzzleHttp\Psr7\Uri;
 
 // Rute yang hanya bisa diakses oleh admin
 Route::middleware([AdminMiddleware::class])->group(function () {
@@ -72,6 +74,9 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::get('/shop_cart', [CartController::class, 'showCart'])->middleware(LoginMiddleware::class)->name('cart.show');
     Route::post('/shop_cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
     Route::get("/shop_checkout", [CheckOutController::class,"showOrderToCheckOut"])->middleware(LoginMiddleware::class);
+    Route::post('/shop_checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+    Route::get("/daftar_transaksi", [DaftarTransaksiController::class,"showPesanan"])->middleware(LoginMiddleware::class);
+    Route::post('/daftar_transaksi/update/{id}', [DaftarTransaksiController::class,'UpdatePesanan'])->name('update.pesanan')->middleware(LoginMiddleware::class);
 });
 
 // Auth routes

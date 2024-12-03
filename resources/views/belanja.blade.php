@@ -172,30 +172,17 @@
       <section class="section-wrap pt-80 pb-40 catalogue">
         <div class="container relative">
 
-          <!-- Filter -->
-          <div class="shop-filter">
+          <div class="shop-filter" style="display: flex;justify-content: flex-end; padding-bottom: 4%;">
             <div class="view-mode hidden-xs">
-              <span>View:</span>
+              {{-- <span>View:</span>
               <a class="grid grid-active" id="grid"></a>
-              <a class="list" id="list"></a>
+              <a class="list" id="list"></a> --}}
             </div>
-            <div class="filter-show hidden-xs">
-              <span>Show:</span>
-              <a href="#" class="active">12</a>
-              <a href="#">24</a>
-              <a href="#">all</a>
+            <div class="filter-show hidden-xs" >
+                <a href="/daftar_transaksi" id="riwayatCheckoutButton" style="padding: 10px 21px; background-color: whitesmoke; color: #585858; border-radius: 17px;">Riwayat Check out</a>
             </div>
-            <form class="ecommerce-ordering">
-              <select>
-                <option value="default-sorting">Default Sorting</option>
-                <option value="price-low-to-high">Price: high to low</option>
-                <option value="price-high-to-low">Price: low to high</option>
-                <option value="by-popularity">By Popularity</option>
-                <option value="date">By Newness</option>
-                <option value="rating">By Rating</option>
-              </select>
-            </form>
           </div>
+
 
           <div class="row">
             <div class="col-md-12 catalogue-col right mb-50">
@@ -645,7 +632,7 @@
               </div> <!-- end grid mode -->
 
               <!-- Pagination -->
-              <div class="pagination-wrap clearfix">
+              {{-- <div class="pagination-wrap clearfix">
                 <p class="result-count">Showing: 12 of 80 results</p>
                 <nav class="pagination right clearfix">
                   <a href="#"><i class="fa fa-angle-left"></i></a>
@@ -655,7 +642,7 @@
                   <a href="#">4</a>
                   <a href="#"><i class="fa fa-angle-right"></i></a>
                 </nav>
-              </div>
+              </div> --}}
 
             </div> <!-- end col -->
 
@@ -757,6 +744,22 @@
 
     <script>
         AOS.init();
+    </script>
+
+    <script>
+        // Mendapatkan tombol berdasarkan ID
+        const button = document.getElementById("riwayatCheckoutButton");
+
+        // Menambahkan event listener untuk hover
+        button.addEventListener("mouseenter", function() {
+            button.style.backgroundColor = "green";
+            button.style.color = "white";
+        });
+
+        button.addEventListener("mouseleave", function() {
+            button.style.backgroundColor = "whitesmoke";
+            button.style.color = "#3a5f4c";
+        });
     </script>
 </body>
 </html>

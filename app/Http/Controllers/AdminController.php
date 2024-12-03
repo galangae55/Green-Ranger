@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Donation;
+use App\Models\Keranjang;
 use App\Models\kontak;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -113,7 +114,14 @@ class AdminController extends Controller
         return redirect()->route('admin.kontak');
     }
 
-    public function adminBelanja(){
-        return view('adminBelanja');
+    public function adminBelanja()
+    {
+        $keranjang = Keranjang::all();
+
+        return view('adminbelanja', compact('kontak'));
     }
+
+
+
+
 }

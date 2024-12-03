@@ -4,74 +4,99 @@ namespace App\Http\Controllers;
 
 use App\Models\CheckOut;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Models\Keranjang;
 use App\Models\MetodePengiriman;
 use App\Models\User;
 
 class CheckOutController extends Controller
 {
-    public function showOrderToCheckOut(){
+    public function showOrderToCheckOut()
+    {
         $userId = auth()->id(); // Ambil ID user yang sedang login
-        $keranjangs = Keranjang::where('user_id', $userId)->with('product')->get();
 
+        // Hanya ambil barang dengan status 'Belum Di Check Out'
+        $keranjangs = Keranjang::where('user_id', $userId)
+            ->where('status', 'Belum Di Check Out') // Hanya yang statusnya 'Belum Di Check Out'
+            ->with('product') // Ambil relasi produk
+            ->get();
+
+        // Hitung subtotal dari barang yang ada di keranjang
         $subtotal = $keranjangs->sum(function ($keranjang) {
             return $keranjang->product->price * $keranjang->quantity;
         });
 
+        // Ambil semua metode pengiriman
         $metode_pengiriman = MetodePengiriman::all();
 
-        return view('shop_checkout', [
+        return view('check_out', [
             'keranjangs' => $keranjangs,
             'subtotal' => $subtotal,
             'metode_pengiriman' => $metode_pengiriman
         ]);
     }
 
-    public function create()
-    {
-        // Ambil data dari sesi keranjang atau session yang sudah ada
-        $keranjang = Keranjang::where('user_id', User::id())->get();
 
-        // Ambil metode pengiriman yang tersedia
-        $metode_pengiriman = MetodePengiriman::all();
-
-        return view('checkout.create', compact('keranjang', 'metode_pengiriman'));
-    }
 
     public function store(Request $request)
     {
-        // Validasi form
-        $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'billing_address_1' => 'required|string|max:255',
-            'billing_city' => 'required|string|max:255',
-            'billing_postcode' => 'required|string|max:10',
-            'billing_phone' => 'required|string|max:20',
-            'total_harga' => 'required|numeric',
-            'metode_pengiriman_id' => 'required|exists:metode_pengirimen,id',
-            'order_comments' => 'nullable|string|max:255',
+        // Validasi data dari form
+        $validatedData = $request->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'billing_address_1' => 'required|string',
+            'billing_city' => 'required|string',
+            'billing_postcode' => 'required|string',
+            'billing_phone' => 'required|string',
+            'metode_pengiriman_id' => 'required|integer',
+            'order_comments' => 'nullable|string',
+            'billing_address_2' => 'nullable|string',
         ]);
 
-        // Simpan data checkout
-        $checkout = new CheckOut();
-        $checkout->user_id = User::id();  // Menggunakan email berdasarkan login
-        $checkout->keranjang_id = $request->keranjang_id;  // Asumsi keranjang_id diterima di form
-        $checkout->metode_pengiriman_id = $request->metode_pengiriman_id;
-        $checkout->first_name = $request->first_name;
-        $checkout->last_name = $request->last_name;
-        $checkout->billing_address_1 = $request->billing_address_1;
-        $checkout->billing_address_2 = $request->billing_address_2;
-        $checkout->billing_city = $request->billing_city;
-        $checkout->billing_postcode = $request->billing_postcode;
-        $checkout->billing_phone = $request->billing_phone;
-        $checkout->total_harga = $request->total_harga;
-        $checkout->status = 'Belum Dibayar'; // Set status awal
-        $checkout->order_comments = $request->order_comments;
-        $checkout->save();
+        // Ambil ID user yang sedang login
+        $userId = auth()->id();
 
-        // Proses lain setelah checkout seperti pengurangan stok, dll
+        // Ambil data keranjang milik user yang belum di checkout
+        $keranjangs = Keranjang::where('user_id', $userId)
+            ->where('status', 'Belum Di Check Out')
+            ->get();
 
-        return redirect()->route('checkout.success')->with('success', 'Checkout berhasil!');
+        // Hitung subtotal (harga seluruh barang yang di-checkout)
+        $subtotal = $keranjangs->sum(function ($keranjang) {
+            return $keranjang->product->price * $keranjang->quantity;
+        });
+
+        // Ambil data biaya pengiriman berdasarkan pilihan metode pengiriman
+        $metodePengiriman = MetodePengiriman::find($validatedData['metode_pengiriman_id']);
+        $shippingCost = $metodePengiriman->price;
+
+        // Hitung total_akhir (subtotal + biaya pengiriman)
+        $totalAkhir = $subtotal + $shippingCost;
+
+        // Buat data checkout
+        $checkout = Checkout::create([
+            'user_id' => $userId,
+            'metode_pengiriman_id' => $validatedData['metode_pengiriman_id'],
+            'first_name' => $validatedData['first_name'],
+            'last_name' => $validatedData['last_name'],
+            'billing_address_1' => $validatedData['billing_address_1'],
+            'billing_address_2' => $validatedData['billing_address_2'] ?? null,
+            'billing_city' => $validatedData['billing_city'],
+            'billing_postcode' => $validatedData['billing_postcode'],
+            'billing_phone' => $validatedData['billing_phone'],
+            'subtotal' => $subtotal,  // Harga seluruh barang
+            'total_akhir' => $totalAkhir, // Total harga akhir (subtotal + biaya pengiriman)
+            'status' => 'Gagal', // Status default
+            'order_comments' => $validatedData['order_comments'],
+        ]);
+
+        // Menyimpan relasi checkout dan keranjang (many-to-many)
+        $checkout->keranjangs()->attach($keranjangs->pluck('id'));
+
+        // Update status keranjang menjadi 'Check Out'
+        Keranjang::whereIn('id', $keranjangs->pluck('id'))->update(['status' => 'Check Out']);
+
+        return redirect()->back()->with('success', 'Barang anda sudah berhasil di check out, SEGERA LAKUKAN PEMBAYARAN!!!.');
     }
+
 }

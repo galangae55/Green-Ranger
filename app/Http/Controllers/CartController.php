@@ -24,7 +24,7 @@ class CartController extends Controller
 
         // Validasi input
         $request->validate([
-            'product_id' => 'required|integer',
+            'product_id' => 'required|integer|exists:products,id',
             'quantity' => 'required|integer|min:1',
         ]);
 
@@ -35,7 +35,7 @@ class CartController extends Controller
         // Cari harga produk berdasarkan product_id
         $product = Product::find($productId);
         if (!$product) {
-            return back()->withErrors(['Product not found']);
+            return back()->withErrors(['error' => 'Produk tidak ditemukan.']);
         }
 
         // Hitung total harga
@@ -47,24 +47,26 @@ class CartController extends Controller
             'product_id' => $productId,
             'quantity' => $quantity,
             'total_price' => $totalPrice,
+            'status' => 'Belum Di Check Out', // Set status secara otomatis
         ]);
 
-        return redirect()->back()->with('success', 'Produk berhasil ditambahkan ke keranjang');
+        return redirect()->back()->with('success', 'Produk berhasil ditambahkan ke keranjang.');
     }
-
-
-
 
 
     public function showCart()
     {
-        $userId = auth()->id();
-        $products = Keranjang::with('product')->where('user_id', $userId)->get();
+        $userId = auth()->id(); // Ambil ID user yang sedang login
 
-
+        // Hanya ambil barang dengan status 'Belum Di Check Out'
+        $products = Keranjang::with('product')
+            ->where('user_id', $userId)
+            ->where('status', 'Belum Di Check Out')
+            ->get();
 
         return view('shop_cart', compact('products')); // Menggunakan view shop_cart
     }
+
 
     public function removeFromCart($id)
     {
@@ -77,6 +79,12 @@ class CartController extends Controller
 
         return redirect()->back()->with('error', 'Item tidak ditemukan.'); // Jika item tidak ditemukan
     }
+
+    // $userId = auth()->id();
+
+    // Keranjang::where('user_id', $userId)
+    //         ->where('status', 'Belum Di Check Out')
+    //         ->update(['status' => 'Check Out']);
 
     public function updateCart(Request $request)
     {

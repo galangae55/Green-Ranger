@@ -25,6 +25,13 @@ class Keranjang extends Model
     // Relasi dengan model Product
     public function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class, 'product_id');
     }
+    
+    public function checkouts()
+    {
+        return $this->belongsToMany(Checkout::class, 'checkout_keranjang', 'keranjang_id', 'check_out_id');
+    }
+
+
 }
