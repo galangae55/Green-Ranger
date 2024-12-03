@@ -21,10 +21,6 @@ class DaftarTransaksiController extends Controller
         return view('daftarTransaksi', compact('products')); // Menggunakan view daftarTransaksi
     }
 
-
-
-
-
     public function UpdatePesanan($id)
     {
         $checkout = CheckOut::find($id);

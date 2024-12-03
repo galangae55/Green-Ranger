@@ -183,13 +183,13 @@
                                                 <a href="#">{{ $keranjang->product->name }}</a>
                                             </td>
                                             <td class="product-price">
-                                                <span class="amount">Rp. {{ number_format($keranjang->product->price, 2) }}</span>
+                                                <span class="amount">Rp. {{ number_format($keranjang->product->price) }}</span>
                                             </td>
                                             <td class="product-quantity">
                                                     <span class="amount">{{ ($keranjang->quantity) }}</span>
                                             </td>
                                             <td class="product-subtotal">
-                                                <span class="amount">Rp. {{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</span>
+                                                <span class="amount">Rp. {{ number_format($keranjang->product->price * $keranjang->quantity) }}</span>
                                             </td>
                                             @foreach($keranjang->checkouts as $checkout)
                                             <td class="product-status">
@@ -204,7 +204,7 @@
                                                         </button>
                                                     </form>
                                                 @elseif($checkout->status == 'Belum Dibayar')
-                                                    <span class="badge badge-secondary">Anda belum menyelesaikan pembayaran</span>
+                                                    <span class="badge badge-secondary">belum menyelesaikan pembayaran</span>
                                                 @elseif($checkout->status == 'Gagal')
                                                     <span class="badge badge-secondary">Gagal</span>
                                                 @elseif($checkout->status == 'Diterima')
@@ -215,7 +215,7 @@
                                             </td>
                                             @endforeach
                                             <td class="product-Viewdetail">
-                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detailModal{{ $keranjang->id }}">
+                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detailModal{{ $keranjang->id }}" style="padding: 10px 5px">
                                                     View Detail
                                                 </button>
 
@@ -229,19 +229,19 @@
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
+                                                            @foreach($keranjang->checkouts as $checkout)
                                                             <div class="modal-body">
                                                                 <p><strong>Nama Produk:</strong> {{ $keranjang->product->name }}</p>
-                                                                <p><strong>Harga:</strong> Rp. {{ number_format($keranjang->product->price, 2) }}</p>
                                                                 <p><strong>Jumlah:</strong> {{ $keranjang->quantity }}</p>
+                                                                <p><strong>Harga:</strong> Rp. {{ number_format($keranjang->product->price, 2) }}</p>
+                                                                <p><strong>Metode Pengiriman:</strong> {{ $checkout->metode_pengiriman->name}}</p>
+                                                                <p><strong>Biaya Pengiriman:</strong>Rp. {{ number_format($checkout->metode_pengiriman->price, 2) }}</p>
                                                                 <p><strong>Total:</strong> Rp. {{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</p>
-
-                                                                @foreach($keranjang->checkouts as $checkout)
-                                                                    <p><strong>ID Checkout:</strong> {{ $checkout->id }}</p>
-                                                                    <p><strong>Status:</strong> {{ $checkout->status }}</p>
-                                                                    <p><strong>Metode Pengiriman:</strong> {{ $checkout->metode_pengiriman->name}}</p>
-                                                                    <p><strong>Tanggal Checkout:</strong> {{ $checkout->created_at }}</p>
-                                                                @endforeach
+                                                                <p><strong>ID Checkout:</strong> {{ $checkout->id }}</p>
+                                                                <p><strong>Status:</strong> {{ $checkout->status }}</p>
+                                                                <p><strong>Tanggal Checkout:</strong> {{ $checkout->created_at }}</p>
                                                             </div>
+                                                            @endforeach
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                                                             </div>

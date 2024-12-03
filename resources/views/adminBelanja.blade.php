@@ -3,9 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 	<link href="{{ asset('css/adminStyle.css') }}" rel="stylesheet">
 
     <style>
@@ -50,12 +56,19 @@
 	<title>Admin Volunteer</title>
 </head>
 <body>
-
     @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
+    <script>
+        window.addEventListener('load', function() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: "{{ session('success') }}",
+                confirmButtonColor: '#721c24',
+            });
+        });
+        </script>
     @endif
+
 
 
     <!-- SIDEBAR -->
@@ -132,7 +145,7 @@
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1>Daftar Donasi</h1>
+					<h1>Daftar Pesanan & Data Data Produk Green Ranger</h1>
 					<ul class="breadcrumb">
 						<li>
 							<a href="">Dashboard</a>
@@ -152,66 +165,112 @@
 			<div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Recent Keranjang</h3>
+                        <h3>Daftar Pesanan</h3>
                         <i class='bx bx-search'></i>
                         <input type="text" id="search-input" placeholder="Search volunteer..." onkeyup="searchTable()" style="padding: 5px; width: 25%; font-family: 'Quicksand', sans-serif;">
                     </div>
-                    <table>
+                    <table class="shop_table cart table" style="text-align: center">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Username</th>
-                                <th>No Telepon</th>
-                                <th>Email</th>
-                                <th>Jumlah Pembelian</th>
-                                <th>Biaya Pembelian</th>
-                                <th>Alamat</th>
-                                <th>Status</th>
-                                <th>Tanggal Dibuat</th>
-                                <th>Tanggal Diperbarui</th>
+                                <th class="product-id_co">ID Checkout</th>
+                                <th class="product-thumbnail">Gambar</th>
+                                <th class="product-name">Product</th>
+                                <th class="product-price">Price</th>
+                                <th class="product-quantity">Quantity</th>
+                                <th class="product-subtotal">Total</th>
+                                <th class="product-Status">Status</th>
+                                <th class="product-Viewdetail">View Detail</th>
                             </tr>
                         </thead>
-                        {{-- <tbody>
-                            @foreach($volunteers as $volunteer)
-                                <tr>
-                                    <td>{{ $volunteer->id }}</td>
-                                    <td>{{ $volunteer->username }}</td>
-                                    <td>{{ $volunteer->umur }}</td>
-                                    <td>{{ $volunteer->no_telp }}</td>
-                                    <td>{{ $volunteer->email }}</td>
-                                    <td>{{ $volunteer->event }}</td>
-                                    <td>
-                                        <span class="status {{ $volunteer->status == 'accepted' ? 'completed' : 'pending' }}">
-                                            {{ ucfirst($volunteer->status) }}
-                                        </span>
+                        <tbody>
+                            @foreach($products as $keranjang)
+                                <tr class="cart_item">
+                                    @foreach($keranjang->checkouts as $checkout)
+                                    <td class="product-id_co">
+                                        <span class="amount">{{ ($checkout->id) }}</span>
+                                        {{-- <a href="">{{ $keranjang->product->name }}</a> --}}
                                     </td>
-                                    <td>{{ $volunteer->created_at->format('d-m-Y H:i') }}</td>
-                                    <td>{{ $volunteer->updated_at->format('d-m-Y H:i') }}</td>
-                                    <td>
-                                        <form action="{{ route('admin.updateStatus', $volunteer->id) }}" method="POST" style="display: flex;justify-content:center; margin-bottom:7px">
+                                    @endforeach
+                                    <td class="product-thumbnail">
+                                        <a href="">
+                                            <img src="{{ asset($keranjang->product->image) }}" alt="{{ $keranjang->product->name }}" style="width: 100px; height: auto;">
+                                        </a>
+                                    </td>
+                                    <td class="product-name">
+                                        <span class="amount">{{ ($keranjang->product->name) }}</span>
+                                        {{-- <a href="">{{ $keranjang->product->name }}</a> --}}
+                                    </td>
+                                    <td class="product-price">
+                                        <span class="amount">Rp. {{ number_format($keranjang->product->price, 2) }}</span>
+                                    </td>
+                                    <td class="product-quantity">
+                                        <span class="amount">{{ ($keranjang->quantity) }}</span>
+                                    </td>
+                                    <td class="product-subtotal">
+                                        <span class="amount">Rp. {{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</span>
+                                    </td>
+                                    @foreach($keranjang->checkouts as $checkout)
+                                    <td class="product-status">
+                                        <form action="{{ route('admin.updatepesanan', $checkout->id) }}" method="POST" id="form-status-{{ $checkout->id }}">
                                             @csrf
-                                            @method('PATCH')
-                                            <button type="submit" class="btn {{ $volunteer->status == 'accepted' ? 'btn-warning' : 'btn-success' }}">
-                                                {{ $volunteer->status == 'accepted' ? 'Set to Pending' : 'Set to Accept' }}
-                                            </button>
+                                            <select
+                                                name="status"
+                                                class="form-control"
+                                                onchange="document.getElementById('form-status-{{ $checkout->id }}').submit()"
+                                            >
+                                                <option value="Belum Dibayar" {{ $checkout->status == 'Belum Dibayar' ? 'selected' : '' }}>Belum Dibayar</option>
+                                                <option value="Sedang Dikirim" {{ $checkout->status == 'Sedang Dikirim' ? 'selected' : '' }}>Sedang Dikirim</option>
+                                                <option value="Diterima" {{ $checkout->status == 'Diterima' ? 'selected' : '' }}>Diterima</option>
+                                                <option value="Gagal" {{ $checkout->status == 'Gagal' ? 'selected' : '' }}>Gagal</option>
+                                            </select>
                                         </form>
+                                    </td>
 
-                                        <!-- Form hapus volunteer -->
-                                        <form action="{{ route('admin.deleteVolunteer', $volunteer->id) }}" method="POST" style="display: flex; justify-content:center">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this volunteer?')" style="background-color: #b61e1e;">
-                                                Delete
-                                            </button>
-                                        </form>
+                                    @endforeach
+                                    <td class="product-Viewdetail">
+                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detailModal{{ $keranjang->id }}">
+                                            View Detail
+                                        </button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="detailModal{{ $keranjang->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Detail Pesanan</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    @foreach($keranjang->checkouts as $checkout)
+                                                    <div class="modal-body">
+                                                        <p><strong>ID Checkout:</strong> {{ $checkout->id }}</p>
+                                                        <p><strong>Nama Produk:</strong> {{ $keranjang->product->name }}</p>
+                                                        <p><strong>Alamat 1:</strong> {{ $checkout->billing_address_1 }}</p>
+                                                        <p><strong>Alamat 2:</strong> {{ $checkout->billing_address_2 }}</p>
+                                                        <p><strong>Kota:</strong> {{ $checkout->billing_city }}</p>
+                                                        <p><strong>No. Telepon:</strong> {{ $checkout->billing_phone }}</p>
+                                                        <p><strong>Kode Pos:</strong> {{ $checkout->billing_postcode }}</p>
+                                                        <p><strong>Catatan Pesanan:</strong> {{ $checkout->order_comments }}</p>
+                                                        <p><strong>Total:</strong> Rp. {{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</p>
+                                                        <p><strong>Status:</strong> {{ $checkout->status }}</p>
+                                                        <p><strong>Metode Pengiriman:</strong> {{ $checkout->metode_pengiriman->name }}</p>
+                                                        <p><strong>Tanggal Checkout:</strong> {{ $checkout->created_at }}</p>
+                                                    </div>
+                                                    @endforeach
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
-                        </tbody> --}}
+                        </tbody>
                     </table>
                 </div>
             </div>
-
 
 
 		</main>

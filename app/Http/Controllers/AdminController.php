@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CheckOut;
 use App\Models\Donation;
 use App\Models\Keranjang;
 use App\Models\kontak;
@@ -116,11 +117,30 @@ class AdminController extends Controller
 
     public function adminBelanja()
     {
-        $keranjang = Keranjang::all();
+        // Ambil barang berdasarkan status di checkouts
+        $products = Keranjang::with(['product'])
+            ->get();
 
-        return view('adminbelanja', compact('kontak'));
+        return view('adminBelanja', compact('products')); // Menggunakan view daftarTransaksi
     }
 
+    public function BelanjaUpdate(Request $request, $id)
+    {
+
+        $validated = $request->validate([
+            'status' => 'required|string|in:Belum Dibayar,Sedang Dikirim,Diterima,Gagal',
+        ]);
+
+        // Cari checkout berdasarkan ID
+        $checkout = CheckOut::find($id);
+
+        if ($checkout) {
+            $checkout->update(['status' => $validated['status']]);
+            return redirect()->back()->with('success', 'Status berhasil diperbarui.');
+        }
+
+        return redirect()->back()->with('error', 'Checkout tidak ditemukan.');
+    }
 
 
 

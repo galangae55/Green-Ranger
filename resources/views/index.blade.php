@@ -100,6 +100,19 @@
             </script>
         @endif
 
+        @if(session('logout'))
+        <script>
+            window.addEventListener('load', function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: "{{ session('logout') }}",
+                    confirmButtonColor: '#721c24',
+                });
+            });
+            </script>
+        @endif
+
         @if(session('success'))
             <script>
                 window.addEventListener('load', function() {
