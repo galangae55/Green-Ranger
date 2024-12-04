@@ -26,12 +26,118 @@
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/style2.css" rel="stylesheet">
+
+        <style>
+            @keyframes show {
+            0%, 49.99% {
+                opacity: 0;
+                z-index: 1;
+            }
+            50%, 100% {
+                opacity: 1;
+                z-index: 5;
+            }
+        }
+
+        .popup {
+                position: fixed;
+                top: 20px; /* Jarak dari atas */
+                left: 50%; /* Tengah horizontal */
+                transform: translate(-50%, -20px); /* Mengangkat sedikit untuk animasi */
+                background-color: #4CAF50; /* Warna latar belakang hijau */
+                color: white;
+                padding: 15px 30px; /* Padding di sekitar teks */
+                border-radius: 8px; /* Membuat sudut membulat */
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan lebih jelas */
+                z-index: 1000; /* Pastikan popup muncul di atas konten lainnya */
+                opacity: 0; /* Mulai dengan opasitas 0 */
+                pointer-events: none; /* Cegah interaksi saat popup tidak terlihat */
+                transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out; /* Transisi lebih lambat dan halus */
+            }
+
+            .popup.red {
+                background-color: red; /* Warna latar belakang merah */
+            }
+
+
+            .popup.show {
+                opacity: 1; /* Tampilkan popup dengan opasitas penuh */
+                transform: translate(-50%, 0); /* Kembali ke posisi normal */
+                pointer-events: auto; /* Aktifkan interaksi ketika ditampilkan */
+            }
+
+            .popup.hide {
+                opacity: 0; /* Hilangkan popup dengan opasitas */
+                transform: translate(-50%, -20px); /* Kembali ke posisi semula */
+                pointer-events: none; /* Cegah interaksi saat popup mulai hilang */
+            }
+
+        /* CSS untuk notifikasi error */
+        .alert {
+            position: relative;
+            padding: 20px 15px;
+            background-color: #f8d7da; /* Warna latar belakang merah muda */
+            color: #721c24; /* Warna teks */
+            border: 1px solid #f5c6cb; /* Garis border merah muda */
+            border-radius: 5px; /* Sudut membulat */
+            margin: 20px 0; /* Jarak atas dan bawah */
+            font-family: Arial, sans-serif; /* Font yang digunakan */
+            transition: all 0.3s ease-in-out; /* Transisi halus */
+        }
+
+        /* Animasi untuk tampilan dan hilangnya notifikasi */
+        .alert.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .alert.hide {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        /* Style untuk daftar error */
+        .alert ul {
+            list-style-type: none; /* Menghilangkan bullet point */
+            padding: 0; /* Menghilangkan padding */
+            margin: 0; /* Menghilangkan margin */
+        }
+
+        /* Style untuk setiap item error */
+        .alert li {
+            margin-bottom: 10px; /* Jarak antar item */
+        }
+
+        /* Tombol close untuk notifikasi */
+        .close-btn {
+            position: absolute;
+            background: none;
+            border: none;
+            color: #721c24;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        </style>
     </head>
 
     <body>
-        @if (session('error'))
-            <div id="popup" class="alert alert-danger">
-                {{ session('error') }}
+        @if(session('successCO'))
+                    <script>
+                        window.addEventListener('load', function() {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Berhasil!',
+                                text: "{{ session('successCO') }}",
+                                confirmButtonColor: '#3085d6',
+                            });
+                        });
+                    </script>
+                @endif
+
+        @if (session('errorMid'))
+            <div id="popupCuy" class="popup show red">
+                {{ session('errorMid') }}
             </div>
         @endif
 
@@ -753,6 +859,19 @@
     </script>
 
     <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var popup = document.getElementById('popupCuy');
+            if (popup) {
+                popup.classList.add('show');
+                setTimeout(() => {
+                    popup.classList.remove('show');
+                    popup.classList.add('hide');
+                }, 3000); // Popup mulai menghilang setelah 3 detik
+            }
+        });
+    </script>
+
+    <script>
         // Mendapatkan tombol berdasarkan ID
         const button = document.getElementById("riwayatCheckoutButton");
 
@@ -767,5 +886,6 @@
             button.style.color = "#3a5f4c";
         });
     </script>
+
 </body>
 </html>

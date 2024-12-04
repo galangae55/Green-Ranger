@@ -14,26 +14,23 @@ class CheckKesediaanKeranjang
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
+
     public function handle(Request $request, Closure $next)
     {
-        // Cek apakah pengguna sudah login
-        if (auth()->check()) {
-            $userId = auth()->id(); // Ambil ID user yang sedang login
+        // Ambil user_id dari pengguna yang sedang login
+        $userId = auth()->id();
 
-            // Periksa apakah ada keranjang dengan status 'Belum Di Check Out'
-            $exists = Keranjang::where('user_id', $userId)
-                ->whereHas('checkouts', function ($query) {
-                    $query->where('status', 'Belum Di Check Out');
-                })
-                ->exists();
+        // Cek apakah ada data di tabel keranjangs yang berstatus 'Belum Di Check Out' untuk user yang sedang login
+        $keranjang = Keranjang::where('user_id', $userId)
+            ->where('status', 'Belum Di Check Out')
+            ->exists(); // Mengecek apakah ada data yang sesuai
 
-            // Jika tidak ada data, kembalikan respons dengan pesan
-            if (!$exists) {
-                return redirect('belanja')->with('error', 'Anda tidak memiliki Barang Unutk Di Cehck Out.');
-                // return redirect()->back()->with('error', 'Anda tidak memiliki Barang Unutk Di Cehck Out.');
-            }
+        // Jika tidak ada, arahkan ke halaman tertentu atau tampilkan pesan error
+        if (!$keranjang) {
+            return redirect('shop_cart')->with('errorMid', 'Anda tidak memiliki Barang Unutk Di Cehck Out.');
         }
 
+        // Jika ada, lanjutkan ke request berikutnya
         return $next($request);
     }
 }

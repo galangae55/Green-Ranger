@@ -96,7 +96,7 @@ class CheckOutController extends Controller
         // Update status keranjang menjadi 'Check Out'
         Keranjang::whereIn('id', $keranjangs->pluck('id'))->update(['status' => 'Check Out']);
 
-        return redirect()->back()->with('success', 'Barang anda sudah berhasil di check out, SEGERA LAKUKAN PEMBAYARAN!!!.');
+        return redirect('belanja')->with('successCO', 'Barang anda sudah berhasil di check out, SEGERA LAKUKAN PEMBAYARAN!!!.');
     }
 
 }

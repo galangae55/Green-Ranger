@@ -76,7 +76,7 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::post('/shop_cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
     Route::get('/shop_checkout', [CheckOutController::class, 'showOrderToCheckOut'])
     ->middleware([LoginMiddleware::class, CheckKesediaanKeranjang::class]);
-    Route::post('/shop_checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+    Route::post('/shop_checkout/store', [CheckoutController::class, 'store'])->name('checkout.store');
     Route::get("/daftar_transaksi", [DaftarTransaksiController::class,"showPesanan"])->middleware(LoginMiddleware::class);
     Route::post('/daftar_transaksi/update/{id}', [DaftarTransaksiController::class,'UpdatePesanan'])->name('update.pesanan')->middleware(LoginMiddleware::class);
 });
