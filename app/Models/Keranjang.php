@@ -27,10 +27,10 @@ class Keranjang extends Model
     {
         return $this->belongsTo(Product::class, 'product_id');
     }
-    
+
     public function checkouts()
     {
-        return $this->belongsToMany(Checkout::class, 'checkout_keranjang', 'keranjang_id', 'check_out_id');
+        return $this->belongsToMany(Checkout::class, 'checkout_keranjang', 'keranjang_id', 'checkout_id');
     }
 
 
