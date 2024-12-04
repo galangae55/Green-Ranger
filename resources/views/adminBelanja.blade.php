@@ -220,6 +220,7 @@
                                             >
                                                 <option value="Belum Dibayar" {{ $checkout->status == 'Belum Dibayar' ? 'selected' : '' }}>Belum Dibayar</option>
                                                 <option value="Sedang Dikirim" {{ $checkout->status == 'Sedang Dikirim' ? 'selected' : '' }}>Sedang Dikirim</option>
+                                                <option value="Sedang Diproses" {{ $checkout->status == 'Sedang Diproses' ? 'selected' : '' }}>Sedang Diproses</option>
                                                 <option value="Diterima" {{ $checkout->status == 'Diterima' ? 'selected' : '' }}>Diterima</option>
                                                 <option value="Gagal" {{ $checkout->status == 'Gagal' ? 'selected' : '' }}>Gagal</option>
                                             </select>

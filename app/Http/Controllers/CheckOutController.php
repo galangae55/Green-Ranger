@@ -86,7 +86,7 @@ class CheckOutController extends Controller
             'billing_phone' => $validatedData['billing_phone'],
             'subtotal' => $subtotal,  // Harga seluruh barang
             'total_akhir' => $totalAkhir, // Total harga akhir (subtotal + biaya pengiriman)
-            'status' => 'Gagal', // Status default
+            'status' => 'Belum Dibayar', // Status default
             'order_comments' => $validatedData['order_comments'],
         ]);
 

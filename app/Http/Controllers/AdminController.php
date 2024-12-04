@@ -128,7 +128,7 @@ class AdminController extends Controller
     {
 
         $validated = $request->validate([
-            'status' => 'required|string|in:Belum Dibayar,Sedang Dikirim,Diterima,Gagal',
+            'status' => 'required|string|in:Belum Dibayar,Sedang Diproses,Sedang Dikirim,Diterima,Gagal',
         ]);
 
         // Cari checkout berdasarkan ID

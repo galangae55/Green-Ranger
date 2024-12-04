@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('billing_phone');
             $table->decimal('subtotal', 10, 2)->default(0); // Harga seluruh barang
             $table->decimal('total_akhir', 10, 2)->default(0); // Total akhir setelah biaya pengiriman
-            $table->enum('status', ['Gagal', 'Belum Dibayar',  'Sedang Diproses', 'Sedang Dikirim', 'Diterima']);
+            $table->enum('status', ['Gagal', 'Belum Dibayar', 'Sedang Diproses', 'Sedang Dikirim', 'Diterima']);
             $table->text('order_comments')->nullable();
             $table->timestamps();
 

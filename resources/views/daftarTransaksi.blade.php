@@ -204,7 +204,9 @@
                                                         </button>
                                                     </form>
                                                 @elseif($checkout->status == 'Belum Dibayar')
-                                                    <span class="badge badge-secondary">belum menyelesaikan pembayaran</span>
+                                                    <span class="badge badge-secondary">Belum Dibayar</span>
+                                                @elseif($checkout->status == 'Sedang Diproses')
+                                                    <span class="badge badge-secondary">Sedang Diproses</span>
                                                 @elseif($checkout->status == 'Gagal')
                                                     <span class="badge badge-secondary">Gagal</span>
                                                 @elseif($checkout->status == 'Diterima')
