@@ -16,6 +16,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\DaftarTransaksiController;
 // Middlewarenya
+use App\Http\Middleware\CheckKesediaanKeranjang;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\RestrictNonAdminAccess;
 use App\Http\Middleware\LoginMiddleware;
@@ -73,7 +74,8 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::post('/cart/update', [CartController::class, 'updateCart'])->middleware(LoginMiddleware::class)->name('cart.update');
     Route::get('/shop_cart', [CartController::class, 'showCart'])->middleware(LoginMiddleware::class)->name('cart.show');
     Route::post('/shop_cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
-    Route::get("/shop_checkout", [CheckOutController::class,"showOrderToCheckOut"])->middleware(LoginMiddleware::class);
+    Route::get('/shop_checkout', [CheckOutController::class, 'showOrderToCheckOut'])
+    ->middleware([LoginMiddleware::class, CheckKesediaanKeranjang::class]);
     Route::post('/shop_checkout', [CheckoutController::class, 'store'])->name('checkout.store');
     Route::get("/daftar_transaksi", [DaftarTransaksiController::class,"showPesanan"])->middleware(LoginMiddleware::class);
     Route::post('/daftar_transaksi/update/{id}', [DaftarTransaksiController::class,'UpdatePesanan'])->name('update.pesanan')->middleware(LoginMiddleware::class);

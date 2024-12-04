@@ -29,6 +29,12 @@
     </head>
 
     <body>
+        @if (session('error'))
+            <div id="popup" class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
         <!-- Top Bar Start -->
         <div class="top-bar d-none d-md-block">
             <div class="container-fluid">

@@ -33,11 +33,13 @@
     </head>
 
     <body>
+        
         @if (session('error'))
             <div class="alert alert-danger">
                 {{ session('error') }}
             </div>
         @endif
+
         <!-- Top Bar Start -->
         <div class="top-bar d-none d-md-block">
             <div class="container-fluid">
@@ -161,7 +163,7 @@
                                                 <a href="#">{{ $keranjang->product->name }}</a>
                                             </td>
                                             <td class="product-price">
-                                                <span class="amount">${{ number_format($keranjang->product->price, 2) }}</span>
+                                                <span class="amount">Rp. {{ number_format($keranjang->product->price, 2) }}</span>
                                             </td>
                                             <td class="product-quantity">
                                                 <div class="quantity buttons_added">
@@ -180,7 +182,7 @@
                                                 </div>
                                             </td>
                                             <td class="product-subtotal">
-                                                <span class="amount">${{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</span>
+                                                <span class="amount">Rp. {{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</span>
                                             </td>
                                             <td class="product-remove">
                                                 <form action="{{ route('cart.remove', $keranjang->id) }}" method="POST" style="display:inline;">
