@@ -18,12 +18,14 @@ class AdminController extends Controller
         // Fungsiong Menghitung jumlah data
         $totalAccounts = User::count();
         $totalVolunteer = Volunteer::count();
+        $totalDonations = Donation::sum('amount');
 
         // Mengambil semua data volunteer dari database
         $volunteers = Volunteer::all();
+        $kontaks = kontak::all();
 
         // Mengirim data ke view admin
-        return view('adminPage', compact('totalAccounts', 'volunteers','totalVolunteer'));
+        return view('adminPage', compact('totalAccounts', 'volunteers','totalVolunteer', 'kontaks', 'totalDonations'));
     }
 
     public function adminVolunteer()

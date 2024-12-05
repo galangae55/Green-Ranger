@@ -221,7 +221,9 @@
 
                         <!-- Submit Button -->
                         <div class="form-row place-order">
-                            <button type="submit" class="btn btn-lg btn-dark" id="place_order">Check Out</button>
+                            <button type="submit" class="btn btn-lg btn-dark" id="place_order" onclick="window.location.href='detailDonate'">Lanjutkan Pembayaran</button>
+
+                            <button id="submit" class="btn btn-custom" onclick="window.location.href='detailDonate'">Lanjutkan Pembayaran</button>
                         </div>
 
 

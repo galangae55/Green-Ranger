@@ -46,6 +46,19 @@
     </head>
 
     <body>
+        @if(session('successSlskn'))
+            <script>
+                window.addEventListener('load', function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil!',
+                        text: "{{ session('successSlskn') }}",
+                        confirmButtonColor: '#3085d6',
+                    });
+                });
+            </script>
+        @endif
+
         @if (session('error'))
             <div class="alert alert-danger">
                 {{ session('error') }}

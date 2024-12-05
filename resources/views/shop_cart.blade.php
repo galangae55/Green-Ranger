@@ -33,8 +33,19 @@
     </head>
 
     <body>
+        @if(session('successUpdateCart'))
+            <script>
+                window.addEventListener('load', function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil!',
+                        text: "{{ session('successUpdateCart') }}",
+                        confirmButtonColor: '#3085d6',
+                    });
+                });
+            </script>
+        @endif
 
-        
 
         @if (session('error'))
             <div class="alert alert-danger">

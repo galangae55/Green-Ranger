@@ -101,6 +101,6 @@ class CartController extends Controller
         }
 
         // Redirect back with a success message
-        return redirect()->back()->with('success', 'Cart updated successfully!');
+        return redirect('shop_cart')->with('successUpdateCart', 'Update Quantity successfully!');
     }
 }

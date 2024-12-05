@@ -211,7 +211,7 @@
                                             <button id="submit" class="btn btn-custom" onclick="window.location.href='detailDonate'">Lanjutkan Pembayaran</button>
                                         </div>
                                         <div id="error-message" class="alert alert-danger mt-3 {{ $errors->any() ? '' : 'd-none' }}" role="alert">
-                                            Form yang anda isi tidak memenuhi kriteria, Tolong ulangi lagi. :)
+                                            Form yang anda isi tidak memenuhi kriteria, Tolong ulangi lagi.
                                         </div>
                                     </form>
 

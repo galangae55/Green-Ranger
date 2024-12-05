@@ -848,11 +848,9 @@
                 <input type="password" name="password" placeholder="Kata Sandi" required />
                 <input type="password" name="password_confirmation" placeholder="Konfirmasi Kata Sandi" required />
                 <button type="submit">Daftar</button>
-
-
             </form>
         </div>
-        <div class="form-container sign-in-container">  
+        <div class="form-container sign-in-container">
             <form action="{{ url('/login') }}" method="POST">
                 @csrf
                 <h1>Masuk</h1>

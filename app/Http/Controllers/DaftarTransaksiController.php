@@ -27,7 +27,7 @@ class DaftarTransaksiController extends Controller
 
         if ($checkout && $checkout->status == 'Sedang Dikirim') {
             $checkout->update(['status' => 'Diterima']);
-            return redirect()->back()->with('success', 'terima kasih sudah berbelanja.');
+            return redirect()->back()->with('successSlskn', 'terima kasih sudah berbelanja.');
         }
 
         return redirect()->back()->with('error', 'Gagal.');
