@@ -409,7 +409,7 @@
                           <a href="/produk6">Tottebag Denim</a>
                         </h3>
                         <span class="category">
-                          <a href="catalogue-grid.html">Wanita</a>
+                          <a href="catalogue-grid.html">Aksesoris</a>
                         </span>
                       </div>
 
@@ -622,11 +622,10 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="/produk12">Tas Rajut Eceng Gondok</a>
-                          <a href="/shop_single">Tas Anyam</a>
+                          <a href="/produk12">Tas Rajut</a>
                         </h3>
                         <span class="category">
-                          <a href="catalogue-grid.html">Wanita</a>
+                          <a href="catalogue-grid.html">Aksesoris</a>
                         </span>
                       </div>
 
