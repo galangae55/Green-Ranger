@@ -110,7 +110,7 @@
 			</li>
 		</ul>
 		<ul class="side-menu">
-			
+
 			<li>
                 <a href="#" class="logout" id="admin-logout-button">
                     <i class='bx bxs-log-out-circle'></i>
@@ -130,9 +130,9 @@
 	<section id="content">
 		<!-- NAVBAR -->
 		<nav>
-            <i class='bx bx-menu' ></i>
+            {{-- <i class='bx bx-menu' ></i>
 			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
+			<label for="switch-mode" class="switch-mode"></label> --}}
 		</nav>
 		<!-- NAVBAR -->
 
@@ -179,89 +179,88 @@
                         </thead>
                         <tbody>
                             @foreach($products as $keranjang)
-                                <tr class="cart_item">
-                                    @foreach($keranjang->checkouts as $checkout)
-                                    <td class="product-id_co">
-                                        <span class="amount">{{ ($checkout->id) }}</span>
-                                        {{-- <a href="">{{ $keranjang->product->name }}</a> --}}
-                                    </td>
-                                    @endforeach
-                                    <td class="product-thumbnail">
-                                        <a href="">
-                                            <img src="{{ asset($keranjang->product->image) }}" alt="{{ $keranjang->product->name }}" style="width: 100px; height: auto;">
-                                        </a>
-                                    </td>
-                                    <td class="product-name">
-                                        <span class="amount">{{ ($keranjang->product->name) }}</span>
-                                        {{-- <a href="">{{ $keranjang->product->name }}</a> --}}
-                                    </td>
-                                    <td class="product-price">
-                                        <span class="amount">Rp. {{ number_format($keranjang->product->price, 2) }}</span>
-                                    </td>
-                                    <td class="product-quantity">
-                                        <span class="amount">{{ ($keranjang->quantity) }}</span>
-                                    </td>
-                                    <td class="product-subtotal">
-                                        <span class="amount">Rp. {{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</span>
-                                    </td>
-                                    @foreach($keranjang->checkouts as $checkout)
-                                    <td class="product-status">
-                                        <form action="{{ route('admin.updatepesanan', $checkout->id) }}" method="POST" id="form-status-{{ $checkout->id }}">
-                                            @csrf
-                                            <select
-                                                name="status"
-                                                class="form-control"
-                                                onchange="document.getElementById('form-status-{{ $checkout->id }}').submit()"
-                                            >
-                                                <option value="Belum Dibayar" {{ $checkout->status == 'Belum Dibayar' ? 'selected' : '' }}>Belum Dibayar</option>
-                                                <option value="Sedang Dikirim" {{ $checkout->status == 'Sedang Dikirim' ? 'selected' : '' }}>Sedang Dikirim</option>
-                                                <option value="Sedang Diproses" {{ $checkout->status == 'Sedang Diproses' ? 'selected' : '' }}>Sedang Diproses</option>
-                                                <option value="Diterima" {{ $checkout->status == 'Diterima' ? 'selected' : '' }}>Diterima</option>
-                                                <option value="Gagal" {{ $checkout->status == 'Gagal' ? 'selected' : '' }}>Gagal</option>
-                                            </select>
-                                        </form>
-                                    </td>
+                                @if($keranjang->checkouts->isNotEmpty())
+                                    <tr class="cart_item">
+                                        @foreach($keranjang->checkouts as $checkout)
+                                        <td class="product-id_co">
+                                            <span class="amount">{{ ($checkout->id) }}</span>
+                                        </td>
+                                        @endforeach
+                                        <td class="product-thumbnail">
+                                            <a href="">
+                                                <img src="{{ asset($keranjang->product->image) }}" alt="{{ $keranjang->product->name }}" style="width: 100px; height: auto;">
+                                            </a>
+                                        </td>
+                                        <td class="product-name">
+                                            <span class="amount">{{ ($keranjang->product->name) }}</span>
+                                        </td>
+                                        <td class="product-price">
+                                            <span class="amount">Rp. {{ number_format($keranjang->product->price, 2) }}</span>
+                                        </td>
+                                        <td class="product-quantity">
+                                            <span class="amount">{{ ($keranjang->quantity) }}</span>
+                                        </td>
+                                        <td class="product-subtotal">
+                                            <span class="amount">Rp. {{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</span>
+                                        </td>
+                                        @foreach($keranjang->checkouts as $checkout)
+                                        <td class="product-status">
+                                            <form action="{{ route('admin.updatepesanan', $checkout->id) }}" method="POST" id="form-status-{{ $checkout->id }}">
+                                                @csrf
+                                                <select
+                                                    name="status"
+                                                    class="form-control"
+                                                    onchange="document.getElementById('form-status-{{ $checkout->id }}').submit()"
+                                                >
+                                                    <option value="Belum Dibayar" {{ $checkout->status == 'Belum Dibayar' ? 'selected' : '' }}>Belum Dibayar</option>
+                                                    <option value="Sedang Dikirim" {{ $checkout->status == 'Sedang Dikirim' ? 'selected' : '' }}>Sedang Dikirim</option>
+                                                    <option value="Sedang Diproses" {{ $checkout->status == 'Sedang Diproses' ? 'selected' : '' }}>Sedang Diproses</option>
+                                                    <option value="Diterima" {{ $checkout->status == 'Diterima' ? 'selected' : '' }}>Diterima</option>
+                                                    <option value="Gagal" {{ $checkout->status == 'Gagal' ? 'selected' : '' }}>Gagal</option>
+                                                </select>
+                                            </form>
+                                        </td>
+                                        @endforeach
+                                        <td class="product-Viewdetail">
+                                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detailModal{{ $keranjang->id }}">
+                                                View Detail
+                                            </button>
 
-                                    @endforeach
-                                    <td class="product-Viewdetail">
-                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detailModal{{ $keranjang->id }}">
-                                            View Detail
-                                        </button>
-
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="detailModal{{ $keranjang->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Detail Pesanan</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    @foreach($keranjang->checkouts as $checkout)
-                                                    <div class="modal-body">
-                                                        <p><strong>ID Checkout:</strong> {{ $checkout->id }}</p>
-                                                        <p><strong>Nama Produk:</strong> {{ $keranjang->product->name }}</p>
-                                                        <p><strong>Alamat 1:</strong> {{ $checkout->billing_address_1 }}</p>
-                                                        <p><strong>Alamat 2:</strong> {{ $checkout->billing_address_2 }}</p>
-                                                        <p><strong>Kota:</strong> {{ $checkout->billing_city }}</p>
-                                                        <p><strong>No. Telepon:</strong> {{ $checkout->billing_phone }}</p>
-                                                        <p><strong>Kode Pos:</strong> {{ $checkout->billing_postcode }}</p>
-                                                        <p><strong>Catatan Pesanan:</strong> {{ $checkout->order_comments }}</p>
-                                                        <p><strong>Total:</strong> Rp. {{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</p>
-                                                        <p><strong>Status:</strong> {{ $checkout->status }}</p>
-                                                        <p><strong>Metode Pengiriman:</strong> {{ $checkout->metode_pengiriman->name }}</p>
-                                                        <p><strong>Tanggal Checkout:</strong> {{ $checkout->created_at }}</p>
-                                                    </div>
-                                                    @endforeach
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="detailModal{{ $keranjang->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Detail Pesanan</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        @foreach($keranjang->checkouts as $checkout)
+                                                        <div class="modal-body">
+                                                            <p><strong>ID Checkout:</strong> {{ $checkout->id }}</p>
+                                                            <p><strong>Nama Produk:</strong> {{ $keranjang->product->name }}</p>
+                                                            <p><strong>Alamat 1:</strong> {{ $checkout->billing_address_1 }}</p>
+                                                            <p><strong>Alamat 2:</strong> {{ $checkout->billing_address_2 }}</p>
+                                                            <p><strong>Kota:</strong> {{ $checkout->billing_city }}</p>
+                                                            <p><strong>No. Telepon:</strong> {{ $checkout->billing_phone }}</p>
+                                                            <p><strong>Kode Pos:</strong> {{ $checkout->billing_postcode }}</p>
+                                                            <p><strong>Catatan Pesanan:</strong> {{ $checkout->order_comments }}</p>
+                                                            <p><strong>Total:</strong> Rp. {{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</p>
+                                                            <p><strong>Status:</strong> {{ $checkout->status }}</p>
+                                                            <p><strong>Metode Pengiriman:</strong> {{ $checkout->metode_pengiriman->name }}</p>
+                                                            <p><strong>Tanggal Checkout:</strong> {{ $checkout->created_at }}</p>
+                                                        </div>
+                                                        @endforeach
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                @endif
                             @endforeach
                         </tbody>
                     </table>
@@ -279,6 +278,41 @@
             event.preventDefault(); // Mencegah navigasi link
             document.getElementById('admin-logout-form').submit(); // Kirim form logout
         });
+    </script>
+
+    <script>
+        function searchTable() {
+            // Ambil nilai dari input
+            let input = document.getElementById("search-input").value.toLowerCase();
+            // Ambil tabel
+            let table = document.querySelector(".table-data table tbody");
+            // Ambil semua baris dalam tabel
+            let rows = table.getElementsByTagName("tr");
+
+            // Loop setiap baris di dalam tabel
+            for (let i = 0; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName("td");
+                let matchFound = false;
+
+                // Loop setiap kolom (sel) di dalam baris
+                for (let j = 0; j < cells.length; j++) {
+                    let cellValue = cells[j].textContent || cells[j].innerText;
+
+                    // Cek jika nilai sel sesuai dengan input
+                    if (cellValue.toLowerCase().indexOf(input) > -1) {
+                        matchFound = true;
+                        break; // Jika ada yang cocok, tidak perlu mengecek kolom selanjutnya
+                    }
+                }
+
+                // Jika cocok, tampilkan baris; jika tidak, sembunyikan
+                if (matchFound) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
     </script>
 
 	<script src="/js/admin.js"></script>

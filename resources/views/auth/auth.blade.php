@@ -838,6 +838,32 @@
         </script>
     @endif
 
+    @if(session('logoutadming'))
+    <script>
+        window.addEventListener('load', function() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: "{{ session('logoutadming') }}",
+                confirmButtonColor: '#721c24',
+            });
+        });
+        </script>
+    @endif
+
+    @if(session('success'))
+    <script>
+        window.addEventListener('load', function() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: "{{ session('success') }}",
+                confirmButtonColor: '#3085d6',
+            });
+        });
+    </script>
+    @endif
+
     <div class="container">
         <div class="form-container sign-up-container">
             <form action="{{ url('/register') }}" method="POST">
@@ -875,18 +901,6 @@
             </form>
         </div>
 
-        <!-- Popup Notification -->
-        @if(session('success'))
-        <div id="popup" class="popup show">
-            {{ session('success') }}
-        </div>
-        @endif
-
-        @if(session('logoutadming'))
-        <div id="popup" class="popup show red">
-            {{ session('logoutadming') }}
-        </div>
-        @endif
 
         <script>
             document.addEventListener('DOMContentLoaded', (event) => {
