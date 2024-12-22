@@ -198,7 +198,7 @@
         <del><span>Rp 500000</span></del>
         <ins><span class="amount">Rp 299999</span></ins>
     </span>
-    <p class="short-description">Tas rajut ini menggunakan eceng gondok daur ulang yang diolah menjadi benang rajut yang kuat dan tahan lama. Dengan desain yang elegan dan natural, tas ini menawarkan tampilan unik sekaligus mendukung keberlanjutan. Sangat cocok untuk digunakan dalam berbagai kesempatan, dari belanja hingga acara santai, memberikan kesan ramah lingkungan yang stylish.
+    <p class="short-description">Tas rajutt ini menggunakan eceng gondok daur ulang yang diolah menjadi benang rajut yang kuat dan tahan lama. Dengan desain yang elegan dan natural, tas ini menawarkan tampilan unik sekaligus mendukung keberlanjutan. Sangat cocok untuk digunakan dalam berbagai kesempatan, dari belanja hingga acara santai, memberikan kesan ramah lingkungan yang stylish.
     </p>
 
     <div class="product-actions">

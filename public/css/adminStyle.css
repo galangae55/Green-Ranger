@@ -463,7 +463,7 @@ body {
 #content main .table-data .order table td img {
 	width: 36px;
 	height: 36px;
-	border-radius: 50%;
+	/* border-radius: 50%; */
 	object-fit: cover;
 }
 #content main .table-data .order table tbody tr:hover {

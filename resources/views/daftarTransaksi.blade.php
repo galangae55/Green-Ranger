@@ -2,12 +2,19 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>belanja</title>
+        <title>Daftar Transaksi</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
 
         <!-- Google Font -->
         <link href="https://fonts.google.com/share?selection.family=Montserrat:ital,wght@0,100..900;1,100..900|
@@ -30,29 +37,33 @@
         <link rel="stylesheet" href="css/magnific-popup.css" />
         <link rel="stylesheet" href="css/font-icons.css" />
         <link rel="stylesheet" href="css/sliders.css" />
+
+        <style>
+            body.modal-open {
+                padding-right: 0 !important;
+            }
+        </style>
     </head>
 
     <body>
-        @if(session('successUpdateCart'))
+        @if(session('successSlskn'))
             <script>
                 window.addEventListener('load', function() {
                     Swal.fire({
                         icon: 'success',
                         title: 'Berhasil!',
-                        text: "{{ session('successUpdateCart') }}",
+                        text: "{{ session('successSlskn') }}",
                         confirmButtonColor: '#3085d6',
                     });
                 });
             </script>
         @endif
 
-
         @if (session('error'))
             <div class="alert alert-danger">
                 {{ session('error') }}
             </div>
         @endif
-
         <!-- Top Bar Start -->
         <div class="top-bar d-none d-md-block">
             <div class="container-fluid">
@@ -78,16 +89,26 @@
 
                     <div class="col-md-4">
                         <div class="top-bar-right">
-                            <div class="social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
-                            </div>
                             @if (session('user_name'))
-                                <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
+                                <div class="social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href="/shop_cart" title="Belanja"><i class="fas fa-shopping-cart"></i></a>
+                                    <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
+                                </div>
+                                @else
+                                <div class="social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href="/shop_cart" title="Belanja"><i class="fas fa-shopping-cart"></i></a>
+                            </div>
                             @endif
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -137,7 +158,7 @@
       <div class="container relative clearfix">
         <div class="title-holder">
           <div class="title-text">
-            <h1 class="uppercase">Shopping Cart</h1>
+            <h1 class="uppercase">Daftar Transaksi</h1>
           </div>
         </div>
       </div>
@@ -149,9 +170,7 @@
     <section class="section-wrap shopping-cart">
         <div class="container relative">
             <div class="row">
-                <div class="col-md-12">
-                    <form action="{{ route('cart.update') }}" method="POST">
-                        @csrf
+                <div class="col-md-12" style="text-align: center;">
                         <div class="table-wrap mb-30">
                             <table class="shop_table cart table">
                                 <thead>
@@ -161,7 +180,8 @@
                                         <th class="product-price">Price</th>
                                         <th class="product-quantity">Quantity</th>
                                         <th class="product-subtotal">Total</th>
-                                        <th class="product-remove">Remove</th>
+                                        <th class="product-Status">Status</th>
+                                        <th class="product-Viewdetail">View Detail</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -176,48 +196,80 @@
                                                 <a href="#">{{ $keranjang->product->name }}</a>
                                             </td>
                                             <td class="product-price">
-                                                <span class="amount">Rp. {{ number_format($keranjang->product->price, 2) }}</span>
+                                                <span class="amount">Rp. {{ number_format($keranjang->product->price) }}</span>
                                             </td>
                                             <td class="product-quantity">
-                                                <div class="quantity buttons_added">
-                                                    <!-- Input untuk ID produk -->
-                                                    <input type="hidden" name="product_id[]" value="{{ $keranjang->id }}">
-                                                    <!-- Input untuk jumlah produk -->
-                                                    <input type="number" name="quantity[]" step="1" min="0" value="{{ $keranjang->quantity }}" title="Qty" class="input-text qty text">
-                                                    <div class="quantity-adjust">
-                                                        <a href="#" class="plus">
-                                                            <i class="fa fa-angle-up"></i>
-                                                        </a>
-                                                        <a href="#" class="minus">
-                                                            <i class="fa fa-angle-down"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
+                                                    <span class="amount">{{ ($keranjang->quantity) }}</span>
                                             </td>
                                             <td class="product-subtotal">
-                                                <span class="amount">Rp. {{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</span>
+                                                <span class="amount">Rp. {{ number_format($keranjang->product->price * $keranjang->quantity) }}</span>
                                             </td>
-                                            <td class="product-remove">
-                                                <form action="{{ route('cart.remove', $keranjang->id) }}" method="POST" style="display:inline;">
-                                                    @csrf
-                                                    <button type="submit" title="Remove this item" onclick="return confirm('Apakah Anda yakin ingin menghapus item ini?');" style="border: none; background: none; padding: 0;">
-                                                        <i class="fa fa-trash" style="color: red; font-size: 20px;"></i>
-                                                    </button>
-                                                </form>
+                                            @foreach($keranjang->checkouts as $checkout)
+                                            <td class="product-status">
+                                                @if($checkout->status == 'Sedang Dikirim')
+                                                    <form action="{{ route('update.pesanan', $checkout->id) }}" method="POST" style="display:inline;">
+                                                        @csrf
+                                                        <button
+                                                            type="submit"
+                                                            class="btn btn-success"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menyelesaikan pesanan ini?');" style="padding: 10px 13px;">
+                                                            Selesaikan Pesanan
+                                                        </button>
+                                                    </form>
+                                                @elseif($checkout->status == 'Belum Dibayar')
+                                                    <span class="badge badge-secondary">Belum Dibayar</span>
+                                                @elseif($checkout->status == 'Sedang Diproses')
+                                                    <span class="badge badge-secondary">Sedang Diproses</span>
+                                                @elseif($checkout->status == 'Gagal')
+                                                    <span class="badge badge-secondary">Gagal</span>
+                                                @elseif($checkout->status == 'Diterima')
+                                                    <span class="badge badge-success">Pesanan Selesai</span>
+                                                @else
+                                                    <span class="badge badge-secondary">Status Tidak Diketahui</span>
+                                                @endif
+                                            </td>
+                                            @endforeach
+                                            <td class="product-Viewdetail">
+                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detailModal{{ $keranjang->id }}" style="padding: 10px 5px">
+                                                    View Detail
+                                                </button>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="detailModal{{ $keranjang->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Detail Pesanan</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            @foreach($keranjang->checkouts as $checkout)
+                                                            <div class="modal-body">
+                                                                <p><strong>Nama Produk:</strong> {{ $keranjang->product->name }}</p>
+                                                                <p><strong>Jumlah:</strong> {{ $keranjang->quantity }}</p>
+                                                                <p><strong>Harga:</strong> Rp. {{ number_format($keranjang->product->price, 2) }}</p>
+                                                                <p><strong>Metode Pengiriman:</strong> {{ $checkout->metode_pengiriman->name}}</p>
+                                                                <p><strong>Biaya Pengiriman:</strong>Rp. {{ number_format($checkout->metode_pengiriman->price, 2) }}</p>
+                                                                <p><strong>Total:</strong> Rp. {{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</p>
+                                                                <p><strong>ID Checkout:</strong> {{ $checkout->id }}</p>
+                                                                <p><strong>Status:</strong> {{ $checkout->status }}</p>
+                                                                <p><strong>Tanggal Checkout:</strong> {{ $checkout->created_at }}</p>
+                                                            </div>
+                                                            @endforeach
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
-                        <div class="actions">
-                            <input type="submit" name="update_cart" value="Update Cart" class="btn btn-lg btn-stroke">
-                            <div class="wc-proceed-to-checkout">
-                                <a href="/shop_checkout" class="btn btn-lg btn-dark"><span>proceed to checkout</span></a>
-                            </div>
-                        </div>
-                    </form>
-            {{-- Hiasan aja --}}
+
             <div class="col-md-6">
               <div class="cart_totals">
                 <h2 class="heading relative bottom-line full-grey uppercase mb-30"></h2>
@@ -229,6 +281,18 @@
 
         </div> <!-- end container -->
       </section> <!-- end cart -->
+
+      {{-- @foreach($products as $keranjang)
+    <tr>
+        <td>{{ $keranjang->product->name }}</td>
+        <td>
+            @foreach($keranjang->checkouts as $checkout)
+                ID Checkout: {{ $checkout->id }} - Status: {{ $checkout->status }}
+            @endforeach
+        </td>
+    </tr>
+@endforeach --}}
+
 
 
        <!-- Footer Start -->
@@ -329,5 +393,12 @@
     <script>
         AOS.init();
     </script>
+
+    <script>
+        $(document).on('hidden.bs.modal', function () {
+            $('body').css('padding-right', '0');
+        });
+    </script>
+
 </body>
 </html>

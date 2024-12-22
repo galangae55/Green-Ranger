@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>belanja</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
@@ -26,9 +26,121 @@
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/style2.css" rel="stylesheet">
+
+        <style>
+            @keyframes show {
+            0%, 49.99% {
+                opacity: 0;
+                z-index: 1;
+            }
+            50%, 100% {
+                opacity: 1;
+                z-index: 5;
+            }
+        }
+
+        .popup {
+                position: fixed;
+                top: 20px; /* Jarak dari atas */
+                left: 50%; /* Tengah horizontal */
+                transform: translate(-50%, -20px); /* Mengangkat sedikit untuk animasi */
+                background-color: #4CAF50; /* Warna latar belakang hijau */
+                color: white;
+                padding: 15px 30px; /* Padding di sekitar teks */
+                border-radius: 8px; /* Membuat sudut membulat */
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan lebih jelas */
+                z-index: 1000; /* Pastikan popup muncul di atas konten lainnya */
+                opacity: 0; /* Mulai dengan opasitas 0 */
+                pointer-events: none; /* Cegah interaksi saat popup tidak terlihat */
+                transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out; /* Transisi lebih lambat dan halus */
+            }
+
+            .popup.red {
+                background-color: red; /* Warna latar belakang merah */
+            }
+
+
+            .popup.show {
+                opacity: 1; /* Tampilkan popup dengan opasitas penuh */
+                transform: translate(-50%, 0); /* Kembali ke posisi normal */
+                pointer-events: auto; /* Aktifkan interaksi ketika ditampilkan */
+            }
+
+            .popup.hide {
+                opacity: 0; /* Hilangkan popup dengan opasitas */
+                transform: translate(-50%, -20px); /* Kembali ke posisi semula */
+                pointer-events: none; /* Cegah interaksi saat popup mulai hilang */
+            }
+
+        /* CSS untuk notifikasi error */
+        .alert {
+            position: relative;
+            padding: 20px 15px;
+            background-color: #f8d7da; /* Warna latar belakang merah muda */
+            color: #721c24; /* Warna teks */
+            border: 1px solid #f5c6cb; /* Garis border merah muda */
+            border-radius: 5px; /* Sudut membulat */
+            margin: 20px 0; /* Jarak atas dan bawah */
+            font-family: Arial, sans-serif; /* Font yang digunakan */
+            transition: all 0.3s ease-in-out; /* Transisi halus */
+        }
+
+        /* Animasi untuk tampilan dan hilangnya notifikasi */
+        .alert.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .alert.hide {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        /* Style untuk daftar error */
+        .alert ul {
+            list-style-type: none; /* Menghilangkan bullet point */
+            padding: 0; /* Menghilangkan padding */
+            margin: 0; /* Menghilangkan margin */
+        }
+
+        /* Style untuk setiap item error */
+        .alert li {
+            margin-bottom: 10px; /* Jarak antar item */
+        }
+
+        /* Tombol close untuk notifikasi */
+        .close-btn {
+            position: absolute;
+            background: none;
+            border: none;
+            color: #721c24;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        </style>
     </head>
 
     <body>
+        @if(session('successCO'))
+                    <script>
+                        window.addEventListener('load', function() {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Berhasil!',
+                                text: "{{ session('successCO') }}",
+                                confirmButtonColor: '#3085d6',
+                            });
+                        });
+                    </script>
+                @endif
+
+        @if (session('errorMid'))
+            <div id="popupCuy" class="popup show red">
+                {{ session('errorMid') }}
+            </div>
+        @endif
+
         <!-- Top Bar Start -->
         <div class="top-bar d-none d-md-block">
             <div class="container-fluid">
@@ -172,30 +284,17 @@
       <section class="section-wrap pt-80 pb-40 catalogue">
         <div class="container relative">
 
-          <!-- Filter -->
-          <div class="shop-filter">
+          <div class="shop-filter" style="display: flex;justify-content: flex-end; padding-bottom: 4%;">
             <div class="view-mode hidden-xs">
-              <span>View:</span>
+              {{-- <span>View:</span>
               <a class="grid grid-active" id="grid"></a>
-              <a class="list" id="list"></a>
+              <a class="list" id="list"></a> --}}
             </div>
-            <div class="filter-show hidden-xs">
-              <span>Show:</span>
-              <a href="#" class="active">12</a>
-              <a href="#">24</a>
-              <a href="#">all</a>
+            <div class="filter-show hidden-xs" >
+                <a href="/daftar_transaksi" id="riwayatCheckoutButton" style="padding: 10px 21px; background-color: whitesmoke; color: #585858; border-radius: 17px;">Riwayat Check out</a>
             </div>
-            <form class="ecommerce-ordering">
-              <select>
-                <option value="default-sorting">Default Sorting</option>
-                <option value="price-low-to-high">Price: high to low</option>
-                <option value="price-high-to-low">Price: low to high</option>
-                <option value="by-popularity">By Popularity</option>
-                <option value="date">By Newness</option>
-                <option value="rating">By Rating</option>
-              </select>
-            </form>
           </div>
+
 
           <div class="row">
             <div class="col-md-12 catalogue-col right mb-50">
@@ -644,7 +743,7 @@
               </div> <!-- end grid mode -->
 
               <!-- Pagination -->
-              <div class="pagination-wrap clearfix">
+              {{-- <div class="pagination-wrap clearfix">
                 <p class="result-count">Showing: 12 of 80 results</p>
                 <nav class="pagination right clearfix">
                   <a href="#"><i class="fa fa-angle-left"></i></a>
@@ -654,7 +753,7 @@
                   <a href="#">4</a>
                   <a href="#"><i class="fa fa-angle-right"></i></a>
                 </nav>
-              </div>
+              </div> --}}
 
             </div> <!-- end col -->
 
@@ -757,5 +856,35 @@
     <script>
         AOS.init();
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var popup = document.getElementById('popupCuy');
+            if (popup) {
+                popup.classList.add('show');
+                setTimeout(() => {
+                    popup.classList.remove('show');
+                    popup.classList.add('hide');
+                }, 3000); // Popup mulai menghilang setelah 3 detik
+            }
+        });
+    </script>
+
+    <script>
+        // Mendapatkan tombol berdasarkan ID
+        const button = document.getElementById("riwayatCheckoutButton");
+
+        // Menambahkan event listener untuk hover
+        button.addEventListener("mouseenter", function() {
+            button.style.backgroundColor = "green";
+            button.style.color = "white";
+        });
+
+        button.addEventListener("mouseleave", function() {
+            button.style.backgroundColor = "whitesmoke";
+            button.style.color = "#3a5f4c";
+        });
+    </script>
+
 </body>
 </html>

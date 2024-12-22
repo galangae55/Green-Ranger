@@ -48,7 +48,7 @@
 	<!-- My CSS -->
 
 
-	<title>Admin Volunteer</title>
+	<title>Admin Kontak</title>
 </head>
 <body>
 
@@ -98,12 +98,7 @@
 			</li>
 		</ul>
 		<ul class="side-menu">
-			<li>
-				<a href="">
-					<i class='bx bxs-cog' ></i>
-					<span class="text">Settings</span>
-				</a>
-			</li>
+
 			<li>
                 <a href="#" class="logout" id="admin-logout-button">
                     <i class='bx bxs-log-out-circle'></i>

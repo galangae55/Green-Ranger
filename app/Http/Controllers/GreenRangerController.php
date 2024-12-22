@@ -129,4 +129,8 @@ class GreenRangerController extends Controller
         // Tampilkan halaman admin jika memiliki akses
         return view('/adminPage');
     }
+
+    public function daftar_transaksi(){
+        return view("daftarTransaksi");
+    }
 }

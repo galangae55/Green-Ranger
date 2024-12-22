@@ -65,12 +65,7 @@
 			</li>
 		</ul>
 		<ul class="side-menu">
-			<li>
-				<a href="">
-					<i class='bx bxs-cog' ></i>
-					<span class="text">Settings</span>
-				</a>
-			</li>
+
 			<li>
                 <a href="#" class="logout" id="admin-logout-button">
                     <i class='bx bxs-log-out-circle'></i>
@@ -143,8 +138,8 @@
 				<li>
 					<i class='bx bxs-dollar-circle' ></i>
 					<span class="text">
-						<h3>$2543</h3>
-						<p>Total Donation</p>
+						<h3>{{ $totalDonations }}</h3>
+						<p>Total Volunteer</p>
 					</span>
 				</li>
 			</ul>
@@ -188,31 +183,35 @@
                 </div>
 
 				<div class="todo">
-					<div class="head">
-						<h3>Todos</h3>
-					</div>
-					<ul class="todo-list">
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-					</ul>
+                    <div class="order">
+                        <div class="head">
+                            <h3>Keluhan</h3>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Subjek</th>
+                                    <th>Message</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($kontaks as $kontak)
+                                    <tr>
+                                        <td>
+                                            <p>{{ $kontak->id }}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{ $kontak->subject }}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{ $kontak->message }}</p>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
 				</div>
 			</div>
 		</main>

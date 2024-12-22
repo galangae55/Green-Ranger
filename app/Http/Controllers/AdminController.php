@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CheckOut;
 use App\Models\Donation;
+use App\Models\Keranjang;
 use App\Models\kontak;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -16,12 +18,14 @@ class AdminController extends Controller
         // Fungsiong Menghitung jumlah data
         $totalAccounts = User::count();
         $totalVolunteer = Volunteer::count();
+        $totalDonations = Donation::sum('amount');
 
         // Mengambil semua data volunteer dari database
         $volunteers = Volunteer::all();
+        $kontaks = kontak::all();
 
         // Mengirim data ke view admin
-        return view('adminPage', compact('totalAccounts', 'volunteers','totalVolunteer'));
+        return view('adminPage', compact('totalAccounts', 'volunteers','totalVolunteer', 'kontaks', 'totalDonations'));
     }
 
     public function adminVolunteer()
@@ -113,7 +117,33 @@ class AdminController extends Controller
         return redirect()->route('admin.kontak');
     }
 
-    public function adminBelanja(){
-        return view('adminBelanja');
+    public function adminBelanja()
+    {
+        // Ambil barang berdasarkan status di checkouts
+        $products = Keranjang::with(['product'])
+            ->get();
+
+        return view('adminBelanja', compact('products')); // Menggunakan view daftarTransaksi
     }
+
+    public function BelanjaUpdate(Request $request, $id)
+    {
+
+        $validated = $request->validate([
+            'status' => 'required|string|in:Belum Dibayar,Sedang Diproses,Sedang Dikirim,Diterima,Gagal',
+        ]);
+
+        // Cari checkout berdasarkan ID
+        $checkout = CheckOut::find($id);
+
+        if ($checkout) {
+            $checkout->update(['status' => $validated['status']]);
+            return redirect()->back()->with('success', 'Status berhasil diperbarui.');
+        }
+
+        return redirect()->back()->with('error', 'Checkout tidak ditemukan.');
+    }
+
+
+
 }

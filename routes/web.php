@@ -14,10 +14,13 @@ use App\Http\Controllers\DonationController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckOutController;
+use App\Http\Controllers\DaftarTransaksiController;
 // Middlewarenya
+use App\Http\Middleware\CheckKesediaanKeranjang;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\RestrictNonAdminAccess;
 use App\Http\Middleware\LoginMiddleware;
+use GuzzleHttp\Psr7\Uri;
 
 // Rute yang hanya bisa diakses oleh admin
 Route::middleware([AdminMiddleware::class])->group(function () {
@@ -32,7 +35,7 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::get('/admin/kontak', [AdminController::class, 'adminKontak'])->name('admin.kontak');
     Route::delete('/admin/kontak/{id}', [AdminController::class, 'deleteKontak'])->name('admin.deleteKontak');
     Route::get('/admin/belanja', [AdminController::class, 'adminBelanja'])->name('admin.belanja');
-
+    Route::post('/admin/belanja/update/{id}', [AdminController::class, 'BelanjaUpdate'])->name('admin.updatepesanan');
 });
 
 
@@ -71,7 +74,11 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::post('/cart/update', [CartController::class, 'updateCart'])->middleware(LoginMiddleware::class)->name('cart.update');
     Route::get('/shop_cart', [CartController::class, 'showCart'])->middleware(LoginMiddleware::class)->name('cart.show');
     Route::post('/shop_cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
-    Route::get("/shop_checkout", [CheckOutController::class,"showOrderToCheckOut"])->middleware(LoginMiddleware::class);
+    Route::get('/shop_checkout', [CheckOutController::class, 'showOrderToCheckOut'])
+    ->middleware([LoginMiddleware::class, CheckKesediaanKeranjang::class]);
+    Route::post('/shop_checkout/store', [CheckoutController::class, 'store'])->name('checkout.store');
+    Route::get("/daftar_transaksi", [DaftarTransaksiController::class,"showPesanan"])->middleware(LoginMiddleware::class);
+    Route::post('/daftar_transaksi/update/{id}', [DaftarTransaksiController::class,'UpdatePesanan'])->name('update.pesanan')->middleware(LoginMiddleware::class);
 });
 
 // Auth routes

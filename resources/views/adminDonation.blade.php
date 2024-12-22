@@ -49,7 +49,7 @@
 	<!-- My CSS -->
 
 
-	<title>Admin Volunteer</title>
+	<title>Admin Donation</title>
 </head>
 <body>
 
@@ -99,12 +99,6 @@
 			</li>
 		</ul>
 		<ul class="side-menu">
-			<li>
-				<a href="">
-					<i class='bx bxs-cog' ></i>
-					<span class="text">Settings</span>
-				</a>
-			</li>
 			<li>
                 <a href="#" class="logout" id="admin-logout-button">
                     <i class='bx bxs-log-out-circle'></i>
@@ -233,6 +227,41 @@
             event.preventDefault(); // Mencegah navigasi link
             document.getElementById('admin-logout-form').submit(); // Kirim form logout
         });
+    </script>
+
+    <script>
+        function searchTable() {
+            // Ambil nilai dari input
+            let input = document.getElementById("search-input").value.toLowerCase();
+            // Ambil tabel
+            let table = document.querySelector(".table-data table tbody");
+            // Ambil semua baris dalam tabel
+            let rows = table.getElementsByTagName("tr");
+
+            // Loop setiap baris di dalam tabel
+            for (let i = 0; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName("td");
+                let matchFound = false;
+
+                // Loop setiap kolom (sel) di dalam baris
+                for (let j = 0; j < cells.length; j++) {
+                    let cellValue = cells[j].textContent || cells[j].innerText;
+
+                    // Cek jika nilai sel sesuai dengan input
+                    if (cellValue.toLowerCase().indexOf(input) > -1) {
+                        matchFound = true;
+                        break; // Jika ada yang cocok, tidak perlu mengecek kolom selanjutnya
+                    }
+                }
+
+                // Jika cocok, tampilkan baris; jika tidak, sembunyikan
+                if (matchFound) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
     </script>
 
 	<script src="/js/admin.js"></script>
