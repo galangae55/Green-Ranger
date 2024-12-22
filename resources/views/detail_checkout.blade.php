@@ -1,33 +1,60 @@
+<!-- resources/views/detail_checkout.blade.php -->
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="utf-8">
-    <title>Detail Donasi</title>
+    <title>Detail Checkout</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.ico') }}" rel="icon">
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Poppins:wght@100..900&family=Quicksand:wght@300..700&family=Roboto:wght@100..900&display=swap" rel="stylesheet">
 
     <!-- CSS Libraries -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link href="{{ asset('lib/flaticon/font/flaticon.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
     <!-- Template Stylesheet -->
+    {{-- <link href="{{ asset('css/style3.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-    <!-- Midtrans Snap JS -->
+
     <script type="text/javascript"
-        src="https://app.sandbox.midtrans.com/snap/snap.js"
-        data-client-key="{{ config('midtrans.client_key') }}"></script>
+    src="https:/app.sandbox.midtrans.com/snap/snap.js"
+    data-client-key="{{config('midtrans.client_key')}} "></script>
 </head>
 
 <body>
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
+    {{-- Notifikasi Login Sukses (Jika Diperlukan) --}}
+    {{--
+    @if(session('middlewareLogin'))
+        <script>
+            window.addEventListener('load', function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: "{{ session('middlewareLogin') }}",
+                    confirmButtonColor: '#3085d6',
+                });
+            });
+        </script>
+    @endif
+    --}}
+
     <!-- Top Bar Start -->
     <div class="top-bar d-none d-md-block">
         <div class="container-fluid">
@@ -36,19 +63,19 @@
                     <div class="top-bar-left">
                         <div class="text">
                             <i class="fa fa-phone-alt"></i>
-                            <p>082233853635</p>
+                            <p>082334556778</p>
                         </div>
                         <div class="text">
                             <i class="fa fa-envelope"></i>
-                            <p>sagegreat00@gmail.com</p>
+                            <p>greenranger@gmail.com</p>
                         </div>
                     </div>
                 </div>
                 {{-- NOTIF KETIKA BERHASIL LOG OUT --}}
                 @if (request()->query('logout') === 'success')
-                <script>
-                    alert('Anda telah berhasil logout.'); // Notifikasi pop-up
-                </script>
+                    <script>
+                        alert('Anda telah berhasil logout.'); // Notifikasi pop-up
+                    </script>
                 @endif
 
                 <div class="col-md-4">
@@ -58,6 +85,7 @@
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="/shop_cart" title="Belanja"><i class="fas fa-shopping-cart"></i></a>
                         </div>
                         @if (session('user_name'))
                             <p style="margin-bottom: 0px; display: flex; align-items: center; color: #dfae42; padding: 0px 20px;">
@@ -109,63 +137,114 @@
     </div>
     <!-- Nav Bar End -->
 
-    <!-- Donate Start -->
-    <div class="container">
-        <div class="donate" data-parallax="scroll" data-image-src="{{ asset('img/donate1.jpg') }}">
-            <div class="row align-items-center">
-                <div class="container">
-                    <div class="donate">
-                        <div class="row align-items-center" data-aos="fade-right">
-                            <div class="col-lg-7">
-                                <div class="donate-content">
-                                    <div class="section-header">
-                                        <p>Donasi Sekarang</p>
-                                        <h2>Kontribusi anda sangat berarti bagi kami</h2>
-                                        @if(session('error'))
-                                            <div class="alert alert-danger" role="alert">
-                                                {{ session('error') }}
-                                            </div>
-                                        @endif
+    @if(session('success'))
+        <script>
+            window.addEventListener('load', function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: "{{ session('success') }}",
+                    confirmButtonColor: '#9d1f1f',
+                });
+            });
+        </script>
+    @endif
 
-                                        @if(session('success'))
-                                            <div class="alert alert-success" role="alert">
-                                                {{ session('success') }}
-                                            </div>
+    <!-- Detail Checkout -->
+    <section class="section-wrap checkout pb-70">
+        <div class="container relative">
+            <div class="row">
+                <div class="ecommerce col-xs-12">
+                    <div class="row">
+                        <!-- Informasi Pelanggan -->
+                        <div class="col-md-8" id="customer_details">
+                            <div>
+                                <h2 class="heading uppercase bottom-line full-grey mb-30">Detail Checkout</h2>
+
+                                <!-- Informasi Pelanggan -->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h4>Informasi Pelanggan</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Nama Depan:</strong> {{ $checkout->first_name }}</p>
+                                        <p><strong>Nama Belakang:</strong> {{ $checkout->last_name }}</p>
+                                        <p><strong>Alamat:</strong> {{ $checkout->billing_address_1 }}, {{ $checkout->billing_address_2 }}, {{ $checkout->billing_city }}, {{ $checkout->billing_postcode }}</p>
+                                        <p><strong>Telepon:</strong> {{ $checkout->billing_phone }}</p>
+                                        @if($checkout->order_comments)
+                                            <p><strong>Komentar Order:</strong> {{ $checkout->order_comments }}</p>
                                         @endif
                                     </div>
+                                </div>
 
-                                    <div class="donate-text">
-                                        <p>
-                                            Donasi yang anda keluarkan akan kami gunakan untuk membantu proyek - proyek kebersihan Green Ranger. Kami sangat berterimakasih atas donasi yang anda berikan.
-                                        </p>
+                                <!-- Metode Pengiriman -->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h4>Metode Pengiriman</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Metode Pengiriman:</strong> {{ $checkout->metode_pengiriman->name }}</p>
+                                        <p><strong>Biaya Pengiriman:</strong> Rp{{ number_format($checkout->metode_pengiriman->price, 2, ',', '.') }}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-5">
-                                <div class="container">
-                                    <div class="donate">
-                                        <h2>Detail Donasi</h2>
-                                        <p><strong>Nama:</strong> {{ $donation->name }}</p>
-                                        <p><strong>Nomor Telepon:</strong> {{ $donation->phone }}</p>
-                                        <p><strong>Email:</strong> {{ $donation->email }}</p>
-                                        <p><strong>Nominal Donasi:</strong> Rp{{ number_format($donation->amount, 0, ',', '.') }}</p>
-                                        <button id="pay-button" class="btn btn-success">Lanjutkan Bayar</button>
-                                    </div>
-                                </div>
+                        </div>
+
+                        <!-- Detail Order -->
+                        <div class="col-md-4" style="padding-left: 0; padding-right: 0;">
+                            <div class="order-review-wrap ecommerce-checkout-review-order" id="order_review">
+                                <h2 class="heading uppercase bottom-line full-grey">Your Order</h2>
+                                <table class="table shop_table ecommerce-checkout-review-order-table">
+                                    <tbody>
+                                        @foreach($checkout->keranjangs as $keranjang)
+                                            <tr>
+                                                <th>{{ $keranjang->product->name }}<span class="count"> x {{ $keranjang->quantity }}</span></th>
+                                                <td>
+                                                    <span class="amount">Rp{{ number_format($keranjang->product->price * $keranjang->quantity, 2, ',', '.') }}</span>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        <tr class="cart-subtotal">
+                                            <th>Cart Subtotal</th>
+                                            <td><span class="amount">Rp{{ number_format($checkout->subtotal, 2, ',', '.') }}</span></td>
+                                        </tr>
+                                        <tr class="shipping">
+                                            <th>Shipping</th>
+                                            <td>
+                                                <span id="shipping_cost_display">Rp{{ number_format($checkout->metode_pengiriman->price, 2, ',', '.') }}</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="order-total">
+                                            <th><strong>Order Total</strong></th>
+                                            <td>
+                                                <strong>
+                                                    <span id="order_total_display">Rp{{ number_format($checkout->total_akhir, 2, ',', '.') }}</span>
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                            <div id="snap-container"></div>
+
+                            <!-- Tombol Aksi -->
+                            <div class="text-right mt-3">
+                                <button id="pay-button" class="btn btn-primary">Pay Now</button>
+                                <!-- Tambahkan tombol lain jika diperlukan, seperti cetak invoice -->
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-    </div>
-    <!-- Donate End -->
+    </section>
 
     <!-- Footer Start -->
     <div class="footer">
         <div class="container">
             <div class="row">
+                <!-- Konten Footer -->
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-contact">
                         <h2>Kantor Kami</h2>
@@ -202,10 +281,10 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-newsletter">
-                        <h2>Kritik & saran</h2>
+                        <h2>Kritik & Saran</h2>
                         <form>
-                            <input class="form-control" placeholder="Email anda">
-                            <button class="btn btn-custom">Kirim</button>
+                            <input class="form-control" type="email" placeholder="Email Anda" required>
+                            <button class="btn btn-custom" type="submit">Kirim</button>
                         </form>
                     </div>
                 </div>
@@ -250,57 +329,39 @@
     <script src="{{ asset('js/main.js') }}"></script>
 
     <script>
-        @if(session('error'))
-            alert("{{ session('error') }}");
-        @endif
-
-        @if(session('success'))
-            alert("{{ session('success') }}");
-        @endif
+        AOS.init();
     </script>
 
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            var payButton = document.getElementById('pay-button');
-            payButton.addEventListener('click', function (e) {
-                e.preventDefault(); // Mencegah perilaku default tombol
+        // For example trigger on button clicked, or any time you need
+        var payButton = document.getElementById('pay-button');
+        payButton.addEventListener('click', function () {
+        // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token.
+        // Also, use the embedId that you defined in the div above, here.
+        var snapToken = "{{$snapToken}}";
+        var redirectUrl = "https://app.sandbox.midtrans.com/snap/v4/redirection/" + snapToken;
 
-                var snapToken = "{{ $snapToken }}";
-                if(snapToken) {
-                    window.snap.pay(snapToken, {
-                        onSuccess: function(result) {
-                            /* Implementasi sendiri */
-                            alert("Pembayaran berhasil!");
-                            console.log(result);
-                            // Redirect ke halaman sukses
-                            window.location.href = "{{ route('donation.success') }}";
-                        },
-                        onPending: function(result) {
-                            /* Implementasi sendiri */
-                            alert("Menunggu pembayaran Anda!");
-                            console.log(result);
-                            // Redirect ke halaman pending jika diperlukan
-                        },
-                        onError: function(result) {
-                            /* Implementasi sendiri */
-                            alert("Pembayaran gagal!");
-                            console.log(result);
-                            // Redirect ke halaman error jika diperlukan
-                        },
-                        onClose: function() {
-                            /* Implementasi sendiri */
-                            alert('Anda menutup popup tanpa menyelesaikan pembayaran');
-                        }
-                    });
-                } else {
-                    alert('Snap token tidak tersedia.');
-                }
-            });
+        window.snap.embed('{{$snapToken}}',{
+            embedId: 'snap-container',
+            onSuccess: function (result) {
+            /* You may add your own implementation here */
+            alert("payment success!"); console.log(result);
+            },
+            onPending: function (result) {
+            /* You may add your own implementation here */
+            alert("wating your payment!"); console.log(result);
+            },
+            onError: function (result) {
+            /* You may add your own implementation here */
+            alert("payment failed!"); console.log(result);
+            },
+            onClose: function () {
+            /* You may add your own implementation here */
+            alert('you closed the popup without finishing the payment');
+            }
+        });
         });
     </script>
 
-    <script>
-        AOS.init();
-    </script>
 </body>
 </html>

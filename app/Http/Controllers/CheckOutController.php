@@ -72,9 +72,9 @@ class CheckOutController extends Controller
 
         // Hitung total_akhir (subtotal + biaya pengiriman)
         $totalAkhir = $subtotal + $shippingCost;
-
+        Log::info('Total Akhir: ' . $totalAkhir);
         // Buat data checkout
-        $checkout = Checkout::create([
+        $checkout = CheckOut::create([
             'user_id' => $userId,
             'metode_pengiriman_id' => $validatedData['metode_pengiriman_id'],
             'first_name' => $validatedData['first_name'],
@@ -96,7 +96,66 @@ class CheckOutController extends Controller
         // Update status keranjang menjadi 'Check Out'
         Keranjang::whereIn('id', $keranjangs->pluck('id'))->update(['status' => 'Check Out']);
 
-        return redirect('belanja')->with('successCO', 'Barang anda sudah berhasil di check out, SEGERA LAKUKAN PEMBAYARAN!!!.');
-    }
+         // Redirect ke halaman detail checkout dengan ID checkout
+         return redirect()->route('checkout.detail', ['id' => $checkout->id])->with('success', 'Checkout berhasil dilakukan!');
+        }
+
+        // Menampilkan detail checkout
+        public function detail($id)
+        {
+            $checkout = CheckOut::findOrFail($id);
+            $totalAkhir = $checkout->total_akhir;
+            $first_name = $checkout->first_name;
+            $last_name = $checkout->last_name;
+            $billing_phone = $checkout->billing_phone;
+
+            \Midtrans\Config::$serverKey = config('midtrans.server_key');
+            // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+            \Midtrans\Config::$isProduction = false;
+            // Set sanitization on (default)
+            \Midtrans\Config::$isSanitized = true;
+            // Set 3DS transaction for credit card to true
+            \Midtrans\Config::$is3ds = true;
+
+            $params = array(
+                //  // (Opsional) Tambahkan item details untuk pelacakan yang lebih baik
+                // 'item_details' => $checkout->keranjangs->map(function($keranjang) {
+                //     return [
+                //         'id' => $keranjang->product->id,
+                //         'price' => $keranjang->product->price,
+                //         'quantity' => $keranjang->quantity,
+                //         'name' => $keranjang->product->name,
+
+                //     ];
+                // })->toArray(),
+
+                'transaction_details' => array(
+                    'order_id' => 'ORDER-' . $checkout->id,
+                    'gross_amount' => $checkout->total_akhir,
+                ),
+                'customer_details' => array(
+                    'first_name' => $first_name,
+                    'last_name' => $last_name,
+                    'phone' => $billing_phone,
+                ),
+            );
+
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
+
+
+            return view('detail_checkout', compact('checkout','snapToken'));
+
+        }
+
+        public function callback(request $request){
+            $serverKey = config('midtrans.server_key');
+            $hashed = hash("sha512",$request->order_id, $request->status_code,$request->gross_amount.$serverKey);
+            if($hashed == $request->signature_key){
+                if($request->transaction_status == 'capture'){
+                    $checkout = CheckOut::findOrFail($request->order_id);
+                    $checkout->status = 'Sedang Diproses';
+                }
+            }
+        }
 
 }
