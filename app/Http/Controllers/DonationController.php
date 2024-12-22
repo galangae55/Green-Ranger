@@ -39,11 +39,13 @@ class DonationController extends Controller
         ]);
 
         // Konfigurasi Snap Midtrans
-        Config::$serverKey = config('midtrans.server_key');
-        Config::$isProduction = false; // Ubah ke true untuk Production
-        Config::$isSanitized = true;
-        Config::$is3ds = true;
-
+        \Midtrans\Config::$serverKey = config('midtrans.server_key');
+            // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+            // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+            // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
         $params = [
             'transaction_details' => [
                 'order_id' => $orderId,
@@ -61,20 +63,23 @@ class DonationController extends Controller
                 'notification' => 'https://d955-36-67-147-34.ngrok-free.app/midtrans/callback' // URL untuk callback
             ],
         ];
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
 
-        try {
-            $snapToken = Snap::getSnapToken($params);
-            $redirectUrl = "https://app.sandbox.midtrans.com/snap/v4/redirection/" . $snapToken;
+        return view('detailDonate', compact('donation','snapToken'));
 
-            // Simpan snap_token ke database jika diperlukan
-            $donation->update(['snap_token' => $snapToken]);
+        // try {
+        //     $snapToken = Snap::getSnapToken($params);
+        //     $redirectUrl = "https://app.sandbox.midtrans.com/snap/v4/redirection/" . $snapToken;
 
-            // Redirect pengguna ke halaman pembayaran Snap Midtrans
-            return redirect()->away($redirectUrl);
+        //     // Simpan snap_token ke database jika diperlukan
+        //     $donation->update(['snap_token' => $snapToken]);
 
-        } catch (\Exception $e) {
-            return back()->with('error', 'Gagal mendapatkan SNAP_TOKEN: ' . $e->getMessage());
-        }
+        //     // Redirect pengguna ke halaman pembayaran Snap Midtrans
+        //     return redirect()->away($redirectUrl);
+
+        // } catch (\Exception $e) {
+        //     return back()->with('error', 'Gagal mendapatkan SNAP_TOKEN: ' . $e->getMessage());
+        // }
     }
 
     public function handleMidtransCallback(Request $request)

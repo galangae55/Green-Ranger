@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>detail</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
@@ -25,6 +25,30 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
+        @if(session('success'))
+                    <script>
+                        window.addEventListener('load', function() {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Berhasil!',
+                                text: "{{ session('success') }}",
+                                confirmButtonColor: '#3085d6',
+                            });
+                        });
+                    </script>
+                @endif
+                @if(session('error'))
+                    <script>
+                        window.addEventListener('load', function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: "{{ session('error') }}",
+                                confirmButtonColor: '#d33',
+                            });
+                        });
+                    </script>
+                @endif
         <!-- Top Bar Start -->
         <div class="top-bar d-none d-md-block">
             <div class="container-fluid">

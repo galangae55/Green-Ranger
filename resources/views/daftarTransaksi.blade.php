@@ -58,11 +58,17 @@
                 });
             </script>
         @endif
-
-        @if (session('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
-            </div>
+        @if(session('error'))
+            <script>
+                window.addEventListener('load', function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: "{{ session('error') }}",
+                        confirmButtonColor: '#d33',
+                    });
+                });
+            </script>
         @endif
         <!-- Top Bar Start -->
         <div class="top-bar d-none d-md-block">

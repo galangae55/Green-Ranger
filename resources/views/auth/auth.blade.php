@@ -882,7 +882,7 @@
                 <h1>Masuk</h1>
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="password" name="password" placeholder="Kata Sandi" required />
-                <button type="submit">Masuk</button>
+                <button type="submit" style="">Masuk</button>
                 @if ($errors->any())
                 <div class="alert alert-danger show">
                     <ul>
@@ -898,6 +898,7 @@
                 </div>
 
 
+                {{-- <p><- back to homepage</p> --}}
             </form>
         </div>
 

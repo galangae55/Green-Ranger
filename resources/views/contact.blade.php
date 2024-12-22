@@ -259,6 +259,18 @@
                         });
                     </script>
                 @endif
+                @if(session('error'))
+                    <script>
+                        window.addEventListener('load', function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: "{{ session('error') }}",
+                                confirmButtonColor: '#d33',
+                            });
+                        });
+                    </script>
+                @endif
             </div>
         </div>
         <!-- Contact End -->

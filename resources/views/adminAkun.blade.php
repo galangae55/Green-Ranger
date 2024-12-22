@@ -47,7 +47,7 @@
 	<!-- My CSS -->
 
 
-	<title>Admin Volunteer</title>
+	<title>Admin Akun</title>
 </head>
 <body>
 
@@ -71,7 +71,7 @@
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
-			<li class="active">
+			<li>
 				<a href="/admin/volunteer">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Volunteer</span>
@@ -95,7 +95,7 @@
 					<span class="text">Belanja</span>
 				</a>
 			</li>
-            <li>
+            <li class="active">
 				<a href="/admin/akun">
 					<i class='bx bxs-lock-alt' ></i>
 					<span class="text">Akun</span>
@@ -133,14 +133,14 @@
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1>Daftar Volunteer</h1>
+					<h1>Daftar Akun</h1>
 					<ul class="breadcrumb">
 						<li>
 							<a href="">Dashboard</a>
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
-							<a class="active" href="">Volunteer</a>
+							<a class="active" href="">Akun</a>
 						</li>
 					</ul>
 				</div>
@@ -153,52 +153,40 @@
 			<div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Recent Volunteer</h3>
+                        <h3>Recent Akun</h3>
                         <i class='bx bx-search'></i>
-                        <input type="text" id="search-input" placeholder="Search volunteer..." onkeyup="searchTable()" style="padding: 5px; width: 25%; font-family: 'Quicksand', sans-serif;">
+                        <input type="text" id="search-input" placeholder="Search Akun..." onkeyup="searchTable()" style="padding: 5px; width: 25%; font-family: 'Quicksand', sans-serif;">
                     </div>
                     <table>
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Username</th>
-                                <th>Umur</th>
-                                <th>No Telepon</th>
                                 <th>Email</th>
-                                <th>Event</th>
-                                <th>Status</th>
+                                <th>Role</th>
                                 <th>Tanggal Dibuat</th>
                                 <th>Tanggal Diperbarui</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($volunteers as $volunteer)
+                            @foreach($users as $user)
                                 <tr>
-                                    <td>{{ $volunteer->id }}</td>
-                                    <td>{{ $volunteer->username }}</td>
-                                    <td>{{ $volunteer->umur }}</td>
-                                    <td>{{ $volunteer->no_telp }}</td>
-                                    <td>{{ $volunteer->email }}</td>
-                                    <td>{{ $volunteer->event }}</td>
+                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->role }}</td>
+                                    <td>{{ $user->created_at->format('d-m-Y H:i') }}</td>
+                                    <td>{{ $user->updated_at->format('d-m-Y H:i') }}</td>
                                     <td>
-                                        <span class="status {{ $volunteer->status == 'accepted' ? 'completed' : 'pending' }}">
-                                            {{ ucfirst($volunteer->status) }}
-                                        </span>
-                                    </td>
-                                    <td>{{ $volunteer->created_at->format('d-m-Y H:i') }}</td>
-                                    <td>{{ $volunteer->updated_at->format('d-m-Y H:i') }}</td>
-                                    <td>
-                                        <form action="{{ route('admin.updateStatus', $volunteer->id) }}" method="POST" style="display: flex;justify-content:center; margin-bottom:7px">
+                                        <form action="{{ route('admin.updateRole', $user->id) }}" method="POST" style="display: flex;justify-content:center; margin-bottom:7px">
                                             @csrf
                                             @method('PATCH')
-                                            <button type="submit" class="btn {{ $volunteer->status == 'accepted' ? 'btn-warning' : 'btn-success' }}">
-                                                {{ $volunteer->status == 'accepted' ? 'Set to Pending' : 'Set to Accept' }}
+                                            <button type="submit" class="btn {{ $user->role == 'accepted' ? 'btn-warning' : 'btn-success' }}">
+                                                {{ $user->role == 'user' ? 'Set to Admin' : 'Set to User' }}
                                             </button>
                                         </form>
-
-                                        <!-- Form hapus volunteer -->
-                                        <form action="{{ route('admin.deleteVolunteer', $volunteer->id) }}" method="POST" style="display: flex; justify-content:center">
+                                        <form action="{{ route('admin.deleteAkun', $user->id) }}" method="POST" style="display: flex; justify-content:center">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this volunteer?')" style="background-color: #b61e1e;">

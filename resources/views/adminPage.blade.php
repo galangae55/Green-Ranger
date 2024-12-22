@@ -63,6 +63,12 @@
 					<span class="text">Belanja</span>
 				</a>
 			</li>
+            <li>
+				<a href="/admin/akun">
+					<i class='bx bxs-lock-alt' ></i>
+					<span class="text">Akun</span>
+				</a>
+			</li>
 		</ul>
 		<ul class="side-menu">
 
@@ -138,8 +144,8 @@
 				<li>
 					<i class='bx bxs-dollar-circle' ></i>
 					<span class="text">
-						<h3>{{ $totalDonations }}</h3>
-						<p>Total Volunteer</p>
+						<h3>Rp. {{ $totalDonations }}</h3>
+						<p>Total Donation</p>
 					</span>
 				</li>
 			</ul>

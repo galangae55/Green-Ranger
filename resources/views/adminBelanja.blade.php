@@ -53,7 +53,7 @@
 	<!-- My CSS -->
 
 
-	<title>Admin Volunteer</title>
+	<title>Admin Belanja</title>
 </head>
 <body>
     @if(session('success'))
@@ -108,6 +108,12 @@
 					<span class="text">Belanja</span>
 				</a>
 			</li>
+            <li>
+				<a href="/admin/akun">
+					<i class='bx bxs-lock-alt' ></i>
+					<span class="text">Akun</span>
+				</a>
+			</li>
 		</ul>
 		<ul class="side-menu">
 
@@ -130,9 +136,9 @@
 	<section id="content">
 		<!-- NAVBAR -->
 		<nav>
-            {{-- <i class='bx bx-menu' ></i>
+            <i class='bx bx-menu' ></i>
 			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label> --}}
+			{{-- <label for="switch-mode" class="switch-mode"></label> --}}
 		</nav>
 		<!-- NAVBAR -->
 
@@ -162,7 +168,7 @@
                     <div class="head">
                         <h3>Daftar Pesanan</h3>
                         <i class='bx bx-search'></i>
-                        <input type="text" id="search-input" placeholder="Search volunteer..." onkeyup="searchTable()" style="padding: 5px; width: 25%; font-family: 'Quicksand', sans-serif;">
+                        <input type="text" id="search-input" placeholder="Search Data Checkout..." onkeyup="searchTable()" style="padding: 5px; width: 25%; font-family: 'Quicksand', sans-serif;">
                     </div>
                     <table class="shop_table cart table" style="text-align: center">
                         <thead>
@@ -178,89 +184,110 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $shownCheckouts = []; // Array untuk menyimpan checkout_id yang sudah ditampilkan
+                            @endphp
                             @foreach($products as $keranjang)
-                                @if($keranjang->checkouts->isNotEmpty())
+                                @foreach($keranjang->checkouts as $checkout)
+                                    @php
+                                        $isFirstRow = !in_array($checkout->id, $shownCheckouts); // Cek apakah checkout_id sudah ditampilkan
+                                    @endphp
                                     <tr class="cart_item">
-                                        @foreach($keranjang->checkouts as $checkout)
                                         <td class="product-id_co">
-                                            <span class="amount">{{ ($checkout->id) }}</span>
+                                            <span class="amount">{{ $checkout->id }}</span>
                                         </td>
-                                        @endforeach
                                         <td class="product-thumbnail">
                                             <a href="">
                                                 <img src="{{ asset($keranjang->product->image) }}" alt="{{ $keranjang->product->name }}" style="width: 100px; height: auto;">
                                             </a>
                                         </td>
                                         <td class="product-name">
-                                            <span class="amount">{{ ($keranjang->product->name) }}</span>
+                                            <span class="amount">{{ $keranjang->product->name }}</span>
                                         </td>
                                         <td class="product-price">
                                             <span class="amount">Rp. {{ number_format($keranjang->product->price, 2) }}</span>
                                         </td>
                                         <td class="product-quantity">
-                                            <span class="amount">{{ ($keranjang->quantity) }}</span>
+                                            <span class="amount">{{ $keranjang->quantity }}</span>
                                         </td>
                                         <td class="product-subtotal">
                                             <span class="amount">Rp. {{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</span>
                                         </td>
-                                        @foreach($keranjang->checkouts as $checkout)
-                                        <td class="product-status">
-                                            <form action="{{ route('admin.updatepesanan', $checkout->id) }}" method="POST" id="form-status-{{ $checkout->id }}">
-                                                @csrf
-                                                <select
-                                                    name="status"
-                                                    class="form-control"
-                                                    onchange="document.getElementById('form-status-{{ $checkout->id }}').submit()"
-                                                >
-                                                    <option value="Belum Dibayar" {{ $checkout->status == 'Belum Dibayar' ? 'selected' : '' }}>Belum Dibayar</option>
-                                                    <option value="Sedang Dikirim" {{ $checkout->status == 'Sedang Dikirim' ? 'selected' : '' }}>Sedang Dikirim</option>
-                                                    <option value="Sedang Diproses" {{ $checkout->status == 'Sedang Diproses' ? 'selected' : '' }}>Sedang Diproses</option>
-                                                    <option value="Diterima" {{ $checkout->status == 'Diterima' ? 'selected' : '' }}>Diterima</option>
-                                                    <option value="Gagal" {{ $checkout->status == 'Gagal' ? 'selected' : '' }}>Gagal</option>
-                                                </select>
-                                            </form>
-                                        </td>
-                                        @endforeach
-                                        <td class="product-Viewdetail">
-                                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detailModal{{ $keranjang->id }}">
-                                                View Detail
-                                            </button>
 
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="detailModal{{ $keranjang->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Detail Pesanan</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        @foreach($keranjang->checkouts as $checkout)
-                                                        <div class="modal-body">
-                                                            <p><strong>ID Checkout:</strong> {{ $checkout->id }}</p>
-                                                            <p><strong>Nama Produk:</strong> {{ $keranjang->product->name }}</p>
-                                                            <p><strong>Alamat 1:</strong> {{ $checkout->billing_address_1 }}</p>
-                                                            <p><strong>Alamat 2:</strong> {{ $checkout->billing_address_2 }}</p>
-                                                            <p><strong>Kota:</strong> {{ $checkout->billing_city }}</p>
-                                                            <p><strong>No. Telepon:</strong> {{ $checkout->billing_phone }}</p>
-                                                            <p><strong>Kode Pos:</strong> {{ $checkout->billing_postcode }}</p>
-                                                            <p><strong>Catatan Pesanan:</strong> {{ $checkout->order_comments }}</p>
-                                                            <p><strong>Total:</strong> Rp. {{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}</p>
-                                                            <p><strong>Status:</strong> {{ $checkout->status }}</p>
-                                                            <p><strong>Metode Pengiriman:</strong> {{ $checkout->metode_pengiriman->name }}</p>
-                                                            <p><strong>Tanggal Checkout:</strong> {{ $checkout->created_at }}</p>
-                                                        </div>
-                                                        @endforeach
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                        <!-- Hanya tampilkan tombol jika ini baris pertama untuk checkout_id -->
+                                        @if($isFirstRow)
+                                            <td class="product-status">
+                                                <form action="{{ route('admin.updatepesanan', $checkout->id) }}" method="POST" id="form-status-{{ $checkout->id }}">
+                                                    @csrf
+                                                    <select
+                                                        name="status"
+                                                        class="form-control"
+                                                        onchange="document.getElementById('form-status-{{ $checkout->id }}').submit()"
+                                                    >
+                                                        <option value="Belum Dibayar" {{ $checkout->status == 'Belum Dibayar' ? 'selected' : '' }}>Belum Dibayar</option>
+                                                        <option value="Sedang Dikirim" {{ $checkout->status == 'Sedang Dikirim' ? 'selected' : '' }}>Sedang Dikirim</option>
+                                                        <option value="Sedang Diproses" {{ $checkout->status == 'Sedang Diproses' ? 'selected' : '' }}>Sedang Diproses</option>
+                                                        <option value="Diterima" {{ $checkout->status == 'Diterima' ? 'selected' : '' }}>Diterima</option>
+                                                        <option value="Gagal" {{ $checkout->status == 'Gagal' ? 'selected' : '' }}>Gagal</option>
+                                                    </select>
+                                                </form>
+                                            </td>
+                                            <td class="product-Viewdetail">
+                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detailModal{{ $keranjang->id }}">
+                                                    View Detail
+                                                </button>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="detailModal{{ $keranjang->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Detail Pesanan</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p><strong>ID Checkout :</strong> {{ $checkout->id }}</p>
+                                                                <p><strong>ID User :</strong> {{ $checkout->user_id }}</p>
+                                                                <p><strong>Alamat 1 :</strong> {{ $checkout->billing_address_1 }}</p>
+                                                                <p><strong>Alamat 2 :</strong> {{ $checkout->billing_address_2 }}</p>
+                                                                <p><strong>Kota :</strong> {{ $checkout->billing_city }}</p>
+                                                                <p><strong>No. Telepon :</strong> {{ $checkout->billing_phone }}</p>
+                                                                <p><strong>Kode Pos :</strong> {{ $checkout->billing_postcode }}</p>
+                                                                <p><strong>Catatan Pesanan :</strong> {{ $checkout->order_comments }}</p>
+                                                                <p><strong>Status :</strong> {{ $checkout->status }}</p>
+                                                                <p><strong>Metode Pengiriman :</strong> {{ $checkout->metode_pengiriman->name }}</p>
+                                                                <p><strong>Tanggal Checkout :</strong> {{ $checkout->created_at }}</p>
+                                                                <hr>
+                                                                <h5>Produk yang Dipesan:</h5>
+                                                                <ul>
+                                                                    @foreach($checkout->keranjangs as $keranjang)
+                                                                        <li>
+                                                                            <strong>Nama Produk:</strong> {{ $keranjang->product->name }}<br>
+                                                                            <strong>Jumlah:</strong> {{ $keranjang->quantity }}<br>
+                                                                            <strong>Total:</strong> Rp. {{ number_format($keranjang->product->price * $keranjang->quantity, 2) }}<br>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                                <hr>
+                                                                <p><strong>Total Pembayaran:</strong> Rp. {{ number_format($checkout->keranjangs->sum(function($keranjang) { return $keranjang->product->price * $keranjang->quantity; }), 2) }}</p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </td>
+
+                                            </td>
+                                        @endif
+
+                                        @php
+                                            $shownCheckouts[] = $checkout->id; // Tambahkan checkout_id ke array
+                                        @endphp
                                     </tr>
-                                @endif
+                                @endforeach
                             @endforeach
                         </tbody>
                     </table>

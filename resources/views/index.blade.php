@@ -225,8 +225,8 @@
                                 tetapi juga mensejahterakan pelaku kebersihan lingkungan.
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
-                                <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
+                                <a href="/donate" class="btn btn-custom">Donasi sekarang</a>
+                                <a href="/volunteer" class="btn btn-custom">Daftar Relawan</a>
                             </div>
                         </div>
                     </div>
@@ -240,8 +240,8 @@
                                 Berbagai informasi dan tips dalam menjaga serta mengolah lingkungan. Mari sayangi bumi kita dengan ikut berpartisipasi dalam menjaga kebersihan.
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
-                                <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
+                                <a href="/donate" class="btn btn-custom">Donasi sekarang</a>
+                                <a href="/volunteer" class="btn btn-custom">Daftar Relawan</a>
                             </div>
                         </div>
                     </div>
@@ -255,8 +255,8 @@
                             Bergabunglah dengan komunitas sukarelawan kami dan jadilah bagian dari gerakan perubahan. Dengan partisipasi aktif, kita bisa membuat perbedaan nyata.
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn btn-custom" href="/donate">Donasi sekarang</a>
-                                <a class="btn btn-custom" href="/volunteer">Daftar Relawan</a>
+                                <a href="/donate" class="btn btn-custom">Donasi sekarang</a>
+                                <a href="/volunteer" class="btn btn-custom">Daftar Relawan</a>
                             </div>
                         </div>
                     </div>
