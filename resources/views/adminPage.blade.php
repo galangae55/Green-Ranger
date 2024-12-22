@@ -138,8 +138,8 @@
 				<li>
 					<i class='bx bxs-dollar-circle' ></i>
 					<span class="text">
-						<h3>{{ $totalDonations }}</h3>
-						<p>Total Volunteer</p>
+						<h3>Rp. {{ $totalDonations }}</h3>
+						<p>Total Donation</p>
 					</span>
 				</li>
 			</ul>

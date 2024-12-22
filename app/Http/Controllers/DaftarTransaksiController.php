@@ -16,6 +16,7 @@ class DaftarTransaksiController extends Controller
         // Ambil barang berdasarkan status di checkouts
         $products = Keranjang::with(['product', 'checkouts.metode_pengiriman']) // Muat relasi checkouts dan metode_pengiriman
             ->where('user_id', $userId)
+            ->where('status', 'Check Out')
             ->get();
 
         return view('daftarTransaksi', compact('products')); // Menggunakan view daftarTransaksi
