@@ -77,6 +77,8 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::get('/shop_checkout', [CheckOutController::class, 'showOrderToCheckOut'])
     ->middleware([LoginMiddleware::class, CheckKesediaanKeranjang::class]);
     Route::post('/shop_checkout/store', [CheckoutController::class, 'store'])->name('checkout.store');
+    // Rute untuk menampilkan detail checkout
+    Route::get('/checkout/detail/{id}', [CheckoutController::class, 'detail'])->name('checkout.detail');
     Route::get("/daftar_transaksi", [DaftarTransaksiController::class,"showPesanan"])->middleware(LoginMiddleware::class);
     Route::post('/daftar_transaksi/update/{id}', [DaftarTransaksiController::class,'UpdatePesanan'])->name('update.pesanan')->middleware(LoginMiddleware::class);
 });
@@ -94,3 +96,7 @@ Route::post('/donate/process', [DonationController::class, 'processForm'])->name
 Route::get('/donate/detail', [DonationController::class, 'showDetail'])->name('donation.detail');
 Route::post('/midtrans/callback', [DonationController::class, 'handleMidtransCallback'])->name('midtrans.callback');
 Route::get('/donation/success', [DonationController::class, 'showSuccessPage'])->name('donation.success');
+
+
+
+Route::post('/midtrans-callback', [CheckOutController::class, 'callback']);
