@@ -96,6 +96,12 @@
 					<span class="text">Belanja</span>
 				</a>
 			</li>
+            <li>
+				<a href="/admin/akun">
+					<i class='bx bxs-lock-alt' ></i>
+					<span class="text">Akun</span>
+				</a>
+			</li>
 		</ul>
 		<ul class="side-menu">
 
@@ -136,7 +142,7 @@
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
-							<a class="active" href="">Volunteer</a>
+							<a class="active" href="">Kontak</a>
 						</li>
 					</ul>
 				</div>
@@ -151,7 +157,7 @@
                     <div class="head">
                         <h3>Recent Kontak</h3>
                         <i class='bx bx-search'></i>
-                        <input type="text" id="search-input" placeholder="Search volunteer..." onkeyup="searchTable()" style="padding: 5px; width: 25%; font-family: 'Quicksand', sans-serif;">
+                        <input type="text" id="search-input" placeholder="Search Kontak..." onkeyup="searchTable()" style="padding: 5px; width: 25%; font-family: 'Quicksand', sans-serif;">
                     </div>
                     <table>
                         <thead>
@@ -180,7 +186,7 @@
                                         <form action="{{ route('admin.deleteKontak', $kontak->id) }}" method="POST" style="display: flex; justify-content:center">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this volunteer?')" style="background-color: #b61e1e;">
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Kontak?')" style="background-color: #b61e1e;">
                                                 Delete
                                             </button>
                                         </form>

@@ -18,15 +18,18 @@ class AdminController extends Controller
         // Fungsiong Menghitung jumlah data
         $totalAccounts = User::count();
         $totalVolunteer = Volunteer::count();
-        $totalDonations = Donation::sum('amount');
 
-        // Mengambil semua data volunteer dari database
+        // Menghitung total donasi dengan status 'accepted'
+        $totalDonations = Donation::where('status', 'accepted')->sum('amount');
+
+        // Mengambil semua data volunteer dan kontak dari database
         $volunteers = Volunteer::all();
         $kontaks = kontak::all();
 
         // Mengirim data ke view admin
-        return view('adminPage', compact('totalAccounts', 'volunteers','totalVolunteer', 'kontaks', 'totalDonations'));
+        return view('adminPage', compact('totalAccounts', 'volunteers', 'totalVolunteer', 'kontaks', 'totalDonations'));
     }
+
 
     public function adminVolunteer()
     {
@@ -145,5 +148,46 @@ class AdminController extends Controller
     }
 
 
+    public function adminAkun()
+    {
+        // Ambil barang berdasarkan status di checkouts
+        $users = User::all();
+
+        return view('adminAkun', compact('users')); // Menggunakan view daftarTransaksi
+    }
+
+    public function deleteAkun($id)
+    {
+        // Cari volunteer berdasarkan id
+        $users = User::findOrFail($id);
+
+        // Hapus volunteer
+        $users->delete();
+
+        // Notifikasi ketika berhasil terhapus
+        session()->flash('success', 'Data akun berhasil dihapus.');
+
+        // Redirect kembali ke halaman volunteer dengan pesan sukses
+        return redirect()->route('admin.akun');
+    }
+
+    public function updateRole($id)
+    {
+        // Cari volunteer berdasarkan id
+        $users = User::findOrFail($id);
+
+        // Ubah status: jika status saat ini 'accepted', ubah menjadi 'pending', dan sebaliknya
+        if ($users->role == 'admin') {
+            $users->role = 'user';
+        } else {
+            $users->role = 'admin';
+        }
+
+        // Simpan perubahan
+        $users->save();
+
+        // Redirect kembali ke halaman dengan pesan sukses
+        return redirect()->back()->with('success', 'Role berhasil diubah.');
+    }
 
 }

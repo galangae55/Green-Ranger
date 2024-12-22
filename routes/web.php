@@ -36,6 +36,9 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::delete('/admin/kontak/{id}', [AdminController::class, 'deleteKontak'])->name('admin.deleteKontak');
     Route::get('/admin/belanja', [AdminController::class, 'adminBelanja'])->name('admin.belanja');
     Route::post('/admin/belanja/update/{id}', [AdminController::class, 'BelanjaUpdate'])->name('admin.updatepesanan');
+    Route::get('/admin/akun', [AdminController::class, 'adminAkun'])->name('admin.belanja');
+    Route::delete('/admin/akun/{id}', [AdminController::class, 'deleteAkun'])->name('admin.deleteAkun');
+    Route::patch('/admin/akun/{id}/update-status', [AdminController::class, 'updateRole'])->name('admin.updateRole');
 });
 
 
