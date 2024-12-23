@@ -18,4 +18,7 @@ class Donation extends Model
         'status', // Pastikan kolom status ada di sini
         'order_id', // Jika kamu menggunakan order_id
     ];
+    const STATUS_PENDING = 'pending';
+    const STATUS_DONE = 'done';
+    const STATUS_FAILED = 'failed';
 }

@@ -22,14 +22,120 @@
     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
-    <!-- Template Stylesheet -->
-    {{-- <link href="{{ asset('css/style3.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style2.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style3.css') }}" rel="stylesheet">
 
 
     <script type="text/javascript"
     src="https:/app.sandbox.midtrans.com/snap/snap.js"
     data-client-key="{{config('midtrans.client_key')}} "></script>
+
+    <style>
+        element.style {
+            padding-top: 53px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        /* Pastikan container memiliki margin auto untuk keseimbangan */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5%; /* Tambahkan padding kiri dan kanan */
+        }
+
+        /* Styling untuk row */
+        .row {
+            display: revert;
+        }
+
+        .row::after {
+            content: "";
+            display: table;
+            clear: both; /* Membersihkan float */
+        }
+
+        /* Kolom */
+        .col-md-8 {
+            width: 66.6667%; /* 8/12 kolom */
+            float: left;
+            padding: 15px;
+        }
+
+        .col-md-4 {
+            width: 33.3333%; /* 4/12 kolom */
+            float: left;
+            padding: 15px;
+        }
+
+        /* Styling untuk card wrapper */
+        .card {
+            border: 2px solid #ddd; /* Border lebih tebal */
+            border-radius: 10px; /* Membuat border sedikit melengkung */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Menambahkan shadow */
+            margin-bottom: 20px;
+            background-color: #ffffff; /* Warna latar */
+        }
+
+        /* Heading card */
+        .card-header {
+            background-color: #ffffff; /* Warna latar header */
+            border-bottom: 2px solid #ffffff; /* Warna border bawah header */
+            font-weight: bold;
+            color: #fff; /* Warna teks header */
+            padding: 10px;
+            text-align: center; /* Tengah header */
+        }
+
+        /* Content dalam card */
+        .card-body {
+            padding: 20px;
+        }
+
+        /* Styling untuk baris informasi pelanggan */
+        .card-body p {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd; /* Border untuk setiap baris */
+            border-radius: 5px; /* Melengkungkan sedikit border */
+            background-color: #f9f9f9; /* Memberikan warna latar untuk baris */
+        }
+
+        /* Styling table pada "Your Order" */
+        .table.shop_table {
+            width: 100%;
+            margin-bottom: 15px;
+            border: 2px solid #ffffff; /* Border lebih tebal */
+            border-radius: 8px;
+            overflow: hidden; /* Untuk border yang lebih rapi */
+        }
+
+        .table th,
+        .table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        /* Responsivitas */
+        @media (max-width: 768px) {
+            .col-md-8, .col-md-4 {
+                width: 100%; /* Kolom full-width di layar kecil */
+                float: none;
+                padding: 0;
+            }
+
+            #customer_details {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+
+
 </head>
 
 <body>
@@ -191,7 +297,7 @@
                         </div>
 
                         <!-- Detail Order -->
-                        <div class="col-md-4" style="padding-left: 0; padding-right: 0;">
+                        <div class="col-md-4" style="padding-left: 0; padding-right: 0; padding-top:53px;">
                             <div class="order-review-wrap ecommerce-checkout-review-order" id="order_review">
                                 <h2 class="heading uppercase bottom-line full-grey">Your Order</h2>
                                 <table class="table shop_table ecommerce-checkout-review-order-table">
@@ -224,8 +330,10 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div id="snap-container">
+                                </div>
                             </div>
-                            <div id="snap-container"></div>
+
 
                             <!-- Tombol Aksi -->
                             <div class="text-right mt-3">

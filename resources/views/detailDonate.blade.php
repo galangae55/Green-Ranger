@@ -19,12 +19,133 @@
     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style3.css') }}" rel="stylesheet">
 
     <!-- Midtrans Snap JS -->
     <script type="text/javascript"
         src="https://app.sandbox.midtrans.com/snap/snap.js"
         data-client-key="{{ config('midtrans.client_key') }}"></script>
+
+    <style>
+/* Mengatur area latar belakang dengan gambar */
+        .donate {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            padding: 50px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Pastikan overlay tidak keluar dari kontainer */
+            color: #fff; /* Warna teks default */
+        }
+                /* Overlay hitam */
+        .donate .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7); /* Warna hitam transparan */
+            z-index: 0; /* Overlay berada di belakang konten */
+        }
+
+        /* Konten di atas overlay */
+        .donate-content, .table-wrapper {
+            position: relative;
+            z-index: 2; /* Pastikan konten berada di atas overlay */
+            color: #ffffff; /* Warna teks tetap terlihat di atas overlay */
+        }
+
+
+        /* Header dan teks */
+        .section-header p {
+            color: #ffd700; /* Warna emas untuk teks kecil */
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            color: #ffffff; /* Warna putih untuk heading utama */
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Menambahkan bayangan teks */
+        }
+
+        .donate-text p {
+            color: #e0e0e0; /* Warna abu terang untuk deskripsi */
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Tabel */
+        .table-wrapper {
+            background-color: #ffffff; /* Warna putih untuk area tabel */
+            padding: 20px;
+            border-radius: 10px; /* Membuat sudut melengkung */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
+            margin-top: 20px;
+        }
+
+        .table th, .table td {
+            text-align: center; /* Meratakan teks di tengah */
+            padding: 15px;
+            border: 1px solid #ddd; /* Warna border */
+        }
+
+        .table th {
+            background-color: #f8f9fa; /* Warna abu-abu terang */
+            font-weight: 600;
+            color: #333; /* Warna teks header */
+        }
+
+        /* Tombol aksi */
+        .btn-success {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+        /* Responsivitas */
+        @media (max-width: 768px) {
+            .donate {
+                padding: 30px 20px;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+
+            .section-header p {
+                font-size: 16px;
+            }
+
+            .table-wrapper {
+                padding: 15px;
+            }
+        }
+
+    </style>
+
+
+
 </head>
 
 <body>
@@ -112,53 +233,57 @@
     <!-- Donate Start -->
     <div class="container">
         <div class="donate" data-parallax="scroll" data-image-src="{{ asset('img/donate1.jpg') }}">
-            <div class="row align-items-center">
-                <div class="container">
-                    <div class="donate">
-                        <div class="row align-items-center" data-aos="fade-right">
-                            <div class="col-lg-7">
-                                <div class="donate-content">
-                                    <div class="section-header">
-                                        <p>Donasi Sekarang</p>
-                                        <h2>Kontribusi anda sangat berarti bagi kami</h2>
-                                        @if(session('error'))
-                                            <div class="alert alert-danger" role="alert">
-                                                {{ session('error') }}
-                                            </div>
-                                        @endif
+            <!-- Overlay untuk latar belakang -->
+            <div class="overlay"></div>
 
-                                        @if(session('success'))
-                                            <div class="alert alert-success" role="alert">
-                                                {{ session('success') }}
-                                            </div>
-                                        @endif
-                                    </div>
-
-                                    <div class="donate-text">
-                                        <p>
-                                            Donasi yang anda keluarkan akan kami gunakan untuk membantu proyek - proyek kebersihan Green Ranger. Kami sangat berterimakasih atas donasi yang anda berikan.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-5">
-                                <div class="container">
-                                    <div class="donate">
-                                        <h2>Detail Donasi</h2>
-                                        <p><strong>Nama:</strong> {{ $donation->name }}</p>
-                                        <p><strong>Nomor Telepon:</strong> {{ $donation->phone }}</p>
-                                        <p><strong>Email:</strong> {{ $donation->email }}</p>
-                                        <p><strong>Nominal Donasi:</strong> Rp{{ number_format($donation->amount, 0, ',', '.') }}</p>
-                                        <button id="pay-button" class="btn btn-success">Lanjutkan Bayar</button>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="row align-items-center" data-aos="fade-right">
+                <div class="col-lg-7">
+                    <div class="donate-content">
+                        <div class="section-header">
+                            <p>Donasi Sekarang</p>
+                            <h2>Kontribusi Anda Sangat Berarti Bagi Kami</h2>
                         </div>
+                        <div class="donate-text">
+                            <p>
+                                Donasi yang Anda keluarkan akan kami gunakan untuk membantu proyek-proyek kebersihan Green Ranger. Kami sangat berterima kasih atas donasi yang Anda berikan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="table-wrapper">
+                        <h2 class="text-center">Detail Donasi</h2>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Informasi</th>
+                                    <th>Detail</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Nama</strong></td>
+                                    <td>{{ $donation->name }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Nomor Telepon</strong></td>
+                                    <td>{{ $donation->phone }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Email</strong></td>
+                                    <td>{{ $donation->email }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Nominal Donasi</strong></td>
+                                    <td>Rp{{ number_format($donation->amount, 0, ',', '.') }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button id="pay-button" class="btn btn-success">Lanjutkan Bayar</button>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
     <!-- Donate End -->
 
