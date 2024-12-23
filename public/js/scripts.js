@@ -275,7 +275,7 @@
       })
 
 
-      /* Related products
+      /* Produk Serupa
       -------------------------------------------------------*/
       $("#owl-related-items").owlCarousel({
         autoPlay: 2500,

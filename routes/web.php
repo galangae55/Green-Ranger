@@ -36,6 +36,9 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::delete('/admin/kontak/{id}', [AdminController::class, 'deleteKontak'])->name('admin.deleteKontak');
     Route::get('/admin/belanja', [AdminController::class, 'adminBelanja'])->name('admin.belanja');
     Route::post('/admin/belanja/update/{id}', [AdminController::class, 'BelanjaUpdate'])->name('admin.updatepesanan');
+    Route::get('/admin/akun', [AdminController::class, 'adminAkun'])->name('admin.belanja');
+    Route::delete('/admin/akun/{id}', [AdminController::class, 'deleteAkun'])->name('admin.deleteAkun');
+    Route::patch('/admin/akun/{id}/update-status', [AdminController::class, 'updateRole'])->name('admin.updateRole');
 });
 
 
@@ -49,6 +52,11 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::post('/contact/storeNoLogin', [ContactController::class, 'storeNoLogin'])->name('contacts.storeNoLogin');
     Route::get("/belanja", [GreenRangerController::class,"belanja"]);
     Route::get("/detail", [GreenRangerController::class,"detail"]);
+    Route::get("/detail2", [GreenRangerController::class,"detail2"]);
+    Route::get("/detail3", [GreenRangerController::class,"detail3"]);
+    Route::get("/detail4", [GreenRangerController::class,"detail4"]);
+    Route::get("/detail5", [GreenRangerController::class,"detail5"]);
+    Route::get("/detail6", [GreenRangerController::class,"detail6"]);
     Route::post("/detail/komen/store", [KomenController::class,"store"]);
     Route::get('/volunteer', function () {
         return view('volunteer');

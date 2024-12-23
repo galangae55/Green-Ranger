@@ -76,7 +76,7 @@
                             </div>
                             <div class="text">
                                 <i class="fa fa-envelope"></i>
-                                <p>sagegreat00@gmail.com</p>
+                                <p>greenranger@gmail.com</p>
                             </div>
                         </div>
                     </div>

@@ -135,11 +135,18 @@
                     </script>
                 @endif
 
-        @if (session('errorMid'))
-            <div id="popupCuy" class="popup show red">
-                {{ session('errorMid') }}
-            </div>
-        @endif
+                @if(session('error'))
+                <script>
+                    window.addEventListener('load', function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error!',
+                            text: "{{ session('error') }}",
+                            confirmButtonColor: '#d33',
+                        });
+                    });
+                </script>
+            @endif
 
         <!-- Top Bar Start -->
         <div class="top-bar d-none d-md-block">
@@ -508,7 +515,7 @@
                           <a href="/produk6">Tottebag Denim</a>
                         </h3>
                         <span class="category">
-                          <a href="catalogue-grid.html">Wanita</a>
+                          <a href="catalogue-grid.html">Aksesoris</a>
                         </span>
                       </div>
 
@@ -721,11 +728,10 @@
 
                       <div class="product-details">
                         <h3 class="product-title">
-                          <a href="/produk12">Tas Rajut Eceng Gondok</a>
-                          <a href="/shop_single">Tas Anyam</a>
+                          <a href="/produk12">Tas Rajut</a>
                         </h3>
                         <span class="category">
-                          <a href="catalogue-grid.html">Wanita</a>
+                          <a href="catalogue-grid.html">Aksesoris</a>
                         </span>
                       </div>
 

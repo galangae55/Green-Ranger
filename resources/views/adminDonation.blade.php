@@ -97,6 +97,12 @@
 					<span class="text">Belanja</span>
 				</a>
 			</li>
+            <li>
+				<a href="/admin/akun">
+					<i class='bx bxs-lock-alt' ></i>
+					<span class="text">Akun</span>
+				</a>
+			</li>
 		</ul>
 		<ul class="side-menu">
 			<li>

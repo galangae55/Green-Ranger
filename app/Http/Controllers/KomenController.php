@@ -7,22 +7,35 @@ use Illuminate\Http\Request;
 class KomenController extends Controller
 {
     public function store(Request $request){
-        $request->validate([
-            "nama"=> "required",
-            "komentar"=> "required",
-            "origin" => "required"
-        ]);
+        try {
+            // Validasi input
+            $request->validate([
+                "nama"=> "required",
+                "komentar"=> "required",
+                "origin" => "required"
+            ]);
 
-        $data = [
-            'nama' => $request->nama,
-            'komentar' => $request->komentar
-        ];
+            // Data yang akan disimpan
+            $data = [
+                'nama' => $request->nama,
+                'komentar' => $request->komentar
+            ];
 
-        Komen::create($data);
+            // Simpan ke database
+            Komen::create($data);
 
-        // Redirect back to the original page
-        $origin = $request->origin;
-        return redirect('/' . $origin);
+            // Redirect kembali ke halaman asal
+            $origin = $request->origin;
+            return redirect('/' . $origin)->with('success', 'Komentar berhasil disimpan!');
+
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Tangani jika validasi gagal
+            return back()->withErrors($e->validator)->withInput()->with('error', 'Harap mengisi semua field yang diperlukan.');
+        } catch (\Exception $e) {
+            // Tangani jika terjadi error lain
+            return back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage())->withInput();
+        }
     }
+
 }
 

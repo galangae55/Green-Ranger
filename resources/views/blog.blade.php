@@ -183,8 +183,8 @@
                                 </p>
                             </div>
                             <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Subagyo</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
+                                {{-- <p><i class="fa fa-user"></i><a href="">Subagyo</a></p>
+                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p> --}}
                             </div>
                         </div>
                     </div>
@@ -201,8 +201,8 @@
                                 </p>
                             </div>
                             <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">M. Galang</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
+                                {{-- <p><i class="fa fa-user"></i><a href="">M. Galang</a></p>
+                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p> --}}
                             </div>
                         </div>
                     </div>
@@ -219,8 +219,8 @@
                                 </p>
                             </div>
                             <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Effendi</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 Komentar</a></p>
+                                {{-- <p><i class="fa fa-user"></i><a href="">Effendi</a></p>
+                                <p><i class="fa fa-comments"></i><a href="">15 Komentar</a></p> --}}
                             </div>
                         </div>
                     </div>
@@ -237,8 +237,8 @@
                                 </p>
                             </div>
                             <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Galatama</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
+                                {{-- <p><i class="fa fa-user"></i><a href="">Galatama</a></p>
+                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p> --}}
                             </div>
                         </div>
                     </div>
@@ -255,8 +255,8 @@
                                 </p>
                             </div>
                             <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Bambang</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
+                                {{-- <p><i class="fa fa-user"></i><a href="">Bambang</a></p>
+                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p> --}}
                             </div>
                         </div>
                     </div>
@@ -273,13 +273,13 @@
                                 </p>
                             </div>
                             <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Reyhan</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
+                                {{-- <p><i class="fa fa-user"></i><a href="">Reyhan</a></p>
+                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p> --}}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-12">
                         <ul class="pagination justify-content-center">
                             <li class="page-item disabled"><a class="page-link" href="#">Sebelum</a></li>
@@ -289,7 +289,7 @@
                             <li class="page-item"><a class="page-link" href="#">Sesudah</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
         <!-- Blog End -->
