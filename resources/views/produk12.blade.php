@@ -141,7 +141,7 @@
         <div class="flickity flickity-slider-wrap mfp-hover" id="gallery-main">
 
           <div class="gallery-cell">
-            <a href="img/shop/item1.jpg" class="lightbox-img">
+            <a href="img/shop/item12.jpg" class="lightbox-img">
               <img src="img/shop/item1.jpg" alt="" />
               <i class="ui-zoom zoom-icon"></i>
             </a>
@@ -193,12 +193,13 @@
       </div> <!-- end col img slider -->
 
       <div class="col-md-6 col-xs-12 product-description-wrap">
-    <h1 class="product-title">Tas rajut Eceng Gondok</h1>
+    <h1 class="product-title">Tas rajut</h1>
     <span class="price">
         <del><span>Rp 500000</span></del>
         <ins><span class="amount">Rp 299999</span></ins>
     </span>
-    <p class="short-description">Our Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome website with this Theme is easier than you can imagine.</p>
+    <p class="short-description">Tas rajutt ini menggunakan eceng gondok daur ulang yang diolah menjadi benang rajut yang kuat dan tahan lama. Dengan desain yang elegan dan natural, tas ini menawarkan tampilan unik sekaligus mendukung keberlanjutan. Sangat cocok untuk digunakan dalam berbagai kesempatan, dari belanja hingga acara santai, memberikan kesan ramah lingkungan yang stylish.
+    </p>
 
     <div class="product-actions">
         <form action="{{ route('cart.add') }}" method="POST" style="display: flex; align-items: center;">
@@ -268,7 +269,7 @@
         </div>
 
         <div class="socials-share clearfix">
-          <span>Share:</span>
+          <span></span>
           <div class="social-icons nobase">
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -283,13 +284,13 @@
 </section> <!-- end single product -->
 
 
-<!-- Related Products -->
+<!-- Produk Serupa -->
 <section class="section-wrap pt-0 shop-items-slider">
   <div class="container">
     <div class="row heading-row">
       <div class="col-md-12 text-center">
         <h2 class="heading bottom-line">
-          Related Products
+          Produk Serupa
         </h2>
       </div>
     </div>
@@ -301,11 +302,11 @@
           <div class="product-item hover-trigger">
             <div class="product-img">
               <a href="shop-single.html">
-                <img src="img/shop/shop_item_3.jpg" alt="">
-                <img src="img/shop/shop_item_back_3.jpg" alt="" class="back-img">
+                <img src="img/shop/item01.jpg" alt="">
+                <img src="img/shop/item01.jpg" alt="" class="back-img">
               </a>
               <div class="product-label">
-                <span class="sale">sale</span>
+                <span class="sale">Diskon</span>
               </div>
               <div class="hover-2">
                 <div class="product-actions">
@@ -314,22 +315,22 @@
                   </a>
                 </div>
               </div>
-              <a href="#" class="product-quickview">Quick View</a>
+              <a href="#" class="product-quickview">Lihat Sekilas</a>
             </div>
             <div class="product-details">
               <h3 class="product-title">
-                <a href="shop-single.html">Tribal Grey Blazer</a>
+                <a href="/produk1">Topi Rajut Pria</a>
               </h3>
               <span class="category">
-                <a href="catalogue-grid.html">Women</a>
+                <a href="catalogue-grid.html">Aksesoris</a>
               </span>
             </div>
             <span class="price">
               <del>
-                <span>$730.00</span>
+                <span>Rp 730.000</span>
               </del>
               <ins>
-                <span class="amount">$399.99</span>
+                <span class="amount">Rp 159.999</span>
               </ins>
             </span>
           </div>
@@ -339,8 +340,8 @@
           <div class="product-item hover-trigger">
             <div class="product-img">
               <a href="shop-single.html">
-                <img src="img/shop/shop_item_11.jpg" alt="">
-                <img src="img/shop/shop_item_back_11.jpg" alt="" class="back-img">
+                <img src="img/shop/item02.jpg" alt="">
+                <img src="img/shop/item02.jpg" alt="" class="back-img">
               </a>
               <div class="hover-2">
                 <div class="product-actions">
@@ -349,19 +350,19 @@
                   </a>
                 </div>
               </div>
-              <a href="#" class="product-quickview">Quick View</a>
+              <a href="#" class="product-quickview">Lihat Sekilas</a>
             </div>
             <div class="product-details">
               <h3 class="product-title">
-                <a href="shop-single.html">Mantle Brown Bag</a>
+                <a href="/produk2">Topi Rajut Wanita</a>
               </h3>
               <span class="category">
-                <a href="catalogue-grid.html">Accessories</a>
+                <a href="catalogue-grid.html">Aksesoris</a>
               </span>
             </div>
             <span class="price">
               <ins>
-                <span class="amount">$150.00</span>
+                <span class="amount">Rp 199.999</span>
               </ins>
             </span>
           </div>
@@ -371,8 +372,8 @@
           <div class="product-item hover-trigger">
             <div class="product-img">
               <a href="shop-single.html">
-                <img src="img/shop/shop_item_6.jpg" alt="">
-                <img src="img/shop/shop_item_back_6.jpg" alt="" class="back-img">
+                <img src="img/shop/item09.jpg" alt="">
+                <img src="img/shop/item09.jpg" alt="" class="back-img">
               </a>
               <div class="hover-2">
                 <div class="product-actions">
@@ -381,131 +382,68 @@
                   </a>
                 </div>
               </div>
-              <a href="#" class="product-quickview">Quick View</a>
+              <a href="#" class="product-quickview">Lihat Sekilas</a>
             </div>
             <div class="product-details">
               <h3 class="product-title">
-                <a href="shop-single.html">Faux Suits</a>
+                <a href="/produk9">Rompi Plastik</a>
               </h3>
               <span class="category">
-                <a href="catalogue-grid.html">Men</a>
+                <a href="catalogue-grid.html">Aksesoris</a>
               </span>
             </div>
             <span class="price">
               <ins>
-                <span class="amount">$233.00</span>
+                <span class="amount">Rp 330.000</span>
               </ins>
             </span>
           </div>
         </div>
 
         <div class="product">
-          <div class="product-item hover-trigger">
-            <div class="product-img">
-              <a href="shop-single.html">
-                <img src="img/shop/shop_item_4.jpg" alt="">
-                <img src="img/shop/shop_item_back_4.jpg" alt="" class="back-img">
-              </a>
-              <div class="hover-2">
-                <div class="product-actions">
-                  <a href="#" class="product-add-to-wishlist">
-                    <i class="fa fa-heart"></i>
-                  </a>
+            <div class="product-item hover-trigger">
+              <div class="product-img">
+                <a href="shop-single.html">
+                  <img src="img/shop/item06.jpg" alt="">
+                  <img src="img/shop/item06.jpg" alt="" class="back-img">
+                </a>
+                <div class="product-label">
+                  <span class="sale">Diskon</span>
                 </div>
+                <div class="hover-2">
+                  <div class="product-actions">
+                    <a href="#" class="product-add-to-wishlist">
+                      <i class="fa fa-heart"></i>
+                    </a>
+                  </div>
+                </div>
+                <a href="#" class="product-quickview">Lihat Sekilas</a>
               </div>
-              <a href="#" class="product-quickview">Quick View</a>
-            </div>
-            <div class="product-details">
-              <h3 class="product-title">
-                <a href="shop-single.html">Sweater w/ Colar</a>
-              </h3>
-              <span class="category">
-                <a href="catalogue-grid.html">Men</a>
+              <div class="product-details">
+                <h3 class="product-title">
+                  <a href="/produk6">Denim tottebag</a>
+                </h3>
+                <span class="category">
+                  <a href="catalogue-grid.html">Aksesoris</a>
+                </span>
+              </div>
+              <span class="price">
+                <del>
+                  <span>Rp 500.000</span>
+                </del>
+                <ins>
+                  <span class="amount">Rp 233.000</span>
+                </ins>
               </span>
             </div>
-            <span class="price">
-              <ins>
-                <span class="amount">$299.00</span>
-              </ins>
-            </span>
           </div>
-        </div>
 
-        <div class="product">
-          <div class="product-item hover-trigger">
-            <div class="product-img">
-              <a href="shop-single.html">
-                <img src="img/shop/shop_item_5.jpg" alt="">
-                <img src="img/shop/shop_item_back_5.jpg" alt="" class="back-img">
-              </a>
-              <div class="hover-2">
-                <div class="product-actions">
-                  <a href="#" class="product-add-to-wishlist">
-                    <i class="fa fa-heart"></i>
-                  </a>
-                </div>
-              </div>
-              <a href="#" class="product-quickview">Quick View</a>
-            </div>
-            <div class="product-details">
-              <h3 class="product-title">
-                <a href="shop-single.html">Lola May Crop Blazer</a>
-              </h3>
-              <span class="category">
-                <a href="catalogue-grid.html">Women</a>
-              </span>
-            </div>
-            <span class="price">
-              <ins>
-                <span class="amount">$42.00</span>
-              </ins>
-            </span>
-          </div>
-        </div>
-
-        <div class="product">
-          <div class="product-item hover-trigger">
-            <div class="product-img">
-              <a href="shop-single.html">
-                <img src="img/shop/shop_item_6.jpg" alt="">
-                <img src="img/shop/shop_item_back_6.jpg" alt="" class="back-img">
-              </a>
-              <div class="product-label">
-                <span class="sale">sale</span>
-              </div>
-              <div class="hover-2">
-                <div class="product-actions">
-                  <a href="#" class="product-add-to-wishlist">
-                    <i class="fa fa-heart"></i>
-                  </a>
-                </div>
-              </div>
-              <a href="#" class="product-quickview">Quick View</a>
-            </div>
-            <div class="product-details">
-              <h3 class="product-title">
-                <a href="shop-single.html">Faux Suits</a>
-              </h3>
-              <span class="category">
-                <a href="catalogue-grid.html">Men</a>
-              </span>
-            </div>
-            <span class="price">
-              <del>
-                <span>$500.00</span>
-              </del>
-              <ins>
-                <span class="amount">$233.00</span>
-              </ins>
-            </span>
-          </div>
-        </div>
 
       </div> <!-- end slider -->
 
     </div>
   </div>
-</section> <!-- end related products -->
+</section> <!-- end Produk Serupa -->
 
 
 
