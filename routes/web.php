@@ -79,9 +79,9 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::get("/produk11", [GreenRangerController::class,"produk11"]);
     Route::get("/produk12", [GreenRangerController::class,"produk12"]);
     Route::post('/cart/add', [CartController::class, 'addToCart'])->middleware(LoginMiddleware::class)->name('cart.add');
-    Route::post('/cart/update', [CartController::class, 'updateCart'])->middleware(LoginMiddleware::class)->name('cart.update');
+    Route::post('/cart/update', [CartController::class, 'updateCart'])->middleware(LoginMiddleware::class)->name('cart.update.quantity');
     Route::get('/shop_cart', [CartController::class, 'showCart'])->middleware(LoginMiddleware::class)->name('cart.show');
-    Route::post('/shop_cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::delete('/shop_cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
     Route::get('/shop_checkout', [CheckOutController::class, 'showOrderToCheckOut'])
     ->middleware([LoginMiddleware::class, CheckKesediaanKeranjang::class]);
     Route::post('/shop_checkout/store', [CheckoutController::class, 'store'])->name('checkout.store');

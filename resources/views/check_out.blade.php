@@ -228,7 +228,7 @@
                                 <!-- Order Notes -->
                                 <p class="form-row notes ecommerce-validated" id="order_comments_field">
                                     <label for="order_comments">Order Notes</label>
-                                    <textarea name="order_comments" class="input-text" id="order_comments" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="6"></textarea>
+                                    <textarea name="order_comments" class="input-text" id="order_comments" placeholder="Notes about your order, e.g. special notes for delivery. ( Optional )" rows="2" cols="6"></textarea>
                                 </p>
 
                                 <!-- Submit Button -->
@@ -356,6 +356,32 @@
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/parallax/parallax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    @if ($errors->any())
+    <script>    
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            html: `
+                <ul style="text-align: left;">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            `,
+        });
+    </script>
+    @endif
+
+    @if (session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil!',
+            text: '{{ session('success') }}',
+        });
+    </script>
+    @endif
+
 
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>

@@ -46,8 +46,8 @@ class CheckOutController extends Controller
             'last_name' => 'required|string',
             'billing_address_1' => 'required|string',
             'billing_city' => 'required|string',
-            'billing_postcode' => 'required|string',
-            'billing_phone' => 'required|string',
+            'billing_postcode' => 'required|regex:/^\d{5}$/',  // Validasi untuk 5 angka
+            'billing_phone' => 'required|regex:/^\d{12}$/',  // Validasi untuk 12 angka
             'metode_pengiriman_id' => 'required|integer',
             'order_comments' => 'nullable|string',
             'billing_address_2' => 'nullable|string',
@@ -96,9 +96,11 @@ class CheckOutController extends Controller
         // Update status keranjang menjadi 'Check Out'
         Keranjang::whereIn('id', $keranjangs->pluck('id'))->update(['status' => 'Check Out']);
 
-         // Redirect ke halaman detail checkout dengan ID checkout
-         return redirect()->route('checkout.detail', ['id' => $checkout->id])->with('success', 'Checkout berhasil dilakukan!');
-        }
+        // Redirect ke halaman detail checkout dengan ID checkout
+        return redirect()->route('checkout.detail', ['id' => $checkout->id])->with('success', 'Checkout berhasil dilakukan!');
+    }
+
+
 
         // Menampilkan detail checkout
         public function detail($id)
@@ -143,7 +145,9 @@ class CheckOutController extends Controller
             $snapToken = \Midtrans\Snap::getSnapToken($params);
 
 
-            return view('detail_checkout', compact('checkout','snapToken'));
+            session()->flash('success', 'Checkout berhasil!');
+
+            return view('detail_checkout', compact('checkout', 'snapToken'));
 
         }
 

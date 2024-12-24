@@ -70,15 +70,18 @@ class CartController extends Controller
 
     public function removeFromCart($id)
     {
-        $keranjangItem = Keranjang::find($id);
+        $cartItem = Keranjang::findOrFail($id);
 
-        if ($keranjangItem) {
-            $keranjangItem->delete(); // Hapus item dari keranjang
-            return redirect()->back()->with('success', 'Item berhasil dihapus dari keranjang.'); // Redirect kembali dengan pesan sukses
-        }
+        // Hapus volunteer
+        $cartItem->delete();
 
-        return redirect()->back()->with('error', 'Item tidak ditemukan.'); // Jika item tidak ditemukan
+        // session()->flash('success', 'Data Keranjang berhasil dihapus.');
+
+        // Redirect kembali ke halaman volunteer dengan pesan sukses
+        return redirect()->back()->with('success', 'Data Keranjang berhasil dihapus.');
+
     }
+
 
     // $userId = auth()->id();
 
@@ -88,19 +91,10 @@ class CartController extends Controller
 
     public function updateCart(Request $request)
     {
-        // Loop through each product in the cart and update its quantity
-        foreach ($request->product_id as $key => $id) {
-            $cartItem = Keranjang::find($id);
+        $cartItem = Keranjang::findOrFail($request->product_id); // Temukan item berdasarkan ID
+        $cartItem->quantity = $request->quantity; // Perbarui jumlah
+        $cartItem->save(); // Simpan perubahan
 
-            // Check if cart item exists
-            if ($cartItem) {
-                $quantity = $request->quantity[$key];
-                $cartItem->quantity = max(1, (int)$quantity); // Ensure quantity is at least 1
-                $cartItem->save();
-            }
-        }
-
-        // Redirect back with a success message
-        return redirect('shop_cart')->with('successUpdateCart', 'Update Quantity successfully!');
+        return response()->json(['success' => true, 'message' => 'Keranjang berhasil diperbarui.']);
     }
 }
