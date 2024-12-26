@@ -213,12 +213,14 @@
                                             @foreach($keranjang->checkouts as $checkout)
                                             <td class="product-status">
                                                 @if($checkout->status == 'Sedang Dikirim')
-                                                    <form action="{{ route('update.pesanan', $checkout->id) }}" method="POST" style="display:inline;">
+                                                    <form action="{{ route('update.pesanan', $checkout->id) }}" method="POST" id="form-{{ $checkout->id }}" style="display:inline;">
                                                         @csrf
                                                         <button
-                                                            type="submit"
+                                                            type="button"
                                                             class="btn btn-success"
-                                                            onclick="return confirm('Apakah Anda yakin ingin menyelesaikan pesanan ini?');" style="padding: 10px 13px;">
+                                                            style="padding: 10px 13px;"
+                                                            onclick="confirmCompletion({{ $checkout->id }})"
+                                                        >
                                                             Selesaikan Pesanan
                                                         </button>
                                                     </form>
@@ -405,6 +407,26 @@
             $('body').css('padding-right', '0');
         });
     </script>
+
+<script>
+    function confirmCompletion(orderId) {
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Pesanan akan ditandai sebagai selesai!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, selesaikan!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Submit form jika pengguna mengkonfirmasi
+                document.getElementById(`form-${orderId}`).submit();
+            }
+        });
+    }
+</script>
 
 </body>
 </html>

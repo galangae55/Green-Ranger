@@ -42,6 +42,22 @@
             margin-right: 5px;
         }
 
+        .delete-volunteer:hover {
+            cursor: pointer;
+            background-color: #a00d0d; /* Warna tombol saat hover */
+            color: #fff; /* Warna teks saat hover */
+            transform: scale(1.05); /* Membesarkan tombol sedikit */
+            transition: all 0.3s ease; /* Animasi halus */
+        }
+
+        .update-status-button:hover {
+            cursor: pointer;
+            background-color: #a00d0d; /* Warna tombol saat hover */
+            color: #fff; /* Warna teks saat hover */
+            transform: scale(1.05); /* Membesarkan tombol sedikit */
+            transition: all 0.3s ease; /* Animasi halus */
+        }
+
     </style>
 
 	<!-- My CSS -->
@@ -150,6 +166,18 @@
 				</a> --}}
 			</div>
 
+            @if(session('success'))
+                        <script>
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Berhasil!',
+                                text: "{{ session('success') }}",
+                                confirmButtonColor: '#3085d6',
+                                confirmButtonText: 'OK'
+                            });
+                        </script>
+                    @endif
+
 			<div class="table-data">
                 <div class="order">
                     <div class="head">
@@ -169,7 +197,8 @@
                                 <th>Status</th>
                                 <th>Tanggal Dibuat</th>
                                 <th>Tanggal Diperbarui</th>
-                                <th>Action</th>
+                                <th>Update</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -189,19 +218,23 @@
                                     <td>{{ $volunteer->created_at->format('d-m-Y H:i') }}</td>
                                     <td>{{ $volunteer->updated_at->format('d-m-Y H:i') }}</td>
                                     <td>
-                                        <form action="{{ route('admin.updateStatus', $volunteer->id) }}" method="POST" style="display: flex;justify-content:center; margin-bottom:7px">
+                                        <form action="{{ route('admin.updateStatus', $volunteer->id) }}" method="POST" style="display: flex; justify-content:center; margin-bottom:7px">
                                             @csrf
                                             @method('PATCH')
-                                            <button type="submit" class="btn {{ $volunteer->status == 'accepted' ? 'btn-warning' : 'btn-success' }}">
+                                            <button type="submit" class="btn update-status-button {{ $volunteer->status == 'accepted' ? 'btn-warning' : 'btn-success' }}">
                                                 {{ $volunteer->status == 'accepted' ? 'Set to Pending' : 'Set to Accept' }}
                                             </button>
                                         </form>
+                                    </td>
 
+                                    <td>
                                         <!-- Form hapus volunteer -->
-                                        <form action="{{ route('admin.deleteVolunteer', $volunteer->id) }}" method="POST" style="display: flex; justify-content:center">
+                                        <form action="{{ route('admin.deleteVolunteer', $volunteer->id) }}" method="POST" class="delete-form" style="display: flex; justify-content:center; font-family: 'poppins', sans-serif">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this volunteer?')" style="background-color: #b61e1e;">
+                                            <button type="button" class="btn btn-danger delete-volunteer"
+                                                data-action="{{ route('admin.deleteVolunteer', $volunteer->id) }}"
+                                                style="background-color: #b61e1e; font-family: 'poppins', sans-serif">
                                                 Delete
                                             </button>
                                         </form>
@@ -210,18 +243,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    @if(session('success'))
-                        <script>
-                            window.addEventListener('load', function() {
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'Berhasil!',
-                                    text: "{{ session('success') }}",
-                                    confirmButtonColor: '#b61e1e',
-                                });
-                            });
-                        </script>
-                    @endif
+
                 </div>
             </div>
 		</main>
@@ -271,6 +293,55 @@
         }
     </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const deleteButtons = document.querySelectorAll('.delete-volunteer');
+
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const actionUrl = this.dataset.action; // Ambil URL dari atribut data-action
+
+                // Tampilkan dialog konfirmasi SweetAlert2
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'Cancel'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Buat form untuk mengirim permintaan DELETE
+                        const form = document.createElement('form');
+                        form.method = 'POST';
+                        form.action = actionUrl;
+
+                        // Tambahkan token CSRF dan metode DELETE
+                        const csrfToken = document.querySelector('input[name="_token"]').value;
+                        const methodField = document.createElement('input');
+                        methodField.type = 'hidden';
+                        methodField.name = '_method';
+                        methodField.value = 'DELETE';
+
+                        const csrfField = document.createElement('input');
+                        csrfField.type = 'hidden';
+                        csrfField.name = '_token';
+                        csrfField.value = csrfToken;
+
+                        form.appendChild(methodField);
+                        form.appendChild(csrfField);
+
+                        // Tambahkan form ke body dan submit
+                        document.body.appendChild(form);
+                        form.submit();
+                    }
+                });
+            });
+        });
+    });
+    </script>
 
 	<script src="/js/admin.js"></script>
 </body>

@@ -91,6 +91,18 @@ class AdminController extends Controller
         return redirect()->route('admin.volunteer');
     }
 
+    public function deleteKontak($id)
+    {
+        // Cari volunteer berdasarkan id
+        $kontaks = kontak::findOrFail($id);
+
+        // Hapus volunteer
+        $kontaks->delete();
+
+        return redirect()->route('admin.kontak')->with('success', 'Kontak berhasil dihapus!');
+    }
+
+
 
     public function adminDonation()
     {
@@ -106,19 +118,7 @@ class AdminController extends Controller
         return view('adminKontak', compact('kontak'));
     }
 
-    public function deleteKontak($id)
-    {
-        // Cari volunteer berdasarkan id
-        $kontak = kontak::findOrFail($id);
 
-        // Hapus volunteer
-        $kontak->delete();
-
-        session()->flash('success', 'Data Kontak berhasil dihapus.');
-
-        // Redirect kembali ke halaman volunteer dengan pesan sukses
-        return redirect()->route('admin.kontak');
-    }
 
     public function adminBelanja()
     {
@@ -131,7 +131,7 @@ class AdminController extends Controller
 
     public function BelanjaUpdate(Request $request, $id)
     {
-
+        // Validasi input
         $validated = $request->validate([
             'status' => 'required|string|in:Belum Dibayar,Sedang Diproses,Sedang Dikirim,Diterima,Gagal',
         ]);
@@ -141,7 +141,25 @@ class AdminController extends Controller
 
         if ($checkout) {
             $checkout->update(['status' => $validated['status']]);
+
+            // Jika request dari Fetch API, kembalikan respons JSON
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Status berhasil diperbarui.',
+                ]);
+            }
+
+            // Jika request biasa, redirect dengan flash message
             return redirect()->back()->with('success', 'Status berhasil diperbarui.');
+        }
+
+        // Jika tidak ditemukan, kembalikan error sesuai jenis request
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Checkout tidak ditemukan.',
+            ], 404);
         }
 
         return redirect()->back()->with('error', 'Checkout tidak ditemukan.');

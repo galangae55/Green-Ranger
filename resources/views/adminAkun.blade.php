@@ -150,6 +150,18 @@
 				</a> --}}
 			</div>
 
+            @if(session('success'))
+                        <script>
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Berhasil!',
+                                text: "{{ session('success') }}",
+                                confirmButtonColor: '#3085d6',
+                                confirmButtonText: 'OK'
+                            });
+                        </script>
+                    @endif
+
 			<div class="table-data">
                 <div class="order">
                     <div class="head">
@@ -166,7 +178,8 @@
                                 <th>Role</th>
                                 <th>Tanggal Dibuat</th>
                                 <th>Tanggal Diperbarui</th>
-                                <th>Action</th>
+                                <th>Update</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -186,10 +199,16 @@
                                                 {{ $user->role == 'user' ? 'Set to Admin' : 'Set to User' }}
                                             </button>
                                         </form>
-                                        <form action="{{ route('admin.deleteAkun', $user->id) }}" method="POST" style="display: flex; justify-content:center">
+                                    </td>
+
+                                    <td>
+                                        <!-- Form hapus volunteer -->
+                                        <form action="{{ route('admin.deleteAkun', $user->id) }}" method="POST" class="delete-form" style="display: flex; justify-content:center; font-family: 'poppins', sans-serif">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this volunteer?')" style="background-color: #b61e1e;">
+                                            <button type="button" class="btn btn-danger delete-akun"
+                                                data-action="{{ route('admin.deleteAkun', $user->id) }}"
+                                                style="background-color: #b61e1e; font-family: 'poppins', sans-serif">
                                                 Delete
                                             </button>
                                         </form>
@@ -198,18 +217,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                    @if(session('success'))
-                        <script>
-                            window.addEventListener('load', function() {
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'Berhasil!',
-                                    text: "{{ session('success') }}",
-                                    confirmButtonColor: '#b61e1e',
-                                });
-                            });
-                        </script>
-                    @endif
                 </div>
             </div>
 		</main>
@@ -258,6 +265,57 @@
             }
         }
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const deleteButtons = document.querySelectorAll('.delete-akun');
+
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const actionUrl = this.dataset.action; // Ambil URL dari atribut data-action
+
+                // Tampilkan dialog konfirmasi SweetAlert2
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'Cancel'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Buat form untuk mengirim permintaan DELETE
+                        const form = document.createElement('form');
+                        form.method = 'POST';
+                        form.action = actionUrl;
+
+                        // Tambahkan token CSRF dan metode DELETE
+                        const csrfToken = document.querySelector('input[name="_token"]').value;
+                        const methodField = document.createElement('input');
+                        methodField.type = 'hidden';
+                        methodField.name = '_method';
+                        methodField.value = 'DELETE';
+
+                        const csrfField = document.createElement('input');
+                        csrfField.type = 'hidden';
+                        csrfField.name = '_token';
+                        csrfField.value = csrfToken;
+
+                        form.appendChild(methodField);
+                        form.appendChild(csrfField);
+
+                        // Tambahkan form ke body dan submit
+                        document.body.appendChild(form);
+                        form.submit();
+                    }
+                });
+            });
+        });
+    });
+    </script>
+
 
 
 	<script src="/js/admin.js"></script>

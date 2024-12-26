@@ -57,18 +57,17 @@
 </head>
 <body>
     @if(session('success'))
-    <script>
-        window.addEventListener('load', function() {
-            Swal.fire({
-                icon: 'success',
-                title: 'Berhasil!',
-                text: "{{ session('success') }}",
-                confirmButtonColor: '#721c24',
+        <script>
+            window.addEventListener('load', function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: "{{ session('success') }}",
+                    confirmButtonColor: '#3085d6',
+                });
             });
-        });
         </script>
     @endif
-
 
 
     <!-- SIDEBAR -->
@@ -222,7 +221,9 @@
                                                     <select
                                                         name="status"
                                                         class="form-control"
-                                                        onchange="document.getElementById('form-status-{{ $checkout->id }}').submit()"
+                                                        id="status-select-{{ $checkout->id }}"
+                                                        style="transition: background-color 0.3s;"
+                                                        onchange="handleStatusChange('{{ $checkout->status }}', {{ $checkout->id }})"
                                                     >
                                                         <option value="Belum Dibayar" {{ $checkout->status == 'Belum Dibayar' ? 'selected' : '' }}>Belum Dibayar</option>
                                                         <option value="Sedang Dikirim" {{ $checkout->status == 'Sedang Dikirim' ? 'selected' : '' }}>Sedang Dikirim</option>
@@ -230,6 +231,7 @@
                                                         <option value="Diterima" {{ $checkout->status == 'Diterima' ? 'selected' : '' }}>Diterima</option>
                                                         <option value="Gagal" {{ $checkout->status == 'Gagal' ? 'selected' : '' }}>Gagal</option>
                                                     </select>
+                                                    <button type="submit" class="btn btn-primary mt-2">Update</button>
                                                 </form>
                                             </td>
                                             <td class="product-Viewdetail">
@@ -338,6 +340,20 @@
                 } else {
                     rows[i].style.display = "none";
                 }
+            }
+        }
+    </script>
+
+    <script>
+        function handleStatusChange(initialStatus, id) {
+            const selectElement = document.getElementById(`status-select-${id}`);
+            const currentValue = selectElement.value;
+
+            // Jika status berubah, ubah warna background
+            if (currentValue !== initialStatus) {
+                selectElement.style.backgroundColor = '#45a049'; // Ubah ke warna merah
+            } else {
+                selectElement.style.backgroundColor = ''; // Kembalikan ke warna default
             }
         }
     </script>
