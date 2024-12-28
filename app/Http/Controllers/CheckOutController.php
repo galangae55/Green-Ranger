@@ -140,6 +140,9 @@ class CheckOutController extends Controller
                     'last_name' => $last_name,
                     'phone' => $billing_phone,
                 ),
+                'callbacks' => array(
+                    'finish' => route('belanja') // Redirect ke halaman belanja
+                ),
             );
 
             $snapToken = \Midtrans\Snap::getSnapToken($params);
@@ -151,15 +154,48 @@ class CheckOutController extends Controller
 
         }
 
-        public function callback(request $request){
+        public function callback(Request $request)
+        {
             $serverKey = config('midtrans.server_key');
-            $hashed = hash("sha512",$request->order_id, $request->status_code,$request->gross_amount.$serverKey);
-            if($hashed == $request->signature_key){
-                if($request->transaction_status == 'capture'){
-                    $checkout = CheckOut::findOrFail($request->order_id);
-                    $checkout->status = 'Sedang Diproses';
+            $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
+
+            // Verifikasi signature key
+            if ($hashed == $request->signature_key) {
+                // Cari data checkout berdasarkan order_id
+                $orderId = str_replace('ORDER-', '', $request->order_id); // Hapus prefix "ORDER-"
+                $checkout = CheckOut::findOrFail($orderId);
+
+                // Periksa status transaksi
+                if ($request->transaction_status == 'capture' || $request->transaction_status == 'settlement') {
+                    // Update status checkout menjadi "Sedang Dikirim"
+                    $checkout->status = 'Sedang Dikirim';
+                    $checkout->save();
+                } elseif ($request->transaction_status == 'deny' || $request->transaction_status == 'expire' || $request->transaction_status == 'cancel') {
+                    // Update status checkout menjadi "Dibatalkan"
+                    $checkout->status = 'gagal';
+                    $checkout->save();
                 }
             }
+
+            return response()->json(['status' => 'success'], 200);
         }
+
+        public function updateStatus(Request $request, $id)
+        {
+            // Validasi input
+            $request->validate([
+                'status' => 'required|string'
+            ]);
+
+            // Cari data checkout berdasarkan ID
+            $checkout = CheckOut::findOrFail($id);
+
+            // Perbarui status checkout
+            $checkout->status = $request->status;
+            $checkout->save();
+
+            return response()->json(['success' => true, 'message' => 'Status berhasil diperbarui']);
+        }
+
 
 }

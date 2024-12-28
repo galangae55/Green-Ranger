@@ -397,44 +397,96 @@
     </script>
 
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var payButton = document.getElementById('pay-button');
+
             payButton.addEventListener('click', function (e) {
                 e.preventDefault(); // Mencegah perilaku default tombol
 
                 var snapToken = "{{ $snapToken }}";
-                if(snapToken) {
+                if (snapToken) {
                     window.snap.pay(snapToken, {
-                        onSuccess: function(result) {
-                            /* Implementasi sendiri */
-                            alert("Pembayaran berhasil!");
-                            console.log(result);
-                            // Redirect ke halaman sukses
-                            window.location.href = "{{ route('donation.success') }}";
+                        onSuccess: function (result) {
+                            // Jika pembayaran berhasil
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Pembayaran Berhasil!',
+                                text: 'Terima kasih atas donasi Anda. Anda akan diarahkan kembali ke halaman donasi.',
+                                confirmButtonText: 'OK',
+                            }).then(() => {
+                                // Kirim permintaan AJAX ke server untuk memperbarui status
+                                $.ajax({
+                                    url: "{{ route('donation.updateStatus', ['id' => $donation->id]) }}",
+                                    type: "POST",
+                                    data: {
+                                        status: 'settlement',
+                                        _token: "{{ csrf_token() }}",
+                                    },
+                                    success: function (response) {
+                                        // Redirect ke halaman donate setelah status diperbarui
+                                        if (response.success) {
+                                            window.location.href = "{{ route('donation.form') }}";
+                                        } else {
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'Gagal Memperbarui Status',
+                                                text: response.message || 'Terjadi kesalahan, silakan coba lagi.',
+                                            });
+                                        }
+                                    },
+                                    error: function (xhr, status, error) {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Terjadi Kesalahan',
+                                            text: 'Gagal memperbarui status donasi.',
+                                        });
+                                        console.error(xhr.responseText);
+                                    },
+                                });
+                            });
                         },
-                        onPending: function(result) {
-                            /* Implementasi sendiri */
-                            alert("Menunggu pembayaran Anda!");
+                        onPending: function (result) {
+                            // Jika pembayaran belum selesai
+                            Swal.fire({
+                                icon: 'info',
+                                title: 'Menunggu Pembayaran',
+                                text: 'Silakan selesaikan pembayaran Anda.',
+                                confirmButtonText: 'OK',
+                            });
                             console.log(result);
-                            // Redirect ke halaman pending jika diperlukan
                         },
-                        onError: function(result) {
-                            /* Implementasi sendiri */
-                            alert("Pembayaran gagal!");
+                        onError: function (result) {
+                            // Jika terjadi kesalahan
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Pembayaran Gagal',
+                                text: 'Terjadi kesalahan, silakan coba lagi.',
+                                confirmButtonText: 'OK',
+                            });
                             console.log(result);
-                            // Redirect ke halaman error jika diperlukan
                         },
-                        onClose: function() {
-                            /* Implementasi sendiri */
-                            alert('Anda menutup popup tanpa menyelesaikan pembayaran');
-                        }
+                        onClose: function () {
+                            // Jika popup pembayaran ditutup
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'Popup Ditutup',
+                                text: 'Anda menutup popup tanpa menyelesaikan pembayaran.',
+                                confirmButtonText: 'OK',
+                            });
+                        },
                     });
                 } else {
-                    alert('Snap token tidak tersedia.');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Token Tidak Tersedia',
+                        text: 'Snap token tidak ditemukan.',
+                        confirmButtonText: 'OK',
+                    });
                 }
             });
         });
     </script>
+
 
     <script>
         AOS.init();

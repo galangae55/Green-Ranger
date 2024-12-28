@@ -354,7 +354,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <div id="snap-container">
+                                {{-- <div id="snap-container"> --}}
                                 </div>
                             </div>
 
@@ -363,6 +363,7 @@
                             <div class="text-right mt-3">
                                 <button id="pay-button" class="btn btn-primary">Pay Now</button>
                                 <!-- Tambahkan tombol lain jika diperlukan, seperti cetak invoice -->
+                                <div id="snap-container">
                             </div>
 
                         </div>
@@ -464,7 +465,7 @@
         AOS.init();
     </script>
 
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         // For example trigger on button clicked, or any time you need
         var payButton = document.getElementById('pay-button');
         payButton.addEventListener('click', function () {
@@ -493,7 +494,93 @@
             }
         });
         });
+    </script> --}}
+
+    <script type="text/javascript">
+        // Ambil elemen tombol bayar
+        var payButton = document.getElementById('pay-button');
+
+        payButton.addEventListener('click', function () {
+            // Ambil Snap Token dari server
+            var snapToken = "{{$snapToken}}";
+
+            // Trigger Snap popup
+            window.snap.embed('{{$snapToken}}', {
+                embedId: 'snap-container',
+                onSuccess: function (result) {
+                    // Tampilkan notifikasi sukses
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Pembayaran Berhasil!',
+                        text: 'Terima kasih telah melakukan pembayaran. Anda akan diarahkan kembali ke halaman belanja.',
+                        confirmButtonText: 'OK'
+                    }).then(() => {
+                        // Kirim permintaan ke backend untuk memperbarui status checkout
+                        fetch('{{ route("checkout.updateStatus", ["id" => $checkout->id]) }}', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            },
+                            body: JSON.stringify({
+                                status: 'Sedang Dikirim'
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                // Redirect ke halaman belanja
+                                window.location.href = '/belanja';
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Gagal Memperbarui Status',
+                                    text: 'Silakan coba lagi atau hubungi admin.',
+                                    confirmButtonText: 'OK'
+                                });
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Terjadi Kesalahan',
+                                text: 'Tidak dapat memperbarui status checkout.',
+                                confirmButtonText: 'OK'
+                            });
+                        });
+                    });
+                },
+                onPending: function (result) {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Menunggu Pembayaran',
+                        text: 'Silakan selesaikan pembayaran Anda.',
+                        confirmButtonText: 'OK'
+                    });
+                    console.log(result);
+                },
+                onError: function (result) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Pembayaran Gagal',
+                        text: 'Silakan coba lagi.',
+                        confirmButtonText: 'OK'
+                    });
+                    console.log(result);
+                },
+                onClose: function () {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Popup Ditutup',
+                        text: 'Anda menutup popup tanpa menyelesaikan pembayaran.',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            });
+        });
     </script>
+
 
 </body>
 </html>

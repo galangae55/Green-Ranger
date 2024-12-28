@@ -50,7 +50,7 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::get("/contact", [GreenRangerController::class,"contact"]);
     Route::post('/contact/store', [ContactController::class, 'store'])->name('contacts.store');
     Route::post('/contact/storeNoLogin', [ContactController::class, 'storeNoLogin'])->name('contacts.storeNoLogin');
-    Route::get("/belanja", [GreenRangerController::class,"belanja"]);
+    Route::get("/belanja", [GreenRangerController::class,"belanja"])->name('belanja');
     Route::get("/detail", [GreenRangerController::class,"detail"]);
     Route::get("/detail2", [GreenRangerController::class,"detail2"]);
     Route::get("/detail3", [GreenRangerController::class,"detail3"]);
@@ -87,6 +87,8 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::post('/shop_checkout/store', [CheckoutController::class, 'store'])->name('checkout.store');
     // Rute untuk menampilkan detail checkout
     Route::get('/checkout/detail/{id}', [CheckoutController::class, 'detail'])->name('checkout.detail');
+    Route::post('/midtrans-callback', [CheckOutController::class, 'callback'])->name('midtrans.callback');
+    Route::post('/checkout/update-status/{id}', [CheckOutController::class, 'updateStatus'])->name('checkout.updateStatus');
     Route::get("/daftar_transaksi", [DaftarTransaksiController::class,"showPesanan"])->middleware(LoginMiddleware::class);
     Route::post('/daftar_transaksi/update/{id}', [DaftarTransaksiController::class,'UpdatePesanan'])->name('update.pesanan')->middleware(LoginMiddleware::class);
 });
@@ -104,7 +106,9 @@ Route::post('/donate/process', [DonationController::class, 'processForm'])->name
 Route::get('/donate/detail', [DonationController::class, 'showDetail'])->name('donation.detail');
 Route::post('/midtrans/callback', [DonationController::class, 'handleMidtransCallback'])->name('midtrans.callback');
 Route::get('/donation/success', [DonationController::class, 'showSuccessPage'])->name('donation.success');
+Route::post('/donation/update-status/{id}', [DonationController::class, 'updateStatus'])->name('donation.updateStatus');
 
 
 
-Route::post('/midtrans-callback', [CheckOutController::class, 'callback']);
+
+
