@@ -84,11 +84,12 @@ class DonationController extends Controller
 
     public function handleMidtransCallback(Request $request)
     {
-        // Konfigurasi Midtrans untuk memproses callback
+        // Konfigurasi Midtrans
         Config::$serverKey = config('midtrans.server_key');
         Config::$isProduction = false;
         Config::$isSanitized = true;
 
+        // Terima notifikasi dari Midtrans
         $notification = new Notification();
         $orderId = $notification->order_id;
         $transactionStatus = $notification->transaction_status;
@@ -99,9 +100,9 @@ class DonationController extends Controller
         if ($donation) {
             DB::beginTransaction();
             try {
-                // Update status donasi berdasarkan status transaksi
+                // Perbarui status berdasarkan status transaksi dari Midtrans
                 if ($transactionStatus == 'settlement') {
-                    $donation->status = 'done';
+                    $donation->status = 'settlement';
                 } elseif ($transactionStatus == 'pending') {
                     $donation->status = 'pending';
                 } elseif (in_array($transactionStatus, ['deny', 'expire', 'cancel'])) {
@@ -111,25 +112,32 @@ class DonationController extends Controller
                 $donation->save();
                 DB::commit();
 
-                // Log hasil update
-                \Log::info("Status berhasil diperbarui menjadi {$donation->status} untuk Order ID - {$orderId}");
-
+                \Log::info("Status donasi dengan Order ID {$orderId} berhasil diperbarui menjadi {$donation->status}");
             } catch (\Exception $e) {
                 DB::rollBack();
                 \Log::error("Gagal memperbarui status donasi: " . $e->getMessage());
                 return response()->json(['status' => 'error', 'message' => 'Gagal memperbarui status donasi'], 500);
             }
         } else {
-            // Log jika order_id tidak ditemukan
-            \Log::error("Donasi dengan order_id {$orderId} tidak ditemukan.");
+            \Log::error("Donasi dengan Order ID {$orderId} tidak ditemukan.");
             return response()->json(['status' => 'error', 'message' => 'Donasi tidak ditemukan'], 404);
         }
 
         return response()->json(['status' => 'ok']);
     }
 
-    public function showSuccessPage()
+    public function updateStatus(Request $request, $id)
     {
-        return redirect()->route('donation.form')->with('success', 'Terima kasih, pembayaran Anda telah berhasil!');
+        $request->validate([
+            'status' => 'required|string',
+        ]);
+
+        $donation = Donation::findOrFail($id);
+        $donation->status = $request->status;
+        $donation->save();
+
+        return response()->json(['success' => true, 'message' => 'Status berhasil diperbarui']);
     }
+
+
 }
