@@ -533,6 +533,8 @@
                                         Artikel ini membahas berbagai metode untuk mengelola sampah rumah tangga.
                                     </p>
                                 </div>
+
+                                
                                 {{-- <div class="blog-meta">
                                     <p><i class="fa fa-user"></i><a href="">Effendi</a></p>
                                     <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
