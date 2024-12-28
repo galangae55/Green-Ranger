@@ -192,7 +192,7 @@
                                         <p><i class="far fa-clock"></i>08:00 - 12:00 WIB</p>
                                         <p><i class="fa fa-map-marker-alt"></i>Bukit Jaddih, Bangkalan</p>
                                     </div>
-                                    <div class="event-text">
+                                    <div class="event-text"  style="max-width: 100%">
                                         <h3><a href="/acara2">Jaddih Bersih</a></h3>
                                         <p>
                                             Sebuah kegiatan tahunan yang dibuat oleh Pemerintah Kota Bangkalan untuk membersihkan lembah Bukit Jaddih dari sampah wisatawan.
@@ -211,7 +211,7 @@
                                         <p><i class="far fa-clock"></i>07:00 - 12:00 WIB</p>
                                         <p><i class="fa fa-map-marker-alt"></i>Pantai Kenjeran</p>
                                     </div>
-                                    <div class="event-text">
+                                    <div class="event-text" style="max-width: 100%">
                                         <h3><a href="/acara1">Kenjeran Clean</a></h3>
                                         <p>
                                             Sebuah kegiatan tahunan yang diprakarsai oleh Bank Sampah Trash Wallet dan berkolaborasi dengan warga setempat untuk membersihkan pantai dari sampah laut.
@@ -230,7 +230,7 @@
                                         <p><i class="far fa-clock"></i>09:00 - 15:00 WIB</p>
                                         <p><i class="fa fa-map-marker-alt"></i>Dinas Kebersihan dan </br> pertamanan</p>
                                     </div>
-                                    <div class="event-text">
+                                    <div class="event-text"  style="max-width: 100%">
                                         <h3><a href="/acara3">Penyaluran Donasi</a></h3>
                                         <p>
                                             Penyaluran bantuan donasi berupa alat kebersihan dan pertamanan
@@ -249,7 +249,7 @@
                                         <p><i class="far fa-clock"></i>07:00 - 12:00</p>
                                         <p><i class="fa fa-map-marker-alt"></i>Gedung Balai Kartika,<br> Surabaya</p>
                                     </div>
-                                    <div class="event-text">
+                                    <div class="event-text"  style="max-width: 100%">
                                         <h3><a href="/acara4">Seminar Pelestarian Alam</a></h3>
                                         <p>
                                             Sebuah seminar pelestarian alam.

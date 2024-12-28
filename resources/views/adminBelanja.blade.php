@@ -231,7 +231,7 @@
                                                         <option value="Diterima" {{ $checkout->status == 'Diterima' ? 'selected' : '' }}>Diterima</option>
                                                         <option value="Gagal" {{ $checkout->status == 'Gagal' ? 'selected' : '' }}>Gagal</option>
                                                     </select>
-                                                    <button type="submit" class="btn btn-primary mt-2">Update</button>
+                                                    <button type="submit" class="btn btn-primary mt-2" style="border-radius: 25px;">Update</button>
                                                 </form>
                                             </td>
                                             <td class="product-Viewdetail">

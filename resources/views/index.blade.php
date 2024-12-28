@@ -438,7 +438,7 @@
                                         <p><i class="far fa-clock"></i>08:00 - 12:00 WIB</p>
                                         <p><i class="fa fa-map-marker-alt"></i>Bukit Jaddih, Bangkalan</p>
                                     </div>
-                                    <div class="event-text">
+                                    <div class="event-text" style="max-width: 100%">
                                         <h3>Jaddih Bersih</h3>
                                         <p>
                                             Sebuah kegiatan tahunan yang dibuat oleh Pemerintah Kota Bangkalan untuk membersihkan lembah Bukit Jaddih dari sampah wisatawan.
@@ -458,7 +458,7 @@
                                         <p><i class="far fa-clock"></i>07:00 - 12:00 WIB</p>
                                         <p><i class="fa fa-map-marker-alt"></i>Pantai Kenjeran</p>
                                     </div>
-                                    <div class="event-text">
+                                    <div class="event-text" style="max-width: 100%">
                                         <h3>Kenjeran Clean</h3>
                                         <p>
                                             Sebuah kegiatan tahunan yang diprakarsai oleh Bank Sampah Trash Wallet dan berkolaborasi dengan warga setempat untuk membersihkan pantai dari sampah laut.
