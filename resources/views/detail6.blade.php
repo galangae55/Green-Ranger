@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>detail</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- Favicon -->
@@ -75,11 +76,21 @@
                     <div class="col-md-4">
                         <div class="top-bar-right">
                             <div class="social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
+                                <a href="#" onclick="showNotification('Twitter')"><i class="fab fa-twitter"></i></a>
+                                <a href="#" onclick="showNotification('Facebook')"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" onclick="showNotification('LinkedIn')"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" onclick="showNotification('Instagram')"><i class="fab fa-instagram"></i></a>
                             </div>
+                            <script>
+                                function showNotification(platform) {
+                                    Swal.fire({
+                                        icon: 'info',
+                                        title: 'Informasi',
+                                        text: `Maaf, ${platform} belum tersedia.`,
+                                        confirmButtonText: 'OK'
+                                    });
+                                }
+                            </script>
                             @if (session('user_name'))
                                 <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
                             @endif
@@ -230,13 +241,13 @@
 
                         </div>
                         <div class="single-tags">
-                            <a href="">Nasional</a>
-                            <a href="">Internasional</a>
-                            <a href="">Gaya Hidup</a>
-                            <a href="">Lingkungan</a>
-                            <a href="">Sampah</a>
-                            <a href="">Kebersihan</a>
-                            <a href="">Teknologi</a>
+                            <a href="/blog">Nasional</a>
+                            <a href="/blog">Internasional</a>
+                            <a href="/blog">Gaya Hidup</a>
+                            <a href="/blog">Lingkungan</a>
+                            <a href="/blog">Sampah</a>
+                            <a href="/blog">Kebersihan</a>
+                            <a href="/blog">Teknologi</a>
                         </div>
                         <div class="single-bio">
                             <div class="single-bio-img">
@@ -317,7 +328,7 @@
                                             <p><span></span>{{ $comment->created_at }}</p>
                                             <span>{{ $comment->komentar }}</span>
                                             <p> </p>
-                                            <a class="btn" href="">Jawab</a>
+
                                         </div>
                                     </div>
                                 </li>
@@ -512,16 +523,54 @@
                                                 </div>
                                             </div>
                                         </div>
+
+
                                         <div id="popular" class="container tab-pane fade">
                                             <div class="post-item">
                                                 <div class="post-img">
-                                                    <img src="img/blog1.jpg" />
+                                                    <img src="img/blog6.jpg" />
                                                 </div>
                                                 <div class="post-text">
-                                                    <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                    <a href="">Tips Mengelola Sampah Elektronik Dengan Bijak</a>
                                                     <div class="post-meta">
-                                                        <p>By<a href="">Admin</a></p>
-                                                        <p>In<a href="">Web Design</a></p>
+                                                        <p>By<a href="">Reyhan</a></p>
+                                                        <p>In<a href="">Tulungagung</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="post-item">
+                                                <div class="post-img">
+                                                    <img src="img/blog4.jpg" />
+                                                </div>
+                                                <div class="post-text">
+                                                    <a href="">Tips Mengurangi Penggunaan Energi di Rumah</a>
+                                                    <div class="post-meta">
+                                                        <p>By<a href="">Galatama</a></p>
+                                                        <p>In<a href="">Surabaya</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="post-item">
+                                                <div class="post-img">
+                                                    <img src="img/blog5.jpg" />
+                                                </div>
+                                                <div class="post-text">
+                                                    <a href="">Menjaga Kebersihan dan Kelestarian Sumber Air</a>
+                                                    <div class="post-meta">
+                                                        <p>By<a href="">Bambang</a></p>
+                                                        <p>In<a href="">Medan</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="post-item">
+                                                <div class="post-img">
+                                                    <img src="img/blog3.jpg" />
+                                                </div>
+                                                <div class="post-text">
+                                                    <a href="">Mengelola Sampah Rumah Tangga Secara Efektif</a>
+                                                    <div class="post-meta">
+                                                        <p>By<a href="">Effendi</a></p>
+                                                        <p>In<a href="">Jember</a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -530,22 +579,48 @@
                                                     <img src="img/blog2.jpg" />
                                                 </div>
                                                 <div class="post-text">
-                                                    <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                    <a href="">Meningkatkan Kesadaran Lingkungan Melalui Pendidikan</a>
                                                     <div class="post-meta">
-                                                        <p>By<a href="">Admin</a></p>
-                                                        <p>In<a href="">Web Design</a></p>
+                                                        <p>By<a href="">Muhammad Galang</a></p>
+                                                        <p>In<a href="">Jakarta</a></p>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div id="latest" class="container tab-pane fade">
                                             <div class="post-item">
                                                 <div class="post-img">
                                                     <img src="img/blog5.jpg" />
                                                 </div>
                                                 <div class="post-text">
-                                                    <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                    <a href="">Menjaga Kebersihan dan Kelestarian Sumber Air</a>
                                                     <div class="post-meta">
-                                                        <p>By<a href="">Admin</a></p>
-                                                        <p>In<a href="">Web Design</a></p>
+                                                        <p>By<a href="">Bambang</a></p>
+                                                        <p>In<a href="">Medan</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="post-item">
+                                                <div class="post-img">
+                                                    <img src="img/blog3.jpg" />
+                                                </div>
+                                                <div class="post-text">
+                                                    <a href="">Mengelola Sampah Rumah Tangga Secara Efektif</a>
+                                                    <div class="post-meta">
+                                                        <p>By<a href="">Effendi</a></p>
+                                                        <p>In<a href="">Jember</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="post-item">
+                                                <div class="post-img">
+                                                    <img src="img/blog4.jpg" />
+                                                </div>
+                                                <div class="post-text">
+                                                    <a href="">Tips Mengurangi Penggunaan Energi di Rumah</a>
+                                                    <div class="post-meta">
+                                                        <p>By<a href="">Galatama</a></p>
+                                                        <p>In<a href="">Surabaya</a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -554,87 +629,26 @@
                                                     <img src="img/blog6.jpg" />
                                                 </div>
                                                 <div class="post-text">
-                                                    <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                    <a href="">Tips Mengelola Sampah Elektronik Dengan Bijak</a>
                                                     <div class="post-meta">
-                                                        <p>By<a href="">Admin</a></p>
-                                                        <p>In<a href="">Web Design</a></p>
+                                                        <p>By<a href="">Reyhan</a></p>
+                                                        <p>In<a href="">Tulungagung</a></p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="post-item">
                                                 <div class="post-img">
-                                                    <img src="img/blog3.jpg" />
+                                                    <img src="img/blog2.jpg" />
                                                 </div>
                                                 <div class="post-text">
-                                                    <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                    <a href="">Meningkatkan Kesadaran Lingkungan Melalui Pendidikan</a>
                                                     <div class="post-meta">
-                                                        <p>By<a href="">Admin</a></p>
-                                                        <p>In<a href="">Web Design</a></p>
+                                                        <p>By<a href="">Muhammad Galang</a></p>
+                                                        <p>In<a href="">Jakarta</a></p>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div id="latest" class="container tab-pane fade">
-                                            <div class="post-item">
-                                                <div class="post-img">
-                                                    <img src="img/blog4.jpg" />
-                                                </div>
-                                                <div class="post-text">
-                                                    <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                    <div class="post-meta">
-                                                        <p>By<a href="">Admin</a></p>
-                                                        <p>In<a href="">Web Design</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-item">
-                                                <div class="post-img">
-                                                    <img src="img/blog3.jpg" />
-                                                </div>
-                                                <div class="post-text">
-                                                    <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                    <div class="post-meta">
-                                                        <p>By<a href="">Admin</a></p>
-                                                        <p>In<a href="">Web Design</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-item">
-                                                <div class="post-img">
-                                                    <img src="img/blog1.jpg" />
-                                                </div>
-                                                <div class="post-text">
-                                                    <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                    <div class="post-meta">
-                                                        <p>By<a href="">Admin</a></p>
-                                                        <p>In<a href="">Web Design</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-item">
-                                                <div class="post-img">
-                                                    <img src="img/blog5.jpg" />
-                                                </div>
-                                                <div class="post-text">
-                                                    <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                    <div class="post-meta">
-                                                        <p>By<a href="">Admin</a></p>
-                                                        <p>In<a href="">Web Design</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-item">
-                                                <div class="post-img">
-                                                    <img src="img/blog1.jpg" />
-                                                </div>
-                                                <div class="post-text">
-                                                    <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                    <div class="post-meta">
-                                                        <p>By<a href="">Admin</a></p>
-                                                        <p>In<a href="">Web Design</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -646,7 +660,7 @@
                                 </div>
                             </div>
 
-                            <div class="sidebar-widget">
+                            {{-- <div class="sidebar-widget">
                                 <h2 class="widget-title">Kategori</h2>
                                 <div class="category-widget">
                                     <ul>
@@ -659,7 +673,7 @@
                                         <li><a href="">Teknologi</a><span>(32)</span></li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="sidebar-widget">
                                 <div class="image-widget">
@@ -670,13 +684,13 @@
                             <div class="sidebar-widget">
                                 <h2 class="widget-title">Tag</h2>
                                 <div class="tag-widget">
-                                    <li><a href="">Nasional</a><span>(98)</span></li>
-                                        <li><a href="">Internasional</a><span>(87)</span></li>
-                                        <li><a href="">Gaya Hidup</a><span>(76)</span></li>
-                                        <li><a href="">Lingkungan</a><span>(65)</span></li>
-                                        <li><a href="">Sampah</a><span>(54)</span></li>
-                                        <li><a href="">Kebersihan</a><span>(43)</span></li>
-                                        <li><a href="">Teknologi</a><span>(32)</span></li>
+                                    <li><a href="/blog">Nasional</a><span>(98)</span></li>
+                                        <li><a href="/blog">Internasional</a><span>(87)</span></li>
+                                        <li><a href="/blog">Gaya Hidup</a><span>(76)</span></li>
+                                        <li><a href="/blog">Lingkungan</a><span>(65)</span></li>
+                                        <li><a href="/blog">Sampah</a><span>(54)</span></li>
+                                        <li><a href="/blog">Kebersihan</a><span>(43)</span></li>
+                                        <li><a href="/blog">Teknologi</a><span>(32)</span></li>
                                 </div>
                             </div>
 

@@ -5,6 +5,7 @@
         <title>Daftar Transaksi</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
@@ -97,22 +98,43 @@
                         <div class="top-bar-right">
                             @if (session('user_name'))
                                 <div class="social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href="#" onclick="showNotification('Twitter')"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" onclick="showNotification('Facebook')"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" onclick="showNotification('LinkedIn')"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" onclick="showNotification('Instagram')"><i class="fab fa-instagram"></i></a>
                                     <a href="/shop_cart" title="Belanja"><i class="fas fa-shopping-cart"></i></a>
-                                    <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
+                                    <p style="margin-bottom: 0px; display: flex; align-items: center; color: #dfae42; padding: 0px 20px;">{{ session('user_name') }}</p>
                                 </div>
+                                <script>
+                                    function showNotification(platform) {
+                                        Swal.fire({
+                                            icon: 'info',
+                                            title: 'Informasi',
+                                            text: `Maaf, ${platform} belum tersedia.`,
+                                            confirmButtonText: 'OK'
+                                        });
+                                    }
+                                </script>
+
                                 @else
                                 <div class="social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href="#" onclick="showNotification('Twitter')"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" onclick="showNotification('Facebook')"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" onclick="showNotification('LinkedIn')"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" onclick="showNotification('Instagram')"><i class="fab fa-instagram"></i></a>
                                     <a href="/shop_cart" title="Belanja"><i class="fas fa-shopping-cart"></i></a>
-                            </div>
-                            @endif
+                                </div>
+                                <script>
+                                    function showNotification(platform) {
+                                        Swal.fire({
+                                            icon: 'info',
+                                            title: 'Informasi',
+                                            text: `Maaf, ${platform} belum tersedia.`,
+                                            confirmButtonText: 'OK'
+                                        });
+                                    }
+                                </script>
+                                @endif
                         </div>
                     </div>
                     </div>
@@ -290,20 +312,7 @@
         </div> <!-- end container -->
       </section> <!-- end cart -->
 
-      {{-- @foreach($products as $keranjang)
-    <tr>
-        <td>{{ $keranjang->product->name }}</td>
-        <td>
-            @foreach($keranjang->checkouts as $checkout)
-                ID Checkout: {{ $checkout->id }} - Status: {{ $checkout->status }}
-            @endforeach
-        </td>
-    </tr>
-@endforeach --}}
 
-
-
-       <!-- Footer Start -->
        <div class="footer">
         <div class="container">
             <div class="row">

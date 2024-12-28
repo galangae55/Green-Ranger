@@ -152,11 +152,21 @@
                     <div class="col-md-4">
                         <div class="top-bar-right">
                             <div class="social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
+                                <a href="#" onclick="showNotification('Twitter')"><i class="fab fa-twitter"></i></a>
+                                <a href="#" onclick="showNotification('Facebook')"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" onclick="showNotification('LinkedIn')"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" onclick="showNotification('Instagram')"><i class="fab fa-instagram"></i></a>
                             </div>
+                            <script>
+                                function showNotification(platform) {
+                                    Swal.fire({
+                                        icon: 'info',
+                                        title: 'Informasi',
+                                        text: `Maaf, ${platform} belum tersedia.`,
+                                        confirmButtonText: 'OK'
+                                    });
+                                }
+                            </script>
                             @if (session('user_name'))
                                 <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
                             @endif

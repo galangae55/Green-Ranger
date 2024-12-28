@@ -10,7 +10,8 @@
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -116,11 +117,21 @@
                     <div class="col-md-4">
                         <div class="top-bar-right">
                             <div class="social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
+                                <a href="#" onclick="showNotification('Twitter')"><i class="fab fa-twitter"></i></a>
+                                <a href="#" onclick="showNotification('Facebook')"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" onclick="showNotification('LinkedIn')"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" onclick="showNotification('Instagram')"><i class="fab fa-instagram"></i></a>
                             </div>
+                            <script>
+                                function showNotification(platform) {
+                                    Swal.fire({
+                                        icon: 'info',
+                                        title: 'Informasi',
+                                        text: `Maaf, ${platform} belum tersedia.`,
+                                        confirmButtonText: 'OK'
+                                    });
+                                }
+                            </script>
                             @if (session('user_name'))
                                 <p style="margin-bottom: 0px;display: flex;align-items: center;color: #dfae42;padding: 0px 20px;">{{ session('user_name') }}</p>
                             @endif
@@ -239,7 +250,7 @@
                                 <p class="date-time"><i class="fas fa-calendar-alt"></i> 20 Juni 2024 | 09:00  - 15:00 WIB</p>
                                 <p class="location"><i class="fas fa-map-marker-alt"></i>Dinas Kebersihan dan Pertamanan Surabaya</p>
                                 <p class="description">Ayo bergabung dan jadilah penyalur alat kebersihan.</p>
-                                <button class="btn btn-primary mt-3 register-button" href="/volunteer">Daftar sekarang</button>
+                                <button class="btn btn-primary mt-3 register-button"><a href="/volunteer" style="color: aliceblue;">Daftar sekarang</a></button>
                             </div>
                         </div>
                     </section>
