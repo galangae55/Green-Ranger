@@ -493,10 +493,10 @@
                                         Kebersihan lingkungan adalah isu yang semakin mendapat perhatian global, mengingat dampak negatif dari polusi dan sampah terhadap kesehatan manusia dan ekosistem. Lingkungan yang bersih tidak hanya menyenangkan untuk dilihat, tetapi juga vital bagi kesejahteraan manusia.
                                     </p>
                                 </div>
-                                <div class="blog-meta">
+                                {{-- <div class="blog-meta">
                                     <p><i class="fa fa-user"></i><a href="">Subagyo</a></p>
                                     <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
-                                </div>
+                                </div> --}}
                             </div>
                             </div>
                         </div>
@@ -513,10 +513,10 @@
                                          Artikel ini akan membahas pentingnya pendidikan lingkungan.
                                     </p>
                                 </div>
-                                <div class="blog-meta">
+                                {{-- <div class="blog-meta">
                                     <p><i class="fa fa-user"></i><a href="">M. Galang</a></p>
                                     <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
-                                </div>
+                                </div> --}}
                             </div>
                             </div>
                         </div>
@@ -533,10 +533,10 @@
                                         Artikel ini membahas berbagai metode untuk mengelola sampah rumah tangga.
                                     </p>
                                 </div>
-                                <div class="blog-meta">
+                                {{-- <div class="blog-meta">
                                     <p><i class="fa fa-user"></i><a href="">Effendi</a></p>
                                     <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         </div>
