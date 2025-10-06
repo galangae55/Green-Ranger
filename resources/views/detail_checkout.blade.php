@@ -523,7 +523,7 @@
                                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
                             },
                             body: JSON.stringify({
-                                status: 'Sedang Dikirim'
+                                status: 'Sedang Diproses'
                             })
                         })
                         .then(response => response.json())

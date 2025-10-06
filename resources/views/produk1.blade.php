@@ -260,6 +260,7 @@
                         title: 'Gagal',
                         text: "{{ session('error') }}",
                         confirmButtonColor: '#d33',
+                        confirmButtonText: 'OK',
                     });
                 });
             </script>
@@ -272,6 +273,7 @@
                         title: 'Berhasil!',
                         text: "{{ session('success') }}",
                         confirmButtonColor: '#9d1f1f',
+                        confirmButtonText: 'OK',
                     });
                 });
             </script>
