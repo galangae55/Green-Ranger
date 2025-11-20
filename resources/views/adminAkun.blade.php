@@ -95,6 +95,12 @@
 					<span class="text">Belanja</span>
 				</a>
 			</li>
+            <li>
+                <a href="/admin/produk">
+                    <i class='bx bxs-package' ></i>
+                    <span class="text">Produk</span>
+                </a>
+            </li>
             <li class="active">
 				<a href="/admin/akun">
 					<i class='bx bxs-lock-alt' ></i>

@@ -60,7 +60,6 @@
                 background-color: red; /* Warna latar belakang merah */
             }
 
-
             .popup.show {
                 opacity: 1; /* Tampilkan popup dengan opasitas penuh */
                 transform: translate(-50%, 0); /* Kembali ke posisi normal */
@@ -118,36 +117,35 @@
             font-size: 18px;
             cursor: pointer;
         }
-
         </style>
     </head>
 
     <body>
         @if(session('successCO'))
-                    <script>
-                        window.addEventListener('load', function() {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Berhasil!',
-                                text: "{{ session('successCO') }}",
-                                confirmButtonColor: '#3085d6',
-                            });
-                        });
-                    </script>
-                @endif
-
-                @if(session('error'))
-                <script>
-                    window.addEventListener('load', function() {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error!',
-                            text: "{{ session('error') }}",
-                            confirmButtonColor: '#d33',
-                        });
+            <script>
+                window.addEventListener('load', function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil!',
+                        text: "{{ session('successCO') }}",
+                        confirmButtonColor: '#3085d6',
                     });
-                </script>
-            @endif
+                });
+            </script>
+        @endif
+
+        @if(session('error'))
+            <script>
+                window.addEventListener('load', function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: "{{ session('error') }}",
+                        confirmButtonColor: '#d33',
+                    });
+                });
+            </script>
+        @endif
 
         <!-- Top Bar Start -->
         <div class="top-bar d-none d-md-block">
@@ -173,7 +171,7 @@
                     @endif
 
                     <div class="col-md-4">
-                    <div class="top-bar-right">
+                        <div class="top-bar-right">
                             @if (session('user_name'))
                             <div class="social">
                                 <a href="#" onclick="showNotification('Twitter')"><i class="fab fa-twitter"></i></a>
@@ -183,17 +181,6 @@
                                 <a href="/shop_cart" title="Belanja"><i class="fas fa-shopping-cart"></i></a>
                                 <p style="margin-bottom: 0px; display: flex; align-items: center; color: #dfae42; padding: 0px 20px;">{{ session('user_name') }}</p>
                             </div>
-                            <script>
-                                function showNotification(platform) {
-                                    Swal.fire({
-                                        icon: 'info',
-                                        title: 'Informasi',
-                                        text: `Maaf, ${platform} belum tersedia.`,
-                                        confirmButtonText: 'OK'
-                                    });
-                                }
-                            </script>
-
                             @else
                             <div class="social">
                                 <a href="#" onclick="showNotification('Twitter')"><i class="fab fa-twitter"></i></a>
@@ -202,16 +189,6 @@
                                 <a href="#" onclick="showNotification('Instagram')"><i class="fab fa-instagram"></i></a>
                                 <a href="/shop_cart" title="Belanja"><i class="fas fa-shopping-cart"></i></a>
                             </div>
-                            <script>
-                                function showNotification(platform) {
-                                    Swal.fire({
-                                        icon: 'info',
-                                        title: 'Informasi',
-                                        text: `Maaf, ${platform} belum tersedia.`,
-                                        confirmButtonText: 'OK'
-                                    });
-                                }
-                            </script>
                             @endif
                         </div>
                     </div>
@@ -258,7 +235,6 @@
         </div>
         <!-- Nav Bar End -->
 
-
         <!-- Carousel Start -->
         <div class="carousel">
             <div class="container-fluid">
@@ -301,619 +277,232 @@
         </div>
 
         <header class="banner">
-        <div class="container">
-            <h1>Katalog</h1>
-            <p>Gaya Modern dan Elegan</p>
-        </div>
-    </header>
-
+            <div class="container">
+                <h1>Katalog</h1>
+                <p>Gaya Modern dan Elegan</p>
+            </div>
+        </header>
         <!-- Carousel End -->
 
-              <!-- Catalogue -->
-      <section class="section-wrap pt-80 pb-40 catalogue">
-        <div class="container relative">
+        <!-- Catalogue -->
+        <section class="section-wrap pt-80 pb-40 catalogue">
+            <div class="container relative">
 
-          <div class="shop-filter" style="display: flex;justify-content: flex-end; padding-bottom: 4%;">
-            <div class="view-mode hidden-xs">
-              {{-- <span>View:</span>
-              <a class="grid grid-active" id="grid"></a>
-              <a class="list" id="list"></a> --}}
+                <div class="shop-filter" style="display: flex;justify-content: flex-end; padding-bottom: 4%;">
+                    <div class="view-mode hidden-xs">
+                        {{-- <span>View:</span>
+                        <a class="grid grid-active" id="grid"></a>
+                        <a class="list" id="list"></a> --}}
+                    </div>
+                    <div class="filter-show hidden-xs">
+                        <a href="/daftar_transaksi" id="riwayatCheckoutButton" style="padding: 10px 21px; background-color: whitesmoke; color: #585858; border-radius: 17px;">Riwayat Check out</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 catalogue-col right mb-50">
+                        <div class="shop-catalogue grid-view">
+                            <div class="row items-grid">
+
+                                @foreach($products as $product)
+                                    <div class="col-md-4 col-xs-6 product product-grid">
+                                        <div class="product-item clearfix">
+                                            <div class="product-img hover-trigger">
+                                                <!-- LINK MENUJU DETAIL PRODUK -->
+                                                <a href="/produk/{{ $product->id }}">
+                                                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
+                                                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="back-img">
+                                                </a>
+
+                                                <!-- LABEL DISKON JIKA ADA HARGA DISKON -->
+                                                @if($product->detail && $product->detail->discount_price)
+                                                    <div class="product-label">
+                                                        <span class="sale">Diskon</span>
+                                                    </div>
+                                                @endif
+
+                                                <div class="hover-2">
+                                                    <div class="product-actions">
+                                                        <a href="#" class="product-add-to-wishlist">
+                                                            <i class="fa fa-heart"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="/produk/{{ $product->id }}" class="product-quickview">Lihat Sekilas</a>
+                                            </div>
+
+                                            <div class="product-details">
+                                                <!-- LINK NAMA PRODUK MENUJU DETAIL -->
+                                                <h3 class="product-title">
+                                                    <a href="/produk/{{ $product->id }}">{{ $product->name }}</a>
+                                                </h3>
+                                                <span class="category">
+                                                    <a href="#">{{ $product->detail->category ?? 'Aksesoris' }}</a>
+                                                </span>
+                                            </div>
+
+                                            <span class="price">
+                                                <!-- TAMPILKAN HARGA NORMAL ATAU HARGA DISKON -->
+                                                @if($product->detail && $product->detail->discount_price)
+                                                    <del>
+                                                        <span>Rp {{ number_format($product->price, 0, ',', '.') }}</span>
+                                                    </del>
+                                                    <ins>
+                                                        <span class="amount">Rp {{ number_format($product->detail->discount_price, 0, ',', '.') }}</span>
+                                                    </ins>
+                                                @else
+                                                    <ins>
+                                                        <span class="amount">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
+                                                    </ins>
+                                                @endif
+                                            </span>
+                                        </div>
+                                    </div> <!-- end product -->
+                                @endforeach
+
+                            </div> <!-- end row -->
+                        </div> <!-- end grid mode -->
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination-wrap clearfix">
+                    <p class="result-count">Menampilkan {{ $products->count() }} hasil</p>
+                    <nav class="pagination right clearfix">
+                        <!-- Nonaktifkan pagination karena menggunakan semua data -->
+                        <span class="page-numbers current">1</span>
+                    </nav>
+                </div>
+            </div> <!-- end container -->
+        </section> <!-- end catalog -->
+
+        <!-- Footer Start -->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-contact">
+                            <h2>Kantor Kami</h2>
+                            <p><i class="fa fa-map-marker-alt"></i>Ketintang, Surabaya, Indonesia</p>
+                            <p><i class="fa fa-phone-alt"></i>082334556778</p>
+                            <p><i class="fa fa-envelope"></i>greenranger0@gmail.com</p>
+                            <div class="footer-social">
+                                <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-custom" href=""><i class="fab fa-youtube"></i></a>
+                                <a class="btn btn-custom" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-custom" href=""><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-link">
+                            <h2>Tautan Populer</h2>
+                            <a href="/volunteer">Menjadi Sukarelawan</a>
+                            <a href="/contact">Hubungi Kami</a>
+                            <a href="/event">Acara Mendatang</a>
+                            <a href="/detail">Artikel Terbaru</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-link">
+                            <h2>Tautan Berguna</h2>
+                            <a href="">Syarat Penggunaan</a>
+                            <a href="">Kebijakan Privasi</a>
+                            <a href="">Kuki</a>
+                            <a href="">Bantuan</a>
+                            <a href="">Pertanyaan Umum</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-newsletter">
+                            <h2>Kritik & saran</h2>
+                            <form>
+                                <input class="form-control" placeholder="Email anda">
+                                <button class="btn btn-custom">kirim</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="filter-show hidden-xs" >
-                <a href="/daftar_transaksi" id="riwayatCheckoutButton" style="padding: 10px 21px; background-color: whitesmoke; color: #585858; border-radius: 17px;">Riwayat Check out</a>
-            </div>
-          </div>
-
-
-          <div class="row">
-            <div class="col-md-12 catalogue-col right mb-50">
-              <div class="shop-catalogue grid-view">
-
-                <div class="row items-grid">
-
-                  <div class="col-md-4 col-xs-6 product product-grid">
-                    <div class="product-item clearfix">
-                      <div class="product-img hover-trigger">
-                          <a href="/produk1">
-                          <img src="img/shop/item01.jpg" alt="">
-                          <img src="img/shop/utem01.jpg" alt="" class="back-img">
-                        </a>
-                        <div class="product-label">
-                          <span class="sale">Diskon</span>
-                        </div>
-                        <div class="hover-2">
-                          <div class="product-actions">
-                            <a href="#" class="product-add-to-wishlist">
-                              <i class="fa fa-heart"></i>
-                            </a>
-                          </div>
-                        </div>
-                        <a href="#" class="product-quickview">Lihat Sekilas</a>
-                      </div>
-
-                      <div class="product-details">
-                        <h3 class="product-title">
-                          <a href="/produk1">Topi Rajut Pria</a>
-                        </h3>
-                        <span class="category">
-                          <a href="catalogue-grid.html">Aksesoris</a>
-                        </span>
-                      </div>
-
-                      <span class="price">
-                        <del>
-                          <span>Rp 730.000</span>
-                        </del>
-                        <ins>
-                          <span class="amount">Rp 159.999</span>
-                        </ins>
-                      </span>
+            <div class="container copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; <a href="#">Green Ranger</a>, copyright 2024.</p>
                     </div>
-                  </div> <!-- end product -->
-
-
-                  <div class="col-md-4 col-xs-6 product product-grid">
-                    <div class="product-item clearfix">
-                      <div class="product-img hover-trigger">
-                        <a href="/produk2">
-                          <img src="img/shop/item02.jpg" alt="">
-                          <img src="img/shop/item02.jpg" alt="" class="back-img">
-                        </a>
-                        <div class="hover-2">
-                          <div class="product-actions">
-                            <a href="#" class="product-add-to-wishlist">
-                              <i class="fa fa-heart"></i>
-                            </a>
-                          </div>
-                        </div>
-                        <a href="#" class="product-quickview">Lihat Sekilas</a>
-                      </div>
-
-                      <div class="product-details">
-                        <h3 class="product-title">
-                          <a href="/produk2">Topi Rajut Wanita</a>
-                        </h3>
-                        <span class="category">
-                          <a href="catalogue-grid.html">Aksesoris</a>
-                        </span>
-                      </div>
-
-                      <span class="price">
-                        <ins>
-                          <span class="amount">Rp 199.999</span>
-                        </ins>
-                      </span>
-                    </div>
-                  </div> <!-- end product -->
-
-
-                  <div class="col-md-4 col-xs-6 product product-grid">
-                    <div class="product-item clearfix">
-                      <div class="product-img hover-trigger">
-                        <a href="/produk3">
-                          <img src="img/shop/item03.jpg" alt="">
-                          <img src="img/shop/item03.jpg" alt="" class="back-img">
-                        </a>
-                        <div class="hover-2">
-                          <div class="product-actions">
-                            <a href="#" class="product-add-to-wishlist">
-                              <i class="fa fa-heart"></i>
-                            </a>
-                          </div>
-                        </div>
-                        <a href="#" class="product-quickview">Lihat Sekilas</a>
-                      </div>
-
-                      <div class="product-details">
-                        <h3 class="product-title">
-                          <a href="/produk3">Kursi Santai Jati Mix Rotan</a>
-                        </h3>
-                        <span class="category">
-                          <a href="catalogue-grid.html">Perabotan</a>
-                        </span>
-                      </div>
-
-                      <span class="price">
-                        <ins>
-                          <span class="amount">Rp 780.000</span>
-                        </ins>
-                      </span>
-                    </div>
-                  </div> <!-- end product -->
-
-
-                  <div class="col-md-4 col-xs-6 product product-grid">
-                    <div class="product-item clearfix">
-                      <div class="product-img hover-trigger">
-                        <a href="/produk4">
-                          <img src="img/shop/item04.jpg" alt="">
-                          <img src="img/shop/item04.jpg" alt="" class="back-img">
-                        </a>
-                        <div class="hover-2">
-                          <div class="product-actions">
-                            <a href="#" class="product-add-to-wishlist">
-                              <i class="fa fa-heart"></i>
-                            </a>
-                          </div>
-                        </div>
-                        <a href="#" class="product-quickview">Lihat Sekilas</a>
-                      </div>
-
-                      <div class="product-details">
-                        <h3 class="product-title">
-                          <a href="/produk4">Lampu Hias Anyaman</a>
-                        </h3>
-                        <span class="category">
-                          <a href="catalogue-grid.html">Perabotan</a>
-                        </span>
-                      </div>
-
-                      <span class="price">
-                        <ins>
-                          <span class="amount">Rp 1.500.000</span>
-                        </ins>
-                      </span>
-                    </div>
-                  </div> <!-- end product -->
-
-
-                  <div class="col-md-4 col-xs-6 product product-grid">
-                    <div class="product-item clearfix">
-                      <div class="product-img hover-trigger">
-                        <a href="/produk5">
-                          <img src="img/shop/item05.jpg" alt="">
-                          <img src="img/shop/item05.jpg" alt="" class="back-img">
-                        </a>
-                        <div class="hover-2">
-                          <div class="product-actions">
-                            <a href="#" class="product-add-to-wishlist">
-                              <i class="fa fa-heart"></i>
-                            </a>
-                          </div>
-                        </div>
-                        <a href="#" class="product-quickview">Lihat Sekilas</a>
-                      </div>
-
-                      <div class="product-details">
-                        <h3 class="product-title">
-                          <a href="/produk5">Keranjang Belanja</a>
-                        </h3>
-                        <span class="category">
-                          <a href="catalogue-grid.html">Perabotan</a>
-                        </span>
-                      </div>
-
-                      <span class="price">
-                        <ins>
-                          <span class="amount">Rp 100.000</span>
-                        </ins>
-                      </span>
-                    </div>
-                  </div> <!-- end product -->
-
-
-                  <div class="col-md-4 col-xs-6 product product-grid">
-                    <div class="product-item clearfix">
-                      <div class="product-img hover-trigger">
-                        <a href="/produk6">
-                          <img src="img/shop/item06.jpg" alt="">
-                          <img src="img/shop/shop_item_back_6.jpg" alt="" class="back-img">
-                        </a>
-                        <div class="product-label">
-                          <span class="sale">Diskon</span>
-                        </div>
-                        <div class="hover-2">
-                          <div class="product-actions">
-                            <a href="#" class="product-add-to-wishlist">
-                              <i class="fa fa-heart"></i>
-                            </a>
-                          </div>
-                        </div>
-                        <a href="#" class="product-quickview">Lihat Sekilas</a>
-                      </div>
-
-                      <div class="product-details">
-                        <h3 class="product-title">
-                          <a href="/produk6">Tottebag Denim</a>
-                        </h3>
-                        <span class="category">
-                          <a href="catalogue-grid.html">Aksesoris</a>
-                        </span>
-                      </div>
-
-                      <span class="price">
-                        <del>
-                          <span>Rp 500.000</span>
-                        </del>
-                        <ins>
-                          <span class="amount">Rp 233.000</span>
-                        </ins>
-                      </span>
-                    </div>
-                  </div> <!-- end product -->
-
-
-                  <div class="col-md-4 col-xs-6 product product-grid">
-                    <div class="product-item clearfix">
-                      <div class="product-img hover-trigger">
-                        <a href="/produk7">
-                          <img src="img/shop/item07.jpg" alt="">
-                          <img src="img/shop/shop_item_back_7.jpg" alt="" class="back-img">
-                        </a>
-                        <div class="hover-2">
-                          <div class="product-actions">
-                            <a href="#" class="product-add-to-wishlist">
-                              <i class="fa fa-heart"></i>
-                            </a>
-                          </div>
-                        </div>
-                        <a href="#" class="product-quickview">Lihat Sekilas</a>
-                      </div>
-
-                      <div class="product-details">
-                        <h3 class="product-title">
-                          <a href="/produk7">Lampu Botol</a>
-                        </h3>
-                        <span class="category">
-                          <a href="catalogue-grid.html">Perabotan</a>
-                        </span>
-                      </div>
-
-                      <span class="price">
-                        <ins>
-                          <span class="amount">Rp 800.000</span>
-                        </ins>
-                      </span>
-                    </div>
-                  </div> <!-- end product -->
-
-
-                  <div class="col-md-4 col-xs-6 product product-grid">
-                    <div class="product-item clearfix">
-                      <div class="product-img hover-trigger">
-                        <a href="/produk8">
-                          <img src="img/shop/item08.jpg" alt="">
-                          <img src="img/shop/shop_item_back_8.jpg" alt="" class="back-img">
-                        </a>
-                        <div class="hover-2">
-                          <div class="product-actions">
-                            <a href="#" class="product-add-to-wishlist">
-                              <i class="fa fa-heart"></i>
-                            </a>
-                          </div>
-                        </div>
-                        <a href="#" class="product-quickview">Lihat Sekilas</a>
-                      </div>
-
-                      <div class="product-details">
-                        <h3 class="product-title">
-                          <a href="/produk8">Hiasan Kepala Binatang</a>
-                        </h3>
-                        <span class="category">
-                          <a href="catalogue-grid.html">Perabotan</a>
-                        </span>
-                      </div>
-
-                      <span class="price">
-                        <ins>
-                          <span class="amount">Rp 499.000</span>
-                        </ins>
-                      </span>
-                    </div>
-                  </div> <!-- end product -->
-
-
-                  <div class="col-md-4 col-xs-6 product product-grid">
-                    <div class="product-item clearfix">
-                      <div class="product-img hover-trigger">
-                        <a href="/produk9">
-                          <img src="img/shop/item09.jpg" alt="">
-                          <img src="img/shop/item09.jpg" alt="" class="back-img">
-                        </a>
-                        <div class="hover-2">
-                          <div class="product-actions">
-                            <a href="#" class="product-add-to-wishlist">
-                              <i class="fa fa-heart"></i>
-                            </a>
-                          </div>
-                        </div>
-                        <a href="#" class="product-quickview">Lihat Sekilas</a>
-                      </div>
-
-                      <div class="product-details">
-                        <h3 class="product-title">
-                          <a href="/produk9">Rompi Plastik</a>
-                        </h3>
-                        <span class="category">
-                          <a href="catalogue-grid.html">Aksesoris</a>
-                        </span>
-                      </div>
-
-                      <span class="price">
-                        <ins>
-                          <span class="amount">Rp 330.000</span>
-                        </ins>
-                      </span>
-                    </div>
-                  </div> <!-- end product -->
-
-
-                  <div class="col-md-4 col-xs-6 product product-grid">
-                    <div class="product-item clearfix">
-                      <div class="product-img hover-trigger">
-                        <a href="/produk10">
-                          <img src="img/shop/item10.jpg" alt="">
-                          <img src="img/shop/shop_item_back_10.jpg" alt="" class="back-img">
-                        </a>
-                        <div class="hover-2">
-                          <div class="product-actions">
-                            <a href="#" class="product-add-to-wishlist">
-                              <i class="fa fa-heart"></i>
-                            </a>
-                          </div>
-                        </div>
-                        <a href="#" class="product-quickview">Lihat Sekilas</a>
-                      </div>
-
-                      <div class="product-details">
-                        <h3 class="product-title">
-                          <a href="/produk10">Peralatan Makan Kayu</a>
-                        </h3>
-                        <span class="category">
-                          <a href="catalogue-grid.html">Perabotan</a>
-                        </span>
-                      </div>
-
-                      <span class="price">
-                        <ins>
-                          <span class="amount">Rp 50.000</span>
-                        </ins>
-                      </span>
-                    </div>
-                  </div> <!-- end product -->
-
-
-                  <div class="col-md-4 col-xs-6 product product-grid">
-                    <div class="product-item clearfix">
-                      <div class="product-img hover-trigger">
-                        <a href="/produk11">
-                          <img src="img/shop/item11.jpg" alt="">
-                          <img src="img/shop/shop_item_back_11.jpg" alt="" class="back-img">
-                        </a>
-                        <div class="hover-2">
-                          <div class="product-actions">
-                            <a href="#" class="product-add-to-wishlist">
-                              <i class="fa fa-heart"></i>
-                            </a>
-                          </div>
-                        </div>
-                        <a href="#" class="product-quickview">Lihat Sekilas</a>
-                      </div>
-
-                      <div class="product-details">
-                        <h3 class="product-title">
-                          <a href="/produk11">Gayung Batok Kelapa</a>
-                        </h3>
-                        <span class="category">
-                          <a href="catalogue-grid.html">Perabotan</a>
-                        </span>
-                      </div>
-
-                      <span class="price">
-                        <ins>
-                          <span class="amount">Rp 20.000</span>
-                        </ins>
-                      </span>
-                    </div>
-                  </div> <!-- end product -->
-
-
-                  <div class="col-md-4 col-xs-6 product product-grid">
-                    <div class="product-item clearfix">
-                      <div class="product-img hover-trigger">
-                        <a href="/produk12">
-                          <img src="img/shop/item12.jpg" alt="">
-                          <img src="img/shop/item12.jpg" alt="" class="back-img">
-                        </a>
-                        <div class="product-label">
-                          <span class="sale">Diskon</span>
-                        </div>
-                        <div class="hover-2">
-                          <div class="product-actions">
-                            <a href="#" class="product-add-to-wishlist">
-                              <i class="fa fa-heart"></i>
-                            </a>
-                          </div>
-                        </div>
-                        <a href="#" class="product-quickview">Lihat Sekilas</a>
-                      </div>
-
-                      <div class="product-details">
-                        <h3 class="product-title">
-                          <a href="/produk12">Tas Rajut</a>
-                        </h3>
-                        <span class="category">
-                          <a href="catalogue-grid.html">Aksesoris</a>
-                        </span>
-                      </div>
-
-                      <span class="price">
-                        <del>
-                          <span>Rp 500.000</span>
-                        </del>
-                        <ins>
-                          <span class="amount">Rp 299.999</span>
-                        </ins>
-                      </span>
-                    </div>
-                  </div> <!-- end product -->
-
-                </div> <!-- end row -->
-              </div> <!-- end grid mode -->
-
-              <!-- Pagination -->
-              {{-- <div class="pagination-wrap clearfix">
-                <p class="result-count">Showing: 12 of 80 results</p>
-                <nav class="pagination right clearfix">
-                  <a href="#"><i class="fa fa-angle-left"></i></a>
-                  <span class="page-numbers current">1</span>
-                  <a href="#">2</a>
-                  <a href="#">3</a>
-                  <a href="#">4</a>
-                  <a href="#"><i class="fa fa-angle-right"></i></a>
-                </nav>
-              </div> --}}
-
-            </div> <!-- end col -->
-
-          </div> <!-- end row -->
-        </div> <!-- end container -->
-      </section> <!-- end catalog -->
-
-
-
-       <!-- Footer Start -->
-       <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-contact">
-                        <h2>Kantor Kami</h2>
-                        <p><i class="fa fa-map-marker-alt"></i>Ketintang, Surabaya, Indonesia</p>
-                        <p><i class="fa fa-phone-alt"></i>082334556778</p>
-                        <p><i class="fa fa-envelope"></i>greenranger0@gmail.com</p>
-                        <div class="footer-social">
-                            <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-custom" href=""><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-custom" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-custom" href=""><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-link">
-                        <h2>Tautan Populer</h2>
-                        <a href="/volunteer">Menjadi Sukarelawan</a>
-                        <a href="/contact">Hubungi Kami</a>
-                        <a href="/event">Acara Mendatang</a>
-                        <a href="/detail">Artikel Terbaru</a>
-
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-link">
-                        <h2>Tautan Berguna</h2>
-                        <a href="">Syarat Penggunaan</a>
-                        <a href="">Kebijakan Privasi</a>
-                        <a href="">Kuki</a>
-                        <a href="">Bantuan</a>
-                        <a href="">Pertanyaan Umum</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-newsletter">
-                        <h2>Kritik & saran</h2>
-                        <form>
-                            <input class="form-control" placeholder="Email anda">
-                            <button class="btn btn-custom">kirim</button>
-                        </form>
+                    <div class="col-md-6">
+                        <p>Designed By Green Ranger Team</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container copyright">
-            <div class="row">
-                <div class="col-md-6">
-                    <p>&copy; <a href="#">Green Ranger</a>, copyright 2024.</p>
-                </div>
-                <div class="col-md-6">
-                    <p>Designed By Green Ranger Team</></p>
-                </div>
-            </div>
+        <!-- Footer End -->
+
+        <!-- Back to top button -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- Pre Loader -->
+        <div id="loader" class="show">
+            <div class="loader"></div>
         </div>
-    </div>
-    <!-- Footer End -->
 
-    <!-- Back to top button -->
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/parallax/parallax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
-    <!-- Pre Loader -->
-    <div id="loader" class="show">
-        <div class="loader"></div>
-    </div>
+        <!-- Contact Javascript File -->
+        <script src="mail/jqBootstrapValidation.min.js"></script>
+        <script src="mail/contact.js"></script>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/parallax/parallax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
 
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+        <script>
+            AOS.init();
+        </script>
 
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                var popup = document.getElementById('popupCuy');
+                if (popup) {
+                    popup.classList.add('show');
+                    setTimeout(() => {
+                        popup.classList.remove('show');
+                        popup.classList.add('hide');
+                    }, 3000); // Popup mulai menghilang setelah 3 detik
+                }
+            });
+        </script>
 
+        <script>
+            // Mendapatkan tombol berdasarkan ID
+            const button = document.getElementById("riwayatCheckoutButton");
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+            // Menambahkan event listener untuk hover
+            button.addEventListener("mouseenter", function() {
+                button.style.backgroundColor = "green";
+                button.style.color = "white";
+            });
 
-    <script>
-        AOS.init();
-    </script>
+            button.addEventListener("mouseleave", function() {
+                button.style.backgroundColor = "whitesmoke";
+                button.style.color = "#3a5f4c";
+            });
 
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            var popup = document.getElementById('popupCuy');
-            if (popup) {
-                popup.classList.add('show');
-                setTimeout(() => {
-                    popup.classList.remove('show');
-                    popup.classList.add('hide');
-                }, 3000); // Popup mulai menghilang setelah 3 detik
+            function showNotification(platform) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Informasi',
+                    text: `Maaf, ${platform} belum tersedia.`,
+                    confirmButtonText: 'OK'
+                });
             }
-        });
-    </script>
-
-    <script>
-        // Mendapatkan tombol berdasarkan ID
-        const button = document.getElementById("riwayatCheckoutButton");
-
-        // Menambahkan event listener untuk hover
-        button.addEventListener("mouseenter", function() {
-            button.style.backgroundColor = "green";
-            button.style.color = "white";
-        });
-
-        button.addEventListener("mouseleave", function() {
-            button.style.backgroundColor = "whitesmoke";
-            button.style.color = "#3a5f4c";
-        });
-    </script>
-
-</body>
+        </script>
+    </body>
 </html>

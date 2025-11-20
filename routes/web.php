@@ -36,6 +36,9 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::delete('/admin/kontak/{id}', [AdminController::class, 'deleteKontak'])->name('admin.deleteKontak');
     Route::get('/admin/belanja', [AdminController::class, 'adminBelanja'])->name('admin.belanja');
     Route::post('/admin/belanja/update/{id}', [AdminController::class, 'BelanjaUpdate'])->name('admin.updatepesanan');
+    Route::get('/admin/produk', [AdminController::class, 'adminProduk'])->name('admin.produk');
+    Route::post('/admin/produk/store', [AdminController::class, 'storeProduct'])->name('admin.produk.store');
+    Route::delete('/admin/produk/{id}', [AdminController::class, 'deleteProduct'])->name('admin.produk.delete');
     Route::get('/admin/akun', [AdminController::class, 'adminAkun'])->name('admin.akun');
     Route::delete('/admin/akun/{id}', [AdminController::class, 'deleteAkun'])->name('admin.deleteAkun');
     Route::patch('/admin/akun/{id}/update-status', [AdminController::class, 'updateRole'])->name('admin.updateRole');
@@ -51,6 +54,7 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::post('/contact/store', [ContactController::class, 'store'])->name('contacts.store');
     Route::post('/contact/storeNoLogin', [ContactController::class, 'storeNoLogin'])->name('contacts.storeNoLogin');
     Route::get("/belanja", [GreenRangerController::class,"belanja"])->name('belanja');
+    Route::get('/produk/{id}', [GreenRangerController::class, 'show'])->name('product.show');
     Route::get("/detail", [GreenRangerController::class,"detail"]);
     Route::get("/detail2", [GreenRangerController::class,"detail2"]);
     Route::get("/detail3", [GreenRangerController::class,"detail3"]);
@@ -85,7 +89,6 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::get('/shop_checkout', [CheckOutController::class, 'showOrderToCheckOut'])
     ->middleware([LoginMiddleware::class, CheckKesediaanKeranjang::class]);
     Route::post('/shop_checkout/store', [CheckoutController::class, 'store'])->name('checkout.store');
-    // Rute untuk menampilkan detail checkout
     Route::get('/checkout/detail/{id}', [CheckoutController::class, 'detail'])->name('checkout.detail');
     Route::post('/midtrans-callback', [CheckOutController::class, 'callback'])->name('midtrans.callback');
     Route::post('/checkout/update-status/{id}', [CheckOutController::class, 'updateStatus'])->name('checkout.updateStatus');

@@ -84,6 +84,7 @@
             <li><a href="/admin/donation"><i class='bx bxs-wallet'></i>Donation</a></li>
             <li class="active"><a href="/admin/kontak"><i class='bx bxs-message-dots'></i>Kontak</a></li>
             <li><a href="/admin/belanja"><i class='bx bxs-cart'></i>Belanja</a></li>
+            <li><a href="/admin/produk"><i class='bx bxs-package' ></i><span class="text">Produk</span></a></li>
             <li><a href="/admin/akun"><i class='bx bxs-lock-alt'></i>Akun</a></li>
         </ul>
         <ul class="side-menu">

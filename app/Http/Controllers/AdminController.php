@@ -9,6 +9,8 @@ use App\Models\kontak;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Volunteer;
+use App\Models\Product;
+use App\Models\ProductDetail;
 
 class AdminController extends Controller
 {
@@ -165,6 +167,72 @@ class AdminController extends Controller
         return redirect()->back()->with('error', 'Checkout tidak ditemukan.');
     }
 
+    // AdminController.php
+    // AdminController.php
+public function adminProduk()
+{
+    $products = Product::with('detail')->get();
+    return view('adminProduk', compact('products'));
+}
+
+public function storeProduct(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'price' => 'required|numeric|min:0',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'description' => 'required|string',
+        // 'category' dihapus dari validasi
+        'discount_price' => 'nullable|numeric|min:0'
+    ]);
+
+    try {
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $imagePath = $image->storeAs('products', $imageName, 'public');
+        }
+
+        // Create product
+        $product = Product::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'image' => 'storage/' . $imagePath,
+        ]);
+
+        // Create product detail tanpa category
+        ProductDetail::create([
+            'product_id' => $product->id,
+            'description' => $request->description,
+            // 'category' dihapus
+            'discount_price' => $request->discount_price
+        ]);
+
+        return redirect()->route('admin.produk')->with('success', 'Produk berhasil ditambahkan!');
+    } catch (\Exception $e) {
+        return redirect()->route('admin.produk')->with('error', 'Gagal menambahkan produk: ' . $e->getMessage());
+    }
+}
+
+    public function deleteProduct($id)
+    {
+        try {
+            $product = Product::findOrFail($id);
+            
+            // Delete product detail first
+            if ($product->detail) {
+                $product->detail->delete();
+            }
+            
+            // Delete product
+            $product->delete();
+            
+            return redirect()->route('admin.produk')->with('success', 'Produk berhasil dihapus!');
+        } catch (\Exception $e) {
+            return redirect()->route('admin.produk')->with('error', 'Gagal menghapus produk: ' . $e->getMessage());
+        }
+    }
 
     public function adminAkun()
     {
