@@ -36,6 +36,14 @@
             background-color: #3a5f4c;
             color: white;
         }
+        
+        .current-image {
+            max-width: 200px;
+            max-height: 200px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+        }
     </style>
 
 	<title>Admin Produk</title>
@@ -284,6 +292,66 @@
                 </div>
             </div>
 
+            <!-- Modal Edit Produk -->
+            <div class="modal fade" id="editProdukModal" tabindex="-1" role="dialog" aria-labelledby="editProdukModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editProdukModalLabel">Edit Produk</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form id="editProdukForm" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="edit_name">Nama Produk *</label>
+                                            <input type="text" class="form-control" id="edit_name" name="name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="edit_price">Harga Normal *</label>
+                                            <input type="number" class="form-control" id="edit_price" name="price" min="0" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="edit_discount_price">Harga Diskon (opsional)</label>
+                                            <input type="number" class="form-control" id="edit_discount_price" name="discount_price" min="0">
+                                            <small class="form-text text-muted">Kosongkan jika tidak ada diskon</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="edit_image">Gambar Produk</label>
+                                            <input type="file" class="form-control" id="edit_image" name="image" accept="image/*">
+                                            <small class="form-text text-muted">Format: JPG, PNG, JPEG. Maksimal 2MB. Kosongkan jika tidak ingin mengubah gambar.</small>
+                                            <div id="currentImageContainer" class="mt-2">
+                                                <p>Gambar Saat Ini:</p>
+                                                <img id="currentImage" src="" alt="Current Image" class="current-image">
+                                            </div>
+                                            <div id="editImagePreview" class="mt-2" style="display: none;">
+                                                <p>Preview Gambar Baru:</p>
+                                                <img id="edit_preview" src="#" alt="Preview" style="max-width: 200px; max-height: 200px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit_description">Deskripsi Produk *</label>
+                                    <textarea class="form-control" id="edit_description" name="description" rows="4" required></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-primary">Update Produk</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
 		</main>
 		<!-- MAIN -->
 	</section>
@@ -321,14 +389,63 @@
         }
 
         function editProduct(productId) {
-            alert('Fitur edit produk untuk ID: ' + productId + ' akan segera tersedia');
-            // Untuk sementara, redirect ke halaman edit atau buka modal edit
+            // Fetch product data via AJAX
+            fetch(`/admin/produk/${productId}/edit`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(product => {
+                    // Populate form fields
+                    document.getElementById('edit_name').value = product.name;
+                    document.getElementById('edit_price').value = product.price;
+                    document.getElementById('edit_description').value = product.detail ? product.detail.description : '';
+                    document.getElementById('edit_discount_price').value = product.detail ? product.detail.discount_price : '';
+                    
+                    // Show current image
+                    const currentImage = document.getElementById('currentImage');
+                    currentImage.src = "{{ asset('') }}" + product.image;
+                    
+                    // Set form action
+                    document.getElementById('editProdukForm').action = `/admin/produk/${productId}`;
+                    
+                    // Show modal
+                    $('#editProdukModal').modal('show');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Gagal memuat data produk.',
+                        confirmButtonColor: '#d33',
+                    });
+                });
         }
 
-        // Preview image sebelum upload
+        // Preview image for tambah produk
         document.getElementById('image').addEventListener('change', function(e) {
             const preview = document.getElementById('preview');
             const previewContainer = document.getElementById('imagePreview');
+            
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    previewContainer.style.display = 'block';
+                }
+                
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+
+        // Preview image for edit produk
+        document.getElementById('edit_image').addEventListener('change', function(e) {
+            const preview = document.getElementById('edit_preview');
+            const previewContainer = document.getElementById('editImagePreview');
             
             if (this.files && this.files[0]) {
                 const reader = new FileReader();
@@ -346,6 +463,11 @@
         $('#tambahProdukModal').on('hidden.bs.modal', function () {
             document.getElementById('tambahProdukModal').reset();
             document.getElementById('imagePreview').style.display = 'none';
+        });
+
+        $('#editProdukModal').on('hidden.bs.modal', function () {
+            document.getElementById('editImagePreview').style.display = 'none';
+            document.getElementById('edit_image').value = '';
         });
     </script>
 

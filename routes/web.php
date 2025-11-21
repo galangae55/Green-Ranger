@@ -38,6 +38,8 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::post('/admin/belanja/update/{id}', [AdminController::class, 'BelanjaUpdate'])->name('admin.updatepesanan');
     Route::get('/admin/produk', [AdminController::class, 'adminProduk'])->name('admin.produk');
     Route::post('/admin/produk/store', [AdminController::class, 'storeProduct'])->name('admin.produk.store');
+    Route::get('/admin/produk/{id}/edit', [AdminController::class, 'editProduct'])->name('admin.produk.edit');
+    Route::put('/admin/produk/{id}', [AdminController::class, 'updateProduct'])->name('admin.produk.update');
     Route::delete('/admin/produk/{id}', [AdminController::class, 'deleteProduct'])->name('admin.produk.delete');
     Route::get('/admin/akun', [AdminController::class, 'adminAkun'])->name('admin.akun');
     Route::delete('/admin/akun/{id}', [AdminController::class, 'deleteAkun'])->name('admin.deleteAkun');
