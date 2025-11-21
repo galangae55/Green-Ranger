@@ -15,6 +15,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\DaftarTransaksiController;
+use App\Http\Controllers\BlogController;
+
 // Middlewarenya
 use App\Http\Middleware\CheckKesediaanKeranjang;
 use App\Http\Middleware\AdminMiddleware;
@@ -46,7 +48,13 @@ Route::middleware([AdminMiddleware::class])->group(function () {
 Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::get("/", [GreenRangerController::class,"homepage"]);
     Route::get("/event", [GreenRangerController::class,"event"]);
-    Route::get("/blog", [GreenRangerController::class,"blog"]);
+    // Route::get("/blog", [GreenRangerController::class,"blog"]);
+    // Blog Routes
+    Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+    Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+    Route::get('/blog/category/{slug}', [BlogController::class, 'byCategory'])->name('blog.category');
+    Route::get('/blog/tag/{slug}', [BlogController::class, 'byTag'])->name('blog.tag');
+    Route::post('/blog/comment', [BlogController::class, 'storeComment'])->name('blog.comment.store');
     Route::get("/contact", [GreenRangerController::class,"contact"]);
     Route::post('/contact/store', [ContactController::class, 'store'])->name('contacts.store');
     Route::post('/contact/storeNoLogin', [ContactController::class, 'storeNoLogin'])->name('contacts.storeNoLogin');
@@ -61,11 +69,10 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     Route::get('/volunteer', function () {
         return view('volunteer');
     });
+    Route::get('/volunteer', [VolunteerController::class, 'index'])->name('volunteer');
     Route::post('/volunteer', [VolunteerController::class, 'store'])->middleware('auth')->name('volunteer.store');
-    Route::get('/acara1', [AcaraController::class, 'acara1'])->name('acara1');
-    Route::get('/acara2', [AcaraController::class, 'acara2'])->name('acara2');
-    Route::get('/acara3', [AcaraController::class, 'acara3'])->name('acara3');
-    Route::get('/acara4', [AcaraController::class, 'acara4'])->name('acara4');
+    Route::get('/event', [AcaraController::class, 'index'])->name('events.index');
+    Route::get('/event/{slug}', [AcaraController::class, 'show'])->name('event.show');
     Route::get("/produk1", [GreenRangerController::class,"produk1"]);
     Route::get("/produk2", [GreenRangerController::class,"produk2"]);
     Route::get("/produk3", [GreenRangerController::class,"produk3"]);

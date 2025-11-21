@@ -6,9 +6,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Volunteer;
+use App\Models\Event;
 
 class VolunteerController extends Controller
-{
+{   
+    public function index(Request $request)
+    {
+        $selectedEvent = $request->query('event');
+        $events = Event::orderBy('date', 'asc')->get(); // Ambil semua event dari database
+        
+        return view('volunteer', compact('selectedEvent', 'events'));
+    }
+
     // FUNGSI UNTUK MEMASUKKAN KE DATABASE
     public function store(Request $request)
     {

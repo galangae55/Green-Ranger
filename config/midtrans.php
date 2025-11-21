@@ -8,4 +8,9 @@ return [
     'isProduction' => false, // true untuk production
     'isSanitized' => true,
     'is3ds' => true,
+
+    'curl_options' => [
+        CURLOPT_SSL_VERIFYPEER => true,
+        CURLOPT_CAINFO => storage_path('certs/cacert.pem'), // Simpan CA bundle di storage
+    ]
 ];

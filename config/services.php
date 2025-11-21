@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'curl_options' => [
+    CURLOPT_SSL_VERIFYPEER => true,
+    CURLOPT_SSL_VERIFYHOST => 2,
+    ],
+
 ];

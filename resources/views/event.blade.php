@@ -174,96 +174,145 @@
             </div>
             <!-- Carousel End -->
 
-
-        <!-- Event Start -->
+            <!-- Event Start -->
             <div class="event">
                 <div class="container">
                     <div class="section-header text-center">
                         <p>Event selanjutnya</p>
                         <h2>Bersiaplah menjadi agen perubahan</h2>
                     </div>
+
                     <div class="row">
-                        <div class="col-lg-6" data-aos="fade-right">
-                            <div class="event-item">
-                                <img src="img/event1.jpg" alt="Image">
-                                <div class="event-content">
-                                    <div class="event-meta">
-                                        <p><i class="fa fa-calendar-alt"></i>10 Juni 2024</p>
-                                        <p><i class="far fa-clock"></i>08:00 - 12:00 WIB</p>
-                                        <p><i class="fa fa-map-marker-alt"></i>Bukit Jaddih, Bangkalan</p>
-                                    </div>
-                                    <div class="event-text"  style="max-width: 100%">
-                                        <h3><a href="/acara2">Jaddih Bersih</a></h3>
-                                        <p>
-                                            Sebuah kegiatan tahunan yang dibuat oleh Pemerintah Kota Bangkalan untuk membersihkan lembah Bukit Jaddih dari sampah wisatawan.
-                                        </p>
-                                        <a class="btn btn-custom" href="/volunteer">Gabung sekarang</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6" data-aos="fade-left">
-                            <div class="event-item">
-                                <img src="img/event2.jpg" alt="Image">
-                                <div class="event-content">
-                                    <div class="event-meta">
-                                        <p><i class="fa fa-calendar-alt"></i>12 Juni 2024</p>
-                                        <p><i class="far fa-clock"></i>07:00 - 12:00 WIB</p>
-                                        <p><i class="fa fa-map-marker-alt"></i>Pantai Kenjeran</p>
-                                    </div>
-                                    <div class="event-text" style="max-width: 100%">
-                                        <h3><a href="/acara1">Kenjeran Clean</a></h3>
-                                        <p>
-                                            Sebuah kegiatan tahunan yang diprakarsai oleh Bank Sampah Trash Wallet dan berkolaborasi dengan warga setempat untuk membersihkan pantai dari sampah laut.
-                                        </p>
-                                        <a class="btn btn-custom" href="/volunteer">Gabung sekarang</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6" data-aos="fade-right">
-                            <div class="event-item">
-                                <img src="img/event3.jpg" alt="Image">
-                                <div class="event-content">
-                                    <div class="event-meta">
-                                        <p><i class="fa fa-calendar-alt"></i>20 Juni 2024</p>
-                                        <p><i class="far fa-clock"></i>09:00 - 15:00 WIB</p>
-                                        <p><i class="fa fa-map-marker-alt"></i>Dinas Kebersihan dan </br> pertamanan</p>
-                                    </div>
-                                    <div class="event-text"  style="max-width: 100%">
-                                        <h3><a href="/acara3">Penyaluran Donasi</a></h3>
-                                        <p>
-                                            Penyaluran bantuan donasi berupa alat kebersihan dan pertamanan
-                                        </p>
-                                        <a class="btn btn-custom" href="/volunteer">Gabung sekarang</a>
+                        @foreach ($events as $event)
+                            <div class="col-lg-6" data-aos="{{ $loop->odd ? 'fade-right' : 'fade-left' }}">
+                                <div class="event-item">
+                                    {{-- Gambar Event --}}
+                                    <img
+                                        src="{{ asset('img/' . $event->image) }}"
+                                        alt="Event {{ $event->title }}"
+                                    >
+
+                                    {{-- Konten Event --}}
+                                    <div class="event-content">
+                                        {{-- Kiri: Info waktu & lokasi --}}
+                                        <div class="event-meta">
+                                            <p>
+                                                <i class="fa fa-calendar-alt"></i>
+                                                {{ \Carbon\Carbon::parse($event->date)->format('d F Y') }}
+                                            </p>
+                                            <p>
+                                                <i class="far fa-clock"></i>
+                                                {{ $event->time }}
+                                            </p>
+                                            <p>
+                                                <i class="fa fa-map-marker-alt"></i>
+                                                {{ $event->location }}
+                                            </p>
+                                        </div>
+
+                                        {{-- Kanan: Judul & deskripsi --}}
+                                        <div class="event-text" style="max-width: 100%">
+                                            <h3>
+                                                {{-- Link judul ke detail acara --}}
+                                                <a href="{{ route('event.show', $event->slug) }}">
+                                                    {{ $event->title }}
+                                                </a>
+                                            </h3>
+                                            <p>{{ $event->description }}</p>
+                                            {{-- Tombol gabung sekarang ke halaman volunteer --}}
+                                            <a class="btn btn-custom" href="{{ route('volunteer') }}?event={{ urlencode($event->title) }}">
+                                                Gabung sekarang
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6" data-aos="fade-left">
-                            <div class="event-item">
-                                <img src="img/event4.jpg" alt="Image">
-                                <div class="event-content">
-                                    <div class="event-meta">
-                                        <p><i class="fa fa-calendar-alt"></i>28 Juni 2024</p>
-                                        <p><i class="far fa-clock"></i>07:00 - 12:00</p>
-                                        <p><i class="fa fa-map-marker-alt"></i>Gedung Balai Kartika,<br> Surabaya</p>
-                                    </div>
-                                    <div class="event-text"  style="max-width: 100%">
-                                        <h3><a href="/acara4">Seminar Pelestarian Alam</a></h3>
-                                        <p>
-                                            Sebuah seminar pelestarian alam.
-                                        </p>
-                                        <a class="btn btn-custom" href="/volunteer">Gabung sekarang</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-        <!-- Event End -->
 
+                {{-- Pagination --}}
+                <style>
+                <style>
+                /* Tombol Previous/Next */
+                nav[role="navigation"] a[rel="prev"],
+                nav[role="navigation"] a[rel="next"],
+                nav[role="navigation"] span[aria-label*="Previous"],
+                nav[role="navigation"] span[aria-label*="Next"] {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 8px 12px !important;
+                    background: white;
+                    border: 1px solid #e9ecef;
+                    border-radius: 6px;
+                    color: #495057 !important;
+                    text-decoration: none;
+                    font-size: 14px !important;
+                    font-weight: 500;
+                    transition: all 0.2s ease;
+                }
+
+                nav[role="navigation"] a[rel="prev"]:hover,
+                nav[role="navigation"] a[rel="next"]:hover {
+                    background: #ffd43b !important;
+                    color: #495057 !important;
+                    border-color: #ffd43b;
+                    transform: translateY(-1px);
+                }
+
+                /* Ikon panah */
+                nav[role="navigation"] svg {
+                    width: 16px !important;
+                    height: 16px !important;
+                    transition: transform 0.2s ease;
+                }
+
+                nav[role="navigation"] a[rel="prev"]:hover svg {
+                    transform: translateX(-2px);
+                }
+
+                nav[role="navigation"] a[rel="next"]:hover svg {
+                    transform: translateX(2px);
+                }
+
+                nav[role="navigation"] a:not([rel="prev"]):not([rel="next"]):hover {
+                    background: #ffd43b !important;
+                    color: #495057 !important;
+                    border-color: #ffd43b;
+                    transform: translateY(-1px);
+                }
+
+                /* Active page */
+                nav[role="navigation"] span[aria-current="page"] {
+                    background: #ffd43b !important;
+                    color: #495057 !important;
+                    border-color: #ffd43b !important;
+                    font-weight: 600;
+                }
+
+                /* Disabled state */
+                nav[role="navigation"] span[aria-label*="Previous"],
+                nav[role="navigation"] span[aria-label*="Next"] {
+                    background: #f8f9fa !important;
+                    color: #adb5bd !important;
+                    border-color: #e9ecef !important;
+                    cursor: not-allowed;
+                }
+
+                /* Hide "Showing results" text */
+                nav[role="navigation"] > div:first-child {
+                    display: none !important;
+                }
+                </style>
+
+                <div class="d-flex justify-content-center mt-4">
+                    {{ $events->links() }}
+                </div>
+            </div>
+        </div>
+        <!-- Event End -->
 
          <!-- Footer Start -->
          <div class="footer">

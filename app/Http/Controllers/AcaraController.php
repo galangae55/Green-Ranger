@@ -1,57 +1,33 @@
 <?php
-
 // app/Http/Controllers/AcaraController.php
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use App\Models\Volunteer;
+use App\Models\DetailAcara;
 use Illuminate\Http\Request;
 
 class AcaraController extends Controller
 {
-    public function acara1()
+    public function index()
     {
-        // Mengambil data acara1 dari tabel volunteer
-        $volunteers = Volunteer::where('status', 'accepted')
-        ->where('event', 'Kenjeran Clean')
-        ->get(['id', 'username', 'umur', 'event', 'created_at']);
-
-
-        // Mengirim data ke view acara1.blade.php
-        return view('acara1', ['volunteers' => $volunteers]);
+        $events = Event::orderBy('date', 'asc')->paginate(4);
+        return view('event', compact('events'));
     }
 
-    public function acara2()
+    public function show($slug)
     {
-        // Mengambil data acara1 dari tabel volunteer
+        $event = Event::where('slug', $slug)->firstOrFail();
+        
+        // Ambil detail acara jika ada
+        $detail = $event->detail;
+        
+        // Ambil volunteer dengan status accepted untuk event tersebut
         $volunteers = Volunteer::where('status', 'accepted')
-        ->where('event', 'jaddih bersih')
-        ->get(['id', 'username', 'umur', 'event', 'created_at']);
+            ->where('event', $event->title) // Match dengan title event
+            ->get(['username', 'umur', 'event', 'created_at']);
 
-        // Mengirim data ke view acara1.blade.php
-        return view('acara2', ['volunteers' => $volunteers]);
-    }
-
-    public function acara3()
-    {
-        // Mengambil data acara1 dari tabel volunteer
-        $volunteers = Volunteer::where('status', 'accepted')
-        ->where('event', 'Penyaluran Donasi')
-        ->get(['id', 'username', 'umur', 'event', 'created_at']);
-
-        // Mengirim data ke view acara1.blade.php
-        return view('acara3', ['volunteers' => $volunteers]);
-    }
-    public function acara4()
-    {
-        // Mengambil data acara1 dari tabel volunteer
-        $volunteers = Volunteer::where('status', 'accepted')
-        ->where('event', 'Seminar Pelestarian Alam')
-        ->get(['id', 'username', 'umur', 'event', 'created_at']);
-
-        // Mengirim data ke view acara1.blade.php
-        return view('acara4', ['volunteers' => $volunteers]);
+        return view('acara', compact('event', 'detail', 'volunteers'));
     }
 }
-
-

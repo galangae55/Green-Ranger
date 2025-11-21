@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <title>blog</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Blog - Green Ranger</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="Blog artikel dan tips kebersihan lingkungan - Green Ranger">
+    <meta name="keywords" content="blog, lingkungan, kebersihan, tips, artikel, green ranger">
+    <meta name="author" content="Green Ranger Team">
 
-        <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
+    <!-- Favicon -->
+    <link href="{{ asset('img/favicon.ico') }}" rel="icon">
 
-        <!-- Google Font -->
-        <link href="https://fonts.google.com/share?selection.family=Montserrat:ital,wght@0,100..900;1,100..900|
-                    Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1
-                    ,400;1,500;1,600;1,700;1,800;1,900|Quicksand:wght@300..700|Roboto:ital,wght@0,100;0,300;0,400
-                    ;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
-        <!-- CSS Libraries -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- CSS Libraries - All from CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
+    <!-- Template Stylesheet -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     </head>
 
     <body>
@@ -182,128 +184,118 @@
                     <h2>Artikel dan tips kebersihan terbaru</h2>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4">
+                    @forelse($blogs as $blog)
+                    <div class="col-lg-4 mb-4">
                         <div class="blog-item">
                             <div class="blog-img">
-                                <img src="img/blog1.jpg" alt="Image">
+                                <img src="{{ asset('img/' . $blog->image) }}" alt="{{ $blog->title }}"
+                                    onerror="this.src='https://via.placeholder.com/400x300/3a5f4c/ffffff?text=Blog+Image'">
                             </div>
                             <div class="blog-text">
-                                <h3><a href="/detail2">Mengapa Kebersihan Lingkungan Penting dan Bagaimana Kita Bisa Berkontribusi</a></h3>
-                                <p>
-                                    Kebersihan lingkungan adalah isu yang semakin mendapat perhatian global, mengingat dampak negatif dari polusi dan sampah terhadap kesehatan manusia dan ekosistem. Lingkungan yang bersih tidak hanya menyenangkan untuk dilihat, tetapi juga vital bagi kesejahteraan kita.
-
-                                </p>
+                                <h3><a href="{{ route('blog.show', $blog->slug) }}">{{ $blog->title }}</a></h3>
+                                <p>{{ $blog->excerpt }}</p>
                             </div>
                             <div class="blog-meta">
-                                {{-- <p><i class="fa fa-user"></i><a href="">Subagyo</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p> --}}
+                                @if($blog->author)
+                                <p><i class="fa fa-user"></i><a href="#">{{ $blog->author }}</a></p>
+                                @endif
+                                @if($blog->comment_count > 0)
+                                <p><i class="fa fa-comments"></i><a href="#">{{ $blog->comment_count }} komentar</a></p>
+                                @endif
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/blog2.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="/detail">Meningkatkan Kesadaran Lingkungan Melalui Pendidikan</a></h3>
-                                <p>
-                                    Pendidikan adalah kunci untuk meningkatkan kesadaran tentang pentingnya kebersihan lingkungan. Dengan memahami dampak dari tindakan kita terhadap alam, kita dapat mengambil langkah-langkah yang lebih bertanggung jawab untuk menjaga kebersihan serta melindungi lingkungan serta planet ini.
-
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                {{-- <p><i class="fa fa-user"></i><a href="">M. Galang</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p> --}}
-                            </div>
+                    @empty
+                    <div class="col-12 text-center">
+                        <div class="alert alert-info">
+                            <h4>Belum ada artikel blog</h4>
+                            <p>Silakan kembali lagi nanti untuk membaca artikel terbaru kami.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/blog3.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="detail3">Mengelola Sampah Rumah Tangga Secara Efektif</a></h3>
-                                <p>
-                                    Pengelolaan sampah rumah tangga penting dalam menjaga kebersihan lingkungan. Dengan cara yang benar, kita dapat mengurangi jumlah sampah di tempat pembuangan akhir dan meningkatkan daur ulang.
-                                    Artikel ini akan membahas berbagai metode untuk mengelola sampah rumah tangga secara efisien.
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                {{-- <p><i class="fa fa-user"></i><a href="">Effendi</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 Komentar</a></p> --}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/blog4.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="detail4">Tips Mengurangi Penggunaan Energi di Rumah</a></h3>
-                                <p>
-                                    Penggunaan energi yang efisien di rumah tidak hanya membantu mengurangi biaya listrik, tetapi juga berkontribusi pada pelestarian lingkungan.
-                                     Artikel ini akan membahas berbagai cara untuk mengurangi penggunaan energi di rumah dan manfaat yang diperoleh.
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                {{-- <p><i class="fa fa-user"></i><a href="">Galatama</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p> --}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/blog5.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="detail5">Menjaga Kebersihan dan Kelestarian Sumber Air</a></h3>
-                                <p>
-                                    Sumber air yang bersih dan lestari adalah esensial untuk kehidupan. Sayangnya, pencemaran dan pengelolaan yang buruk sering kali mengancam keberlangsungan sumber air kita.
-                                    Artikel ini akan membahas pentingnya menjaga kebersihan sumber air dan langkah-langkah yang dapat diambil untuk melestarikannya.
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                {{-- <p><i class="fa fa-user"></i><a href="">Bambang</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p> --}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/blog6.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="detail6">Tips Mengelola Sampah Elektronik Dengan Bijak</a></h3>
-                                <p>
-                                    Limbah elektronik, atau e-waste, adalah salah satu masalah lingkungan yang berkembang pesat. Barang-barang elektronik yang dibuang dengan cara yang salah dapat menyebabkan pencemaran berbahaya.
-                                    Artikel ini membahas pengelolaan limbah elektronik dan langkah-langkah praktis untuk melakukannya.
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                {{-- <p><i class="fa fa-user"></i><a href="">Reyhan</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 komentar</a></p> --}}
-                            </div>
-                        </div>
-                    </div>
+                    @endforelse
                 </div>
-                {{-- <div class="row">
-                    <div class="col-12">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled"><a class="page-link" href="#">Sebelum</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Sesudah</a></li>
-                        </ul>
-                    </div>
-                </div> --}}
+
+                 {{-- Pagination --}}
+                <style>
+                <style>
+                /* Tombol Previous/Next */
+                nav[role="navigation"] a[rel="prev"],
+                nav[role="navigation"] a[rel="next"],
+                nav[role="navigation"] span[aria-label*="Previous"],
+                nav[role="navigation"] span[aria-label*="Next"] {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 8px 12px !important;
+                    background: white;
+                    border: 1px solid #e9ecef;
+                    border-radius: 6px;
+                    color: #495057 !important;
+                    text-decoration: none;
+                    font-size: 14px !important;
+                    font-weight: 500;
+                    transition: all 0.2s ease;
+                }
+
+                nav[role="navigation"] a[rel="prev"]:hover,
+                nav[role="navigation"] a[rel="next"]:hover {
+                    background: #ffd43b !important;
+                    color: #495057 !important;
+                    border-color: #ffd43b;
+                    transform: translateY(-1px);
+                }
+
+                /* Ikon panah */
+                nav[role="navigation"] svg {
+                    width: 16px !important;
+                    height: 16px !important;
+                    transition: transform 0.2s ease;
+                }
+
+                nav[role="navigation"] a[rel="prev"]:hover svg {
+                    transform: translateX(-2px);
+                }
+
+                nav[role="navigation"] a[rel="next"]:hover svg {
+                    transform: translateX(2px);
+                }
+
+                nav[role="navigation"] a:not([rel="prev"]):not([rel="next"]):hover {
+                    background: #ffd43b !important;
+                    color: #495057 !important;
+                    border-color: #ffd43b;
+                    transform: translateY(-1px);
+                }
+
+                /* Active page */
+                nav[role="navigation"] span[aria-current="page"] {
+                    background: #ffd43b !important;
+                    color: #495057 !important;
+                    border-color: #ffd43b !important;
+                    font-weight: 600;
+                }
+
+                /* Disabled state */
+                nav[role="navigation"] span[aria-label*="Previous"],
+                nav[role="navigation"] span[aria-label*="Next"] {
+                    background: #f8f9fa !important;
+                    color: #adb5bd !important;
+                    border-color: #e9ecef !important;
+                    cursor: not-allowed;
+                }
+
+                /* Hide "Showing results" text */
+                nav[role="navigation"] > div:first-child {
+                    display: none !important;
+                }
+                </style>
+
+                <div class="d-flex justify-content-center mt-4">
+                    {{ $blogs->links() }}
+                </div>
             </div>
         </div>
+        <!-- Blog End -->
         <!-- Blog End -->
 
 
@@ -378,25 +370,86 @@
             <div class="loader"></div>
         </div>
 
-        <!-- JavaScript Libraries -->
+        <!-- JavaScript Libraries - All from CDN -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/counterup/counterup.min.js"></script>
-        <script src="lib/parallax/parallax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-
-        <!-- Contact Javascript File -->
-        <script src="mail/jqBootstrapValidation.min.js"></script>
-        <script src="mail/contact.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- Template Javascript -->
-        <script src="js/main.js"></script>
+        <script src="{{ asset('js/main.js') }}" onerror="console.log('Main.js not found, continuing without it')"></script>
 
         <script>
-            AOS.init();
+            // Initialize everything when document is ready
+            $(document).ready(function() {
+                console.log('Document ready, initializing components...');
+
+                // Initialize Owl Carousel
+                if (typeof $.fn.owlCarousel !== 'undefined') {
+                    $('.owl-carousel').owlCarousel({
+                        items: 1,
+                        loop: true,
+                        nav: true,
+                        dots: true,
+                        autoplay: true,
+                        autoplayTimeout: 5000,
+                        autoplayHoverPause: true,
+                        responsive: {
+                            0: {
+                                items: 1,
+                                nav: false
+                            },
+                            600: {
+                                items: 1,
+                                nav: false
+                            },
+                            1000: {
+                                items: 1,
+                                nav: true
+                            }
+                        }
+                    });
+                    console.log('Owl Carousel initialized successfully');
+                }
+
+                // Initialize AOS
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        duration: 1000,
+                        once: true,
+                        offset: 100
+                    });
+                    console.log('AOS initialized successfully');
+                }
+
+                // Back to top button
+                $(window).scroll(function() {
+                    if ($(this).scrollTop() > 100) {
+                        $('.back-to-top').fadeIn('slow');
+                    } else {
+                        $('.back-to-top').fadeOut('slow');
+                    }
+                });
+
+                $('.back-to-top').click(function() {
+                    $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+                    return false;
+                });
+            });
+
+            // Global function for social media notifications
+            function showNotification(platform) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Informasi',
+                    text: `Maaf, ${platform} belum tersedia.`,
+                    confirmButtonText: 'OK'
+                });
+            }
         </script>
     </body>
 </html>

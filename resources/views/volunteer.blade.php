@@ -210,7 +210,6 @@
             </div>
             <!-- Carousel End -->
 
-
         <!-- Volunteer Start -->
         @if (session('user_name')) <!-- Jika pengguna login -->
             <div class="container">
@@ -236,14 +235,16 @@
                                         @enderror
                                     </div>
 
-                                    <!-- Pilihan Event -->
+                                    <!-- Pilihan Event dari Database -->
                                     <div class="control-group" data-aos="fade-right">
                                         <select class="form-control" name="event" required="required">
                                             <option value="" disabled {{ old('event') ? '' : 'selected' }}>Pilih Acara</option>
-                                            <option value="Kenjeran Clean" class="grey-option" {{ old('event') == 'Acara 1' ? 'selected' : '' }}>Kenjeran Clean</option>
-                                            <option value="Jaddih Bersih" class="grey-option" {{ old('event') == 'Acara 2' ? 'selected' : '' }}>Jaddih Bersih</option>
-                                            <option value="Penyaluran Donasi" class="grey-option" {{ old('event') == 'Acara 3' ? 'selected' : '' }}>Penyaluran Donasi</option>
-                                            <option value="Seminar Pelestarian Alam" class="grey-option" {{ old('event') == 'Acara 4' ? 'selected' : '' }}>Seminar Pelestarian Alam</option>
+                                            @foreach($events as $event)
+                                                <option value="{{ $event->title }}" class="grey-option" 
+                                                    {{ old('event') == $event->title ? 'selected' : '' }}>
+                                                    {{ $event->title }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                         @error('event')
                                             <span class="text-danger">{{ $message }}</span>
@@ -330,9 +331,7 @@
             </div>
         </div>
         @endif
-
         <!-- Volunteer End -->
-
 
         <!-- Footer Start -->
         <div class="footer">
