@@ -8,6 +8,7 @@ use App\Models\Komen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Comment;
+use App\Models\Product;
 
 class GreenRangerController extends Controller
 {
@@ -77,7 +78,19 @@ class GreenRangerController extends Controller
     }
 
     public function belanja(){
-        return view("belanja");
+        $products = Product::all();
+        return view('belanja', compact('products'));
+    }
+
+    public function show($id)
+    {
+        $product = Product::with('detail')->findOrFail($id);
+        $relatedProducts = Product::where('id', '!=', $id)
+                                ->inRandomOrder()
+                                ->limit(4)
+                                ->get();
+        
+        return view('product_detail', compact('product', 'relatedProducts'));
     }
 
     public function detail(){
