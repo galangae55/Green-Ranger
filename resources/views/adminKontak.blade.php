@@ -80,6 +80,7 @@
         </a>
         <ul class="side-menu top">
             <li><a href="/admin"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li><a href="{{ route('admin.event') }}"><i class='bx bxs-calendar-event'></i>Event</a></li>
             <li><a href="/admin/volunteer"><i class='bx bxs-group'></i>Volunteer</a></li>
             <li><a href="/admin/donation"><i class='bx bxs-wallet'></i>Donation</a></li>
             <li class="active"><a href="/admin/kontak"><i class='bx bxs-message-dots'></i>Kontak</a></li>

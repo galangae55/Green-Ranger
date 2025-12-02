@@ -87,6 +87,7 @@
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
+            <li><a href="{{ route('admin.event') }}"><i class='bx bxs-calendar-event'></i>Event</a></li>
 			<li class="active">
 				<a href="/admin/volunteer">
 					<i class='bx bxs-group' ></i>
@@ -111,6 +112,12 @@
 					<span class="text">Belanja</span>
 				</a>
 			</li>
+            <li>
+                <a href="/admin/produk">
+                    <i class='bx bxs-package' ></i>
+                    <span class="text">Produk</span>
+                </a>
+            </li>
             <li>
 				<a href="/admin/akun">
 					<i class='bx bxs-lock-alt' ></i>

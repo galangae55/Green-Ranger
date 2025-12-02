@@ -43,6 +43,36 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::get('/admin/produk/{id}/edit', [AdminController::class, 'editProduct'])->name('admin.produk.edit');
     Route::put('/admin/produk/{id}', [AdminController::class, 'updateProduct'])->name('admin.produk.update');
     Route::delete('/admin/produk/{id}', [AdminController::class, 'deleteProduct'])->name('admin.produk.delete');
+    Route::get('/admin/event', [AdminController::class, 'adminEvent'])->name('admin.event');
+    Route::post('/admin/event', [AdminController::class, 'store'])->name('admin.createEvent');
+    Route::get('/admin/event/{id}', [AdminController::class, 'show'])->name('admin.showEvent');
+    Route::delete('/admin/event/{id}', [AdminController::class, 'destroy'])->name('admin.deleteEvent');
+    Route::get('/admin/event/{id}/edit', [AdminController::class, 'edit'])->name('admin.editEvent');
+    Route::put('/admin/event/{id}', [AdminController::class, 'update'])->name('admin.updateEvent');
+    
+    Route::get('/admin/blog-management', [AdminController::class, 'blogManagement'])->name('admin.blog-management');
+    
+    // Blog Routes
+    Route::post('/admin/blog-management/blogs', [AdminController::class, 'storeBlog'])->name('admin.blog-management.blogs.store');
+    Route::put('/admin/blog-management/blogs/{id}', [AdminController::class, 'updateBlog'])->name('admin.blog-management.blogs.update');
+    Route::delete('/admin/blog-management/blogs/{id}', [AdminController::class, 'destroyBlog'])->name('admin.b  log-management.blogs.destroy');
+    Route::get('/admin/blog-management/blogs/{id}/data', [AdminController::class, 'getBlogData'])->name('admin.blog-management.blogs.data');
+    
+    // Category Routes
+    Route::post('/admin/blog-management/categories', [AdminController::class, 'storeCategory'])->name('admin.blog-management.categories.store');
+    Route::put('/admin/blog-management/categories/{category}', [AdminController::class, 'updateCategory'])->name('admin.blog-management.categories.update');
+    Route::delete('/admin/blog-management/categories/{category}', [AdminController::class, 'destroyCategory'])->name('admin.blog-management.categories.destroy');
+    Route::get('/admin/blog-management/categories/{id}/data', [AdminController::class, 'getCategoryData'])->name('admin.blog-management.categories.data');
+    
+    // Tag Routes
+    Route::post('/admin/blog-management/tags', [AdminController::class, 'storeTag'])->name('admin.blog-management.tags.store');
+    Route::put('/admin/blog-management/tags/{tag}', [AdminController::class, 'updateTag'])->name('admin.blog-management.tags.update');
+    Route::delete('/admin/blog-management/tags/{tag}', [AdminController::class, 'destroyTag'])->name('admin.blog-management.tags.destroy');
+    Route::get('/admin/blog-management/tags/{id}/data', [AdminController::class, 'getTagData'])->name('admin.blog-management.tags.data');
+    
+    // Comment Routes
+    Route::delete('/blog-management/comments/{id}', [AdminController::class, 'destroyComment'])->name('admin.blog-management.comments.destroy');
+
     Route::get('/admin/akun', [AdminController::class, 'adminAkun'])->name('admin.akun');
     Route::delete('/admin/akun/{id}', [AdminController::class, 'deleteAkun'])->name('admin.deleteAkun');
     Route::patch('/admin/akun/{id}/update-status', [AdminController::class, 'updateRole'])->name('admin.updateRole');

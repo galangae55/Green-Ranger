@@ -88,6 +88,7 @@
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
+            <li><a href="{{ route('admin.event') }}"><i class='bx bxs-calendar-event'></i>Event</a></li>
 			<li>
 				<a href="/admin/volunteer">
 					<i class='bx bxs-group' ></i>
