@@ -51,27 +51,27 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::put('/admin/event/{id}', [AdminController::class, 'update'])->name('admin.updateEvent');
     
     Route::get('/admin/blog-management', [AdminController::class, 'blogManagement'])->name('admin.blog-management');
-    
-    // Blog Routes
+
+    // Blog Routes - FIX TYPO & PARAMETER CONSISTENCY
     Route::post('/admin/blog-management/blogs', [AdminController::class, 'storeBlog'])->name('admin.blog-management.blogs.store');
     Route::put('/admin/blog-management/blogs/{id}', [AdminController::class, 'updateBlog'])->name('admin.blog-management.blogs.update');
-    Route::delete('/admin/blog-management/blogs/{id}', [AdminController::class, 'destroyBlog'])->name('admin.b  log-management.blogs.destroy');
+    Route::delete('/admin/blog-management/blogs/{id}', [AdminController::class, 'destroyBlog'])->name('admin.blog-management.blogs.destroy'); // FIX TYPO
     Route::get('/admin/blog-management/blogs/{id}/data', [AdminController::class, 'getBlogData'])->name('admin.blog-management.blogs.data');
-    
-    // Category Routes
+
+    // Category Routes - CHANGE TO {id} FOR CONSISTENCY
     Route::post('/admin/blog-management/categories', [AdminController::class, 'storeCategory'])->name('admin.blog-management.categories.store');
-    Route::put('/admin/blog-management/categories/{category}', [AdminController::class, 'updateCategory'])->name('admin.blog-management.categories.update');
-    Route::delete('/admin/blog-management/categories/{category}', [AdminController::class, 'destroyCategory'])->name('admin.blog-management.categories.destroy');
+    Route::put('/admin/blog-management/categories/{id}', [AdminController::class, 'updateCategory'])->name('admin.blog-management.categories.update');
+    Route::delete('/admin/blog-management/categories/{id}', [AdminController::class, 'destroyCategory'])->name('admin.blog-management.categories.destroy');
     Route::get('/admin/blog-management/categories/{id}/data', [AdminController::class, 'getCategoryData'])->name('admin.blog-management.categories.data');
-    
-    // Tag Routes
+
+    // Tag Routes - CHANGE TO {id} FOR CONSISTENCY
     Route::post('/admin/blog-management/tags', [AdminController::class, 'storeTag'])->name('admin.blog-management.tags.store');
-    Route::put('/admin/blog-management/tags/{tag}', [AdminController::class, 'updateTag'])->name('admin.blog-management.tags.update');
-    Route::delete('/admin/blog-management/tags/{tag}', [AdminController::class, 'destroyTag'])->name('admin.blog-management.tags.destroy');
+    Route::put('/admin/blog-management/tags/{id}', [AdminController::class, 'updateTag'])->name('admin.blog-management.tags.update');
+    Route::delete('/admin/blog-management/tags/{id}', [AdminController::class, 'destroyTag'])->name('admin.blog-management.tags.destroy');
     Route::get('/admin/blog-management/tags/{id}/data', [AdminController::class, 'getTagData'])->name('admin.blog-management.tags.data');
-    
-    // Comment Routes
-    Route::delete('/blog-management/comments/{id}', [AdminController::class, 'destroyComment'])->name('admin.blog-management.comments.destroy');
+
+    // Comment Routes - ADD /admin PREFIX
+    Route::delete('/admin/blog-management/comments/{id}', [AdminController::class, 'destroyComment'])->name('admin.blog-management.comments.destroy');
 
     Route::get('/admin/akun', [AdminController::class, 'adminAkun'])->name('admin.akun');
     Route::delete('/admin/akun/{id}', [AdminController::class, 'deleteAkun'])->name('admin.deleteAkun');

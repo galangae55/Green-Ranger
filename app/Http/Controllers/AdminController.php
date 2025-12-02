@@ -561,18 +561,39 @@ class AdminController extends Controller
             return redirect()->route('admin.blog-management')->with('success', 'Blog updated successfully.');
         }
 
-        public function destroyBlog(Blog $blog)
-        {
+        public function destroyBlog($id)
+    {
+        try {
+            $blog = Blog::findOrFail($id);
+            
+            \Log::info('Deleting blog ID: ' . $id, [
+                'title' => $blog->title,
+                'image' => $blog->image
+            ]);
+            
+            // Delete image
             if ($blog->image && Storage::disk('public')->exists($blog->image)) {
                 Storage::disk('public')->delete($blog->image);
             }
 
+            // Detach tags
             $blog->tags()->detach();
+            
+            // Delete comments
             $blog->comments()->delete();
+            
+            // Delete blog
             $blog->delete();
+            
+            \Log::info('Blog deleted successfully ID: ' . $id);
 
             return redirect()->route('admin.blog-management')->with('success', 'Blog deleted successfully.');
+            
+        } catch (\Exception $e) {
+            \Log::error('Error deleting blog: ' . $e->getMessage());
+            return redirect()->route('admin.blog-management')->with('error', 'Failed to delete blog: ' . $e->getMessage());
         }
+    }
 
         public function storeCategory(Request $request)
         {
@@ -591,7 +612,8 @@ class AdminController extends Controller
         }
 
         public function updateCategory(Request $request, $id)
-        {
+    {
+        try {
             \Log::info('Update Category Request ID ' . $id . ':', $request->all());
             
             $category = CategoryBlog::findOrFail($id);
@@ -606,19 +628,42 @@ class AdminController extends Controller
                 'slug' => Str::slug($request->name),
                 'description' => $request->description
             ]);
+            
+            \Log::info('Category updated successfully ID: ' . $id);
 
             return redirect()->route('admin.blog-management')->with('success', 'Category updated successfully.');
+            
+        } catch (\Exception $e) {
+            \Log::error('Error updating category: ' . $e->getMessage());
+            return redirect()->route('admin.blog-management')->with('error', 'Failed to update category: ' . $e->getMessage());
         }
+    }
 
-        public function destroyCategory(CategoryBlog $category)
-        {
+        public function destroyCategory($id)
+    {
+        try {
+            $category = CategoryBlog::findOrFail($id);
+            
+            \Log::info('Deleting category ID: ' . $id, [
+                'name' => $category->name,
+                'blog_count' => $category->blogs()->count()
+            ]);
+            
             if ($category->blogs()->count() > 0) {
                 return redirect()->route('admin.blog-management')->with('error', 'Cannot delete category with associated blogs.');
             }
 
             $category->delete();
+            
+            \Log::info('Category deleted successfully ID: ' . $id);
+
             return redirect()->route('admin.blog-management')->with('success', 'Category deleted successfully.');
+            
+        } catch (\Exception $e) {
+            \Log::error('Error deleting category: ' . $e->getMessage());
+            return redirect()->route('admin.blog-management')->with('error', 'Failed to delete category: ' . $e->getMessage());
         }
+    }
 
         // Tag Methods
         public function storeTag(Request $request)
@@ -637,7 +682,8 @@ class AdminController extends Controller
 
         // PERUBAHAN DI SINI: Ganti Tag $tag dengan $id
         public function updateTag(Request $request, $id)
-        {
+    {
+        try {
             \Log::info('Update Tag Request ID ' . $id . ':', $request->all());
             
             $tag = Tag::findOrFail($id);
@@ -650,23 +696,64 @@ class AdminController extends Controller
                 'name' => $request->name,
                 'slug' => Str::slug($request->name)
             ]);
+            
+            \Log::info('Tag updated successfully ID: ' . $id);
 
             return redirect()->route('admin.blog-management')->with('success', 'Tag updated successfully.');
+            
+        } catch (\Exception $e) {
+            \Log::error('Error updating tag: ' . $e->getMessage());
+            return redirect()->route('admin.blog-management')->with('error', 'Failed to update tag: ' . $e->getMessage());
         }
+    }
 
-        public function destroyTag(Tag $tag)
-        {
+    // PERUBAHAN: Ubah parameter Tag $tag menjadi $id
+    public function destroyTag($id)
+    {
+        try {
+            $tag = Tag::findOrFail($id);
+            
+            \Log::info('Deleting tag ID: ' . $id, [
+                'name' => $tag->name,
+                'blog_count' => $tag->blogs()->count()
+            ]);
+            
             $tag->blogs()->detach();
             $tag->delete();
-            return redirect()->route('admin.blog-management')->with('success', 'Tag deleted successfully.');
-        }
+            
+            \Log::info('Tag deleted successfully ID: ' . $id);
 
-        // Comment Methods
-        public function destroyComment(Comment $comment)
-        {
-            $comment->delete();
-            return redirect()->route('admin.blog-management')->with('success', 'Comment deleted successfully.');
+            return redirect()->route('admin.blog-management')->with('success', 'Tag deleted successfully.');
+            
+        } catch (\Exception $e) {
+            \Log::error('Error deleting tag: ' . $e->getMessage());
+            return redirect()->route('admin.blog-management')->with('error', 'Failed to delete tag: ' . $e->getMessage());
         }
+    }
+
+    // ====================== COMMENT METHODS ======================
+    // PERUBAHAN: Ubah parameter Comment $comment menjadi $id
+    public function destroyComment($id)
+    {
+        try {
+            $comment = Comment::findOrFail($id);
+            
+            \Log::info('Deleting comment ID: ' . $id, [
+                'name' => $comment->nama,
+                'blog_id' => $comment->blog_id
+            ]);
+            
+            $comment->delete();
+            
+            \Log::info('Comment deleted successfully ID: ' . $id);
+
+            return redirect()->route('admin.blog-management')->with('success', 'Comment deleted successfully.');
+            
+        } catch (\Exception $e) {
+            \Log::error('Error deleting comment: ' . $e->getMessage());
+            return redirect()->route('admin.blog-management')->with('error', 'Failed to delete comment: ' . $e->getMessage());
+        }
+    }
         
         // Di AdminController - getBlogData()
     public function getBlogData($id)
