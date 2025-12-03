@@ -173,6 +173,169 @@
                 height: 300px;
             }
         }
+        /* Volunteer Carousel Styles */
+.volunteer-carousel .owl-stage {
+    padding: 20px 0;
+}
+
+.volunteer-card {
+    padding: 10px;
+}
+
+.volunteer-item {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.volunteer-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #3a5f4c 0%, #4a7c59 100%);
+    color: white;
+}
+
+.volunteer-item:hover .volunteer-name,
+.volunteer-item:hover .volunteer-join-date,
+.volunteer-item:hover .volunteer-age,
+.volunteer-item:hover .join-time {
+    color: white;
+}
+
+.volunteer-avatar {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #3a5f4c 0%, #4a7c59 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(58, 95, 76, 0.3);
+}
+
+.volunteer-name {
+    font-weight: 600;
+    color: #3a5f4c;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.volunteer-join-date {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.volunteer-age {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.join-time {
+    display: inline-block;
+    background: #F8B739;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.empty-volunteer {
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 15px;
+    border: 2px dashed #ddd;
+    color: #666;
+}
+
+/* Owl Carousel Navigation for Volunteer */
+.volunteer-carousel .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.volunteer-carousel .owl-nav button {
+    pointer-events: all;
+    background: rgba(58, 95, 76, 0.8) !important;
+    color: white !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.volunteer-carousel .owl-nav button:hover {
+    background: rgba(58, 95, 76, 1) !important;
+    transform: scale(1.1);
+}
+
+.volunteer-carousel .owl-nav button span {
+    font-size: 24px !important;
+    line-height: 1;
+}
+
+.volunteer-carousel .owl-dots {
+    margin-top: 20px;
+}
+
+.volunteer-carousel .owl-dots button.owl-dot {
+    background: #ddd !important;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.volunteer-carousel .owl-dots button.owl-dot.active {
+    background: #3a5f4c !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .volunteer-item {
+        height: 220px;
+    }
+    
+    .volunteer-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+    
+    .volunteer-name {
+        font-size: 16px;
+    }
+    
+    .volunteer-join-date,
+    .volunteer-age {
+        font-size: 13px;
+    }
+    
+    .volunteer-carousel .owl-nav {
+        display: none;
+    }
+}
     </style>
 </head>
 
@@ -326,24 +489,41 @@
         <section class="event-details row my-5">
             <div class="col-md-6" data-aos="fade-right">
                 <div class="event-image">
-                    <img src="{{ asset('img/' . ($event->image ?? 'default-event.jpg')) }}" alt="Event Image" class="img-fluid rounded shadow" onerror="this.src='https://via.placeholder.com/600x400/3a5f4c/ffffff?text=Event+Image'">
+                @if($event->image)
+                    <img src="{{ asset('storage/' . $event->image) }}" 
+                         alt="{{ $event->title }}" 
+                         class="img-fluid rounded shadow"
+                         onerror="this.src='https://via.placeholder.com/600x400/3a5f4c/ffffff?text=Event+Image'">
+                @else
+                    <img src="https://via.placeholder.com/600x400/3a5f4c/ffffff?text=Event+Image" 
+                         alt="Event Image" 
+                         class="img-fluid rounded shadow">
+                @endif
                 </div>
             </div>
             <div class="col-md-6" data-aos="fade-left">
-                <div class="event-info">
-                    <h2 class="my-4">{{ $event->title ?? 'Event Title' }}</h2>
-                    <p class="date-time"><i class="fas fa-calendar-alt"></i> {{ isset($event->date) ? \Carbon\Carbon::parse($event->date)->format('d F Y') : 'Date not set' }} | {{ $event->time ?? 'Time not set' }} WIB</p>
-                    <p class="location"><i class="fas fa-map-marker-alt"></i> {{ $event->location ?? 'Location not set' }}</p>
-                    <p class="description">{{ $event->description ?? 'Description not available' }}</p>
-                    <button class="btn btn-primary mt-3 register-button">
-                        <a href="/volunteer?event={{ urlencode($event->title ?? '') }}" style="color: aliceblue; text-decoration: none;">Daftar sekarang</a>
-                    </button>
-                </div>
+            <div class="event-info">
+                <h2 class="my-4">{{ $event->title ?? 'Event Title' }}</h2>
+                <p class="date-time">
+                    <i class="fas fa-calendar-alt"></i> 
+                    {{ isset($event->date) ? \Carbon\Carbon::parse($event->date)->format('d F Y') : 'Date not set' }} | 
+                    {{ $event->time ?? 'Time not set' }} WIB
+                </p>
+                <p class="location">
+                    <i class="fas fa-map-marker-alt"></i> 
+                    {{ $event->location ?? 'Location not set' }}
+                </p>
+                <p class="description">{{ $event->description ?? 'Description not available' }}</p>
+                <button class="btn btn-primary mt-3 register-button">
+                    <a href="/volunteer?event={{ urlencode($event->title ?? '') }}" 
+                       style="color: aliceblue; text-decoration: none;">Daftar sekarang</a>
+                </button>
             </div>
+        </div>
         </section>
 
         {{-- Dynamic Schedule Section --}}
-        @if(isset($detail) && isset($detail->schedule))
+        @if(isset($detail) && isset($detail->schedule) && count($detail->schedule) > 0)
         <section class="event-schedule my-5">
             <div class="text-center" data-aos="fade-up">
                 <h2 class="my-4">Susunan Acara</h2>
@@ -363,56 +543,88 @@
         @endif
 
         {{-- Dynamic Gallery Section --}}
-        @if(isset($detail) && isset($detail->gallery))
-        <section class="event-gallery my-5">
-            <div class="text-center" data-aos="fade-up">
-                <h2 class="my-4">Galeri</h2>
-            </div>
-            <div class="row">
-                @foreach($detail->gallery as $index => $gallery)
-                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="{{ ($index + 1) * 100 }}">
-                    <img src="{{ asset('img/' . $gallery) }}" alt="Gallery Image {{ $index + 1 }}" class="img-fluid rounded shadow" onerror="this.src='https://via.placeholder.com/400x300/4a7c59/ffffff?text=Gallery+Image'">
+            @if(isset($detail) && !empty($detail->gallery))
+            <section class="event-gallery my-5">
+                <div class="text-center" data-aos="fade-up">
+                    <h2 class="my-4">Galeri</h2>
+                </div>
+                <div class="row">
+                    @foreach($detail->gallery as $index => $gallery)
+                    <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="{{ ($index + 1) * 100 }}">
+                        {{-- GALLERY - PERBAIKAN DI SINI --}}
+                        @if($gallery)
+                            <img src="{{ asset('storage/' . $gallery) }}" 
+                                alt="Gallery Image {{ $index + 1 }}" 
+                                class="img-fluid rounded shadow" 
+                                onerror="this.src='https://via.placeholder.com/400x300/4a7c59/ffffff?text=Gallery+Image'">
+                        @else
+                            <img src="https://via.placeholder.com/400x300/4a7c59/ffffff?text=Gallery+Image" 
+                                alt="Gallery Image {{ $index + 1 }}" 
+                                class="img-fluid rounded shadow">
+                        @endif
+                    </div>
+                    @endforeach
+                </div>
+            </section>
+            @endif
+        </main>
+    <!-- Event detail end -->
+
+    <<!-- Volunteer List Start -->
+@if(!empty($volunteers) && $volunteers->count() > 0)
+<div class="container my-5">
+    <div class="text-center" data-aos="fade-up">
+        <h2 style="color: #3a5f4c;">Volunteer yang Telah Bergabung</h2>
+        <p class="text-muted mb-4"> {{ count($volunteers) }} orang telah mendaftar</p>
+    </div>
+    
+    <!-- Volunteer Carousel -->
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="volunteer-carousel owl-carousel owl-theme">
+                @foreach ($volunteers as $volunteer)
+                <div class="volunteer-card" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                    <div class="card volunteer-item">
+                        <div class="card-body text-center">
+                            <!-- Avatar/Initial -->
+                            <div class="volunteer-avatar mb-3">
+                                <span>{{ strtoupper(substr($volunteer->username, 0, 1)) }}</span>
+                            </div>
+                            
+                            <!-- Volunteer Info -->
+                            <h5 class="volunteer-name">{{ $volunteer->username }}</h5>
+                            <p class="volunteer-join-date">
+                                <i class="fas fa-calendar-alt mr-2"></i>
+                                Bergabung: {{ \Carbon\Carbon::parse($volunteer->created_at)->format('d M Y') }}
+                            </p>
+                            <!-- Join Time -->
+                            <div class="join-time">
+                                <i class="fas fa-clock"></i>
+                                {{ \Carbon\Carbon::parse($volunteer->created_at)->format('H:i') }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 @endforeach
             </div>
-        </section>
-        @endif
-    </main>
-    <!-- Event detail end -->
-
-    <!-- Volunteer List Start -->
-    <div class="container">
-        <div class="text-center" data-aos="fade-up">
-            <h2 style="color: #3a5f4c;">Pendaftar Volunteer {{ $event->title ?? '' }}</h2>
-            @if (empty($volunteers) || $volunteers->isEmpty())
-                <p>Tidak ada data.</p>
-            @else
-                <table class="custom-table">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Username</th>
-                            <th>Umur</th>
-                            <th>Event</th>
-                            <th>Tanggal Pendaftaran</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($volunteers as $key => $volunteer)
-                            <tr>
-                                <td data-label="No">{{ $key + 1 }}</td>
-                                <td data-label="Username">{{ $volunteer->username ?? 'N/A' }}</td>
-                                <td data-label="Umur">{{ $volunteer->umur ?? 'N/A' }}</td>
-                                <td data-label="Event">{{ $volunteer->event ?? 'N/A' }}</td>
-                                <td data-label="Tanggal Pendaftaran">{{ isset($volunteer->created_at) ? $volunteer->created_at->format('d-m-Y') : 'N/A' }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            @endif
         </div>
     </div>
-    <!-- Volunteer List End -->
+</div>
+@else
+<div class="container my-5">
+    <div class="text-center" data-aos="fade-up">
+        <h2 style="color: #3a5f4c;">Volunteer yang Telah Bergabung</h2>
+        <div class="empty-volunteer">
+            <i class="fas fa-users fa-3x mb-3" style="color: #ddd;"></i>
+            <p>Belum ada volunteer yang mendaftar untuk event ini.</p>
+            <a href="/volunteer?event={{ urlencode($event->title ?? '') }}" class="btn btn-primary mt-2">
+                <i class="fas fa-user-plus mr-2"></i>Jadilah yang pertama!
+            </a>
+        </div>
+    </div>
+</div>
+@endif
+<!-- Volunteer List End -->
 
     <!-- Footer Start -->
     <div class="footer">
@@ -540,6 +752,10 @@
                 console.error('AOS not available');
             }
 
+             if ($('.volunteer-carousel').length > 0) {
+                initVolunteerCarousel();
+            }
+
             // Back to top button
             $(window).scroll(function() {
                 if ($(this).scrollTop() > 100) {
@@ -584,6 +800,46 @@
                 confirmButtonText: 'OK'
             });
         }
+
+        // Initialize Volunteer Carousel
+function initVolunteerCarousel() {
+    if (typeof $.fn.owlCarousel !== 'undefined') {
+        $('.volunteer-carousel').owlCarousel({
+            loop: true,
+            margin: 20,
+            nav: true,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                576: {
+                    items: 2,
+                    nav: false
+                },
+                768: {
+                    items: 3,
+                    nav: true
+                },
+                992: {
+                    items: 4,
+                    nav: true
+                }
+            },
+            navText: [
+                '<i class="fas fa-chevron-left"></i>',
+                '<i class="fas fa-chevron-right"></i>'
+            ]
+        });
+        console.log('Volunteer Carousel initialized successfully');
+    }
+}
+
+
     </script>
 </body>
 </html>

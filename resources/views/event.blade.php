@@ -187,10 +187,17 @@
                             <div class="col-lg-6" data-aos="{{ $loop->odd ? 'fade-right' : 'fade-left' }}">
                                 <div class="event-item">
                                     {{-- Gambar Event --}}
-                                    <img
-                                        src="{{ asset('img/' . $event->image) }}"
-                                        alt="Event {{ $event->title }}"
-                                    >
+                                    @if($event->image)
+                                        <img
+                                            src="{{ Storage::exists('public/' . $event->image) ? asset('storage/' . $event->image) : asset('img/default-event.jpg') }}"
+                                            alt="Event {{ $event->title }}"
+                                        >
+                                    @else
+                                        <img
+                                            src="{{ asset('img/default-event.jpg') }}"
+                                            alt="Event {{ $event->title }}"
+                                        >
+                                    @endif
 
                                     {{-- Konten Event --}}
                                     <div class="event-content">
