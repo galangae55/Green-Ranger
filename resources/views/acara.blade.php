@@ -173,170 +173,222 @@
                 height: 300px;
             }
         }
-        /* Volunteer Carousel Styles */
-.volunteer-carousel .owl-stage {
-    padding: 20px 0;
-}
-
-.volunteer-card {
-    padding: 10px;
-}
-
-.volunteer-item {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.volunteer-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-    background: linear-gradient(135deg, #3a5f4c 0%, #4a7c59 100%);
-    color: white;
-}
-
-.volunteer-item:hover .volunteer-name,
-.volunteer-item:hover .volunteer-join-date,
-.volunteer-item:hover .volunteer-age,
-.volunteer-item:hover .join-time {
-    color: white;
-}
-
-.volunteer-avatar {
-    width: 70px;
-    height: 70px;
+/* Vertical Carousel Styles */
+.vertical-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
     margin: 0 auto;
-    background: linear-gradient(135deg, #3a5f4c 0%, #4a7c59 100%);
+    height: 400px;
+    overflow: hidden;
+}
+
+.vertical-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.vertical-carousel__item {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    padding: 0 12px;
+    opacity: 0;
+    filter: drop-shadow(0 2px 2px rgba(58, 95, 76, 0.2));
+    will-change: transform, opacity;
+    animation: carousel-animate-vertical 27s linear infinite;
+}
+
+/* PERBAIKAN: HAPUS SCSS DAN GANTI DENGAN CSS MURNI */
+.vertical-carousel__item:nth-child(1) { animation-delay: -6s; }
+.vertical-carousel__item:nth-child(2) { animation-delay: -3s; }
+.vertical-carousel__item:nth-child(3) { animation-delay: 0s; }
+.vertical-carousel__item:nth-child(4) { animation-delay: 3s; }
+.vertical-carousel__item:nth-child(5) { animation-delay: 6s; }
+.vertical-carousel__item:nth-child(6) { animation-delay: 9s; }
+.vertical-carousel__item:nth-child(7) { animation-delay: 12s; }
+.vertical-carousel__item:nth-child(8) { animation-delay: 15s; }
+.vertical-carousel__item:nth-child(9) { animation-delay: 18s; }
+
+.vertical-carousel__item-head {
     border-radius: 50%;
+    background: linear-gradient(135deg, #3a5f4c 0%, #4a7c59 100%);
+    width: 80px;
+    height: 80px;
+    padding: 14px;
+    position: relative;
+    margin-right: -40px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
-    box-shadow: 0 5px 15px rgba(58, 95, 76, 0.3);
+    color: white;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(58, 95, 76, 0.3);
 }
 
-.volunteer-name {
-    font-weight: 600;
+.volunteer-avatar-small {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.vertical-carousel__item-body {
+    width: 100%;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 12px;
+    padding: 20px 20px 20px 60px;
+    border-left: 4px solid #F8B739;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.vertical-carousel__item-body .volunteer-name {
+    font-size: 20px;
+    font-weight: 700;
     color: #3a5f4c;
-    margin-bottom: 5px;
-    font-size: 18px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
 }
 
-.volunteer-join-date {
+.vertical-carousel__item-body .volunteer-info {
     color: #666;
     font-size: 14px;
     margin-bottom: 5px;
 }
 
-.volunteer-age {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.join-time {
+.vertical-carousel__item-body .volunteer-time {
     display: inline-block;
     background: #F8B739;
     color: white;
-    padding: 5px 15px;
+    padding: 5px 12px;
     border-radius: 20px;
     font-size: 13px;
     font-weight: 500;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
+.vertical-carousel__item-body i {
+    color: #3a5f4c;
+}
+
+/* Keyframes for vertical animation - DIUBAH untuk 3 item */
+@keyframes carousel-animate-vertical {
+    0% {
+        transform: translateY(100%) scale(0.5);
+        opacity: 0;
+        visibility: hidden;
+    }
+    3%,
+    33.33% {
+        transform: translateY(100%) scale(0.7);
+        opacity: .4;
+        visibility: visible;
+    }
+    36.33%,
+    66.66% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        visibility: visible;
+    }
+    69.66%,
+    100% {
+        transform: translateY(-100%) scale(0.7);
+        opacity: .4;
+        visibility: visible;
+    }
+    103% {
+        transform: translateY(-100%) scale(0.5);
+        opacity: 0;
+        visibility: visible;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .vertical-carousel-wrapper {
+        height: 350px;
+        max-width: 400px;
+    }
+    
+    .vertical-carousel__item-head {
+        width: 70px;
+        height: 70px;
+        margin-right: -35px;
+        font-size: 28px;
+    }
+    
+    .vertical-carousel__item-body {
+        padding: 15px 15px 15px 50px;
+    }
+    
+    .vertical-carousel__item-body .volunteer-name {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vertical-carousel-wrapper {
+        height: 300px;
+        max-width: 320px;
+    }
+    
+    .vertical-carousel__item-head {
+        width: 60px;
+        height: 60px;
+        margin-right: -30px;
+        font-size: 24px;
+    }
+    
+    .vertical-carousel__item-body {
+        padding: 12px 12px 12px 45px;
+    }
+    
+    .vertical-carousel__item-body .volunteer-name {
+        font-size: 16px;
+    }
+    
+    .vertical-carousel__item-body .volunteer-info {
+        font-size: 12px;
+    }
+}
+
+/* Empty state styling */
 .empty-volunteer {
-    background: #f8f9fa;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     padding: 40px;
     border-radius: 15px;
     border: 2px dashed #ddd;
     color: #666;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-/* Owl Carousel Navigation for Volunteer */
-.volunteer-carousel .owl-nav {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: space-between;
-    pointer-events: none;
+.empty-volunteer i {
+    color: #3a5f4c;
+    opacity: 0.5;
 }
 
-.volunteer-carousel .owl-nav button {
-    pointer-events: all;
-    background: rgba(58, 95, 76, 0.8) !important;
-    color: white !important;
-    width: 40px;
-    height: 40px;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
+.empty-volunteer .btn-primary {
+    background: linear-gradient(135deg, #3a5f4c 0%, #4a7c59 100%);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
     transition: all 0.3s ease;
 }
 
-.volunteer-carousel .owl-nav button:hover {
-    background: rgba(58, 95, 76, 1) !important;
-    transform: scale(1.1);
+.empty-volunteer .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(58, 95, 76, 0.3);
 }
-
-.volunteer-carousel .owl-nav button span {
-    font-size: 24px !important;
-    line-height: 1;
-}
-
-.volunteer-carousel .owl-dots {
-    margin-top: 20px;
-}
-
-.volunteer-carousel .owl-dots button.owl-dot {
-    background: #ddd !important;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin: 0 5px;
-}
-
-.volunteer-carousel .owl-dots button.owl-dot.active {
-    background: #3a5f4c !important;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .volunteer-item {
-        height: 220px;
-    }
-    
-    .volunteer-avatar {
-        width: 60px;
-        height: 60px;
-        font-size: 24px;
-    }
-    
-    .volunteer-name {
-        font-size: 16px;
-    }
-    
-    .volunteer-join-date,
-    .volunteer-age {
-        font-size: 13px;
-    }
-    
-    .volunteer-carousel .owl-nav {
-        display: none;
-    }
-}
-    </style>
+</style>
 </head>
 
 <body>
@@ -570,7 +622,7 @@
         </main>
     <!-- Event detail end -->
 
-    <<!-- Volunteer List Start -->
+<!-- Volunteer List Start -->
 @if(!empty($volunteers) && $volunteers->count() > 0)
 <div class="container my-5">
     <div class="text-center" data-aos="fade-up">
@@ -578,35 +630,29 @@
         <p class="text-muted mb-4"> {{ count($volunteers) }} orang telah mendaftar</p>
     </div>
     
-    <!-- Volunteer Carousel -->
-    <div class="row justify-content-center">
-        <div class="col-lg-10">
-            <div class="volunteer-carousel owl-carousel owl-theme">
-                @foreach ($volunteers as $volunteer)
-                <div class="volunteer-card" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
-                    <div class="card volunteer-item">
-                        <div class="card-body text-center">
-                            <!-- Avatar/Initial -->
-                            <div class="volunteer-avatar mb-3">
-                                <span>{{ strtoupper(substr($volunteer->username, 0, 1)) }}</span>
-                            </div>
-                            
-                            <!-- Volunteer Info -->
-                            <h5 class="volunteer-name">{{ $volunteer->username }}</h5>
-                            <p class="volunteer-join-date">
-                                <i class="fas fa-calendar-alt mr-2"></i>
-                                Bergabung: {{ \Carbon\Carbon::parse($volunteer->created_at)->format('d M Y') }}
-                            </p>
-                            <!-- Join Time -->
-                            <div class="join-time">
-                                <i class="fas fa-clock"></i>
-                                {{ \Carbon\Carbon::parse($volunteer->created_at)->format('H:i') }}
-                            </div>
-                        </div>
+    <!-- Vertical Carousel Container -->
+    <div class="vertical-carousel-wrapper" data-aos="fade-up">
+        <div class="vertical-carousel">
+            @foreach ($volunteers->take(9) as $volunteer) <!-- LIMIT 9 ITEMS -->
+            <div class="vertical-carousel__item">
+                <div class="vertical-carousel__item-head">
+                    <div class="volunteer-avatar-small">
+                        {{ strtoupper(substr($volunteer->username, 0, 1)) }}
                     </div>
                 </div>
-                @endforeach
+                <div class="vertical-carousel__item-body">
+                    <p class="volunteer-name">{{ $volunteer->username }}</p>
+                    <p class="volunteer-info">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        Bergabung: {{ \Carbon\Carbon::parse($volunteer->created_at)->format('d M Y') }}
+                    </p>
+                    <p class="volunteer-time">
+                        <i class="fas fa-clock mr-2"></i>
+                        {{ \Carbon\Carbon::parse($volunteer->created_at)->format('H:i') }}
+                    </p>
+                </div>
             </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -752,9 +798,11 @@
                 console.error('AOS not available');
             }
 
-             if ($('.volunteer-carousel').length > 0) {
-                initVolunteerCarousel();
+            // Setup vertical carousel
+            if ($('.vertical-carousel__item').length > 0) {
+                setupVerticalCarousel();
             }
+            
 
             // Back to top button
             $(window).scroll(function() {
@@ -801,42 +849,123 @@
             });
         }
 
-        // Initialize Volunteer Carousel
-function initVolunteerCarousel() {
+// HAPUS fungsi setupVerticalCarousel dan ganti dengan ini:
+
+$(document).ready(function() {
+    console.log('Document ready, initializing components...');
+
+    // Initialize Owl Carousel
     if (typeof $.fn.owlCarousel !== 'undefined') {
-        $('.volunteer-carousel').owlCarousel({
+        $('.owl-carousel').owlCarousel({
+            items: 1,
             loop: true,
-            margin: 20,
             nav: true,
             dots: true,
             autoplay: true,
-            autoplayTimeout: 3000,
+            autoplayTimeout: 5000,
             autoplayHoverPause: true,
             responsive: {
                 0: {
                     items: 1,
                     nav: false
                 },
-                576: {
-                    items: 2,
+                600: {
+                    items: 1,
                     nav: false
                 },
-                768: {
-                    items: 3,
-                    nav: true
-                },
-                992: {
-                    items: 4,
+                1000: {
+                    items: 1,
                     nav: true
                 }
-            },
-            navText: [
-                '<i class="fas fa-chevron-left"></i>',
-                '<i class="fas fa-chevron-right"></i>'
-            ]
+            }
         });
-        console.log('Volunteer Carousel initialized successfully');
+        console.log('Owl Carousel initialized successfully');
+    } else {
+        console.error('Owl Carousel not available');
+        initSimpleCarousel();
     }
+
+    // Initialize AOS
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        console.log('AOS initialized successfully');
+    } else {
+        console.error('AOS not available');
+    }
+
+    // Setup vertical carousel timing based on item count
+    setupVerticalCarouselTiming();
+
+    // Back to top button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+            $('.back-to-top').fadeIn('slow');
+        } else {
+            $('.back-to-top').fadeOut('slow');
+        }
+    });
+
+    $('.back-to-top').click(function() {
+        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        return false;
+    });
+});
+
+// Fallback simple carousel if Owl Carousel fails
+function initSimpleCarousel() {
+    console.log('Initializing simple carousel fallback...');
+    const $carousel = $('.owl-carousel');
+    const $items = $carousel.find('.carousel-item');
+    let currentIndex = 0;
+
+    if ($items.length === 0) return;
+
+    // Hide all items except first
+    $items.hide().eq(0).show();
+
+    // Auto rotate every 5 seconds
+    setInterval(() => {
+        $items.eq(currentIndex).fadeOut(500);
+        currentIndex = (currentIndex + 1) % $items.length;
+        $items.eq(currentIndex).fadeIn(500);
+    }, 5000);
+}
+
+// Global function for social media notifications
+function showNotification(platform) {
+    Swal.fire({
+        icon: 'info',
+        title: 'Informasi',
+        text: `Maaf, ${platform} belum tersedia.`,
+        confirmButtonText: 'OK'
+    });
+}
+
+// Fungsi untuk mengatur timing carousel berdasarkan jumlah item
+function setupVerticalCarouselTiming() {
+    const items = document.querySelectorAll('.vertical-carousel__item');
+    const itemCount = items.length;
+    
+    if (itemCount === 0) return;
+    
+    // Hitung durasi berdasarkan jumlah item
+    const baseDuration = 5//Durasi dasar per item (detik)
+    const totalDuration = baseDuration * itemCount;
+    
+    // Atur animation duration untuk semua item
+    items.forEach(item => {
+        item.style.animationDuration = `${totalDuration}s`;
+    });
+    
+    // Atur animation delay untuk setiap item
+    items.forEach((item, index) => {
+        const delay = index * baseDuration;
+        item.style.animationDelay = `-${delay}s`;
+    });
 }
 
 
