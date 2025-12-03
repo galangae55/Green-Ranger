@@ -929,10 +929,10 @@ function initSimpleCarousel() {
 
     // Auto rotate every 5 seconds
     setInterval(() => {
-        $items.eq(currentIndex).fadeOut(500);
+        $items.eq(currentIndex).fadeOut(300);
         currentIndex = (currentIndex + 1) % $items.length;
-        $items.eq(currentIndex).fadeIn(500);
-    }, 5000);
+        $items.eq(currentIndex).fadeIn(300);
+    }, 3000);
 }
 
 // Global function for social media notifications
@@ -953,7 +953,7 @@ function setupVerticalCarouselTiming() {
     if (itemCount === 0) return;
     
     // Hitung durasi berdasarkan jumlah item
-    const baseDuration = 5//Durasi dasar per item (detik)
+    const baseDuration = 4//urasi dasar per item (detik)
     const totalDuration = baseDuration * itemCount;
     
     // Atur animation duration untuk semua item
