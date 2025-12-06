@@ -2,47 +2,61 @@
 
 namespace Database\Seeders;
 
-use App\Models\CategoryBlog; // Ganti dari Category ke CategoryBlog
+use App\Models\CategoryBlog;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
-class CategorySeeder extends Seeder
+class CategoryBlogSeeder extends Seeder
 {
     public function run()
     {
         $categories = [
             [
                 'name' => 'Lingkungan',
+                'slug' => Str::slug('Lingkungan'),
                 'description' => 'Artikel tentang pelestarian lingkungan dan alam'
             ],
             [
+                'name' => 'Keberlanjutan',
+                'slug' => Str::slug('Keberlanjutan'),
+                'description' => 'Tips dan informasi tentang gaya hidup berkelanjutan'
+            ],
+            [
                 'name' => 'Kebersihan',
-                'description' => 'Tips dan informasi tentang menjaga kebersihan'
+                'slug' => Str::slug('Kebersihan'),
+                'description' => 'Artikel tentang kebersihan lingkungan dan masyarakat'
             ],
             [
-                'name' => 'Energi',
-                'description' => 'Artikel tentang energi terbarukan dan efisiensi energi'
+                'name' => 'Konservasi',
+                'slug' => Str::slug('Konservasi'),
+                'description' => 'Informasi tentang konservasi alam dan satwa'
             ],
             [
-                'name' => 'Sampah',
-                'description' => 'Pengelolaan sampah dan daur ulang'
+                'name' => 'Edukasi',
+                'slug' => Str::slug('Edukasi'),
+                'description' => 'Materi edukasi tentang lingkungan untuk semua usia'
             ],
             [
                 'name' => 'Teknologi Hijau',
+                'slug' => Str::slug('Teknologi Hijau'),
                 'description' => 'Teknologi ramah lingkungan dan inovasi hijau'
             ],
             [
-                'name' => 'Gaya Hidup',
-                'description' => 'Gaya hidup berkelanjutan dan eco-friendly'
-            ]
+                'name' => 'Kesehatan Lingkungan',
+                'slug' => Str::slug('Kesehatan Lingkungan'),
+                'description' => 'Hubungan antara lingkungan dan kesehatan masyarakat'
+            ],
+            [
+                'name' => 'Pertanian Organik',
+                'slug' => Str::slug('Pertanian Organik'),
+                'description' => 'Praktik pertanian organik dan berkelanjutan'
+            ],
         ];
 
         foreach ($categories as $category) {
-            CategoryBlog::create([ // Ganti dari Category ke CategoryBlog
-                'name' => $category['name'],
-                'slug' => Str::slug($category['name']),
-                'description' => $category['description']
-            ]);
+            CategoryBlog::create($category);
         }
+
+        $this->command->info('CategoryBlogSeeder berhasil dijalankan!');
     }
 }

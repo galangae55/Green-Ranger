@@ -322,7 +322,8 @@ class AdminController extends Controller
             // Detail Acara
             'schedule' => 'nullable|array',
             'schedule.*.time' => 'required|string',
-            'schedule.*.activity' => 'required|string',
+            'schedule.*.title' => 'required|string|max:255',
+            'schedule.*.description' => 'required|string', // Ini yang baru
 
             'gallery' => 'nullable|array',
             'gallery.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:1024'
@@ -344,29 +345,75 @@ class AdminController extends Controller
                 $galleryPaths[] = $galleryImage->store('events/gallery', 'public');
             }
         }
+            // Format schedule dengan struktur yang benar
+        $formattedSchedule = [];
+        if ($request->schedule) {
+            foreach ($request->schedule as $item) {
+                $formattedSchedule[] = [
+                    'time' => $item['time'],
+                    'title' => $item['title'],
+                    'description' => $item['description']
+                ];
+            }
+        }
 
         // Create detail acara
         DetailAcara::create([
             'event_id' => $event->id,
-            'schedule' => $request->schedule ?? [],
+            'schedule' => $formattedSchedule,
             'gallery' => $galleryPaths
         ]);
 
         return redirect()->route('admin.event')->with('success', 'Event berhasil dibuat!');
     }
 
+    // public function show($id)
+    // {
+    //     $event = Event::with('detail')->findOrFail($id);
+
+    //     // Pastikan schedule & gallery selalu berbentuk array
+    //     if ($event->detail) {
+    //         $event->detail->schedule = $event->detail->schedule ?? [];
+    //         $event->detail->gallery = $event->detail->gallery ?? [];
+    //     }
+
+    //     return response()->json($event);
+    // }
     public function show($id)
-    {
-        $event = Event::with('detail')->findOrFail($id);
+{
+    $event = Event::with('detail')->findOrFail($id);
 
-        // Pastikan schedule & gallery selalu berbentuk array
-        if ($event->detail) {
-            $event->detail->schedule = $event->detail->schedule ?? [];
-            $event->detail->gallery = $event->detail->gallery ?? [];
+    // Pastikan schedule & gallery selalu berbentuk array dengan struktur yang tepat
+    if ($event->detail) {
+        $schedule = $event->detail->schedule ?? [];
+        
+        // Konversi struktur lama ke baru jika diperlukan
+        $convertedSchedule = [];
+        if (!empty($schedule)) {
+            foreach ($schedule as $item) {
+                // Jika struktur lama (activity), konversi ke struktur baru (title, description)
+                if (isset($item['activity']) && !isset($item['title'])) {
+                    $convertedSchedule[] = [
+                        'time' => $item['time'] ?? '',
+                        'title' => $item['activity'] ?? 'Aktivitas',
+                        'description' => $item['description'] ?? 'Deskripsi aktivitas'
+                    ];
+                } else {
+                    $convertedSchedule[] = [
+                        'time' => $item['time'] ?? '',
+                        'title' => $item['title'] ?? 'Aktivitas',
+                        'description' => $item['description'] ?? 'Deskripsi aktivitas'
+                    ];
+                }
+            }
         }
-
-        return response()->json($event);
+        
+        $event->detail->schedule = $convertedSchedule;
+        $event->detail->gallery = $event->detail->gallery ?? [];
     }
+
+    return response()->json($event);
+}
 
     public function destroy($id)
     {
@@ -419,7 +466,8 @@ class AdminController extends Controller
             // Detail Acara
             'schedule' => 'nullable|array',
             'schedule.*.time' => 'required|string',
-            'schedule.*.activity' => 'required|string',
+            'schedule.*.title ' => 'required|string',
+            'schedule.*.description' => 'required|string',
 
             'gallery' => 'nullable|array',
             'gallery.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:1024'
@@ -438,19 +486,17 @@ class AdminController extends Controller
         // Update event
         $event->update($validated);
 
-        // Handle gallery images
-        $existingGallery = $event->detail->gallery ?? [];
-        $newGalleryPaths = [];
-
-        // Jika ada gambar baru di galeri
-        if ($request->hasFile('gallery')) {
-            foreach ($request->file('gallery') as $galleryImage) {
-                $newGalleryPaths[] = $galleryImage->store('events/gallery', 'public');
+         // Format schedule dengan struktur yang benar
+        $formattedSchedule = [];
+        if ($request->schedule) {
+            foreach ($request->schedule as $item) {
+                $formattedSchedule[] = [
+                    'time' => $item['time'],
+                    'title' => $item['title'],
+                    'description' => $item['description']
+                ];
             }
         }
-
-        // Gabungkan gallery lama dengan yang baru
-        $galleryPaths = array_merge($existingGallery, $newGalleryPaths);
 
         // Update atau create detail acara
         $detailData = [

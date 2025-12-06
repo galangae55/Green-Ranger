@@ -1392,7 +1392,11 @@
                 </div>
                 <div class="form-group">
                     <label>Aktivitas</label>
-                    <input type="text" name="schedule[${scheduleCount}][activity]" required placeholder="Deskripsi aktivitas">
+                    <input type="text" name="schedule[${scheduleCount}][title]" required placeholder="judul aktivitas">
+                </div>
+                <div class="form-group">
+                    <label>Deskripsi<label>
+                    <input type="text" name="schedule[${scheduleCount}][description]" required placeholder="Deskripsi aktivitas">
                 </div>
                 <button type="button" class="remove-schedule" onclick="this.parentElement.remove()">
                     <i class='bx bx-trash'></i> Hapus
@@ -1429,14 +1433,14 @@
 
             if (scheduleData && Object.keys(scheduleData).length > 0) {
                 Object.values(scheduleData).forEach(item => {
-                    addEditScheduleItem(item.time, item.activity);
+                    addEditScheduleItem(item.time, item.title, item.description);
                 });
             } else {
                 addEditScheduleItem(); // Add one empty item by default
             }
         }
 
-        function addEditScheduleItem(time = '', activity = '') {
+        function addEditScheduleItem(time = '', title = '', description = '') {
             editScheduleCount++;
             const container = getElementSafe('edit_scheduleContainer');
             if (!container) return;
@@ -1449,8 +1453,12 @@
                     <input type="time" name="schedule[${editScheduleCount}][time]" value="${time}" required>
                 </div>
                 <div class="form-group">
-                    <label>Aktivitas</label>
-                    <input type="text" name="schedule[${editScheduleCount}][activity]" value="${activity}" required placeholder="Deskripsi aktivitas">
+                    <label>Judul Aktivitas</label>
+                    <input type="text" name="schedule[${editScheduleCount}][title]" value="${title}" required placeholder="Judul aktivitas">
+                </div>
+                <div class="form-group">
+                    <label>Deskripsi</label>
+                    <textarea name="schedule[${editScheduleCount}][description]" rows="2" required placeholder="Deskripsi aktivitas">${description}</textarea>
                 </div>
                 <button type="button" class="remove-schedule" onclick="this.parentElement.remove()">
                     <i class='bx bx-trash'></i> Hapus
@@ -1583,16 +1591,19 @@
                 .then(data => {
                     const detail = data.detail || {};
 
-                    // Parse schedule and gallery
+                    // Parse schedule dan gallery dengan struktur baru
                     const scheduleArr = detail.schedule ? Object.values(detail.schedule) : [];
                     const galleryArr = Array.isArray(detail.gallery) ? detail.gallery : [];
 
-                    // Schedule HTML - Always show this section even if empty
+                    // Schedule HTML dengan struktur baru (title + description)
                     const scheduleHtml = scheduleArr.length
                         ? scheduleArr.map(item => `
                             <div class="schedule-item">
                                 <div class="schedule-time">${formatValue(item.time, 'Tidak ada waktu')}</div>
-                                <div class="schedule-activity">${formatValue(item.activity, 'Tidak ada aktivitas')}</div>
+                                <div class="schedule-activity">
+                                    <strong>${formatValue(item.title, 'Tidak ada judul')}</strong><br>
+                                    <small>${formatValue(item.description, 'Tidak ada deskripsi')}</small>
+                                </div>
                             </div>
                         `).join('')
                         : `
@@ -1602,7 +1613,7 @@
                             </div>
                         `;
 
-                    // Gallery HTML - Always show this section even if empty
+                    // Gallery HTML - Tidak berubah
                     const galleryHtml = galleryArr.length
                         ? galleryArr.map(img => `
                             <img src="/storage/${img}" class="gallery-img" alt="Gallery Image">
@@ -1614,7 +1625,7 @@
                             </div>
                         `;
 
-                    // Main Image HTML - Always show this section even if empty
+                    // Main Image HTML - Tidak berubah
                     const mainImageHtml = data.image
                         ? `<img src="/storage/${data.image}" class="main-image" alt="${data.title}">`
                         : `

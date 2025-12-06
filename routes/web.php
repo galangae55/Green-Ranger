@@ -87,9 +87,12 @@ Route::middleware([RestrictNonAdminAccess::class])->group(function () {
     // Blog Routes
     Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+    Route::post('/blog/comment', [BlogController::class, 'storeComment'])->name('blog.comment.store');
+
+    // Tambahkan route untuk category dan tag
     Route::get('/blog/category/{slug}', [BlogController::class, 'byCategory'])->name('blog.category');
     Route::get('/blog/tag/{slug}', [BlogController::class, 'byTag'])->name('blog.tag');
-    Route::post('/blog/comment', [BlogController::class, 'storeComment'])->name('blog.comment.store');
+
     Route::get("/contact", [GreenRangerController::class,"contact"]);
     Route::post('/contact/store', [ContactController::class, 'store'])->name('contacts.store');
     Route::post('/contact/storeNoLogin', [ContactController::class, 'storeNoLogin'])->name('contacts.storeNoLogin');
