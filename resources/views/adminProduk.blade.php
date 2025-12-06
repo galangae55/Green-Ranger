@@ -120,6 +120,7 @@
                     <span class="text">Produk</span>
                 </a>
             </li>
+            <li><a href="/admin/blog-management"><i class='bx bxs-news'></i>Blog Management</a></li>
             <li>
 				<a href="/admin/akun">
 					<i class='bx bxs-lock-alt' ></i>
