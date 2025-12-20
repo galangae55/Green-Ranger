@@ -367,18 +367,7 @@ class AdminController extends Controller
         return redirect()->route('admin.event')->with('success', 'Event berhasil dibuat!');
     }
 
-    // public function show($id)
-    // {
-    //     $event = Event::with('detail')->findOrFail($id);
 
-    //     // Pastikan schedule & gallery selalu berbentuk array
-    //     if ($event->detail) {
-    //         $event->detail->schedule = $event->detail->schedule ?? [];
-    //         $event->detail->gallery = $event->detail->gallery ?? [];
-    //     }
-
-    //     return response()->json($event);
-    // }
     public function show($id)
 {
     $event = Event::with('detail')->findOrFail($id);
@@ -451,67 +440,86 @@ class AdminController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $event = Event::with('detail')->findOrFail($id);
+{
+    $event = Event::with('detail')->findOrFail($id);
 
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:events,slug,' . $id,
-            'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-            'date' => 'required|date',
-            'time' => 'required|string',
-            'location' => 'required|string|max:255',
+    $validated = $request->validate([
+        'title' => 'required|string|max:255',
+        'slug' => 'required|string|max:255|unique:events,slug,' . $id,
+        'description' => 'required|string',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+        'date' => 'required|date',
+        'time' => 'required|string',
+        'location' => 'required|string|max:255',
 
-            // Detail Acara
-            'schedule' => 'nullable|array',
-            'schedule.*.time' => 'required|string',
-            'schedule.*.title ' => 'required|string',
-            'schedule.*.description' => 'required|string',
+        // Detail Acara
+        'schedule' => 'nullable|array',
+        'schedule.*.time' => 'required|string',
+        'schedule.*.title' => 'required|string',
+        'schedule.*.description' => 'required|string',
 
-            'gallery' => 'nullable|array',
-            'gallery.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:1024'
-        ]);
+        'gallery' => 'nullable|array',
+        'gallery.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:1024'
+    ]);
 
-        // Upload main image jika ada yang baru
-        if ($request->hasFile('image')) {
-            // Hapus gambar lama jika ada
-            if ($event->image && Storage::disk('public')->exists($event->image)) {
-                Storage::disk('public')->delete($event->image);
-            }
-            $imagePath = $request->file('image')->store('events', 'public');
-            $validated['image'] = $imagePath;
+    // Upload main image jika ada yang baru
+    if ($request->hasFile('image')) {
+        // Hapus gambar lama jika ada
+        if ($event->image && Storage::disk('public')->exists($event->image)) {
+            Storage::disk('public')->delete($event->image);
         }
-
-        // Update event
-        $event->update($validated);
-
-         // Format schedule dengan struktur yang benar
-        $formattedSchedule = [];
-        if ($request->schedule) {
-            foreach ($request->schedule as $item) {
-                $formattedSchedule[] = [
-                    'time' => $item['time'],
-                    'title' => $item['title'],
-                    'description' => $item['description']
-                ];
-            }
-        }
-
-        // Update atau create detail acara
-        $detailData = [
-            'schedule' => $request->schedule ?? [],
-            'gallery' => $galleryPaths
-        ];
-
-        if ($event->detail) {
-            $event->detail->update($detailData);
-        } else {
-            DetailAcara::create(array_merge($detailData, ['event_id' => $event->id]));
-        }
-
-        return redirect()->route('admin.event')->with('success', 'Event berhasil diperbarui!');
+        $imagePath = $request->file('image')->store('events', 'public');
+        $validated['image'] = $imagePath;
     }
+
+    // Update event
+    $event->update($validated);
+
+    // Format schedule dengan struktur yang benar
+    $formattedSchedule = [];
+    if ($request->schedule) {
+        foreach ($request->schedule as $item) {
+            $formattedSchedule[] = [
+                'time' => $item['time'],
+                'title' => $item['title'],
+                'description' => $item['description']
+            ];
+        }
+    }
+
+    // Inisialisasi array untuk paths gallery baru
+    $galleryPaths = [];
+
+    // Upload gallery images baru jika ada
+    if ($request->hasFile('gallery')) {
+        foreach ($request->file('gallery') as $image) {
+            $path = $image->store('events/gallery', 'public');
+            $galleryPaths[] = $path;
+        }
+    }
+
+    // Ambil gallery yang sudah ada (jika ada)
+    $existingGallery = $event->detail && $event->detail->gallery 
+        ? $event->detail->gallery 
+        : [];
+
+    // Gabungkan gallery lama dengan yang baru
+    $allGalleryPaths = array_merge($existingGallery, $galleryPaths);
+
+    // Update atau create detail acara
+    $detailData = [
+        'schedule' => $formattedSchedule,
+        'gallery' => $allGalleryPaths
+    ];
+
+    if ($event->detail) {
+        $event->detail->update($detailData);
+    } else {
+        DetailAcara::create(array_merge($detailData, ['event_id' => $event->id]));
+    }
+
+    return redirect()->route('admin.event')->with('success', 'Event berhasil diperbarui!');
+}
 
 
         // ===========================================================================================

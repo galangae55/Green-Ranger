@@ -153,7 +153,7 @@
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1>Daftar Pesanan & Data Data Produk Green Ranger</h1>
+					<h1>Daftar Pesanan</h1>
 					<ul class="breadcrumb">
 						<li>
 							<a href="">Dashboard</a>

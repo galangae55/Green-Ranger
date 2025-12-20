@@ -187,8 +187,8 @@
                         showCancelButton: true,
                         confirmButtonColor: '#d33',
                         cancelButtonColor: '#3085d6',
-                        confirmButtonText: 'Yes, delete it',
-                        cancelButtonText: 'Cancel'
+                        confirmButtonText: 'Ya, hapus!',
+                        cancelButtonText: 'Batal'
                     }).then((result) => {
                         if (result.isConfirmed) {
                             form.submit();

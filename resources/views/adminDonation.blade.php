@@ -224,7 +224,7 @@
                                     icon: 'success',
                                     title: 'Berhasil!',
                                     text: "{{ session('successking') }}",
-                                    confirmButtonColor: '#b61e1e',
+                                    confirmButtonColor: '#1e68b6ff',
                                 });
                             });
                         </script>

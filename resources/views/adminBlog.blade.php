@@ -841,7 +841,7 @@
                         </ul>
                     </div>
                     <button class="btn btn-add" onclick="openModal('blog')">
-                        <i class='bx bxs-plus-circle'></i>Add New Blog
+                        <i class='bx bxs-plus-circle'></i>Tambah Blog
                     </button>
                 </div>
 
@@ -914,7 +914,7 @@
                             <div class="head">
                                 <h3>Categories</h3>
                                 <button class="btn btn-add" onclick="openModal('category')">
-                                    <i class='bx bxs-plus-circle'></i>Add Category
+                                    <i class='bx bxs-plus-circle'></i>Tambah Kategori
                                 </button>
                             </div>
                             <table>
@@ -955,7 +955,7 @@
                             <div class="head">
                                 <h3>Tags</h3>
                                 <button class="btn btn-add" onclick="openModal('tag')">
-                                    <i class='bx bxs-plus-circle'></i>Add Tag
+                                    <i class='bx bxs-plus-circle'></i>Tambah Tag
                                 </button>
                             </div>
                             <table>
