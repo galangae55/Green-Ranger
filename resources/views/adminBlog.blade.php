@@ -92,7 +92,7 @@
 
             .breadcrumb li:not(:last-child)::after {
                 content: '>';
-                margin-left: 10px;
+                margin-left: 25px;
             }
 
             .breadcrumb li:last-child a {
@@ -299,6 +299,7 @@
             }
 
             .tab {
+                margin-right: 25px;
                 padding: 12px 24px;
                 cursor: pointer;
                 border: none;
@@ -830,18 +831,17 @@
                 <label for="switch-mode" class="switch-mode"></label>
             </nav>
 
-            <main style="height: 100vh; background-color: #eeeeee;">
+            <main style="height: 100vh; background-color: #eeeeee; padding: 7px 15px;">
                 <div class="head-title">
                     <div class="left">
                         <h1>Blog Management</h1>
                         <ul class="breadcrumb">
                             <li><a href="/admin">Dashboard</a></li>
-                            <li><i class='bx bx-chevron-right'></i></li>
                             <li><a class="active" href="/admin/blog-management">Blog Management</a></li>
                         </ul>
                     </div>
                     <button class="btn btn-add" onclick="openModal('blog')">
-                        <i class='bx bxs-plus-circle'></i>Add New Blog
+                        <i class='bx bxs-plus-circle'></i>Tambah Blog
                     </button>
                 </div>
 
@@ -914,7 +914,7 @@
                             <div class="head">
                                 <h3>Categories</h3>
                                 <button class="btn btn-add" onclick="openModal('category')">
-                                    <i class='bx bxs-plus-circle'></i>Add Category
+                                    <i class='bx bxs-plus-circle'></i>Tambah Kategori
                                 </button>
                             </div>
                             <table>
@@ -955,7 +955,7 @@
                             <div class="head">
                                 <h3>Tags</h3>
                                 <button class="btn btn-add" onclick="openModal('tag')">
-                                    <i class='bx bxs-plus-circle'></i>Add Tag
+                                    <i class='bx bxs-plus-circle'></i>Tambah Tag
                                 </button>
                             </div>
                             <table>

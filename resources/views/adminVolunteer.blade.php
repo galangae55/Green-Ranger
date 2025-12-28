@@ -118,6 +118,7 @@
                     <span class="text">Produk</span>
                 </a>
             </li>
+            <li><a href="/admin/blog-management"><i class='bx bxs-news'></i>Blog Management</a></li>
             <li>
 				<a href="/admin/akun">
 					<i class='bx bxs-lock-alt' ></i>
@@ -316,8 +317,8 @@
                     showCancelButton: true,
                     confirmButtonColor: '#d33',
                     cancelButtonColor: '#3085d6',
-                    confirmButtonText: 'Yes, delete it',
-                    cancelButtonText: 'Cancel'
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         // Buat form untuk mengirim permintaan DELETE

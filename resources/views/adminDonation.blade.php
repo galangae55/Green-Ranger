@@ -104,6 +104,7 @@
                     <span class="text">Produk</span>
                 </a>
             </li>
+            <li><a href="/admin/blog-management"><i class='bx bxs-news'></i>Blog Management</a></li>
             <li>
 				<a href="/admin/akun">
 					<i class='bx bxs-lock-alt' ></i>
@@ -223,7 +224,7 @@
                                     icon: 'success',
                                     title: 'Berhasil!',
                                     text: "{{ session('successking') }}",
-                                    confirmButtonColor: '#b61e1e',
+                                    confirmButtonColor: '#1e68b6ff',
                                 });
                             });
                         </script>
