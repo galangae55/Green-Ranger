@@ -240,7 +240,7 @@
                                         <select class="form-control" name="event" required="required">
                                             <option value="" disabled {{ old('event') ? '' : 'selected' }}>Pilih Acara</option>
                                             @foreach($events as $event)
-                                                <option value="{{ $event->title }}" class="grey-option" 
+                                                <option value="{{ $event->title }}" class="grey-option"
                                                     {{ old('event') == $event->title ? 'selected' : '' }}>
                                                     {{ $event->title }}
                                                 </option>
@@ -266,7 +266,7 @@
                                 </div>
                                 <div class="volunteer-text">
                                     <p>
-                                        Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non. Aliquam metus tortor, auctor id gravida, viverra quis sem. Curabitur non nisl nec nisi maximus. Aenean convallis porttitor. Aliquam interdum at lacus non blandit.
+                                        Menjadi relawan adalah cara terbaik untuk menyalurkan kebaikan. Dengan berpartisipasi dalam kegiatan sosial, kita dapat memberikan dampak positif bagi sesama, menciptakan perubahan, dan mempererat ikatan dalam masyarakat. Setiap tindakan kecil yang kita lakukan bisa membawa kebaikan yang besar.
                                     </p>
                                 </div>
                             </div>
